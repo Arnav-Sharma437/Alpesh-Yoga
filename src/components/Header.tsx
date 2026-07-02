@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { Menu, X, Phone } from "lucide-react";
 
 const NAV_ITEMS = [
@@ -15,6 +16,7 @@ const NAV_ITEMS = [
 ];
 
 export default function Header() {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -26,7 +28,36 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const isHeaderActive = isScrolled || isOpen;
+  const isHome = pathname === "/";
+  const isHeaderActive = isScrolled || isOpen || !isHome;
+
+  // Helper to compute href based on the current page to ensure proper routing
+  const getHref = (label: string, fallback: string) => {
+    if (isHome) {
+      if (label === "Home") return "#";
+      if (label === "Daily Classes") return "/daily-classes";
+      if (label === "8-Day Intensive") return "/8-day-intensive";
+      if (label === "100-Hour TTC") return "#programs";
+      if (label === "200-Hour YTTC") return "#programs";
+      if (label === "Therapeutic Yoga") return "#programs";
+      if (label === "About") return "#philosophy";
+      if (label === "Contact") return "#footer";
+    } else {
+      if (label === "Home") return "/";
+      if (label === "Daily Classes") {
+        return pathname === "/daily-classes" ? "#" : "/daily-classes";
+      }
+      if (label === "8-Day Intensive") {
+        return pathname === "/8-day-intensive" ? "#" : "/8-day-intensive";
+      }
+      if (label === "100-Hour TTC") return "/#programs";
+      if (label === "200-Hour YTTC") return "/#programs";
+      if (label === "Therapeutic Yoga") return "/#programs";
+      if (label === "About") return "/#philosophy";
+      if (label === "Contact") return "/#footer";
+    }
+    return fallback;
+  };
 
   return (
     <header
@@ -40,7 +71,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-20 gap-4">
           
           {/* Logo Section */}
-          <a href="#" className="flex flex-col group shrink-0">
+          <a href="/" className="flex flex-col group shrink-0">
             <span className={`font-serif text-lg sm:text-xl md:text-base lg:text-xl xl:text-2xl font-bold tracking-tight transition-colors duration-300 ${
               isHeaderActive
                 ? "text-forest-600 group-hover:text-terracotta-600"
@@ -60,7 +91,7 @@ export default function Header() {
             {NAV_ITEMS.map((item) => (
               <a
                 key={item.label}
-                href={item.href}
+                href={getHref(item.label, item.href)}
                 className={`font-sans md:text-[10px] lg:text-xs xl:text-sm font-medium whitespace-nowrap transition-colors duration-300 ${
                   isHeaderActive
                     ? "text-forest-600/80 hover:text-terracotta-600"
@@ -121,7 +152,7 @@ export default function Header() {
           {NAV_ITEMS.map((item) => (
             <a
               key={item.label}
-              href={item.href}
+              href={getHref(item.label, item.href)}
               onClick={() => setIsOpen(false)}
               className="block px-3 py-2 rounded-md text-base font-semibold text-forest-600 hover:bg-sage-100/50 hover:text-terracotta-600 transition-all duration-200"
             >
