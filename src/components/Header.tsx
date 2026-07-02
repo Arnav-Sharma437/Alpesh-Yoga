@@ -6,7 +6,7 @@ import { Menu, X, Phone } from "lucide-react";
 const NAV_ITEMS = [
   { label: "Home", href: "/" },
   { label: "Daily Classes", href: "/daily-classes" },
-  { label: "8-Day Intensive", href: "/#programs" },
+  { label: "8-Day Intensive", href: "/8-day-intensive" },
   { label: "100-Hour TTC", href: "/#programs" },
   { label: "200-Hour YTTC", href: "/#programs" },
   { label: "Therapeutic Yoga", href: "/#programs" },
