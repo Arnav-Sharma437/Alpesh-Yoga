@@ -100,9 +100,7 @@ export default function FeaturedPrograms() {
                 {/* Learn More link */}
                 <div className="pt-8 mt-6 border-t border-sage-50 flex items-center justify-between">
                   <a
-                    href={`https://wa.me/919736463605?text=Hello%20Alpesh%20Yoga,%20I%20would%20like%20to%20get%20more%20details%20and%20register%20for%20the%20${encodeURIComponent(prog.title)}.`}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href={`/apply?program=${encodeURIComponent(prog.title)}`}
                     className="inline-flex items-center gap-1.5 text-sm font-semibold text-terracotta-600 hover:text-terracotta-700 group-hover:translate-x-1 transition-all"
                   >
                     <span>Inquire & Register</span>

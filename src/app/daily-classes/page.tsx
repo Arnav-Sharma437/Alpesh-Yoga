@@ -334,9 +334,7 @@ export default function DailyClasses() {
 
                   <div className="pt-8">
                     <a
-                      href={`https://wa.me/917719878500?text=Hello%20Alpesh,%20I%20would%20like%20to%20buy%20the%20${encodeURIComponent(pkg.name)}%20for%20daily%20classes.`}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href={`/apply?program=Daily%20Classes&batch=${encodeURIComponent(pkg.name)}`}
                       className={`inline-flex items-center justify-center gap-1.5 w-full py-3 rounded-full text-xs font-semibold transition-all duration-300 cursor-pointer ${
                         pkg.popular
                           ? "bg-terracotta-600 hover:bg-terracotta-500 text-cream-50 shadow-sm"
@@ -412,24 +410,21 @@ export default function DailyClasses() {
               </p>
 
               {/* Booking Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 items-center justify-center pt-2 max-w-md mx-auto">
+              <div className="flex flex-col sm:flex-row gap-4 items-center justify-center pt-2 max-w-lg mx-auto">
+                <a
+                  href="/apply?program=Daily%20Classes"
+                  className="flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3.5 rounded-full bg-cream-50 hover:bg-terracotta-100 text-terracotta-700 font-sans text-xs font-bold shadow-sm transition-all duration-300"
+                >
+                  <span>Register / Enquire Online</span>
+                </a>
                 <a
                   href="https://wa.me/917719878500?text=Hello%20Alpesh,%20I%20would%20like%20to%20book%20a%20mat%20for%20your%20daily%20alignment%20class."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3.5 rounded-full bg-cream-50 hover:bg-terracotta-100 text-terracotta-700 font-sans text-xs font-bold shadow-sm transition-all duration-300"
+                  className="flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3.5 rounded-full bg-forest-750 hover:bg-forest-700 text-cream-50 font-sans text-xs font-bold shadow-sm transition-all duration-300"
                 >
-                  <Phone className="w-3.5 h-3.5 fill-terracotta-700 text-terracotta-700" />
-                  <span>Alpesh: +91 77198 78500</span>
-                </a>
-                <a
-                  href="https://wa.me/919736463605?text=Hello%20Alpesh%20Yoga,%20I%20would%20like%20to%20ask%20about%20your%20daily%20class%20bookings."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3.5 rounded-full bg-forest-600 hover:bg-forest-505 text-cream-50 font-sans text-xs font-bold shadow-sm transition-all duration-300"
-                >
-                  <Phone className="w-3.5 h-3.5 fill-cream-50" />
-                  <span>Office: +91 97364 63605</span>
+                  <Phone className="w-3.5 h-3.5 fill-cream-50 text-cream-50" />
+                  <span>Chat on WhatsApp</span>
                 </a>
               </div>
             </div>

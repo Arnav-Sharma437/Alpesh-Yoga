@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
-import { CheckCircle2, Clock, Calendar, Users, Award, ShieldAlert, Sparkles, BookOpen, HeartPulse, ArrowRight } from "lucide-react";
+import { CheckCircle2, Clock, Calendar, Users, Award, ShieldAlert, Sparkles, BookOpen, HeartPulse, ArrowRight, Phone } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "8-Day Intensive Iyengar Alignment Course in Dharamshala | Alpesh Yoga",
@@ -377,12 +377,10 @@ export default function IntensiveCourse() {
 
               <div className="pt-4 border-t border-sage-50">
                 <a
-                  href={`https://wa.me/919736463605?text=Hello%20Alpesh%20Yoga,%20I%20would%20like%20to%20register%20for%20the%208-Day%20Intensive%20Course%20starting%20on%20the%20next%20Monday.`}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/apply?program=8-Day%20Intensive%20Course"
                   className="flex items-center justify-center gap-2 w-full py-3.5 rounded-full bg-forest-600 hover:bg-forest-500 text-cream-50 font-sans text-xs font-bold shadow-sm transition-all duration-300"
                 >
-                  <span>Reserve My Spot Now</span>
+                  <span>Apply / Register Online</span>
                 </a>
               </div>
 
@@ -442,22 +440,21 @@ export default function IntensiveCourse() {
               </p>
 
               {/* Booking Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 items-center justify-center pt-2 max-w-md mx-auto">
+              <div className="flex flex-col sm:flex-row gap-4 items-center justify-center pt-2 max-w-lg mx-auto">
+                <a
+                  href="/apply?program=8-Day%20Intensive%20Course"
+                  className="flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3.5 rounded-full bg-cream-50 hover:bg-terracotta-100 text-terracotta-700 font-sans text-xs font-bold shadow-sm transition-all duration-300"
+                >
+                  <span>Apply Online Now</span>
+                </a>
                 <a
                   href="https://wa.me/917719878500?text=Hello%20Alpesh,%20I%20would%20like%20to%20register%20for%20the%208-Day%20Intensive%20Alignment%20Course."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3.5 rounded-full bg-cream-50 hover:bg-terracotta-100 text-terracotta-700 font-sans text-xs font-bold shadow-sm transition-all duration-300"
+                  className="flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3.5 rounded-full bg-forest-750 hover:bg-forest-700 text-cream-50 font-sans text-xs font-bold shadow-sm transition-all duration-300"
                 >
-                  <span>Teacher: +91 77198 78500</span>
-                </a>
-                <a
-                  href="https://wa.me/919736463605?text=Hello%20Alpesh%20Yoga,%20I%20would%20like%20to%20check%20availability%20for%20the%208-Day%20Intensive%20Course."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3.5 rounded-full bg-forest-600 hover:bg-forest-505 text-cream-50 font-sans text-xs font-bold shadow-sm transition-all duration-300"
-                >
-                  <span>Office: +91 97364 63605</span>
+                  <Phone className="w-3.5 h-3.5 fill-cream-50 text-cream-50" />
+                  <span>Chat on WhatsApp</span>
                 </a>
               </div>
             </div>
