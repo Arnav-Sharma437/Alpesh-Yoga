@@ -26,10 +26,12 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const isHeaderActive = isScrolled || isOpen;
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled || isOpen
+        isHeaderActive
           ? "glassmorphism border-b border-sage-100/20 shadow-sm"
           : "bg-transparent border-b border-transparent"
       }`}
@@ -39,10 +41,16 @@ export default function Header() {
           
           {/* Logo Section */}
           <a href="#" className="flex flex-col group shrink-0">
-            <span className="font-serif text-lg sm:text-xl md:text-base lg:text-xl xl:text-2xl font-bold tracking-tight text-forest-600 group-hover:text-terracotta-600 transition-colors duration-300">
+            <span className={`font-serif text-lg sm:text-xl md:text-base lg:text-xl xl:text-2xl font-bold tracking-tight transition-colors duration-300 ${
+              isHeaderActive
+                ? "text-forest-600 group-hover:text-terracotta-600"
+                : "text-white group-hover:text-terracotta-200"
+            }`}>
               Alpesh Yoga
             </span>
-            <span className="font-sans text-[8px] sm:text-[9px] md:text-[7px] lg:text-[9px] xl:text-[10px] uppercase tracking-[0.2em] text-sage-600">
+            <span className={`font-sans text-[8px] sm:text-[9px] md:text-[7px] lg:text-[9px] xl:text-[10px] uppercase tracking-[0.2em] transition-colors duration-300 ${
+              isHeaderActive ? "text-sage-600" : "text-cream-200/80"
+            }`}>
               Iyengar Alignment • Dharamshala
             </span>
           </a>
@@ -53,7 +61,11 @@ export default function Header() {
               <a
                 key={item.label}
                 href={item.href}
-                className="font-sans md:text-[10px] lg:text-xs xl:text-sm font-medium text-forest-600/80 hover:text-terracotta-600 whitespace-nowrap transition-colors duration-200"
+                className={`font-sans md:text-[10px] lg:text-xs xl:text-sm font-medium whitespace-nowrap transition-colors duration-300 ${
+                  isHeaderActive
+                    ? "text-forest-600/80 hover:text-terracotta-600"
+                    : "text-white/90 hover:text-terracotta-200"
+                }`}
               >
                 {item.label}
               </a>
@@ -66,9 +78,13 @@ export default function Header() {
               href="https://wa.me/917719878500?text=Hello%20Alpesh%20Yoga,%20I%20would%20like%20to%20inquire%20about%20your%20yoga%20classes."
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-2 md:px-2.5 md:py-1.5 lg:px-4 lg:py-2 xl:px-5 xl:py-2.5 rounded-full bg-forest-600 hover:bg-terracotta-600 text-cream-50 font-sans text-xs lg:text-sm font-semibold shadow-sm hover:shadow-md hover:-translate-y-[1px] transition-all duration-300 cursor-pointer"
+              className={`inline-flex items-center gap-1.5 px-3 py-2 md:px-2.5 md:py-1.5 lg:px-4 lg:py-2 xl:px-5 xl:py-2.5 rounded-full font-sans text-xs lg:text-sm font-semibold transition-all duration-300 cursor-pointer ${
+                isHeaderActive
+                  ? "bg-forest-600 hover:bg-terracotta-600 text-cream-50 shadow-sm hover:shadow-md hover:-translate-y-[1px]"
+                  : "bg-white/10 hover:bg-white/20 border border-white/20 text-white hover:-translate-y-[1px]"
+              }`}
             >
-              <Phone className="w-3.5 h-3.5 fill-cream-50" />
+              <Phone className={`w-3.5 h-3.5 ${isHeaderActive ? "fill-cream-50" : "fill-white"}`} />
               <span className="hidden xl:inline">Book Class via WhatsApp</span>
               <span className="hidden lg:inline xl:hidden">Book Class</span>
               <span className="hidden md:inline lg:hidden">Book</span>
@@ -81,7 +97,9 @@ export default function Header() {
             <button
               onClick={() => setIsOpen(!isOpen)}
               type="button"
-              className="text-forest-600 hover:text-terracotta-600 focus:outline-none p-2 rounded-md transition-colors"
+              className={`focus:outline-none p-2 rounded-md transition-colors ${
+                isHeaderActive ? "text-forest-600 hover:text-terracotta-600" : "text-white hover:text-terracotta-200"
+              }`}
               aria-label="Toggle menu"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
