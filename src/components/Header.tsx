@@ -4,14 +4,14 @@ import React, { useState, useEffect } from "react";
 import { Menu, X, Phone } from "lucide-react";
 
 const NAV_ITEMS = [
-  { label: "Home", href: "#" },
-  { label: "Daily Classes", href: "#schedule" },
-  { label: "8-Day Intensive", href: "#programs" },
-  { label: "100-Hour TTC", href: "#programs" },
-  { label: "200-Hour YTTC", href: "#programs" },
-  { label: "Therapeutic Yoga", href: "#programs" },
-  { label: "About", href: "#philosophy" },
-  { label: "Contact", href: "#footer" },
+  { label: "Home", href: "/" },
+  { label: "Daily Classes", href: "/daily-classes" },
+  { label: "8-Day Intensive", href: "/#programs" },
+  { label: "100-Hour TTC", href: "/#programs" },
+  { label: "200-Hour YTTC", href: "/#programs" },
+  { label: "Therapeutic Yoga", href: "/#programs" },
+  { label: "About", href: "/#philosophy" },
+  { label: "Contact", href: "/#footer" },
 ];
 
 export default function Header() {
