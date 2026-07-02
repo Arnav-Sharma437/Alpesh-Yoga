@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-sans), sans-serif;
+  --font-serif: var(--font-serif), serif;
+
+  --color-terracotta-50: #fdfaf7;
+  --color-terracotta-100: #fbeee8;
+  --color-terracotta-200: #f7dcd0;
+  --color-terracotta-500: #C87A53;
+  --color-terracotta-600: #B25E35;
+  --color-terracotta-700: #934C2B;
+
+  --color-sage-50: #f7f9f6;
+  --color-sage-100: #ecf1eb;
+  --color-sage-200: #dae3d9;
+  --color-sage-500: #8A9A86;
+  --color-sage-600: #72846E;
+  --color-sage-700: #5A6A57;
+
+  --color-cream-50: #FDFBF7;
+  --color-cream-100: #F7F4EB;
+  --color-cream-200: #EFECE1;
+  --color-cream-300: #DFDAC8;
+
+  --color-forest-50: #f3f5f3;
+  --color-forest-100: #e3e7e3;
+  --color-forest-200: #c7cfc7;
+  --color-forest-500: #2E3D30;
+  --color-forest-600: #1F2920;
+  --color-forest-700: #141B15;
+}
+
+:root {
+  --background: #FDFBF7;
+  --foreground: #1F2920;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+.glassmorphism {
+  background-color: rgba(253, 251, 247, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
