@@ -6,6 +6,7 @@ import Hero from "@/components/Hero";
 import Philosophy from "@/components/Philosophy";
 import SchedulePreview from "@/components/SchedulePreview";
 import FeaturedPrograms from "@/components/FeaturedPrograms";
+import Locations from "@/components/Locations";
 import HimalayanSetting from "@/components/HimalayanSetting";
 import Testimonials from "@/components/Testimonials";
 import SocialProof from "@/components/SocialProof";
@@ -32,7 +33,10 @@ export default function Home() {
         {/* 4. Featured Programs Grid */}
         <FeaturedPrograms />
 
-        {/* 5. Himalayan Setting / Location Highlight */}
+        {/* 5. Our Locations Section */}
+        <Locations />
+
+        {/* 6. Himalayan Setting / Location Highlight */}
         <HimalayanSetting />
 
         {/* 6. Testimonials Carousel */}

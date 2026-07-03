@@ -6,7 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import { CheckCircle2, AlertCircle, Calendar, Send, HelpCircle, PhoneCall } from "lucide-react";
-import batchDates from "@/config/batches.json";
+import { locationsConfig } from "@/config/locations";
 
 const COUNTRY_CODES = [
   { code: "+91", country: "India" },
@@ -29,6 +29,7 @@ function ApplyFormContent() {
   const searchParams = useSearchParams();
   
   const [formData, setFormData] = useState({
+    location: "",
     program: "",
     batch: "",
     fullName: "",
@@ -60,8 +61,18 @@ function ApplyFormContent() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
 
-  // Prefill program choice from query params
+  // Prefill location and program choice from query params
   useEffect(() => {
+    const locParam = searchParams.get("location");
+    if (locParam) {
+      const lower = locParam.toLowerCase();
+      if (lower.includes("dharamshala")) {
+        setFormData((prev) => ({ ...prev, location: "dharamshala" }));
+      } else if (lower.includes("goa")) {
+        setFormData((prev) => ({ ...prev, location: "goa" }));
+      }
+    }
+
     const programParam = searchParams.get("program");
     if (programParam) {
       let mapped = programParam;
@@ -137,6 +148,7 @@ function ApplyFormContent() {
   const validate = () => {
     const newErrors: Record<string, string> = {};
 
+    if (!formData.location) newErrors.location = "Please select a preferred location";
     if (!formData.program) newErrors.program = "Please select a program";
     if (!formData.batch) newErrors.batch = "Please select a batch start date";
     if (!formData.fullName.trim()) newErrors.fullName = "Full name is required";
@@ -289,7 +301,25 @@ function ApplyFormContent() {
         <div className="space-y-4">
           <h3 className="font-serif text-lg font-bold text-forest-700 border-b border-sage-50 pb-2">1. Program Selection</h3>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {/* Preferred Location */}
+            <div className="space-y-1.5">
+              <label className="font-semibold block">Preferred Location <span className="text-red-500">*</span></label>
+              <select
+                name="location"
+                value={formData.location}
+                onChange={handleChange}
+                className={`w-full p-3 rounded-xl border bg-cream-50/20 focus:ring-1 focus:ring-terracotta-500 focus:outline-none transition-all ${
+                  errors.location ? "border-red-500" : "border-sage-200 hover:border-sage-300"
+                }`}
+              >
+                <option value="">-- Select Location --</option>
+                <option value="dharamshala">Dharamshala (Upper Bhagsu)</option>
+                <option value="goa">Goa (Coastal Shala)</option>
+              </select>
+              {errors.location && <span className="text-xs text-red-500 flex items-center gap-1"><AlertCircle className="w-3.5 h-3.5" />{errors.location}</span>}
+            </div>
+
             {/* Program selection dropdown */}
             <div className="space-y-1.5">
               <label className="font-semibold block">Select Course / Program <span className="text-red-500">*</span></label>
@@ -318,14 +348,19 @@ function ApplyFormContent() {
                 name="batch"
                 value={formData.batch}
                 onChange={handleChange}
-                className={`w-full p-3 rounded-xl border bg-cream-50/20 focus:ring-1 focus:ring-terracotta-500 focus:outline-none transition-all ${
+                disabled={!formData.location}
+                className={`w-full p-3 rounded-xl border bg-cream-50/20 focus:ring-1 focus:ring-terracotta-500 focus:outline-none transition-all disabled:opacity-50 ${
                   errors.batch ? "border-red-500" : "border-sage-200 hover:border-sage-300"
                 }`}
               >
-                <option value="">-- Select Start Date --</option>
-                {batchDates.map((date) => (
-                  <option key={date} value={date}>{date}</option>
-                ))}
+                <option value="">
+                  {formData.location ? "-- Select Start Date --" : "-- Select Location First --"}
+                </option>
+                {formData.location &&
+                  (locationsConfig[formData.location]?.batches || []).map((date) => (
+                    <option key={date} value={date}>{date}</option>
+                  ))
+                }
               </select>
               {errors.batch && <span className="text-xs text-red-500 flex items-center gap-1"><AlertCircle className="w-3.5 h-3.5" />{errors.batch}</span>}
             </div>

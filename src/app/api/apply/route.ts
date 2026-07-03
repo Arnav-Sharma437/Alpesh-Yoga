@@ -6,6 +6,7 @@ export async function POST(request: Request) {
     
     // Server log of incoming application details
     console.log("Alpesh Yoga Admissions Server Received Application:", {
+      location: data.location,
       fullName: data.fullName,
       email: data.email,
       program: data.program,
