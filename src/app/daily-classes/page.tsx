@@ -6,13 +6,13 @@ import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import { Clock, Users, ArrowRight, CheckCircle2, MapPin, Phone, Sparkles, BookOpen, HeartPulse } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Daily Iyengar Yoga Classes in Dharamshala | Alpesh Yoga",
-  description: "Join our daily drop-in Iyengar yoga classes in Upper Bhagsu, Dharamshala. Focused on precision alignment and prop work. Ideal for beginners and advanced practitioners. Mats and props provided.",
+  title: "Daily Hatha Alignment Classes in Dharamshala | Alpesh Yoga",
+  description: "Join our daily drop-in Hatha alignment classes in Upper Bhagsu, Dharamshala. Focused on precision alignment and prop work. Ideal for beginners and advanced practitioners. Mats and props provided.",
   keywords: [
     "drop-in yoga classes Bhagsu",
     "daily yoga Dharamshala",
     "beginner yoga McLeod Ganj",
-    "Iyengar yoga classes Dharamshala",
+    "Hatha alignment classes Dharamshala",
     "Alpesh Yoga daily schedule"
   ],
 };
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 const SCHEDULE_DATA = [
   {
     time: "8:30 AM – 10:00 AM",
-    title: "Intensive Alignment Iyengar Yoga",
+    title: "Intensive Hatha Alignment",
     level: "All Levels",
     focus: "Intensive adjustment, structural integrity, inversions, and advanced prop placements.",
     shortDesc: "A rigorous session investigating skeletal mechanics, joint safety, and core stabilization using wall ropes, blocks, and straps.",
@@ -31,7 +31,7 @@ const SCHEDULE_DATA = [
     title: "Beginner Friendly Alignment",
     level: "Beginner",
     focus: "Fundamentals of standing postures, basic breathing, introductory prop usage.",
-    shortDesc: "Designed for first-timers and those wanting to establish correct habits. Learn the foundations of Iyengar alignment safely.",
+    shortDesc: "Designed for first-timers and those wanting to establish correct habits. Learn the foundations of Hatha alignment safely.",
   },
   {
     time: "4:00 PM – 5:30 PM",
@@ -94,7 +94,7 @@ const RELATED_PROGRAMS = [
   },
   {
     title: "200-Hour Yoga YTTC",
-    desc: "Become a certified Iyengar-based instructor registered with Yoga Alliance USA. Deep anatomy and adjustment lessons.",
+    desc: "Become a certified Hatha alignment instructor registered with Yoga Alliance USA. Deep anatomy and adjustment lessons.",
     href: "/#programs",
     icon: BookOpen,
   },

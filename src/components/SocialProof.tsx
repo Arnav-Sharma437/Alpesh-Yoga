@@ -20,7 +20,7 @@ const INSTA_POSTS = [
     url: "https://images.unsplash.com/photo-1599447421416-3414500d18a5?q=80&w=400",
     likes: "198",
     comments: "12",
-    topic: "Iyengar prop modifications for shoulders",
+    topic: "Prop modifications for shoulders",
   },
   {
     url: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=400",
@@ -33,7 +33,7 @@ const INSTA_POSTS = [
 const YOUTUBE_VIDEOS = [
   {
     thumbnail: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=600",
-    title: "How to Align Paschimottanasana Correctly using Straps | Iyengar Method",
+    title: "How to Align Paschimottanasana Correctly using Straps | Alignment Method",
     views: "12K views",
     duration: "10:45",
   },

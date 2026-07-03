@@ -25,7 +25,7 @@ export default function CallToAction() {
             </h2>
 
             <p className="font-sans text-sm sm:text-base text-cream-100/90 leading-relaxed font-light">
-              Experience the depth of Iyengar yoga alignment in Upper Bhagsu, Dharamshala. Drop in for a class or secure your spot in our upcoming teacher training modules. Contact us below to get started.
+              Experience the depth of Hatha alignment yoga in Upper Bhagsu, Dharamshala. Drop in for a class or secure your spot in our upcoming teacher training modules. Contact us below to get started.
             </p>
 
             {/* Direct Booking Buttons Container */}

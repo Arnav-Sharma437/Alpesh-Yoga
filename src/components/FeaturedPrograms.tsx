@@ -7,7 +7,7 @@ const PROGRAMS = [
   {
     title: "8-Day Intensive Course",
     badge: "Most Popular",
-    description: "A transformative deep-dive into Iyengar alignment. Ideal for students wanting to correct posture habits, understand prop mechanics, and establish a solid, safe home practice.",
+    description: "A transformative deep-dive into Hatha alignment. Ideal for students wanting to correct posture habits, understand prop mechanics, and establish a solid, safe home practice.",
     duration: "8 Days (3 Hours Daily)",
     focus: "Postural mechanics, core stability, prop integration.",
     icon: Sparkles,

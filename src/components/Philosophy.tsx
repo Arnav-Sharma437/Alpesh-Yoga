@@ -37,7 +37,7 @@ export default function Philosophy() {
             Why Alignment Matters
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-forest-600 mb-6">
-            The Science of Iyengar Yoga
+            The Science of Hatha Alignment
           </h2>
           <p className="font-sans text-lg text-forest-600/80 leading-relaxed font-light">
             Alpesh Yoga is built on authentic, disciplined alignment-based practice. We do not just run through flows; we slow down, investigate the mechanics of each pose, and rebuild your posture from the ground up.
@@ -76,7 +76,7 @@ export default function Philosophy() {
               Building a Safer, Stronger Practice
             </h3>
             <p className="font-sans text-sm md:text-base text-cream-100/90 leading-relaxed font-light">
-              Whether you are a complete beginner holding your first block or an experienced teacher refining your stance, our disciplined Iyengar approach transforms how you stand, breathe, and move. We focus heavily on therapeutic applications, helping you heal structural pain and imbalances safely under expert adjustment.
+              Whether you are a complete beginner holding your first block or an experienced teacher refining your stance, our disciplined alignment approach transforms how you stand, breathe, and move. We focus heavily on therapeutic applications, helping you heal structural pain and imbalances safely under expert adjustment.
             </p>
           </div>
           <div className="shrink-0 lg:w-1/3 text-center lg:text-right w-full">

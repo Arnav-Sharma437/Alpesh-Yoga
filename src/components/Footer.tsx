@@ -15,7 +15,7 @@ export default function Footer() {
               Alpesh Yoga
             </span>
             <p className="font-sans text-sm text-cream-200/80 leading-relaxed">
-              Precision-focused, alignment-based Iyengar yoga studio in the tranquil Himalayas of Dharamshala. We teach you how to align your body, breathe, and deepen your practice safely.
+              Precision-focused, alignment-based Hatha yoga studio in the tranquil Himalayas of Dharamshala. We teach you how to align your body, breathe, and deepen your practice safely.
             </p>
             <div className="flex space-x-4 pt-2">
               <a

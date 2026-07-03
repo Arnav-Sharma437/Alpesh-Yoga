@@ -6,7 +6,7 @@ import { Clock, Users, ShieldCheck, HelpCircle } from "lucide-react";
 const CLASSES = [
   {
     time: "8:30 AM – 10:00 AM",
-    title: "Intensive Alignment Iyengar Yoga",
+    title: "Intensive Hatha Alignment",
     level: "Intermediate & Advanced",
     focus: "Deep adjustments, structural anatomy, prop-supported postures, inversion prep.",
     color: "border-l-4 border-terracotta-500",

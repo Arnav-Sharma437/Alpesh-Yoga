@@ -82,7 +82,7 @@ export default function Header() {
             <span className={`font-sans text-[8px] sm:text-[9px] md:text-[7px] lg:text-[9px] xl:text-[10px] uppercase tracking-[0.2em] transition-colors duration-300 ${
               isHeaderActive ? "text-sage-600" : "text-cream-200/80"
             }`}>
-              Iyengar Alignment • Dharamshala
+              Hatha Alignment • Dharamshala
             </span>
           </a>
 

@@ -45,7 +45,7 @@ function ApplyFormContent() {
     email: "",
     occupation: "",
     practiceDuration: "",
-    hasIyengar: "",
+    hasHathaAlignment: "",
     hasPhilosophy: "",
     hasTeaching: "",
     teachingDetails: "",
@@ -164,7 +164,7 @@ function ApplyFormContent() {
 
     if (!formData.occupation.trim()) newErrors.occupation = "Occupation details required";
     if (!formData.practiceDuration.trim()) newErrors.practiceDuration = "Please specify practice duration";
-    if (!formData.hasIyengar) newErrors.hasIyengar = "This field is required";
+    if (!formData.hasHathaAlignment) newErrors.hasHathaAlignment = "This field is required";
     if (!formData.hasPhilosophy) newErrors.hasPhilosophy = "This field is required";
     
     if (!formData.hasTeaching) {
@@ -571,16 +571,16 @@ function ApplyFormContent() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Iyengar check */}
+            {/* Hatha alignment check */}
             <div className="space-y-2">
-              <label className="font-semibold block">Have you practiced Iyengar yoga before? <span className="text-red-500">*</span></label>
+              <label className="font-semibold block">Have you practiced Hatha alignment-based yoga before? <span className="text-red-500">*</span></label>
               <div className="flex gap-4">
                 <label className="flex items-center gap-2 cursor-pointer font-medium text-xs">
                   <input
                     type="radio"
-                    name="hasIyengar"
+                    name="hasHathaAlignment"
                     value="Yes"
-                    checked={formData.hasIyengar === "Yes"}
+                    checked={formData.hasHathaAlignment === "Yes"}
                     onChange={handleChange}
                     className="w-4 h-4 text-terracotta-600 focus:ring-terracotta-500 border-sage-300"
                   />
@@ -589,16 +589,16 @@ function ApplyFormContent() {
                 <label className="flex items-center gap-2 cursor-pointer font-medium text-xs">
                   <input
                     type="radio"
-                    name="hasIyengar"
+                    name="hasHathaAlignment"
                     value="No"
-                    checked={formData.hasIyengar === "No"}
+                    checked={formData.hasHathaAlignment === "No"}
                     onChange={handleChange}
                     className="w-4 h-4 text-terracotta-600 focus:ring-terracotta-500 border-sage-300"
                   />
                   No
                 </label>
               </div>
-              {errors.hasIyengar && <span className="text-xs text-red-500 flex items-center gap-1"><AlertCircle className="w-3.5 h-3.5" />{errors.hasIyengar}</span>}
+              {errors.hasHathaAlignment && <span className="text-xs text-red-500 flex items-center gap-1"><AlertCircle className="w-3.5 h-3.5" />{errors.hasHathaAlignment}</span>}
             </div>
 
             {/* Philosophy check */}
@@ -684,7 +684,7 @@ function ApplyFormContent() {
           {/* Injury check */}
           <div className="space-y-3">
             <label className="font-semibold block">Do you have any injuries, surgeries, or medical conditions? <span className="text-red-500">*</span></label>
-            <p className="text-[11px] text-sage-600 -mt-1 leading-normal">This is highly important for Iyengar classes. We will prepare custom props to accommodate your body.</p>
+            <p className="text-[11px] text-sage-600 -mt-1 leading-normal">This is highly important for alignment classes. We will prepare custom props to accommodate your body.</p>
             
             <div className="flex gap-4">
               <label className="flex items-center gap-2 cursor-pointer font-medium text-xs">

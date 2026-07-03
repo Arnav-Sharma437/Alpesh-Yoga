@@ -24,7 +24,7 @@ export default function Hero() {
           
           {/* Tagline */}
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-terracotta-500/20 border border-terracotta-200/30 text-terracotta-100 font-sans text-xs uppercase tracking-widest font-semibold mb-6 animate-fade-in">
-            <span>Iyengar-Based Practice • Dharamshala</span>
+            <span>Hatha Alignment Practice • Dharamshala</span>
           </div>
 
           {/* Title */}
@@ -35,7 +35,7 @@ export default function Hero() {
 
           {/* Subtext */}
           <p className="font-sans text-lg sm:text-xl text-cream-100/90 leading-relaxed mb-10 max-w-2xl font-light">
-            Develop precision, body awareness, and safe alignment under the guidance of expert Iyengar instructors. Located in the peaceful heights of Upper Bhagsu, Himachal Pradesh.
+            Develop precision, body awareness, and safe alignment under the guidance of expert Hatha alignment instructors. Located in the peaceful heights of Upper Bhagsu, Himachal Pradesh.
           </p>
 
           {/* Action Buttons */}

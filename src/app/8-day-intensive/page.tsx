@@ -6,10 +6,10 @@ import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import { CheckCircle2, Clock, Calendar, Users, Award, ShieldAlert, Sparkles, BookOpen, HeartPulse, ArrowRight, Phone } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "8-Day Intensive Iyengar Alignment Course in Dharamshala | Alpesh Yoga",
-  description: "Deepen your alignment at our 8-Day Intensive Iyengar Yoga Course in Upper Bhagsu, Dharamshala, India. Systematically correct your posture using ropes, blocks, and belts.",
+  title: "8-Day Intensive Hatha Alignment Course in Dharamshala | Alpesh Yoga",
+  description: "Deepen your alignment at our 8-Day Intensive Hatha Alignment Course in Upper Bhagsu, Dharamshala, India. Systematically correct your posture using ropes, blocks, and belts.",
   keywords: [
-    "Iyengar intensive course Dharamshala",
+    "Hatha alignment intensive course Dharamshala",
     "yoga alignment course Bhagsu",
     "8 day yoga course Himachal",
     "Alpesh Yoga alignment intensive",
@@ -43,7 +43,7 @@ const BENEFITS = [
   },
   {
     title: "Intelligent Use of Props",
-    desc: "Master the application of wooden blocks, Iyengar straps, blankets, bolsters, and wall-rope traction systems to modify asanas.",
+    desc: "Master the application of wooden blocks, alignment straps, blankets, bolsters, and wall-rope traction systems to modify asanas.",
   },
   {
     title: "Build Strength & Awareness",
@@ -73,7 +73,7 @@ const INTENSIVE_TESTIMONIALS = [
 const RELATED_PROGRAMS = [
   {
     title: "Daily Classes",
-    desc: "Join our drop-in Iyengar alignment sessions available every morning and evening in Upper Bhagsu.",
+    desc: "Join our drop-in Hatha alignment sessions available every morning and evening in Upper Bhagsu.",
     href: "/daily-classes",
     icon: Sparkles,
   },
@@ -116,7 +116,7 @@ export default function IntensiveCourse() {
             </nav>
 
             <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight max-w-4xl mx-auto">
-              8-Day Intensive Iyengar-Based Alignment Course
+              8-Day Intensive Hatha Alignment Course
             </h1>
             <p className="font-sans text-sm sm:text-base text-cream-100/90 max-w-2xl mx-auto font-light leading-relaxed">
               Starts every Monday in Upper Bhagsu, Dharamshala. Reset your structural baseline, understand prop anatomy, and build a safer, stronger practice.
@@ -282,7 +282,7 @@ export default function IntensiveCourse() {
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-sage-500 shrink-0" />
-                    <span>Iyengar props: belts, blocks, bolsters, and blankets</span>
+                    <span>Yoga props: belts, blocks, bolsters, and blankets</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-sage-500 shrink-0" />
