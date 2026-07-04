@@ -11,9 +11,13 @@ export default function Footer() {
           
           {/* Info Section */}
           <div className="space-y-4">
-            <span className="font-serif text-2xl font-bold tracking-tight text-cream-50 block">
-              Alpesh Yoga
-            </span>
+            <a href="/" className="block">
+              <img 
+                src="/logo/alpesh-logo.jpeg" 
+                alt="Alpesh Yoga Logo" 
+                className="h-14 w-auto object-contain rounded-lg border border-forest-500/20"
+              />
+            </a>
             <p className="font-sans text-sm text-cream-200/80 leading-relaxed">
               Precision-focused, alignment-based Hatha yoga studio in the tranquil Himalayas of Dharamshala. We teach you how to align your body, breathe, and deepen your practice safely.
             </p>

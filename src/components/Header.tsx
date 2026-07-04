@@ -41,19 +41,16 @@ export default function Header() {
         <div className="flex items-center justify-between h-20 gap-4">
           
           {/* Logo Section */}
-          <a href={getHomeHref()} className="flex flex-col group shrink-0">
-            <span className={`font-serif text-lg sm:text-xl md:text-base lg:text-xl xl:text-2xl font-bold tracking-tight transition-colors duration-300 ${
-              isHeaderActive
-                ? "text-forest-600 group-hover:text-terracotta-600"
-                : "text-white group-hover:text-terracotta-200"
-            }`}>
-              Alpesh Yoga
-            </span>
-            <span className={`font-sans text-[8px] sm:text-[9px] md:text-[7px] lg:text-[9px] xl:text-[10px] uppercase tracking-[0.2em] transition-colors duration-300 ${
-              isHeaderActive ? "text-sage-600" : "text-cream-200/80"
-            }`}>
-              Hatha Alignment • Dharamshala & Goa
-            </span>
+          <a href={getHomeHref()} className="flex items-center shrink-0">
+            <img 
+              src="/logo/alpesh-logo.jpeg" 
+              alt="Alpesh Yoga Logo" 
+              className={`h-11 w-auto rounded-lg object-contain transition-all duration-300 ${
+                isHeaderActive 
+                  ? "bg-black p-0.5 border border-forest-600/10 shadow-sm" 
+                  : "bg-transparent"
+              }`} 
+            />
           </a>
 
           {/* Desktop Nav Items (visible on md and above) */}
