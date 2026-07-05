@@ -39,6 +39,17 @@ const PROGRAMS = [
 ];
 
 export default function FeaturedPrograms() {
+  const [scrollIndex, setScrollIndex] = React.useState(0);
+  const containerRef = React.useRef<HTMLDivElement>(null);
+
+  const handleScroll = () => {
+    if (containerRef.current) {
+      const scrollLeft = containerRef.current.scrollLeft;
+      const itemWidth = containerRef.current.clientWidth * 0.85; // 85vw width of mobile items
+      const newIndex = Math.round(scrollLeft / (itemWidth + 24)); // itemWidth + gap (24px)
+      setScrollIndex(Math.min(Math.max(newIndex, 0), PROGRAMS.length - 1));
+    }
+  };
   return (
     <section id="programs" className="py-24 bg-cream-50 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -57,13 +68,17 @@ export default function FeaturedPrograms() {
         </div>
 
         {/* Programs Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        <div 
+          ref={containerRef}
+          onScroll={handleScroll}
+          className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-4 px-4 -mx-4 md:grid md:grid-cols-2 md:gap-8 md:px-0 md:mx-0 scrollbar-none"
+        >
           {PROGRAMS.map((prog) => {
             const IconComp = prog.icon;
             return (
               <div 
                 key={prog.title}
-                className="bg-white rounded-3xl p-8 border border-sage-100/60 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
+                className="shrink-0 w-[85vw] md:w-auto snap-center bg-white rounded-3xl p-8 border border-sage-100/60 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden active:scale-[0.98] cursor-pointer"
               >
                 {/* Visual Accent Top Bar */}
                 <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-terracotta-500 to-sage-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -112,6 +127,18 @@ export default function FeaturedPrograms() {
               </div>
             );
           })}
+        </div>
+
+        {/* Mobile Swipe indicators (dots) */}
+        <div className="flex md:hidden justify-center items-center gap-1.5 mt-4 mb-8">
+          {PROGRAMS.map((_, idx) => (
+            <div 
+              key={idx}
+              className={`h-1.5 rounded-full transition-all duration-300 ${
+                scrollIndex === idx ? "w-4 bg-terracotta-500" : "w-1.5 bg-sage-200"
+              }`}
+            />
+          ))}
         </div>
 
         {/* Certificate notice */}

@@ -43,6 +43,30 @@ export default function Testimonials() {
     setCurrent((prev) => (prev + 1) % REVIEWS.length);
   };
 
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const minSwipeDistance = 50;
+    if (distance > minSwipeDistance) {
+      handleNext();
+    }
+    if (distance < -minSwipeDistance) {
+      handlePrev();
+    }
+  };
+
   return (
     <section id="testimonials" className="py-24 bg-cream-100/60 relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -58,7 +82,12 @@ export default function Testimonials() {
         </div>
 
         {/* Carousel Window */}
-        <div className="relative bg-white rounded-3xl p-8 md:p-16 border border-sage-100/50 shadow-md max-w-4xl mx-auto">
+        <div 
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
+          className="relative bg-white rounded-3xl p-8 md:p-16 border border-sage-100/50 shadow-md max-w-4xl mx-auto active:scale-[0.99] transition-transform duration-350 select-none cursor-grab active:cursor-grabbing"
+        >
           
           {/* Quote icon watermark */}
           <Quote className="absolute top-8 left-8 w-16 h-16 text-sage-100/40 pointer-events-none" />

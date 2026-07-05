@@ -185,9 +185,9 @@ export default function AboutPage() {
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            <div className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-4 px-4 -mx-4 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:px-0 sm:mx-0 scrollbar-none">
               {GALLERY_IMAGES.map((img, idx) => (
-                <div key={idx} className="bg-white p-3 rounded-2xl border border-sage-200 shadow-sm space-y-3 group hover:-translate-y-1 transition-transform duration-300">
+                <div key={idx} className="shrink-0 w-[75vw] sm:w-auto snap-center bg-white p-3 rounded-2xl border border-sage-200 shadow-sm space-y-3 group hover:-translate-y-1 transition-all duration-300 active:scale-[0.98]">
                   <div className="rounded-xl overflow-hidden aspect-video relative bg-forest-50 h-44">
                     <img 
                       src={img.url} 

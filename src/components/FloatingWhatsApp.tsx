@@ -7,7 +7,7 @@ export default function FloatingWhatsApp() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 font-sans">
+    <div className="fixed bottom-20 md:bottom-6 right-6 z-50 font-sans">
       {/* Popover Card */}
       {isOpen && (
         <div className="absolute bottom-16 right-0 w-[calc(100vw-3rem)] sm:w-80 bg-cream-50 rounded-2xl shadow-2xl border border-sage-100 overflow-hidden transition-all duration-300 animate-in fade-in slide-in-from-bottom-5">
@@ -75,7 +75,7 @@ export default function FloatingWhatsApp() {
       {/* Main floating circle button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white shadow-lg hover:shadow-xl hover:-translate-y-1 hover:scale-105 transition-all duration-300 relative cursor-pointer"
+        className="flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white shadow-lg hover:shadow-xl hover:-translate-y-1 hover:scale-105 active:scale-95 transition-all duration-300 relative cursor-pointer"
         aria-label="Contact us on WhatsApp"
       >
         {/* Pulsing glow under */}

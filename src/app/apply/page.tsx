@@ -60,6 +60,15 @@ function ApplyFormContent() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [step, setStep] = useState(1);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   // Prefill location and program choice from query params
   useEffect(() => {
@@ -143,6 +152,86 @@ function ApplyFormContent() {
         return copy;
       });
     }
+  };
+
+  const validateStep = (stepNumber: number) => {
+    const newErrors: Record<string, string> = {};
+
+    if (stepNumber === 1) {
+      if (!formData.location) newErrors.location = "Please select a preferred location";
+      if (!formData.program) newErrors.program = "Please select a program";
+      if (!formData.batch) newErrors.batch = "Please select a batch start date";
+      if (!formData.fullName.trim()) newErrors.fullName = "Full name is required";
+      if (!formData.gender) newErrors.gender = "Please select your gender";
+      if (!formData.dob) newErrors.dob = "Date of birth is required";
+      if (!formData.age) newErrors.age = "Age is required";
+      if (!formData.nationality.trim()) newErrors.nationality = "Nationality is required";
+      if (!formData.address.trim()) newErrors.address = "Full address is required";
+    }
+
+    if (stepNumber === 2) {
+      if (!formData.phoneNumber.trim()) {
+        newErrors.phoneNumber = "Phone number is required";
+      } else if (!/^\d{7,15}$/.test(formData.phoneNumber.trim())) {
+        newErrors.phoneNumber = "Please enter a valid phone number (digits only, 7-15 characters)";
+      }
+
+      if (!formData.whatsappSame && !formData.whatsappNumber.trim()) {
+        newErrors.whatsappNumber = "WhatsApp number is required";
+      }
+
+      if (!formData.email.trim()) {
+        newErrors.email = "Email address is required";
+      } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+        newErrors.email = "Please enter a valid email address";
+      }
+
+      if (!formData.occupation.trim()) newErrors.occupation = "Occupation details required";
+      if (!formData.practiceDuration.trim()) newErrors.practiceDuration = "Please specify practice duration";
+      if (!formData.hasHathaAlignment) newErrors.hasHathaAlignment = "This field is required";
+      if (!formData.hasPhilosophy) newErrors.hasPhilosophy = "This field is required";
+      
+      if (!formData.hasTeaching) {
+        newErrors.hasTeaching = "This field is required";
+      } else if (formData.hasTeaching === "Yes" && !formData.teachingDetails.trim()) {
+        newErrors.teachingDetails = "Please specify details of your teaching experience";
+      }
+    }
+
+    if (stepNumber === 3) {
+      if (!formData.hasInjuries) {
+        newErrors.hasInjuries = "This field is required";
+      } else if (formData.hasInjuries === "Yes" && !formData.injuryDetails.trim()) {
+        newErrors.injuryDetails = "Please specify details of your injuries or health conditions";
+      }
+      if (!formData.agreeTerms) newErrors.agreeTerms = "You must agree to the terms and conditions";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleNextStep = () => {
+    if (validateStep(step)) {
+      setStep((prev) => prev + 1);
+      // Wait for layout update then scroll
+      setTimeout(() => {
+        const formHeader = document.getElementById("apply-form-header");
+        if (formHeader) {
+          formHeader.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }, 50);
+    }
+  };
+
+  const handleBackStep = () => {
+    setStep((prev) => prev - 1);
+    setTimeout(() => {
+      const formHeader = document.getElementById("apply-form-header");
+      if (formHeader) {
+        formHeader.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }, 50);
   };
 
   const validate = () => {
@@ -250,44 +339,86 @@ function ApplyFormContent() {
 
   if (submitSuccess) {
     return (
-      <div className="max-w-2xl mx-auto py-16 px-6 text-center space-y-8 bg-white border border-sage-100 rounded-3xl shadow-xl">
-        <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto shadow-sm">
-          <CheckCircle2 className="w-10 h-10" />
-        </div>
-        
-        <div className="space-y-3">
-          <h2 className="font-serif text-3xl font-bold text-forest-600">Application Submitted!</h2>
-          <p className="font-sans text-sm text-forest-600/70 max-w-md mx-auto leading-relaxed">
-            Thank you, <strong>{formData.fullName}</strong>. We have received your application for the <strong>{formData.program}</strong> ({formData.batch}).
-          </p>
-          <p className="font-sans text-xs text-sage-600">
-            We will review your application details and contact you on WhatsApp within 24 hours.
-          </p>
+      <>
+        {/* Mobile Fullscreen Success Overlay (below 768px) */}
+        <div className="md:hidden fixed inset-0 z-50 bg-forest-950 flex items-center justify-center p-6 text-center text-cream-50 animate-in fade-in duration-300">
+          <div className="max-w-md w-full bg-forest-900 border border-forest-800 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6 animate-in zoom-in-95 duration-300 flex flex-col justify-between min-h-[65vh]">
+            <div className="space-y-6 flex-grow flex flex-col justify-center items-center">
+              <div className="w-20 h-20 bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center shadow-lg border border-emerald-500/30 animate-pulse">
+                <CheckCircle2 className="w-12 h-12" />
+              </div>
+              <div className="space-y-3">
+                <h2 className="font-serif text-2xl font-bold text-white">Application Submitted!</h2>
+                <p className="font-sans text-xs sm:text-sm text-cream-200/80 leading-relaxed max-w-xs mx-auto">
+                  Thank you, <strong>{formData.fullName}</strong>. We have received your application for the <strong>{formData.program}</strong> ({formData.batch}).
+                </p>
+                <p className="font-sans text-[10px] text-terracotta-200 font-bold uppercase tracking-widest pt-2">
+                  Responding on WhatsApp within 24 hours
+                </p>
+              </div>
+            </div>
+            <div className="space-y-4 pt-6 border-t border-forest-850">
+              <p className="font-sans text-[11px] text-cream-200/40 leading-relaxed">
+                Ping our Lead Teacher directly on WhatsApp to secure confirmation.
+              </p>
+              <a
+                href={getWhatsAppDirectLink()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 w-full py-3.5 rounded-full bg-gradient-to-tr from-terracotta-600 to-terracotta-500 hover:from-terracotta-700 hover:to-terracotta-600 text-white font-sans text-xs font-bold shadow-lg active:scale-95 transition-all"
+              >
+                <span>Instant Confirmation on WhatsApp</span>
+              </a>
+              <a 
+                href="/"
+                className="block font-sans text-xs text-cream-200/60 hover:text-white underline pt-1"
+              >
+                Return to Homepage
+              </a>
+            </div>
+          </div>
         </div>
 
-        <div className="p-6 bg-sage-50 rounded-2xl max-w-md mx-auto border border-sage-100/50 space-y-4">
-          <div className="flex items-start gap-3 text-left">
-            <HelpCircle className="w-5 h-5 text-sage-500 shrink-0 mt-0.5" />
-            <p className="font-sans text-xs text-forest-600/80 leading-relaxed">
-              <strong>Want a faster response?</strong> Ping our lead teacher directly on WhatsApp with your name to expedite your booking confirmation.
-            </p>
+        {/* Desktop/Tablet Card Success (768px and above) */}
+        <div className="hidden md:block max-w-2xl mx-auto py-16 px-6 text-center space-y-8 bg-white border border-sage-100 rounded-3xl shadow-xl">
+          <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto shadow-sm">
+            <CheckCircle2 className="w-10 h-10" />
           </div>
           
-          <a
-            href={getWhatsAppDirectLink()}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 w-full py-3.5 rounded-full bg-forest-600 hover:bg-terracotta-600 text-cream-50 font-sans text-sm font-bold shadow-md hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
-          >
-            <span>Chat on WhatsApp Now</span>
-          </a>
+          <div className="space-y-3">
+            <h2 className="font-serif text-3xl font-bold text-forest-600">Application Submitted!</h2>
+            <p className="font-sans text-sm text-forest-600/70 max-w-md mx-auto leading-relaxed">
+              Thank you, <strong>{formData.fullName}</strong>. We have received your application for the <strong>{formData.program}</strong> ({formData.batch}).
+            </p>
+            <p className="font-sans text-xs text-sage-600">
+              We will review your application details and contact you on WhatsApp within 24 hours.
+            </p>
+          </div>
+
+          <div className="p-6 bg-sage-50 rounded-2xl max-w-md mx-auto border border-sage-100/50 space-y-4">
+            <div className="flex items-start gap-3 text-left">
+              <HelpCircle className="w-5 h-5 text-sage-500 shrink-0 mt-0.5" />
+              <p className="font-sans text-xs text-forest-600/80 leading-relaxed">
+                <strong>Want a faster response?</strong> Ping our lead teacher directly on WhatsApp with your name to expedite your booking confirmation.
+              </p>
+            </div>
+            
+            <a
+              href={getWhatsAppDirectLink()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 w-full py-3.5 rounded-full bg-forest-600 hover:bg-terracotta-650 text-cream-50 font-sans text-sm font-bold shadow-md hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
+            >
+              <span>Chat on WhatsApp Now</span>
+            </a>
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 
   return (
-    <div className="max-w-3xl mx-auto bg-white border border-sage-100 rounded-3xl shadow-xl overflow-hidden">
+    <div id="apply-form-header" className="max-w-3xl mx-auto bg-white border border-sage-100 rounded-3xl shadow-xl overflow-hidden">
       
       {/* Header Banner */}
       <div className="bg-forest-600 px-4 py-6 sm:px-8 sm:py-8 text-cream-50 text-center relative border-b border-forest-700">
@@ -295,10 +426,29 @@ function ApplyFormContent() {
         <p className="font-sans text-xs text-cream-200/80 mt-1">Please fill in the form carefully. Fields marked with <span className="text-red-500 font-bold">*</span> are required.</p>
       </div>
 
+      {isMobile && (
+        <div className="px-6 py-4 space-y-2 border-b border-sage-100 bg-cream-50/40">
+          <div className="flex justify-between items-center text-xs font-semibold text-forest-750">
+            <span>Step {step} of 3</span>
+            <span className="text-terracotta-500 font-bold uppercase tracking-wider">
+              {step === 1 ? "Program & Personal" : step === 2 ? "Contact & Background" : "Health & Confirm"}
+            </span>
+          </div>
+          <div className="w-full bg-sage-200 h-1.5 rounded-full overflow-hidden">
+            <div 
+              className="bg-terracotta-500 h-full transition-all duration-300"
+              style={{ width: `${(step / 3) * 100}%` }}
+            />
+          </div>
+        </div>
+      )}
+
       <form onSubmit={handleSubmit} className="p-4 sm:p-8 space-y-6 text-sm font-sans text-forest-600">
         
-        {/* SECTION 1: Program details */}
-        <div className="space-y-4">
+        {(!isMobile || step === 1) && (
+          <>
+            {/* SECTION 1: Program details */}
+            <div className="space-y-4">
           <h3 className="font-serif text-lg font-bold text-forest-700 border-b border-sage-50 pb-2">1. Program Selection</h3>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -488,9 +638,13 @@ function ApplyFormContent() {
             {errors.address && <span className="text-xs text-red-500 flex items-center gap-1"><AlertCircle className="w-3.5 h-3.5" />{errors.address}</span>}
           </div>
         </div>
+      </>
+    )}
 
-        {/* SECTION 3: Contact details */}
-        <div className="space-y-4 pt-4 border-t border-sage-50">
+        {(!isMobile || step === 2) && (
+          <>
+            {/* SECTION 3: Contact details */}
+            <div className="space-y-4 pt-4 border-t border-sage-50">
           <h3 className="font-serif text-lg font-bold text-forest-700 border-b border-sage-50 pb-2">3. Contact Details</h3>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -711,9 +865,13 @@ function ApplyFormContent() {
             {errors.teachingDetails && <span className="text-xs text-red-500 flex items-center gap-1"><AlertCircle className="w-3.5 h-3.5" />{errors.teachingDetails}</span>}
           </div>
         </div>
+      </>
+    )}
 
-        {/* SECTION 5: Health conditions */}
-        <div className="space-y-4 pt-4 border-t border-sage-50">
+        {(!isMobile || step === 3) && (
+          <>
+            {/* SECTION 5: Health conditions */}
+            <div className="space-y-4 pt-4 border-t border-sage-50">
           <h3 className="font-serif text-lg font-bold text-forest-700 border-b border-sage-50 pb-2">5. Health & Intentions</h3>
           
           {/* Injury check */}
@@ -822,29 +980,72 @@ function ApplyFormContent() {
 
           {/* Submit Button */}
           <div className="pt-4">
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="w-full py-4 px-6 rounded-full bg-terracotta-600 hover:bg-terracotta-500 text-cream-50 font-sans text-base font-bold shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 cursor-pointer flex items-center justify-center gap-2 disabled:bg-sage-300 disabled:shadow-none disabled:-translate-y-0"
-            >
-              {isSubmitting ? (
-                <>
-                  <svg className="animate-spin h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                  </svg>
-                  <span>Processing Application...</span>
-                </>
-              ) : (
-                <>
-                  <Send className="w-4 h-4 fill-current" />
-                  <span>Submit Application</span>
-                </>
-              )}
-            </button>
+            {isMobile ? (
+              <div className="flex gap-4">
+                <button
+                  type="button"
+                  onClick={handleBackStep}
+                  className="w-1/3 py-4 rounded-full border border-sage-200 bg-cream-50 text-forest-750 font-sans text-xs font-semibold active:scale-95 transition-transform"
+                >
+                  Back
+                </button>
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="flex-grow py-4 px-6 rounded-full bg-terracotta-600 hover:bg-terracotta-550 text-cream-50 font-sans text-xs font-bold shadow-lg hover:shadow-xl active:scale-95 transition-all flex items-center justify-center gap-2 disabled:bg-sage-300 disabled:shadow-none"
+                >
+                  {isSubmitting ? "Processing..." : "Submit Application"}
+                </button>
+              </div>
+            ) : (
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full py-4 px-6 rounded-full bg-terracotta-600 hover:bg-terracotta-500 text-cream-50 font-sans text-base font-bold shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 cursor-pointer flex items-center justify-center gap-2 disabled:bg-sage-300 disabled:shadow-none disabled:-translate-y-0"
+              >
+                {isSubmitting ? (
+                  <>
+                    <svg className="animate-spin h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    <span>Processing Application...</span>
+                  </>
+                ) : (
+                  <>
+                    <Send className="w-4 h-4 fill-current" />
+                    <span>Submit Application</span>
+                  </>
+                )}
+              </button>
+            )}
           </div>
 
         </div>
+      </>
+    )}
+
+    {/* Step Navigation for Step 1 & 2 (mobile only) */}
+    {isMobile && step < 3 && (
+      <div className="flex gap-4 pt-6">
+        {step > 1 && (
+          <button
+            type="button"
+            onClick={handleBackStep}
+            className="w-1/3 py-4 rounded-full border border-sage-200 bg-cream-50 text-forest-750 font-sans text-xs font-semibold active:scale-95 transition-transform"
+          >
+            Back
+          </button>
+        )}
+        <button
+          type="button"
+          onClick={handleNextStep}
+          className="flex-grow py-4 rounded-full bg-terracotta-600 hover:bg-terracotta-500 text-white font-sans text-xs font-bold shadow-md active:scale-95 transition-transform"
+        >
+          Next Step
+        </button>
+      </div>
+    )}
 
       </form>
     </div>

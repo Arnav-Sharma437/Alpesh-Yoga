@@ -175,7 +175,7 @@ export default function Header() {
             </nav>
 
             {/* Enroll Now CTA button (vibrant orange accent) */}
-            <div className="hidden sm:flex items-center shrink-0">
+            <div className="hidden md:flex items-center shrink-0">
               <a
                 href="/apply"
                 className="inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-terracotta-500 hover:bg-terracotta-600 text-white font-sans text-xs font-bold shadow-md transition-all duration-300 cursor-pointer hover:shadow-lg hover:-translate-y-[1px]"
@@ -184,148 +184,198 @@ export default function Header() {
               </a>
             </div>
 
-            {/* Mobile Menu Toggle Button (visible below xl) */}
-            <div className="flex xl:hidden shrink-0">
+            {/* Mobile Actions Container (visible below xl) */}
+            <div className="flex xl:hidden items-center gap-2 shrink-0">
+              
+              {/* WhatsApp Quick Launcher (visible on mobile only, below md) */}
+              <a
+                href="https://wa.me/917719878500?text=Hi%20Alpesh%20Yoga%2C%20I'm%20contacting%20you%20from%20the%2520header%20link."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="md:hidden p-2 rounded-full bg-[#25D366] text-white hover:bg-[#20ba59] active:scale-90 transition-transform shadow-md flex items-center justify-center"
+                aria-label="WhatsApp Chat"
+              >
+                <svg
+                  className="w-4 h-4 fill-current"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.458 5.704 1.459h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                </svg>
+              </a>
+
+              {/* Mobile Menu Toggle Button */}
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 type="button"
-                className="focus:outline-none p-2 rounded-md transition-colors text-white hover:text-terracotta-500"
+                className="focus:outline-none p-2 rounded-md transition-colors text-white hover:text-terracotta-500 active:scale-90"
                 aria-label="Toggle menu"
               >
                 {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </button>
+
             </div>
 
           </div>
         </div>
 
-        {/* Mobile Drawer Dropdown Menu (visible below xl) */}
+        {/* Side-Drawer Backdrop Blur Overlay (visible below xl) */}
+        {isOpen && (
+          <div 
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 xl:hidden animate-in fade-in duration-200"
+            onClick={() => setIsOpen(false)}
+          />
+        )}
+
+        {/* Slide-in Mobile Side-Drawer (visible below xl) */}
         <div
-          className={`xl:hidden absolute top-20 left-0 right-0 bg-forest-900 border-b border-forest-800 shadow-xl transition-all duration-300 ease-in-out origin-top ${
-            isOpen
-              ? "opacity-100 translate-y-0 pointer-events-auto scale-y-100 animate-in fade-in"
-              : "opacity-0 -translate-y-2 pointer-events-none scale-y-95"
+          className={`fixed top-0 right-0 h-full w-72 bg-forest-950/98 border-l border-forest-850 shadow-2xl z-50 p-6 flex flex-col justify-between transform transition-transform duration-300 ease-in-out xl:hidden ${
+            isOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
-          <div className="px-4 pt-2 pb-6 space-y-2 sm:px-6 overflow-y-auto max-h-[75vh]">
-            <a
-              href="/"
-              onClick={() => setIsOpen(false)}
-              className="block px-3 py-2 rounded-md text-base font-semibold text-white hover:bg-forest-800 hover:text-terracotta-500 transition-all duration-200"
-            >
-              Home
-            </a>
+          {/* Scrollable links area */}
+          <div className="overflow-y-auto max-h-[85vh] space-y-6">
             
-            {/* About Us Mobile Accordion */}
-            <div className="space-y-1">
-              <button
-                onClick={() => setMobileAboutOpen(!mobileAboutOpen)}
-                className="flex items-center justify-between w-full px-3 py-2 rounded-md text-base font-semibold text-white hover:bg-forest-800 hover:text-terracotta-500"
-              >
-                <span>About Us</span>
-                <ChevronDown className={`w-4 h-4 transition-transform duration-200 text-terracotta-500 ${mobileAboutOpen ? "rotate-180" : ""}`} />
-              </button>
-              {mobileAboutOpen && (
-                <div className="pl-6 space-y-1.5 animate-in slide-in-from-top-1 duration-200">
-                  <a href="/about" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-terracotta-500 font-semibold">About Us</a>
-                  <a href="/testimonials" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-terracotta-500 font-semibold">Testimonials</a>
-                  <a href="/about#gallery" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-terracotta-500 font-semibold">Gallery</a>
-                </div>
-              )}
-            </div>
-
-            {/* Goa Mobile Accordion */}
-            <div className="space-y-1">
-              <button
-                onClick={() => setMobileGoaOpen(!mobileGoaOpen)}
-                className="flex items-center justify-between w-full px-3 py-2 rounded-md text-base font-semibold text-white hover:bg-forest-800 hover:text-terracotta-500"
-              >
-                <span>YTTC in Goa</span>
-                <ChevronDown className={`w-4 h-4 transition-transform duration-200 text-terracotta-500 ${mobileGoaOpen ? "rotate-180" : ""}`} />
-              </button>
-              {mobileGoaOpen && (
-                <div className="pl-6 space-y-1.5 animate-in slide-in-from-top-1 duration-200">
-                  <a href="/goa/daily-classes" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-terracotta-500 font-semibold">Daily Drop-in Classes</a>
-                  <a href="/goa/8-day-intensive" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-terracotta-500 font-semibold">8-Day Intensive Course</a>
-                  <a href="/goa/100-hour-ttc" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-terracotta-500 font-semibold">100-Hour TTC</a>
-                  <a href="/goa/200-hour-yttc" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-terracotta-500 font-semibold">200-Hour YTTC</a>
-                  <a href="/goa/therapeutic-yoga" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-terracotta-500 font-semibold">Therapeutic Yoga</a>
-                </div>
-              )}
-            </div>
-
-            {/* Dharamshala Mobile Accordion */}
-            <div className="space-y-1">
-              <button
-                onClick={() => setMobileDharamshalaOpen(!mobileDharamshalaOpen)}
-                className="flex items-center justify-between w-full px-3 py-2 rounded-md text-base font-semibold text-white hover:bg-forest-800 hover:text-terracotta-500"
-              >
-                <span>YTTC in Dharamshala</span>
-                <ChevronDown className={`w-4 h-4 transition-transform duration-200 text-terracotta-500 ${mobileDharamshalaOpen ? "rotate-180" : ""}`} />
-              </button>
-              {mobileDharamshalaOpen && (
-                <div className="pl-6 space-y-1.5 animate-in slide-in-from-top-1 duration-200">
-                  <a href="/dharamshala/daily-classes" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-terracotta-500 font-semibold">Daily Drop-in Classes</a>
-                  <a href="/dharamshala/8-day-intensive" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-terracotta-500 font-semibold">8-Day Intensive Course</a>
-                  <a href="/dharamshala/100-hour-ttc" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-terracotta-500 font-semibold">100-Hour TTC</a>
-                  <a href="/dharamshala/200-hour-yttc" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-terracotta-500 font-semibold">200-Hour YTTC</a>
-                  <a href="/dharamshala/therapeutic-yoga" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-terracotta-500 font-semibold">Therapeutic Yoga</a>
-                </div>
-              )}
-            </div>
-
-            {/* Retreats Mobile Accordion */}
-            <div className="space-y-1">
-              <button
-                onClick={() => setMobileRetreatsOpen(!mobileRetreatsOpen)}
-                className="flex items-center justify-between w-full px-3 py-2 rounded-md text-base font-semibold text-white hover:bg-forest-800 hover:text-terracotta-500"
-              >
-                <span>Retreats</span>
-                <ChevronDown className={`w-4 h-4 transition-transform duration-200 text-terracotta-500 ${mobileRetreatsOpen ? "rotate-180" : ""}`} />
-              </button>
-              {mobileRetreatsOpen && (
-                <div className="pl-6 space-y-1.5 animate-in slide-in-from-top-1 duration-200">
-                  <a href="/retreats#6-day" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-terracotta-500 font-semibold">6-Day Yoga Retreat</a>
-                  <a href="/retreats#10-day" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-terracotta-500 font-semibold">10-Day Yoga Retreat</a>
-                  <a href="/retreats#5-day" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-terracotta-500 font-semibold">5-Day Pranayama Course</a>
-                </div>
-              )}
-            </div>
-
-            <a
-              href="/daily-classes"
-              onClick={() => setIsOpen(false)}
-              className="block px-3 py-2 rounded-md text-base font-semibold text-white hover:bg-forest-800 hover:text-terracotta-500 transition-all duration-200"
-            >
-              Drop-In
-            </a>
-
-            <a
-              href="/dates-prices"
-              onClick={() => setIsOpen(false)}
-              className="block px-3 py-2 rounded-md text-base font-semibold text-white hover:bg-forest-800 hover:text-terracotta-500 transition-all duration-200"
-            >
-              Dates & Price
-            </a>
-
-            <a
-              href="/contact"
-              onClick={() => setIsOpen(false)}
-              className="block px-3 py-2 rounded-md text-base font-semibold text-white hover:bg-forest-800 hover:text-terracotta-500 transition-all duration-200"
-            >
-              Contact Us
-            </a>
-            
-            <div className="pt-4 border-t border-forest-850">
-              <a
-                href="/apply"
+            {/* Drawer Header (logo + close button) */}
+            <div className="flex items-center justify-between border-b border-forest-850 pb-4 mb-4">
+              <img 
+                src="/logo/alpesh-logo.jpeg" 
+                alt="Alpesh Yoga Logo" 
+                className="h-10 w-auto rounded-lg"
+              />
+              <button 
                 onClick={() => setIsOpen(false)}
-                className="flex items-center justify-center gap-2 w-full px-5 py-3 rounded-full bg-terracotta-500 hover:bg-terracotta-600 text-white font-semibold shadow-sm transition-all duration-300"
+                className="p-1 rounded-full bg-forest-900 text-white/70 hover:text-white"
               >
-                <span>Apply Now</span>
-              </a>
+                <X className="w-5 h-5" />
+              </button>
             </div>
+
+            {/* Accordion and links */}
+            <div className="space-y-3">
+              <a
+                href="/"
+                onClick={() => setIsOpen(false)}
+                className="block px-3 py-2 rounded-md text-base font-semibold text-white hover:bg-forest-800 hover:text-terracotta-500 transition-all duration-200"
+              >
+                Home
+              </a>
+              
+              {/* About Us Mobile Accordion */}
+              <div className="space-y-1">
+                <button
+                  onClick={() => setMobileAboutOpen(!mobileAboutOpen)}
+                  className="flex items-center justify-between w-full px-3 py-2 rounded-md text-base font-semibold text-white hover:bg-forest-800 hover:text-terracotta-500"
+                >
+                  <span>About Us</span>
+                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 text-terracotta-500 ${mobileAboutOpen ? "rotate-180" : ""}`} />
+                </button>
+                {mobileAboutOpen && (
+                  <div className="pl-6 space-y-1.5 animate-in slide-in-from-top-1 duration-200">
+                    <a href="/about" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-terracotta-500 font-semibold">About Us</a>
+                    <a href="/testimonials" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-terracotta-500 font-semibold">Testimonials</a>
+                    <a href="/about#gallery" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-terracotta-500 font-semibold">Gallery</a>
+                  </div>
+                )}
+              </div>
+
+              {/* Goa Mobile Accordion */}
+              <div className="space-y-1">
+                <button
+                  onClick={() => setMobileGoaOpen(!mobileGoaOpen)}
+                  className="flex items-center justify-between w-full px-3 py-2 rounded-md text-base font-semibold text-white hover:bg-forest-800 hover:text-terracotta-500"
+                >
+                  <span>YTTC in Goa</span>
+                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 text-terracotta-500 ${mobileGoaOpen ? "rotate-180" : ""}`} />
+                </button>
+                {mobileGoaOpen && (
+                  <div className="pl-6 space-y-1.5 animate-in slide-in-from-top-1 duration-200">
+                    <a href="/goa/daily-classes" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-terracotta-500 font-semibold">Daily Drop-in Classes</a>
+                    <a href="/goa/8-day-intensive" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-terracotta-500 font-semibold">8-Day Intensive Course</a>
+                    <a href="/goa/100-hour-ttc" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-terracotta-500 font-semibold">100-Hour TTC</a>
+                    <a href="/goa/200-hour-yttc" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-terracotta-500 font-semibold">200-Hour YTTC</a>
+                    <a href="/goa/therapeutic-yoga" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-terracotta-500 font-semibold">Therapeutic Yoga</a>
+                  </div>
+                )}
+              </div>
+
+              {/* Dharamshala Mobile Accordion */}
+              <div className="space-y-1">
+                <button
+                  onClick={() => setMobileDharamshalaOpen(!mobileDharamshalaOpen)}
+                  className="flex items-center justify-between w-full px-3 py-2 rounded-md text-base font-semibold text-white hover:bg-forest-800 hover:text-terracotta-500"
+                >
+                  <span>YTTC in Dharamshala</span>
+                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 text-terracotta-500 ${mobileDharamshalaOpen ? "rotate-180" : ""}`} />
+                </button>
+                {mobileDharamshalaOpen && (
+                  <div className="pl-6 space-y-1.5 animate-in slide-in-from-top-1 duration-200">
+                    <a href="/dharamshala/daily-classes" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-terracotta-500 font-semibold">Daily Drop-in Classes</a>
+                    <a href="/dharamshala/8-day-intensive" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-terracotta-500 font-semibold">8-Day Intensive Course</a>
+                    <a href="/dharamshala/100-hour-ttc" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-terracotta-500 font-semibold">100-Hour TTC</a>
+                    <a href="/dharamshala/200-hour-yttc" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-terracotta-500 font-semibold">200-Hour YTTC</a>
+                    <a href="/dharamshala/therapeutic-yoga" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-terracotta-500 font-semibold">Therapeutic Yoga</a>
+                  </div>
+                )}
+              </div>
+
+              {/* Retreats Mobile Accordion */}
+              <div className="space-y-1">
+                <button
+                  onClick={() => setMobileRetreatsOpen(!mobileRetreatsOpen)}
+                  className="flex items-center justify-between w-full px-3 py-2 rounded-md text-base font-semibold text-white hover:bg-forest-800 hover:text-terracotta-500"
+                >
+                  <span>Retreats</span>
+                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 text-terracotta-500 ${mobileRetreatsOpen ? "rotate-180" : ""}`} />
+                </button>
+                {mobileRetreatsOpen && (
+                  <div className="pl-6 space-y-1.5 animate-in slide-in-from-top-1 duration-200">
+                    <a href="/retreats#6-day" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-terracotta-500 font-semibold">6-Day Yoga Retreat</a>
+                    <a href="/retreats#10-day" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-terracotta-500 font-semibold">10-Day Yoga Retreat</a>
+                    <a href="/retreats#5-day" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-terracotta-500 font-semibold">5-Day Pranayama Course</a>
+                  </div>
+                )}
+              </div>
+
+              <a
+                href="/daily-classes"
+                onClick={() => setIsOpen(false)}
+                className="block px-3 py-2 rounded-md text-base font-semibold text-white hover:bg-forest-800 hover:text-terracotta-500 transition-all duration-200"
+              >
+                Drop-In
+              </a>
+
+              <a
+                href="/dates-prices"
+                onClick={() => setIsOpen(false)}
+                className="block px-3 py-2 rounded-md text-base font-semibold text-white hover:bg-forest-800 hover:text-terracotta-500 transition-all duration-200"
+              >
+                Dates & Price
+              </a>
+
+              <a
+                href="/contact"
+                onClick={() => setIsOpen(false)}
+                className="block px-3 py-2 rounded-md text-base font-semibold text-white hover:bg-forest-800 hover:text-terracotta-500 transition-all duration-200"
+              >
+                Contact Us
+              </a>
+
+            </div>
+
           </div>
+
+          {/* Drawer Footer CTA */}
+          <div className="pt-4 border-t border-forest-850">
+            <a
+              href="/apply"
+              onClick={() => setIsOpen(false)}
+              className="flex items-center justify-center gap-2 w-full px-5 py-3.5 rounded-full bg-terracotta-500 hover:bg-terracotta-600 text-white font-sans text-xs font-bold shadow-sm transition-all duration-300 active:scale-95"
+            >
+              <span>Apply Now</span>
+            </a>
+          </div>
+
         </div>
 
       </header>
