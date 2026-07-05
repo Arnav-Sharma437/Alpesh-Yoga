@@ -229,8 +229,10 @@ export default function Header() {
 
         {/* Slide-in Mobile Side-Drawer (visible below xl) */}
         <div
-          className={`fixed top-0 right-0 h-full w-72 bg-forest-950/98 border-l border-forest-850 shadow-2xl z-50 p-6 flex flex-col justify-between transform transition-transform duration-300 ease-in-out xl:hidden ${
-            isOpen ? "translate-x-0" : "translate-x-full"
+          className={`fixed top-0 right-0 h-full w-72 bg-forest-950/98 border-l border-forest-850 shadow-2xl z-50 p-6 flex flex-col justify-between transition-all duration-300 ease-in-out xl:hidden ${
+            isOpen 
+              ? "translate-x-0 opacity-100 visible pointer-events-auto" 
+              : "translate-x-full opacity-0 invisible pointer-events-none"
           }`}
         >
           {/* Scrollable links area */}
