@@ -5,71 +5,77 @@ import { ArrowRight, Calendar } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      
-      {/* Background Image with Dark Overlay */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105 transition-transform duration-10000"
-        style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=1920')`,
-        }}
-      >
-        {/* Dark earthy overlay gradient */}
-        <div className="absolute inset-0 bg-gradient-to-r from-forest-700/90 via-forest-600/75 to-transparent md:bg-gradient-to-b"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-cream-50 via-transparent to-forest-700/50"></div>
-      </div>
+    <div className="flex flex-col w-full">
+      {/* Hero Banner Section */}
+      <section className="relative h-[85vh] min-h-[550px] flex items-center justify-center overflow-hidden pt-28">
+        
+        {/* Background Image with Dark Overlay */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=1920')`,
+          }}
+        >
+          {/* Dark overlay for text readability */}
+          <div className="absolute inset-0 bg-black/50"></div>
+        </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 z-10 w-full text-left">
-        <div className="max-w-3xl">
+        {/* Content Container */}
+        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 z-10 text-center flex flex-col items-center">
           
-          {/* Tagline */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-terracotta-500/20 border border-terracotta-200/30 text-terracotta-100 font-sans text-xs uppercase tracking-widest font-semibold mb-6 animate-fade-in">
-            <span>Hatha Alignment Practice • Dharamshala</span>
+          {/* Logo Icon in Center */}
+          <div className="mb-6 bg-white/95 p-3 rounded-full shadow-lg inline-flex items-center justify-center">
+            <img 
+              src="/logo/alpesh-logo.jpeg" 
+              alt="Alpesh Yoga Logo" 
+              className="w-16 h-16 rounded-full object-contain" 
+            />
           </div>
 
-          {/* Title */}
-          <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight mb-6">
-            Most yoga classes teach you <span className="text-terracotta-200 italic font-medium">what</span> pose to do. <br className="hidden sm:inline" />
-            At Alpesh Yoga, we teach you <span className="text-terracotta-200 italic font-medium">how</span> to do it correctly.
+          {/* Heading */}
+          <h1 className="font-serif font-extrabold tracking-tight text-white mb-2 leading-tight uppercase text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+            Best Yoga Teacher Training In India
           </h1>
+          
+          {/* Highlight Subheading */}
+          <h2 className="font-sans font-bold uppercase tracking-widest text-[#f58220] text-xl sm:text-2xl md:text-3xl mb-6">
+            Goa & Rishikesh
+          </h2>
 
           {/* Subtext */}
-          <p className="font-sans text-lg sm:text-xl text-cream-100/90 leading-relaxed mb-10 max-w-2xl font-light">
-            Develop precision, body awareness, and safe alignment under the guidance of expert Hatha alignment instructors. Located in the peaceful heights of Upper Bhagsu, Himachal Pradesh.
+          <p className="font-sans text-sm sm:text-base md:text-lg text-gray-200 leading-relaxed mb-8 max-w-3xl font-light">
+            200-Hour, 300-Hour & 500-Hour Yoga Alliance Certified Ashtanga & Vinyasa Flow Yoga Teacher Training Courses in India.
           </p>
 
           {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 sm:items-center">
-            
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
-              href="https://wa.me/917719878500?text=Hello%20Alpesh,%20I%20would%20like%20to%20book%20a%20yoga%20class%20at%20your%20studio."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-terracotta-600 hover:bg-terracotta-500 text-cream-50 font-sans text-base font-semibold shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
+              href="/apply"
+              className="inline-flex items-center justify-center px-8 py-3.5 rounded-md bg-[#c2272d] hover:bg-[#a11f24] text-white font-sans text-sm font-bold shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
             >
-              <span>Book a Class</span>
-              <ArrowRight className="w-5 h-5" />
+              <span>APPLY NOW</span>
             </a>
 
             <a
-              href="#schedule"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border-2 border-cream-100/30 hover:border-cream-100 bg-white/5 hover:bg-white/10 text-white font-sans text-base font-semibold hover:-translate-y-0.5 transition-all duration-300"
+              href="/dates-prices"
+              className="inline-flex items-center justify-center px-8 py-3.5 rounded-md border-2 border-white hover:border-gray-200 bg-transparent text-white hover:bg-white/10 font-sans text-sm font-bold transition-all duration-300 w-full sm:w-auto"
             >
-              <Calendar className="w-5 h-5 text-terracotta-200" />
-              <span>View Schedule</span>
+              <span>VIEW DATES & PRICES</span>
             </a>
-
-          </div>
-
-          {/* Location highlight badge */}
-          <div className="mt-16 flex items-center gap-3 text-cream-200/70 text-sm font-sans">
-            <span className="w-2 h-2 rounded-full bg-terracotta-500 animate-ping"></span>
-            <span>Studio open daily in Upper Bhagsu (near Beetroot Café)</span>
           </div>
 
         </div>
-      </div>
+      </section>
 
-    </section>
+      {/* View All Dates Pill Section below Banner */}
+      <div className="bg-white py-6 border-b border-gray-150 flex justify-center items-center">
+        <a 
+          href="/dates-prices"
+          className="inline-flex items-center justify-center px-6 py-2 rounded-full border border-gray-300 text-gray-700 hover:text-[#c2272d] hover:border-[#c2272d] hover:bg-gray-50 font-sans text-xs font-bold transition-all duration-300"
+        >
+          <span>VIEW ALL DATES & PRICES</span>
+        </a>
+      </div>
+    </div>
   );
 }
