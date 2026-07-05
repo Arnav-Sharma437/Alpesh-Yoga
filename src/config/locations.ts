@@ -39,11 +39,11 @@ export interface LocationData {
 export const locationsConfig: Record<string, LocationData> = {
   dharamshala: {
     slug: "dharamshala",
-    displayName: "Dharamshala (Upper Bhagsu)",
+    displayName: "Dharamshala (Dharamkot)",
     regionName: "Himachal Pradesh, India",
     tagline: "Hatha alignment-based practice in the serene Himalayan mountains.",
-    address: "Upper Bhagsu near Beetroot Café, Dharamshala, Himachal Pradesh 176219",
-    landmarkNotice: "Quiet neighborhood just above the Bhagsu temple area, away from traffic noise. Walkable from Dharamkot (10 mins) and McLeod Ganj (25 mins).",
+    address: "Alpesh Yoga, Baldev House, 50 meters from Track n Dine Restaurant and before Bodhi Greens Restaurant, Dharamkot 176219, Dharamshala, Himachal Pradesh",
+    landmarkNotice: "Located in the quiet heights of Dharamkot, a short pine forest walk away from traffic. Conveniently positioned before Bodhi Greens and just past Track n Dine.",
     contactNumber1: "+91 77198 78500",
     contactNumber2: "+91 97364 63605",
     whatsappLinkText: "Hi Alpesh, I am inquiring about the Dharamshala classes.",
@@ -118,33 +118,33 @@ export const locationsConfig: Record<string, LocationData> = {
   },
   goa: {
     slug: "goa",
-    displayName: "Goa (Coastal Shala)",
+    displayName: "Goa (Arambol Beach)",
     regionName: "Goa, South India",
     tagline: "Hatha alignment-based practice near the warm breezes of the Arabian Sea.",
-    address: "Goa Beach Shala, Goa, South India [GOA ADDRESS DETAILS COMING SOON]",
-    landmarkNotice: "Quiet nature center within walking distance of the beach. Peaceful, quiet surroundings perfect for alignment and restorative practice. Details to be confirmed by host.",
+    address: "Alpesh Yoga Center, Opposite Arcan Bar, Before Piya Guest House, Madhlo Waddo, Arambol Beach, North Goa 403524",
+    landmarkNotice: "Located in peaceful Madhlo Waddo, just opposite Arcan Bar and before Piya Guest House. Easy walk to the shoreline shala.",
     contactNumber1: "+91 77198 78500",
     contactNumber2: "+91 97364 63605",
     whatsappLinkText: "Hi Alpesh, I am inquiring about the Goa classes.",
-    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d123062.2415177242!2d73.91350438183182!3d15.335345759714856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfba106336b741%3A0xe24bdc3f6e157285!2sGoa!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin",
+    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3840.428514930355!2d73.70494491490278!3d15.698305889110416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfa37c56aa3891%3A0xe9f7cb2f43beec41!2sArambol%20Beach!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin",
     schedule: [
       {
         time: "8:30 AM – 10:00 AM",
-        title: "Intensive Hatha Alignment [GOA DETAILS COMING SOON]",
+        title: "Intensive Hatha Alignment",
         level: "All Levels",
-        focus: "Structural integrity, posture corrections, prop use. Goa timings subject to client validation.",
+        focus: "Structural integrity, posture corrections, prop use. Custom adjustments for beach retreats.",
         shortDesc: "Rigorous alignment-focused session adapted to coastal environments. Wall ropes, blocks, and belts provided."
       },
       {
         time: "10:15 AM – 11:45 AM",
-        title: "Beginner Friendly Alignment [GOA DETAILS COMING SOON]",
+        title: "Beginner Friendly Alignment",
         level: "Beginner",
         focus: "Habit correction, basic posture alignments, prop instruction.",
         shortDesc: "Foundations course helping students practice safely on sandy shalas without shoulder or knee compression."
       },
       {
         time: "4:00 PM – 5:30 PM",
-        title: "Evening Therapeutic Alignment [GOA DETAILS COMING SOON]",
+        title: "Evening Therapeutic Alignment",
         level: "All Levels",
         focus: "Restorative stretches, posture release, pranayama.",
         shortDesc: "Restorative flow designed to stretch fatigue out of structural muscles and balance the nervous system."
@@ -153,36 +153,41 @@ export const locationsConfig: Record<string, LocationData> = {
     pricing: [
       {
         name: "Single Drop-in",
-        price: "[TBD]",
+        price: "₹600",
         validity: "Per class",
         features: ["All props provided", "Individual adjustments", "Drop-in welcome"],
         popular: false
       },
       {
         name: "6-Class Pass",
-        price: "[TBD]",
+        price: "₹3,000",
         validity: "Valid for 7 days",
         features: ["Access to all daily slots", "Flexible scheduling", "Props included"],
         popular: true
       },
       {
         name: "12-Class Pass",
-        price: "[TBD]",
+        price: "₹5,500",
         validity: "Valid for 14 days",
         features: ["Access to all daily slots", "Individual checks", "Flexible dates"],
         popular: false
       }
     ],
     intensiveDates: [
-      "Dates [TBD] — Contact us for next available start date"
+      "Starts Every Monday (Winter Season - Arambol Beach)"
     ],
     intensivePricing: {
-      feeINR: "[TBD]",
-      feeUSD: "[TBD]",
-      deposit: "Contact us to reserve spot in Goa course"
+      feeINR: "₹12,000",
+      feeUSD: "$150 USD",
+      deposit: "₹2,500 / $30 USD to reserve a spot in Goa"
     },
     batches: [
-      "Dates [TBD] (Contact us for details)"
+      "15 November – 6 December",
+      "10 December – 31 December",
+      "5 January – 26 January",
+      "1 February – 22 February",
+      "1 March – 22 March",
+      "Other / Not sure yet"
     ]
   }
 };

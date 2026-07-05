@@ -14,10 +14,14 @@ const inter = Inter({
   display: "swap",
 });
 
+export const viewport = {
+  themeColor: "#F7941D",
+};
+
 export const metadata: Metadata = {
-  title: "Alpesh Yoga | Hatha Alignment Studio Dharamshala, India",
-  description: "Experience precision and correct alignment Hatha-based yoga at Alpesh Yoga in Upper Bhagsu, Dharamshala, India. Offering daily classes, 8-Day Intensive Courses, 100-Hour and 200-Hour Yoga Teacher Training Courses (YTTC).",
-  keywords: ["Hatha alignment Dharamshala", "yoga classes Bhagsu", "yoga teacher training Dharamshala", "alignment yoga India", "Alpesh Yoga Dharamshala"],
+  title: "Alpesh Yoga | Hatha Alignment Studio Dharamshala & Goa, India",
+  description: "Experience precision Hatha alignment-based yoga at Alpesh Yoga in Arambol (Goa) and Dharamkot (Dharamshala), India. Offering daily classes, 8-Day Intensive Courses, 100-Hour and 200-Hour Yoga Teacher Training Courses (YTTC).",
+  keywords: ["Hatha alignment Dharamshala", "yoga classes Arambol", "yoga teacher training Goa", "alignment yoga India", "Alpesh Yoga Goa"],
 };
 
 export default function RootLayout({

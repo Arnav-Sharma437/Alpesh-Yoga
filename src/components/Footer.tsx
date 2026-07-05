@@ -1,129 +1,160 @@
 "use client";
 
 import React from "react";
-import { MapPin, Phone, Mail, Youtube, Instagram } from "lucide-react";
+import { MapPin, Phone, Mail, Youtube, Instagram, ArrowRight } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer id="footer" className="bg-forest-600 text-cream-100/90 pt-16 pb-8 border-t border-forest-700">
+    <footer id="footer" className="bg-forest-700 text-cream-100/90 pt-16 pb-8 border-t border-forest-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        
+        {/* Main 4-Column Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           
-          {/* Info Section */}
-          <div className="space-y-4">
+          {/* Column 1: About */}
+          <div className="space-y-5">
             <a href="/" className="block">
               <img 
                 src="/logo/alpesh-logo.jpeg" 
                 alt="Alpesh Yoga Logo" 
-                className="h-14 w-auto object-contain rounded-lg border border-forest-500/20"
+                className="h-16 w-auto object-contain rounded-lg bg-transparent"
               />
             </a>
-            <p className="font-sans text-sm text-cream-200/80 leading-relaxed">
-              Precision-focused, alignment-based Hatha yoga studio in the tranquil Himalayas of Dharamshala. We teach you how to align your body, breathe, and deepen your practice safely.
+            <h4 className="font-serif text-base font-bold text-white uppercase tracking-wider border-b-2 border-terracotta-500/30 pb-2 w-fit">
+              About Our Company
+            </h4>
+            <p className="font-sans text-xs sm:text-sm text-cream-200/70 leading-relaxed font-light">
+              Alpesh Yoga is a Yoga Alliance registered yoga school in Goa and Dharamshala, India, training yoga students in the art of yoga and meditation for over a decade.
             </p>
-            <div className="flex space-x-4 pt-2">
-              <a
-                href="https://instagram.com/alpeshyogaindia"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-full bg-forest-700 text-cream-100 hover:bg-terracotta-600 hover:text-cream-50 transition-all duration-300"
-                aria-label="Instagram"
+            <div>
+              <a 
+                href="/about" 
+                className="inline-flex items-center gap-1 text-xs font-semibold text-terracotta-500 hover:text-terracotta-600 transition-colors"
               >
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a
-                href="https://youtube.com/@alpeshyoga123"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-full bg-forest-700 text-cream-100 hover:bg-terracotta-600 hover:text-cream-50 transition-all duration-300"
-                aria-label="YouTube"
-              >
-                <Youtube className="w-5 h-5" />
+                <span>Read More</span>
+                <ArrowRight className="w-3.5 h-3.5" />
               </a>
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h3 className="font-serif text-lg font-semibold text-cream-50 mb-6">Explore</h3>
-            <ul className="space-y-3 font-sans text-sm">
+          {/* Column 2: Useful Links */}
+          <div className="space-y-4">
+            <h4 className="font-serif text-base font-bold text-white uppercase tracking-wider border-b-2 border-terracotta-500/30 pb-2 w-fit">
+              Useful Links
+            </h4>
+            <ul className="space-y-2.5 text-xs sm:text-sm font-sans font-light text-cream-200/70">
               <li>
-                <a href="#" className="hover:text-terracotta-100 hover:underline transition-all">Home</a>
+                <a href="/" className="hover:text-terracotta-500 transition-colors">Home</a>
               </li>
               <li>
-                <a href="#philosophy" className="hover:text-terracotta-100 hover:underline transition-all">Our Philosophy</a>
+                <a href="/about" className="hover:text-terracotta-500 transition-colors">About Us</a>
               </li>
               <li>
-                <a href="#schedule" className="hover:text-terracotta-100 hover:underline transition-all">Daily Schedule</a>
+                <a href="/testimonials" className="hover:text-terracotta-500 transition-colors">Testimonials</a>
               </li>
               <li>
-                <a href="#programs" className="hover:text-terracotta-100 hover:underline transition-all">Featured Courses</a>
+                <a href="/about#gallery" className="hover:text-terracotta-500 transition-colors">Gallery</a>
               </li>
               <li>
-                <a href="#setting" className="hover:text-terracotta-100 hover:underline transition-all">Himalayan Location</a>
+                <a href="/apply" className="hover:text-terracotta-500 transition-colors">Apply Now</a>
               </li>
               <li>
-                <a href="#testimonials" className="hover:text-terracotta-100 hover:underline transition-all">Student Reviews</a>
+                <a href="/contact" className="hover:text-terracotta-500 transition-colors">Contact Us</a>
+              </li>
+              <li>
+                <a href="/privacy-policy" className="hover:text-terracotta-500 transition-colors">Privacy Policy</a>
               </li>
             </ul>
           </div>
 
-          {/* Contact Details */}
+          {/* Column 3: Goa Address */}
           <div className="space-y-4">
-            <h3 className="font-serif text-lg font-semibold text-cream-50 mb-6">Contact & Location</h3>
-            
-            <div className="flex items-start gap-3 text-sm">
-              <MapPin className="w-5 h-5 text-terracotta-500 shrink-0 mt-0.5" />
-              <span className="leading-relaxed">
-                Upper Bhagsu (near Beetroot Café & Kibbutz Bhagsu), Dharamshala, Himachal Pradesh, 176219, India
-              </span>
-            </div>
-
-            <div className="flex items-center gap-3 text-sm">
-              <Phone className="w-5 h-5 text-terracotta-500 shrink-0" />
-              <div className="flex flex-col">
-                <a href="https://wa.me/917719878500" target="_blank" rel="noopener noreferrer" className="hover:text-cream-50 hover:underline">
-                  +91 77198 78500 (Alpesh)
+            <h4 className="font-serif text-base font-bold text-white uppercase tracking-wider border-b-2 border-terracotta-500/30 pb-2 w-fit">
+              Goa Address
+            </h4>
+            <div className="space-y-3 font-sans text-xs sm:text-sm font-light text-cream-200/70">
+              <div className="flex gap-2 items-start">
+                <MapPin className="w-4 h-4 text-terracotta-500 shrink-0 mt-0.5" />
+                <p className="leading-relaxed">
+                  Alpesh Yoga Center, Opposite Arcan Bar, Before Piya Guest House, Madhlo Waddo, Arambol Beach, North Goa 403524
+                </p>
+              </div>
+              <div className="flex gap-2 items-center">
+                <Phone className="w-4 h-4 text-terracotta-500 shrink-0" />
+                <a href="tel:+917719878500" className="hover:text-terracotta-500 transition-colors">
+                  +91 77198 78500
                 </a>
-                <a href="https://wa.me/919736463605" target="_blank" rel="noopener noreferrer" className="hover:text-cream-50 hover:underline">
-                  +91 97364 63605 (Office)
+              </div>
+              <div className="flex gap-2 items-center">
+                <Mail className="w-4 h-4 text-terracotta-500 shrink-0" />
+                <a href="mailto:alpeshyoga@gmail.com" className="hover:text-terracotta-500 transition-colors">
+                  alpeshyoga@gmail.com
                 </a>
               </div>
             </div>
+          </div>
 
-            <div className="flex items-center gap-3 text-sm">
-              <Mail className="w-5 h-5 text-terracotta-500 shrink-0" />
-              <a href="mailto:alpeshyoga@gmail.com" className="hover:text-cream-50 hover:underline">
-                alpeshyoga@gmail.com
-              </a>
+          {/* Column 4: Dharamshala Address */}
+          <div className="space-y-4">
+            <h4 className="font-serif text-base font-bold text-white uppercase tracking-wider border-b-2 border-terracotta-500/30 pb-2 w-fit">
+              Dharamshala Address
+            </h4>
+            <div className="space-y-3 font-sans text-xs sm:text-sm font-light text-cream-200/70">
+              <div className="flex gap-2 items-start">
+                <MapPin className="w-4 h-4 text-terracotta-500 shrink-0 mt-0.5" />
+                <p className="leading-relaxed">
+                  Alpesh Yoga, Baldev House, 50 meters from Track n Dine Restaurant and before Bodhi Greens Restaurant, Dharamkot 176219, Dharamshala, Himachal Pradesh
+                </p>
+              </div>
+              <div className="flex gap-2 items-center">
+                <Phone className="w-4 h-4 text-terracotta-500 shrink-0" />
+                <a href="tel:+917719878500" className="hover:text-terracotta-500 transition-colors">
+                  +91 77198 78500
+                </a>
+              </div>
+              <div className="flex gap-2 items-center">
+                <Mail className="w-4 h-4 text-terracotta-500 shrink-0" />
+                <a href="mailto:alpeshyoga@gmail.com" className="hover:text-terracotta-500 transition-colors">
+                  alpeshyoga@gmail.com
+                </a>
+              </div>
             </div>
           </div>
 
-          {/* Map Embed */}
-          <div className="rounded-xl overflow-hidden shadow-md h-56 border border-forest-500 relative">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3375.4093959146193!2d76.33129887627443!3d32.24716497388046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391b53dfdcd15d49%3A0xe1c028ea7c55cb85!2sAlpesh%20Yoga!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen={true}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Alpesh Yoga Location Map"
-              className="absolute inset-0"
-            ></iframe>
-          </div>
-
         </div>
 
-        {/* Bottom copyright line */}
-        <div className="pt-8 border-t border-forest-700 text-center text-xs text-cream-300/60 font-sans flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p>© {new Date().getFullYear()} Alpesh Yoga Studio. All rights reserved.</p>
-          <div className="flex space-x-6">
-            <a href="#" className="hover:text-cream-100 transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-cream-100 transition-colors">Terms of Service</a>
+        {/* Social Icons Links */}
+        <div className="pt-8 border-t border-forest-800 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-sans text-cream-200/50">
+          <div className="flex space-x-6 items-center">
+            <a 
+              href="https://instagram.com/alpeshyogaindia" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="p-2 rounded-full bg-forest-800 text-cream-200 hover:bg-terracotta-500 hover:text-white transition-colors"
+            >
+              <Instagram className="w-4 h-4" />
+            </a>
+            <a 
+              href="https://youtube.com/alpeshyoga123" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="p-2 rounded-full bg-forest-800 text-cream-200 hover:bg-terracotta-500 hover:text-white transition-colors"
+            >
+              <Youtube className="w-4 h-4" />
+            </a>
+          </div>
+          <div className="flex gap-4">
+            <a href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</a>
+            <span>•</span>
+            <a href="/terms" className="hover:text-white transition-colors">Terms &amp; Conditions</a>
           </div>
         </div>
+
+        {/* Copyright Notice */}
+        <div className="text-center mt-8 text-[11px] font-sans text-cream-200/30">
+          &copy; {new Date().getFullYear()} Alpesh Yoga India. All Rights Reserved. Registered with Yoga Alliance USA.
+        </div>
+
       </div>
     </footer>
   );
