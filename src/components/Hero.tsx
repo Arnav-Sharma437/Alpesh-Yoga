@@ -38,7 +38,7 @@ export default function Hero() {
           </h1>
           
           {/* Highlight Subheading */}
-          <h2 className="font-sans font-bold uppercase tracking-widest text-[#f58220] text-xl sm:text-2xl md:text-3xl mb-6">
+          <h2 className="font-sans font-bold uppercase tracking-widest text-[#F7941D] text-xl sm:text-2xl md:text-3xl mb-6">
             Goa & Rishikesh
           </h2>
 
@@ -51,7 +51,7 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
               href="/apply"
-              className="inline-flex items-center justify-center px-8 py-3.5 rounded-md bg-[#c2272d] hover:bg-[#a11f24] text-white font-sans text-sm font-bold shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
+              className="inline-flex items-center justify-center px-8 py-3.5 rounded-md bg-[#F7941D] hover:bg-[#E07D0E] text-white font-sans text-sm font-bold shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
             >
               <span>APPLY NOW</span>
             </a>
@@ -71,7 +71,7 @@ export default function Hero() {
       <div className="bg-white py-6 border-b border-gray-150 flex justify-center items-center">
         <a 
           href="/dates-prices"
-          className="inline-flex items-center justify-center px-6 py-2 rounded-full border border-gray-300 text-gray-700 hover:text-[#c2272d] hover:border-[#c2272d] hover:bg-gray-50 font-sans text-xs font-bold transition-all duration-300"
+          className="inline-flex items-center justify-center px-6 py-2 rounded-full border border-gray-300 text-gray-700 hover:text-[#F7941D] hover:border-[#F7941D] hover:bg-gray-50 font-sans text-xs font-bold transition-all duration-300"
         >
           <span>VIEW ALL DATES & PRICES</span>
         </a>
@@ -79,3 +79,5 @@ export default function Hero() {
     </div>
   );
 }
+
+

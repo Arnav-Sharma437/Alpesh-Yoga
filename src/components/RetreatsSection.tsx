@@ -46,7 +46,7 @@ export default function RetreatsSection() {
                 </div>
                 {/* Content */}
                 <div className="p-6 space-y-4">
-                  <h3 className="font-serif text-lg md:text-xl font-bold text-[#c2272d] uppercase tracking-wide">
+                  <h3 className="font-serif text-lg md:text-xl font-bold text-[#F7941D] uppercase tracking-wide">
                     {retreat.title}
                   </h3>
                   <p className="font-sans text-xs sm:text-sm text-gray-600 leading-relaxed font-light">
@@ -59,7 +59,7 @@ export default function RetreatsSection() {
               <div className="p-6 pt-0">
                 <a
                   href={retreat.link}
-                  className="inline-flex items-center justify-center w-full px-4 py-2 rounded bg-[#c2272d] hover:bg-[#a11f24] text-white font-sans text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-sm"
+                  className="inline-flex items-center justify-center w-full px-4 py-2 rounded bg-[#F7941D] hover:bg-[#E07D0E] text-white font-sans text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-sm"
                 >
                   READ MORE
                 </a>
@@ -72,3 +72,4 @@ export default function RetreatsSection() {
     </section>
   );
 }
+

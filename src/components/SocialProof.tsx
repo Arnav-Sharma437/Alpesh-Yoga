@@ -11,7 +11,7 @@ export default function SocialProof() {
           
           {/* Left Column: Subscribing message */}
           <div className="space-y-6 text-left">
-            <div className="flex items-center gap-3 text-[#c2272d]">
+            <div className="flex items-center gap-3 text-[#F7941D]">
               <Youtube className="w-8 h-8" />
               <h2 className="font-serif text-2xl sm:text-3xl font-extrabold uppercase tracking-tight">
                 Watch Our Students' Reviews
@@ -31,7 +31,7 @@ export default function SocialProof() {
                 href="https://youtube.com/alpeshyoga123"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-2.5 rounded bg-[#c2272d] hover:bg-[#a11f24] text-white font-sans text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow"
+                className="inline-flex items-center gap-2 px-6 py-2.5 rounded bg-[#F7941D] hover:bg-[#E07D0E] text-white font-sans text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow"
               >
                 <Youtube className="w-4 h-4 fill-white" />
                 <span>SUBSCRIBE</span>
@@ -56,13 +56,13 @@ export default function SocialProof() {
               
               {/* Play Button Overlay */}
               <div className="absolute inset-0 bg-black/40 flex items-center justify-center transition-colors group-hover:bg-black/30">
-                <div className="w-16 h-16 rounded-full bg-white text-[#c2272d] flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <div className="w-16 h-16 rounded-full bg-white text-[#F7941D] flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
                   <Play className="w-8 h-8 fill-current ml-1" />
                 </div>
               </div>
 
               {/* Red play label bar at the bottom */}
-              <div className="absolute bottom-0 left-0 right-0 bg-[#c2272d] text-white py-2 px-4 text-center font-sans text-xs font-bold uppercase tracking-wide">
+              <div className="absolute bottom-0 left-0 right-0 bg-[#F7941D] text-white py-2 px-4 text-center font-sans text-xs font-bold uppercase tracking-wide">
                 Play Student Reviews
               </div>
             </a>
@@ -73,3 +73,4 @@ export default function SocialProof() {
     </section>
   );
 }
+

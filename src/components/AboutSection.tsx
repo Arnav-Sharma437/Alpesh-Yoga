@@ -16,7 +16,7 @@ export default function AboutSection() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
         
         {/* Section Header */}
-        <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#c2272d] mb-6 tracking-tight uppercase">
+        <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#F7941D] mb-6 tracking-tight uppercase">
           About Alpesh Yoga
         </h2>
 
@@ -35,7 +35,7 @@ export default function AboutSection() {
           <ul className="space-y-3">
             {PROGRAMS.map((prog, idx) => (
               <li key={idx} className="flex items-start gap-3">
-                <span className="p-0.5 rounded-full bg-[#c2272d]/10 text-[#c2272d] mt-1 shrink-0">
+                <span className="p-0.5 rounded-full bg-[#F7941D]/10 text-[#F7941D] mt-1 shrink-0">
                   <Check className="w-3.5 h-3.5" />
                 </span>
                 <span className="font-sans text-sm text-gray-700 font-medium">{prog}</span>
@@ -47,7 +47,7 @@ export default function AboutSection() {
         {/* Read More Button */}
         <a
           href="/about"
-          className="inline-flex items-center justify-center px-6 py-2.5 rounded bg-[#c2272d] hover:bg-[#a11f24] text-white font-sans text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow"
+          className="inline-flex items-center justify-center px-6 py-2.5 rounded bg-[#F7941D] hover:bg-[#E07D0E] text-white font-sans text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow"
         >
           READ MORE
         </a>
@@ -56,3 +56,4 @@ export default function AboutSection() {
     </section>
   );
 }
+

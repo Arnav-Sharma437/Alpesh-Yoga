@@ -8,7 +8,7 @@ export default function IntensiveSection() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
         
         {/* Section Header */}
-        <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#c2272d] mb-6 tracking-tight uppercase leading-tight">
+        <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#F7941D] mb-6 tracking-tight uppercase leading-tight">
           Eight-days Intensive Hatha & Iyengar Yoga Program in India
         </h2>
 
@@ -24,7 +24,7 @@ export default function IntensiveSection() {
         {/* Read More Button */}
         <a
           href="/goa/8-day-intensive"
-          className="inline-flex items-center justify-center px-6 py-2.5 rounded bg-[#c2272d] hover:bg-[#a11f24] text-white font-sans text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow"
+          className="inline-flex items-center justify-center px-6 py-2.5 rounded bg-[#F7941D] hover:bg-[#E07D0E] text-white font-sans text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow"
         >
           READ MORE
         </a>
@@ -33,3 +33,4 @@ export default function IntensiveSection() {
     </section>
   );
 }
+

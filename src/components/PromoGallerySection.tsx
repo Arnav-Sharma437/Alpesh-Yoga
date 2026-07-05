@@ -41,7 +41,7 @@ export default function PromoGallerySection() {
             <h3 className="font-serif text-lg md:text-xl font-bold uppercase tracking-wider mb-2 leading-relaxed">
               View Our
             </h3>
-            <h4 className="font-serif text-xl md:text-2xl font-bold uppercase tracking-widest text-[#f58220] mb-4">
+            <h4 className="font-serif text-xl md:text-2xl font-bold uppercase tracking-widest text-[#F7941D] mb-4">
               Dates & Prices
             </h4>
             <p className="font-sans text-xs md:text-sm text-gray-300 mb-8 font-light leading-relaxed max-w-[240px]">
@@ -49,7 +49,7 @@ export default function PromoGallerySection() {
             </p>
             <a
               href="/dates-prices"
-              className="inline-flex items-center justify-center px-6 py-2.5 rounded bg-[#f58220] hover:bg-[#d46d14] text-white font-sans text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-md"
+              className="inline-flex items-center justify-center px-6 py-2.5 rounded bg-[#F7941D] hover:bg-[#E07D0E] text-white font-sans text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-md"
             >
               DATES & PRICES
             </a>
@@ -74,3 +74,4 @@ export default function PromoGallerySection() {
     </section>
   );
 }
+

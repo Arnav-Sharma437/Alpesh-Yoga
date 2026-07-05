@@ -10,7 +10,7 @@ export default function YogaAllianceSection() {
           
           {/* Left Column: Content */}
           <div className="space-y-6 text-left">
-            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#c2272d] uppercase tracking-tight leading-tight">
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#F7941D] uppercase tracking-tight leading-tight">
               Yoga Alliance Certification & Yoga Federation
             </h2>
             
@@ -25,7 +25,7 @@ export default function YogaAllianceSection() {
             <div className="pt-2">
               <a
                 href="/about"
-                className="inline-flex items-center justify-center px-6 py-2.5 rounded bg-[#c2272d] hover:bg-[#a11f24] text-white font-sans text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow"
+                className="inline-flex items-center justify-center px-6 py-2.5 rounded bg-[#F7941D] hover:bg-[#E07D0E] text-white font-sans text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow"
               >
                 READ MORE
               </a>
@@ -53,10 +53,9 @@ export default function YogaAllianceSection() {
             {/* Divider */}
             <div className="h-20 w-px bg-gray-200"></div>
 
-            {/* Logo 2: World Yoga Federation */}
             <div className="flex flex-col items-center text-center space-y-2">
-              <div className="w-24 h-24 rounded-full border-4 border-red-800/20 bg-white flex items-center justify-center p-3 shadow-sm">
-                <svg className="w-full h-full text-red-800" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <div className="w-24 h-24 rounded-full border-4 border-[#F7941D]/20 bg-white flex items-center justify-center p-3 shadow-sm">
+                <svg className="w-full h-full text-[#F7941D]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                   <polygon points="12,2 22,8.5 22,15.5 12,22 2,15.5 2,8.5" />
                   <circle cx="12" cy="12" r="4" />
                 </svg>
@@ -75,3 +74,4 @@ export default function YogaAllianceSection() {
     </section>
   );
 }
+

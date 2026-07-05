@@ -56,12 +56,10 @@ body {
 
 @keyframes page-enter {
   from {
-    opacity: 0.85;
-    transform: translateY(6px);
+    opacity: 0.95;
   }
   to {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 

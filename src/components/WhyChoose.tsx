@@ -9,12 +9,12 @@ export default function WhyChoose() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
         
         {/* Section Header */}
-        <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#c2272d] mb-4 tracking-tight uppercase">
+        <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#F7941D] mb-4 tracking-tight uppercase">
           YTTC in India & Intensive Yoga Retreats
         </h2>
 
         {/* Medal/Award Icon */}
-        <div className="mb-6 text-[#c2272d]">
+        <div className="mb-6 text-[#F7941D]">
           <Award className="w-12 h-12" />
         </div>
 
@@ -24,7 +24,7 @@ export default function WhyChoose() {
         </p>
 
         {/* Block Quote / Boxed Highlight */}
-        <div className="border-l-4 border-[#c2272d] bg-white p-6 rounded-r-xl shadow-sm text-left max-w-3xl mb-8">
+        <div className="border-l-4 border-[#F7941D] bg-white p-6 rounded-r-xl shadow-sm text-left max-w-3xl mb-8">
           <p className="font-sans text-sm sm:text-base text-gray-800 leading-relaxed italic font-normal">
             "Alpesh Yoga offers Yoga Alliance Registered Yoga Teacher Training Courses in India (Goa & Rishikesh) and Hatha Alignment Intensive Yoga Retreats. Under the direction of alignment master teacher Alpesh Patel, you will learn the exact science of body alignment, prop usage, adjustments, and sequencing to establish a safe and therapeutic yoga practice."
           </p>
@@ -33,7 +33,7 @@ export default function WhyChoose() {
         {/* Read More Button */}
         <a
           href="/about"
-          className="inline-flex items-center justify-center px-6 py-2.5 rounded bg-[#c2272d] hover:bg-[#a11f24] text-white font-sans text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow"
+          className="inline-flex items-center justify-center px-6 py-2.5 rounded bg-[#F7941D] hover:bg-[#E07D0E] text-white font-sans text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow"
         >
           READ MORE
         </a>
@@ -42,3 +42,4 @@ export default function WhyChoose() {
     </section>
   );
 }
+

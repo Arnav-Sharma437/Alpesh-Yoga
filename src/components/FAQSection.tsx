@@ -39,10 +39,10 @@ export default function FAQSection() {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 flex flex-col items-center">
-          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#c2272d] mb-4 tracking-tight uppercase">
+          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#F7941D] mb-4 tracking-tight uppercase">
             Frequently Asked Questions
           </h2>
-          <div className="mb-4 text-[#c2272d]">
+          <div className="mb-4 text-[#F7941D]">
             <HelpCircle className="w-8 h-8" />
           </div>
         </div>
@@ -58,10 +58,10 @@ export default function FAQSection() {
               >
                 <button
                   onClick={() => toggleFAQ(idx)}
-                  className="w-full flex items-center justify-between p-5 text-left font-sans font-semibold text-gray-800 hover:text-[#c2272d] transition-colors focus:outline-none"
+                  className="w-full flex items-center justify-between p-5 text-left font-sans font-semibold text-gray-800 hover:text-[#F7941D] transition-colors focus:outline-none"
                 >
                   <span>{faq.q}</span>
-                  <ChevronDown className={`w-4 h-4 text-gray-500 transition-transform duration-300 shrink-0 ml-4 ${isOpen ? "rotate-180 text-[#c2272d]" : ""}`} />
+                  <ChevronDown className={`w-4 h-4 text-gray-500 transition-transform duration-300 shrink-0 ml-4 ${isOpen ? "rotate-180 text-[#F7941D]" : ""}`} />
                 </button>
                 
                 <div 
@@ -80,3 +80,4 @@ export default function FAQSection() {
     </section>
   );
 }
+

@@ -10,7 +10,7 @@ export default function TeacherProfile() {
           
           {/* Left Column: Text Content */}
           <div className="space-y-6 text-left">
-            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#c2272d] uppercase tracking-tight">
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#F7941D] uppercase tracking-tight">
               Alpesh - Yoga Teacher
             </h2>
             
@@ -25,7 +25,7 @@ export default function TeacherProfile() {
             <div className="pt-2">
               <a
                 href="/about"
-                className="inline-flex items-center justify-center px-6 py-2.5 rounded bg-[#c2272d] hover:bg-[#a11f24] text-white font-sans text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow"
+                className="inline-flex items-center justify-center px-6 py-2.5 rounded bg-[#F7941D] hover:bg-[#E07D0E] text-white font-sans text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow"
               >
                 READ MORE
               </a>
@@ -48,3 +48,4 @@ export default function TeacherProfile() {
     </section>
   );
 }
+

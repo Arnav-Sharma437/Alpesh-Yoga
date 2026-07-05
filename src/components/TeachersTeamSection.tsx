@@ -28,10 +28,10 @@ export default function TeachersTeamSection() {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 flex flex-col items-center">
-          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#c2272d] mb-4 tracking-tight uppercase">
+          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#F7941D] mb-4 tracking-tight uppercase">
             Meet Our Yoga Teachers
           </h2>
-          <div className="mb-4 text-[#c2272d]">
+          <div className="mb-4 text-[#F7941D]">
             <Users className="w-8 h-8" />
           </div>
           <p className="font-sans text-sm sm:text-base text-gray-700 leading-relaxed font-light">
@@ -44,7 +44,7 @@ export default function TeachersTeamSection() {
           {TEACHERS.map((teacher, idx) => (
             <div key={idx} className="flex flex-col items-center text-center group">
               {/* Image with circular framing / mandala border */}
-              <div className="relative w-48 h-48 mb-6 rounded-full overflow-hidden border-4 border-[#c2272d]/10 group-hover:border-[#c2272d]/30 transition-colors duration-300 shadow-md">
+              <div className="relative w-48 h-48 mb-6 rounded-full overflow-hidden border-4 border-[#F7941D]/10 group-hover:border-[#F7941D]/30 transition-colors duration-300 shadow-md">
                 <img 
                   src={teacher.image} 
                   alt={teacher.name} 
@@ -53,7 +53,7 @@ export default function TeachersTeamSection() {
               </div>
 
               {/* Name badge (Solid red box with white text like the layout image) */}
-              <div className="bg-[#c2272d] text-white font-sans text-sm font-extrabold px-6 py-1.5 rounded-full shadow-sm mb-2 uppercase tracking-wide">
+              <div className="bg-[#F7941D] text-white font-sans text-sm font-extrabold px-6 py-1.5 rounded-full shadow-sm mb-2 uppercase tracking-wide">
                 {teacher.name}
               </div>
 
@@ -68,7 +68,7 @@ export default function TeachersTeamSection() {
         {/* Read More Button */}
         <a
           href="/about"
-          className="inline-flex items-center justify-center px-6 py-2.5 rounded bg-[#c2272d] hover:bg-[#a11f24] text-white font-sans text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow"
+          className="inline-flex items-center justify-center px-6 py-2.5 rounded bg-[#F7941D] hover:bg-[#E07D0E] text-white font-sans text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow"
         >
           READ MORE
         </a>
@@ -77,3 +77,4 @@ export default function TeachersTeamSection() {
     </section>
   );
 }
+

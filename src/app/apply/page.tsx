@@ -352,7 +352,7 @@ function ApplyFormContent() {
                 <p className="font-sans text-xs sm:text-sm text-cream-200/80 leading-relaxed max-w-xs mx-auto">
                   Thank you, <strong>{formData.fullName}</strong>. We have received your application for the <strong>{formData.program}</strong> ({formData.batch}).
                 </p>
-                <p className="font-sans text-[10px] text-red-300 font-bold uppercase tracking-widest pt-2">
+                <p className="font-sans text-[10px] text-[#F7941D] font-bold uppercase tracking-widest pt-2">
                   Responding on WhatsApp within 24 hours
                 </p>
               </div>
@@ -365,7 +365,7 @@ function ApplyFormContent() {
                 href={getWhatsAppDirectLink()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 w-full py-3.5 rounded-full bg-gradient-to-tr from-[#a11f24] to-[#c2272d] hover:from-[#c2272d] hover:to-[#e63037] text-white font-sans text-xs font-bold shadow-lg active:scale-95 transition-all"
+                className="flex items-center justify-center gap-2 w-full py-3.5 rounded-full bg-gradient-to-tr from-[#E07D0E] to-[#F7941D] hover:from-[#F7941D] hover:to-[#e63037] text-white font-sans text-xs font-bold shadow-lg active:scale-95 transition-all"
               >
                 <span>Instant Confirmation on WhatsApp</span>
               </a>
@@ -430,13 +430,13 @@ function ApplyFormContent() {
         <div className="px-6 py-4 space-y-2 border-b border-sage-100 bg-cream-50/40">
           <div className="flex justify-between items-center text-xs font-semibold text-forest-750">
             <span>Step {step} of 3</span>
-            <span className="text-[#c2272d] font-bold uppercase tracking-wider">
+            <span className="text-[#F7941D] font-bold uppercase tracking-wider">
               {step === 1 ? "Program & Personal" : step === 2 ? "Contact & Background" : "Health & Confirm"}
             </span>
           </div>
           <div className="w-full bg-sage-200 h-1.5 rounded-full overflow-hidden">
             <div 
-              className="bg-[#c2272d] h-full transition-all duration-300"
+              className="bg-[#F7941D] h-full transition-all duration-300"
               style={{ width: `${(step / 3) * 100}%` }}
             />
           </div>
@@ -992,7 +992,7 @@ function ApplyFormContent() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="flex-grow py-4 px-6 rounded-full bg-[#c2272d] hover:bg-[#a11f24] text-cream-50 font-sans text-xs font-bold shadow-lg hover:shadow-xl active:scale-95 transition-all flex items-center justify-center gap-2 disabled:bg-sage-300 disabled:shadow-none"
+                  className="flex-grow py-4 px-6 rounded-full bg-[#F7941D] hover:bg-[#E07D0E] text-cream-50 font-sans text-xs font-bold shadow-lg hover:shadow-xl active:scale-95 transition-all flex items-center justify-center gap-2 disabled:bg-sage-300 disabled:shadow-none"
                 >
                   {isSubmitting ? "Processing..." : "Submit Application"}
                 </button>
@@ -1001,7 +1001,7 @@ function ApplyFormContent() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-4 px-6 rounded-full bg-[#c2272d] hover:bg-[#a11f24] text-cream-50 font-sans text-base font-bold shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 cursor-pointer flex items-center justify-center gap-2 disabled:bg-sage-300 disabled:shadow-none disabled:-translate-y-0"
+                className="w-full py-4 px-6 rounded-full bg-[#F7941D] hover:bg-[#E07D0E] text-cream-50 font-sans text-base font-bold shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 cursor-pointer flex items-center justify-center gap-2 disabled:bg-sage-300 disabled:shadow-none disabled:-translate-y-0"
               >
                 {isSubmitting ? (
                   <>
@@ -1040,7 +1040,7 @@ function ApplyFormContent() {
         <button
           type="button"
           onClick={handleNextStep}
-          className="flex-grow py-4 rounded-full bg-[#c2272d] hover:bg-[#a11f24] text-white font-sans text-xs font-bold shadow-md active:scale-95 transition-transform"
+          className="flex-grow py-4 rounded-full bg-[#F7941D] hover:bg-[#E07D0E] text-white font-sans text-xs font-bold shadow-md active:scale-95 transition-transform"
         >
           Next Step
         </button>
@@ -1128,3 +1128,4 @@ export default function ApplyForm() {
     </>
   );
 }
+

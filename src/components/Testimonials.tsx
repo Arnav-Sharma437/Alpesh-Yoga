@@ -31,10 +31,10 @@ export default function Testimonials() {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 flex flex-col items-center">
-          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#c2272d] mb-4 tracking-tight uppercase">
+          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#F7941D] mb-4 tracking-tight uppercase">
             What our students say...
           </h2>
-          <div className="mb-4 text-[#c2272d]">
+          <div className="mb-4 text-[#F7941D]">
             <MessageSquare className="w-8 h-8" />
           </div>
           <p className="font-sans text-sm sm:text-base text-gray-700 leading-relaxed font-light">
@@ -51,7 +51,7 @@ export default function Testimonials() {
             >
               <div>
                 {/* Stars */}
-                <div className="flex gap-1 text-[#f58220] mb-4">
+                <div className="flex gap-1 text-[#F7941D] mb-4">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="w-4 h-4 fill-current" />
                   ))}
@@ -85,7 +85,7 @@ export default function Testimonials() {
         {/* See More Reviews Button */}
         <a
           href="/testimonials"
-          className="inline-flex items-center justify-center px-6 py-2.5 rounded bg-[#c2272d] hover:bg-[#a11f24] text-white font-sans text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow"
+          className="inline-flex items-center justify-center px-6 py-2.5 rounded bg-[#F7941D] hover:bg-[#E07D0E] text-white font-sans text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow"
         >
           SEE MORE REVIEWS
         </a>
@@ -94,3 +94,5 @@ export default function Testimonials() {
     </section>
   );
 }
+
+

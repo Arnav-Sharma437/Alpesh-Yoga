@@ -18,25 +18,25 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2.5 text-sm font-sans font-light text-gray-400">
               <li>
-                <a href="/" className="hover:text-[#c2272d] transition-colors">Home</a>
+                <a href="/" className="hover:text-[#F7941D] transition-colors">Home</a>
               </li>
               <li>
-                <a href="/about" className="hover:text-[#c2272d] transition-colors">About Us</a>
+                <a href="/about" className="hover:text-[#F7941D] transition-colors">About Us</a>
               </li>
               <li>
-                <a href="/dates-prices" className="hover:text-[#c2272d] transition-colors">Courses &amp; Dates</a>
+                <a href="/dates-prices" className="hover:text-[#F7941D] transition-colors">Courses &amp; Dates</a>
               </li>
               <li>
-                <a href="/retreats" className="hover:text-[#c2272d] transition-colors">Retreats</a>
+                <a href="/retreats" className="hover:text-[#F7941D] transition-colors">Retreats</a>
               </li>
               <li>
-                <a href="/about#gallery" className="hover:text-[#c2272d] transition-colors">Gallery</a>
+                <a href="/about#gallery" className="hover:text-[#F7941D] transition-colors">Gallery</a>
               </li>
               <li>
-                <a href="/#blog" className="hover:text-[#c2272d] transition-colors">Blog</a>
+                <a href="/#blog" className="hover:text-[#F7941D] transition-colors">Blog</a>
               </li>
               <li>
-                <a href="/contact" className="hover:text-[#c2272d] transition-colors">Contact Us</a>
+                <a href="/contact" className="hover:text-[#F7941D] transition-colors">Contact Us</a>
               </li>
             </ul>
           </div>
@@ -48,16 +48,16 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2.5 text-sm font-sans font-light text-gray-400">
               <li>
-                <a href="/goa/100-hour-ttc" className="hover:text-[#c2272d] transition-colors">100 Hour Yoga TTC</a>
+                <a href="/goa/100-hour-ttc" className="hover:text-[#F7941D] transition-colors">100 Hour Yoga TTC</a>
               </li>
               <li>
-                <a href="/goa/200-hour-yttc" className="hover:text-[#c2272d] transition-colors">200 Hour Yoga TTC</a>
+                <a href="/goa/200-hour-yttc" className="hover:text-[#F7941D] transition-colors">200 Hour Yoga TTC</a>
               </li>
               <li>
-                <a href="/dates-prices" className="hover:text-[#c2272d] transition-colors">300 Hour Yoga TTC</a>
+                <a href="/dates-prices" className="hover:text-[#F7941D] transition-colors">300 Hour Yoga TTC</a>
               </li>
               <li>
-                <a href="/dates-prices" className="hover:text-[#c2272d] transition-colors">500 Hour Yoga TTC</a>
+                <a href="/dates-prices" className="hover:text-[#F7941D] transition-colors">500 Hour Yoga TTC</a>
               </li>
             </ul>
           </div>
@@ -73,7 +73,7 @@ export default function Footer() {
               <div className="space-y-1">
                 <span className="font-bold text-white text-xs block uppercase tracking-wider">Goa Shala:</span>
                 <div className="flex gap-2 items-start text-xs">
-                  <MapPin className="w-4 h-4 text-[#c2272d] shrink-0 mt-0.5" />
+                  <MapPin className="w-4 h-4 text-[#F7941D] shrink-0 mt-0.5" />
                   <p>Madhlo Waddo, Arambol Beach, North Goa 403524</p>
                 </div>
               </div>
@@ -82,7 +82,7 @@ export default function Footer() {
               <div className="space-y-1">
                 <span className="font-bold text-white text-xs block uppercase tracking-wider">Dharamshala Shala:</span>
                 <div className="flex gap-2 items-start text-xs">
-                  <MapPin className="w-4 h-4 text-[#c2272d] shrink-0 mt-0.5" />
+                  <MapPin className="w-4 h-4 text-[#F7941D] shrink-0 mt-0.5" />
                   <p>Baldev House, Dharamkot, McLeod Ganj 176219</p>
                 </div>
               </div>
@@ -90,12 +90,12 @@ export default function Footer() {
               {/* General contact */}
               <div className="space-y-1.5 pt-2 border-t border-gray-800/50 text-xs">
                 <div className="flex gap-2 items-center">
-                  <Phone className="w-4 h-4 text-[#c2272d] shrink-0" />
-                  <a href="tel:+917719878500" className="hover:text-[#c2272d] transition-colors">+91 77198 78500</a>
+                  <Phone className="w-4 h-4 text-[#F7941D] shrink-0" />
+                  <a href="tel:+917719878500" className="hover:text-[#F7941D] transition-colors">+91 77198 78500</a>
                 </div>
                 <div className="flex gap-2 items-center">
-                  <Mail className="w-4 h-4 text-[#c2272d] shrink-0" />
-                  <a href="mailto:alpeshyoga@gmail.com" className="hover:text-[#c2272d] transition-colors">alpeshyoga@gmail.com</a>
+                  <Mail className="w-4 h-4 text-[#F7941D] shrink-0" />
+                  <a href="mailto:alpeshyoga@gmail.com" className="hover:text-[#F7941D] transition-colors">alpeshyoga@gmail.com</a>
                 </div>
               </div>
 
@@ -112,16 +112,16 @@ export default function Footer() {
           
           {/* Social Icons */}
           <div className="flex space-x-4 items-center">
-            <a href="https://facebook.com/alpeshyoga" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-gray-800 text-gray-400 hover:bg-[#c2272d] hover:text-white transition-colors">
+            <a href="https://facebook.com/alpeshyoga" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-gray-800 text-gray-400 hover:bg-[#F7941D] hover:text-white transition-colors">
               <Facebook className="w-4 h-4" />
             </a>
-            <a href="https://instagram.com/alpeshyogaindia" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-gray-800 text-gray-400 hover:bg-[#c2272d] hover:text-white transition-colors">
+            <a href="https://instagram.com/alpeshyogaindia" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-gray-800 text-gray-400 hover:bg-[#F7941D] hover:text-white transition-colors">
               <Instagram className="w-4 h-4" />
             </a>
-            <a href="https://youtube.com/alpeshyoga123" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-gray-800 text-gray-400 hover:bg-[#c2272d] hover:text-white transition-colors">
+            <a href="https://youtube.com/alpeshyoga123" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-gray-800 text-gray-400 hover:bg-[#F7941D] hover:text-white transition-colors">
               <Youtube className="w-4 h-4" />
             </a>
-            <a href="https://twitter.com/alpeshyoga" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-gray-800 text-gray-400 hover:bg-[#c2272d] hover:text-white transition-colors">
+            <a href="https://twitter.com/alpeshyoga" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-gray-800 text-gray-400 hover:bg-[#F7941D] hover:text-white transition-colors">
               <Twitter className="w-4 h-4" />
             </a>
           </div>
@@ -137,3 +137,4 @@ export default function Footer() {
     </footer>
   );
 }
+
