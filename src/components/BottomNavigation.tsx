@@ -27,7 +27,7 @@ export default function BottomNavigation() {
         <a 
           href="/" 
           className={`flex flex-col items-center justify-center w-12 h-12 active:scale-90 transition-transform ${
-            isHomeActive ? "text-terracotta-500" : "text-white/60 hover:text-white"
+            isHomeActive ? "text-[#c2272d]" : "text-white/60 hover:text-white"
           }`}
         >
           <Home className="w-5 h-5 mb-0.5" />
@@ -38,7 +38,7 @@ export default function BottomNavigation() {
         <a 
           href="/dates-prices" 
           className={`flex flex-col items-center justify-center w-12 h-12 active:scale-90 transition-transform ${
-            isCoursesActive ? "text-terracotta-500" : "text-white/60 hover:text-white"
+            isCoursesActive ? "text-[#c2272d]" : "text-white/60 hover:text-white"
           }`}
         >
           <Calendar className="w-5 h-5 mb-0.5" />
@@ -48,7 +48,7 @@ export default function BottomNavigation() {
         {/* Tab 3: Center Highlighted Apply CTA */}
         <a 
           href="/apply" 
-          className={`relative -top-4 flex flex-col items-center justify-center w-14 h-14 rounded-full bg-gradient-to-tr from-terracotta-600 to-terracotta-500 text-white shadow-lg active:scale-95 transition-transform border-4 border-black z-50`}
+          className={`relative -top-4 flex flex-col items-center justify-center w-14 h-14 rounded-full bg-gradient-to-tr from-[#a11f24] to-[#c2272d] text-white shadow-lg active:scale-95 transition-transform border-4 border-black z-50`}
         >
           <ClipboardList className="w-5.5 h-5.5" />
           <span className="text-[8px] font-sans font-bold uppercase tracking-wider mt-0.5">Apply</span>
@@ -58,7 +58,7 @@ export default function BottomNavigation() {
         <button 
           onClick={() => setShowLocationsModal(true)}
           className={`flex flex-col items-center justify-center w-12 h-12 active:scale-90 transition-transform cursor-pointer ${
-            isLocationsActive ? "text-terracotta-500" : "text-white/60 hover:text-white"
+            isLocationsActive ? "text-[#c2272d]" : "text-white/60 hover:text-white"
           }`}
         >
           <MapPin className="w-5 h-5 mb-0.5" />
@@ -94,7 +94,7 @@ export default function BottomNavigation() {
             {/* Header indicators */}
             <div className="flex items-center justify-between border-b border-forest-800 pb-3">
               <div className="flex items-center gap-2">
-                <MapPin className="w-5 h-5 text-terracotta-500" />
+                <MapPin className="w-5 h-5 text-[#c2272d]" />
                 <h4 className="font-serif font-bold text-base text-white">Select Training Location</h4>
               </div>
               <button 
@@ -112,9 +112,9 @@ export default function BottomNavigation() {
               <a 
                 href="/dharamshala"
                 onClick={() => setShowLocationsModal(false)}
-                className="flex items-center gap-4 p-4 rounded-2xl bg-forest-850 hover:bg-forest-800 border border-forest-800 hover:border-terracotta-500/30 transition-all group"
+                className="flex items-center gap-4 p-4 rounded-2xl bg-forest-850 hover:bg-forest-800 border border-forest-800 hover:border-[#c2272d]/30 transition-all group"
               >
-                <div className="p-3 bg-terracotta-500/10 text-terracotta-500 rounded-xl group-hover:bg-terracotta-500/20">
+                <div className="p-3 bg-[#c2272d]/10 text-[#c2272d] rounded-xl group-hover:bg-[#c2272d]/20">
                   <Compass className="w-5 h-5" />
                 </div>
                 <div>
@@ -127,7 +127,7 @@ export default function BottomNavigation() {
               <a 
                 href="/goa"
                 onClick={() => setShowLocationsModal(false)}
-                className="flex items-center gap-4 p-4 rounded-2xl bg-forest-850 hover:bg-forest-800 border border-forest-800 hover:border-terracotta-500/30 transition-all group"
+                className="flex items-center gap-4 p-4 rounded-2xl bg-forest-850 hover:bg-forest-800 border border-forest-800 hover:border-[#c2272d]/30 transition-all group"
               >
                 <div className="p-3 bg-sage-500/10 text-sage-500 rounded-xl group-hover:bg-sage-500/20">
                   <Waves className="w-5 h-5" />
