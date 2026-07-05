@@ -10,7 +10,7 @@ export default function FloatingWhatsApp() {
     <div className="fixed bottom-6 right-6 z-50 font-sans">
       {/* Popover Card */}
       {isOpen && (
-        <div className="absolute bottom-16 right-0 w-80 bg-cream-50 rounded-2xl shadow-2xl border border-sage-100 overflow-hidden transition-all duration-300 animate-in fade-in slide-in-from-bottom-5">
+        <div className="absolute bottom-16 right-0 w-[calc(100vw-3rem)] sm:w-80 bg-cream-50 rounded-2xl shadow-2xl border border-sage-100 overflow-hidden transition-all duration-300 animate-in fade-in slide-in-from-bottom-5">
           {/* Header */}
           <div className="bg-forest-600 p-4 text-cream-50 flex items-center justify-between">
             <div>

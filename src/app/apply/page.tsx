@@ -290,12 +290,12 @@ function ApplyFormContent() {
     <div className="max-w-3xl mx-auto bg-white border border-sage-100 rounded-3xl shadow-xl overflow-hidden">
       
       {/* Header Banner */}
-      <div className="bg-forest-600 px-8 py-8 text-cream-50 text-center relative border-b border-forest-700">
-        <h2 className="font-serif text-2xl font-bold">Alpesh Yoga Enrollment Form</h2>
+      <div className="bg-forest-600 px-4 py-6 sm:px-8 sm:py-8 text-cream-50 text-center relative border-b border-forest-700">
+        <h2 className="font-serif text-xl sm:text-2xl font-bold">Alpesh Yoga Enrollment Form</h2>
         <p className="font-sans text-xs text-cream-200/80 mt-1">Please fill in the form carefully. Fields marked with <span className="text-red-500 font-bold">*</span> are required.</p>
       </div>
 
-      <form onSubmit={handleSubmit} className="p-8 space-y-6 text-sm font-sans text-forest-600">
+      <form onSubmit={handleSubmit} className="p-4 sm:p-8 space-y-6 text-sm font-sans text-forest-600">
         
         {/* SECTION 1: Program details */}
         <div className="space-y-4">

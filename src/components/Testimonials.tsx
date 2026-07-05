@@ -96,23 +96,23 @@ export default function Testimonials() {
           </div>
 
           {/* Left/Right Buttons */}
-          <div className="absolute top-1/2 -translate-y-1/2 -left-4 md:-left-6">
+          <div className="absolute top-1/2 -translate-y-1/2 left-1 sm:-left-4 md:-left-6 z-20">
             <button
               onClick={handlePrev}
-              className="p-3 rounded-full bg-white border border-sage-100 text-forest-600 hover:text-terracotta-600 hover:shadow-md transition-all duration-200 cursor-pointer"
+              className="p-2.5 sm:p-3 rounded-full bg-white border border-sage-100 text-forest-600 hover:text-terracotta-600 hover:shadow-md transition-all duration-200 cursor-pointer"
               aria-label="Previous slide"
             >
-              <ChevronLeft className="w-5 h-5" />
+              <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
           </div>
 
-          <div className="absolute top-1/2 -translate-y-1/2 -right-4 md:-right-6">
+          <div className="absolute top-1/2 -translate-y-1/2 right-1 sm:-right-4 md:-right-6 z-20">
             <button
               onClick={handleNext}
-              className="p-3 rounded-full bg-white border border-sage-100 text-forest-600 hover:text-terracotta-600 hover:shadow-md transition-all duration-200 cursor-pointer"
+              className="p-2.5 sm:p-3 rounded-full bg-white border border-sage-100 text-forest-600 hover:text-terracotta-600 hover:shadow-md transition-all duration-200 cursor-pointer"
               aria-label="Next slide"
             >
-              <ChevronRight className="w-5 h-5" />
+              <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
           </div>
 

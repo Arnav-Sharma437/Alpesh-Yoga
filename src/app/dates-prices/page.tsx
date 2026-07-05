@@ -91,8 +91,8 @@ export default function DatesPricesPage() {
               </h2>
             </div>
 
-            {/* Comparison Table */}
-            <div className="overflow-hidden border border-sage-200 rounded-3xl shadow-sm bg-cream-50/20 max-w-4xl mx-auto">
+            {/* Desktop Table (md and above) */}
+            <div className="hidden md:block overflow-hidden border border-sage-200 rounded-3xl shadow-sm bg-cream-50/20 max-w-4xl mx-auto">
               <table className="w-full text-left border-collapse font-sans text-sm text-forest-600">
                 <thead>
                   <tr className="bg-forest-750 text-white font-serif text-sm font-semibold border-b border-forest-850">
@@ -113,6 +113,30 @@ export default function DatesPricesPage() {
                   ))}
                 </tbody>
               </table>
+            </div>
+
+            {/* Mobile Stacked Cards (below md) */}
+            <div className="md:hidden space-y-6 max-w-md mx-auto">
+              {coursesPricing.map((item, idx) => (
+                <div key={idx} className="bg-cream-50/30 p-6 rounded-2xl border border-sage-200 shadow-sm space-y-4">
+                  <div className="border-b border-sage-100 pb-3 flex justify-between items-center">
+                    <h3 className="font-serif text-base font-bold text-forest-750">{item.name}</h3>
+                    <span className="text-[10px] uppercase font-bold tracking-wider bg-sage-50 text-sage-700 px-2 py-0.5 rounded-full">
+                      {item.duration}
+                    </span>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4 text-xs">
+                    <div>
+                      <span className="text-[10px] uppercase tracking-wider text-sage-500 block mb-0.5">Dharamshala</span>
+                      <span className="font-mono font-bold text-terracotta-650">{item.dharamsalaPrice}</span>
+                    </div>
+                    <div>
+                      <span className="text-[10px] uppercase tracking-wider text-sage-500 block mb-0.5">Goa</span>
+                      <span className="font-mono font-bold text-forest-750">{item.goaPrice}</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
 
           </div>
