@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown, Facebook, Instagram, Youtube, Twitter } from "lucide-react";
+import { Menu, X, Phone, Mail, ChevronDown, Facebook, Instagram, Youtube, Twitter } from "lucide-react";
 
 export default function Header() {
   const pathname = usePathname();
@@ -11,7 +11,8 @@ export default function Header() {
   
   // Mobile accordion states
   const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
-  const [mobileCoursesOpen, setMobileCoursesOpen] = useState(false);
+  const [mobileGoaOpen, setMobileGoaOpen] = useState(false);
+  const [mobileDharamshalaOpen, setMobileDharamshalaOpen] = useState(false);
   const [mobileRetreatsOpen, setMobileRetreatsOpen] = useState(false);
 
   useEffect(() => {
@@ -22,35 +23,61 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const isHome = pathname === "/";
+  const isHeaderActive = isScrolled || isOpen || !isHome;
+
   const getHomeHref = () => "/";
 
   return (
     <div className="fixed top-0 left-0 right-0 z-50 flex flex-col">
-      {/* 1. Slim Top Utility Bar - Solid Red Background */}
-      <div className="bg-[#F7941D] text-white text-[12px] py-2 px-4 shadow-sm">
-        <div className="max-w-7xl mx-auto flex justify-between items-center font-sans">
-          <div className="flex space-x-6">
-            <span className="hidden sm:inline font-medium">Yoga Alliance Certified School in India</span>
+      {/* 1. Slim Top Utility Bar (visible on desktop md+) */}
+      <div className={`hidden md:block transition-all duration-300 ${
+        isHeaderActive 
+          ? "bg-forest-950/98 text-sage-200 border-b border-forest-800" 
+          : "bg-black/25 text-cream-100 border-b border-white/5"
+      } text-[11px] py-2`}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+          <div className="flex space-x-6 font-sans">
+            <a href="tel:+917719878500" className="hover:text-[#F7941D] transition-colors flex items-center gap-1.5 font-medium">
+              <Phone className="w-3.5 h-3.5 text-[#F7941D]" />
+              <span>Support: +91 77198 78500</span>
+            </a>
+            <a href="mailto:alpeshyoga@gmail.com" className="hover:text-[#F7941D] transition-colors flex items-center gap-1.5 font-medium">
+              <Mail className="w-3.5 h-3.5 text-[#F7941D]" />
+              <span>Email: alpeshyoga@gmail.com</span>
+            </a>
           </div>
           <div className="flex space-x-4 items-center">
             <a href="https://facebook.com/alpeshyoga" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
-              <Facebook className="w-4 h-4" />
+              <Facebook className="w-3.5 h-3.5 text-sage-200 hover:text-[#F7941D]" />
             </a>
             <a href="https://instagram.com/alpeshyogaindia" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
-              <Instagram className="w-4 h-4" />
+              <Instagram className="w-3.5 h-3.5 text-sage-200 hover:text-[#F7941D]" />
             </a>
             <a href="https://youtube.com/alpeshyoga123" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
-              <Youtube className="w-4 h-4" />
+              <Youtube className="w-3.5 h-3.5 text-sage-200 hover:text-[#F7941D]" />
             </a>
             <a href="https://twitter.com/alpeshyoga" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
-              <Twitter className="w-4 h-4" />
+              <Twitter className="w-3.5 h-3.5 text-sage-200 hover:text-[#F7941D]" />
+            </a>
+            <a 
+              href="/apply" 
+              className="bg-[#F7941D] hover:bg-[#E07D0E] text-white font-bold px-3 py-1 rounded transition-colors text-[9px] uppercase tracking-wider ml-4"
+            >
+              Apply Now
             </a>
           </div>
         </div>
       </div>
 
-      {/* 2. Main Navigation Bar - Solid White Background */}
-      <header className="bg-white border-b border-gray-100 shadow-md">
+      {/* 2. Main Navigation Bar */}
+      <header
+        className={`transition-colors duration-300 ${
+          isHeaderActive
+            ? "glassmorphism border-b border-forest-800/40 shadow-sm"
+            : "bg-transparent border-b border-transparent"
+        }`}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20 gap-4">
             
@@ -59,15 +86,15 @@ export default function Header() {
               <img 
                 src="/logo/alpesh-logo.jpeg" 
                 alt="Alpesh Yoga Logo" 
-                className="h-16 w-auto rounded-full object-contain" 
+                className="h-14 w-auto rounded-lg object-contain bg-transparent" 
               />
             </a>
 
             {/* Desktop Nav Items */}
-            <nav className="hidden xl:flex items-center space-x-6">
+            <nav className="hidden xl:flex items-center space-x-5">
               <a
                 href={getHomeHref()}
-                className="font-sans text-sm font-semibold text-gray-800 hover:text-[#F7941D] transition-colors"
+                className="font-sans text-xs xl:text-sm font-semibold text-white/95 hover:text-[#F7941D] transition-colors"
               >
                 Home
               </a>
@@ -75,87 +102,119 @@ export default function Header() {
               {/* About Us Dropdown */}
               <div className="relative group py-2">
                 <button
-                  className="flex items-center gap-1 font-sans text-sm font-semibold text-gray-800 hover:text-[#F7941D] transition-colors cursor-pointer"
+                  className="flex items-center gap-1 font-sans text-xs xl:text-sm font-semibold text-white/95 hover:text-[#F7941D] transition-colors cursor-pointer"
                 >
                   <span>About Us</span>
-                  <ChevronDown className="w-3.5 h-3.5 transition-transform group-hover:rotate-180 text-gray-500" />
+                  <ChevronDown className="w-3 h-3 transition-transform group-hover:rotate-180 text-[#F7941D]" />
                 </button>
-                <div className="absolute top-full left-0 bg-white border border-gray-150 shadow-xl rounded-xl p-3 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 mt-1 space-y-1">
-                  <a href="/about" className="block text-xs text-gray-700 hover:text-[#F7941D] hover:bg-gray-50 rounded px-2.5 py-1.5 transition-colors font-medium">About Us</a>
-                  <a href="/testimonials" className="block text-xs text-gray-700 hover:text-[#F7941D] hover:bg-gray-50 rounded px-2.5 py-1.5 transition-colors font-medium">Testimonials</a>
-                  <a href="/about#gallery" className="block text-xs text-gray-700 hover:text-[#F7941D] hover:bg-gray-50 rounded px-2.5 py-1.5 transition-colors font-medium">Gallery</a>
+                <div className="absolute top-full left-0 bg-forest-700 border border-forest-600 shadow-xl rounded-2xl p-4 w-52 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 mt-1 space-y-1">
+                  <a href="/about" className="block text-xs text-white/80 hover:text-[#F7941D] font-semibold py-1.5 transition-colors">About Us</a>
+                  <a href="/testimonials" className="block text-xs text-white/80 hover:text-[#F7941D] font-semibold py-1.5 transition-colors">Testimonials</a>
+                  <a href="/about#gallery" className="block text-xs text-white/80 hover:text-[#F7941D] font-semibold py-1.5 transition-colors">Gallery</a>
                 </div>
               </div>
 
-              {/* Courses & Dates Dropdown */}
+              {/* YTTC in Goa Dropdown */}
               <div className="relative group py-2">
                 <button
-                  className="flex items-center gap-1 font-sans text-sm font-semibold text-gray-800 hover:text-[#F7941D] transition-colors cursor-pointer"
+                  className="flex items-center gap-1 font-sans text-xs xl:text-sm font-semibold text-white/95 hover:text-[#F7941D] transition-colors cursor-pointer"
                 >
-                  <span>Courses & Dates</span>
-                  <ChevronDown className="w-3.5 h-3.5 transition-transform group-hover:rotate-180 text-gray-500" />
+                  <span>YTTC in Goa</span>
+                  <ChevronDown className="w-3 h-3 transition-transform group-hover:rotate-180 text-[#F7941D]" />
                 </button>
-                <div className="absolute top-full left-0 bg-white border border-gray-150 shadow-xl rounded-xl p-3 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 mt-1 space-y-1">
-                  <a href="/dates-prices" className="block text-xs text-gray-700 hover:text-[#F7941D] hover:bg-gray-50 rounded px-2.5 py-1.5 transition-colors font-medium">All Batch Dates & Prices</a>
-                  <a href="/goa/100-hour-ttc" className="block text-xs text-gray-700 hover:text-[#F7941D] hover:bg-gray-50 rounded px-2.5 py-1.5 transition-colors font-medium">100-Hour TTC</a>
-                  <a href="/goa/200-hour-yttc" className="block text-xs text-gray-700 hover:text-[#F7941D] hover:bg-gray-50 rounded px-2.5 py-1.5 transition-colors font-medium">200-Hour YTTC</a>
-                  <a href="/goa/8-day-intensive" className="block text-xs text-gray-700 hover:text-[#F7941D] hover:bg-gray-50 rounded px-2.5 py-1.5 transition-colors font-medium">8-Day Intensive Course</a>
+                <div className="absolute top-full left-0 bg-forest-700 border border-forest-600 shadow-xl rounded-2xl p-4 w-60 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 mt-1 space-y-1">
+                  <a href="/goa/daily-classes" className="block text-xs text-white/80 hover:text-[#F7941D] font-semibold py-1.5 transition-colors">Daily Drop-in Classes</a>
+                  <a href="/goa/8-day-intensive" className="block text-xs text-white/80 hover:text-[#F7941D] font-semibold py-1.5 transition-colors">8-Day Intensive Course</a>
+                  <a href="/goa/100-hour-ttc" className="block text-xs text-white/80 hover:text-[#F7941D] font-semibold py-1.5 transition-colors">100-Hour TTC</a>
+                  <a href="/goa/200-hour-yttc" className="block text-xs text-white/80 hover:text-[#F7941D] font-semibold py-1.5 transition-colors">200-Hour YTTC</a>
+                  <a href="/goa/therapeutic-yoga" className="block text-xs text-white/80 hover:text-[#F7941D] font-semibold py-1.5 transition-colors">Therapeutic Yoga</a>
+                </div>
+              </div>
+
+              {/* YTTC in Dharamshala Dropdown */}
+              <div className="relative group py-2">
+                <button
+                  className="flex items-center gap-1 font-sans text-xs xl:text-sm font-semibold text-white/95 hover:text-[#F7941D] transition-colors cursor-pointer"
+                >
+                  <span>YTTC in Dharamshala</span>
+                  <ChevronDown className="w-3 h-3 transition-transform group-hover:rotate-180 text-[#F7941D]" />
+                </button>
+                <div className="absolute top-full left-0 bg-forest-700 border border-forest-600 shadow-xl rounded-2xl p-4 w-60 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 mt-1 space-y-1">
+                  <a href="/dharamshala/daily-classes" className="block text-xs text-white/80 hover:text-[#F7941D] font-semibold py-1.5 transition-colors">Daily Drop-in Classes</a>
+                  <a href="/dharamshala/8-day-intensive" className="block text-xs text-white/80 hover:text-[#F7941D] font-semibold py-1.5 transition-colors">8-Day Intensive Course</a>
+                  <a href="/dharamshala/100-hour-ttc" className="block text-xs text-white/80 hover:text-[#F7941D] font-semibold py-1.5 transition-colors">100-Hour TTC</a>
+                  <a href="/dharamshala/200-hour-yttc" className="block text-xs text-white/80 hover:text-[#F7941D] font-semibold py-1.5 transition-colors">200-Hour YTTC</a>
+                  <a href="/dharamshala/therapeutic-yoga" className="block text-xs text-white/80 hover:text-[#F7941D] font-semibold py-1.5 transition-colors">Therapeutic Yoga</a>
                 </div>
               </div>
 
               {/* Retreats Dropdown */}
               <div className="relative group py-2">
                 <button
-                  className="flex items-center gap-1 font-sans text-sm font-semibold text-gray-800 hover:text-[#F7941D] transition-colors cursor-pointer"
+                  className="flex items-center gap-1 font-sans text-xs xl:text-sm font-semibold text-white/95 hover:text-[#F7941D] transition-colors cursor-pointer"
                 >
                   <span>Retreats</span>
-                  <ChevronDown className="w-3.5 h-3.5 transition-transform group-hover:rotate-180 text-gray-500" />
+                  <ChevronDown className="w-3 h-3 transition-transform group-hover:rotate-180 text-[#F7941D]" />
                 </button>
-                <div className="absolute top-full left-0 bg-white border border-gray-150 shadow-xl rounded-xl p-3 w-52 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 mt-1 space-y-1">
-                  <a href="/retreats#goa" className="block text-xs text-gray-700 hover:text-[#F7941D] hover:bg-gray-50 rounded px-2.5 py-1.5 transition-colors font-medium">Yoga Retreat in Goa</a>
-                  <a href="/retreats#rishikesh" className="block text-xs text-gray-700 hover:text-[#F7941D] hover:bg-gray-50 rounded px-2.5 py-1.5 transition-colors font-medium">Yoga Retreat in Rishikesh</a>
+                <div className="absolute top-full left-0 bg-forest-700 border border-forest-600 shadow-xl rounded-2xl p-4 w-60 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 mt-1 space-y-1">
+                  <a href="/retreats#6-day" className="block text-xs text-white/80 hover:text-[#F7941D] font-semibold py-1.5 transition-colors">6-Day Yoga Retreat</a>
+                  <a href="/retreats#10-day" className="block text-xs text-white/80 hover:text-[#F7941D] font-semibold py-1.5 transition-colors">10-Day Yoga Retreat</a>
+                  <a href="/retreats#5-day" className="block text-xs text-white/80 hover:text-[#F7941D] font-semibold py-1.5 transition-colors">5-Day Pranayama Course</a>
                 </div>
               </div>
 
               <a
-                href="/about#gallery"
-                className="font-sans text-sm font-semibold text-gray-800 hover:text-[#F7941D] transition-colors"
+                href="/daily-classes"
+                className="font-sans text-xs xl:text-sm font-semibold text-white/95 hover:text-[#F7941D] transition-colors"
               >
-                Gallery
+                Drop-In
               </a>
 
               <a
-                href="/#blog"
-                className="font-sans text-sm font-semibold text-gray-800 hover:text-[#F7941D] transition-colors"
+                href="/dates-prices"
+                className="font-sans text-xs xl:text-sm font-semibold text-white/95 hover:text-[#F7941D] transition-colors"
               >
-                Blog
+                Dates & Price
               </a>
 
               <a
                 href="/contact"
-                className="font-sans text-sm font-semibold text-gray-800 hover:text-[#F7941D] transition-colors"
+                className="font-sans text-xs xl:text-sm font-semibold text-white/95 hover:text-[#F7941D] transition-colors"
               >
                 Contact Us
               </a>
             </nav>
 
-            {/* Enroll Now CTA button (Red) */}
-            <div className="hidden md:flex items-center shrink-0">
+            {/* Enroll Now CTA button */}
+            <div className="hidden sm:flex items-center shrink-0">
               <a
                 href="/apply"
-                className="inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-[#F7941D] hover:bg-[#E07D0E] text-white font-sans text-sm font-bold shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer"
+                className="inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-[#F7941D] hover:bg-[#E07D0E] text-white font-sans text-xs font-bold shadow-md transition-all duration-300 cursor-pointer hover:shadow-lg hover:-translate-y-[1px]"
               >
                 <span>Apply Now</span>
               </a>
             </div>
 
-            {/* Mobile Actions Container */}
+            {/* Mobile Actions Container (visible below xl) */}
             <div className="flex xl:hidden items-center gap-2 shrink-0">
+              {/* WhatsApp Quick Launcher */}
+              <a
+                href="https://wa.me/917719878500?text=Hi%20Alpesh%20Yoga%2C%20I'm%20contacting%20you%20from%20the%2520header%20link."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="md:hidden p-2 rounded-full bg-[#25D366] text-white hover:bg-[#20ba59] active:scale-90 transition-transform shadow-md flex items-center justify-center"
+                aria-label="WhatsApp Chat"
+              >
+                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.458 5.704 1.459h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                </svg>
+              </a>
+
               {/* Mobile Menu Toggle Button */}
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 type="button"
-                className="focus:outline-none p-2 rounded-md transition-colors text-gray-800 hover:text-[#F7941D]"
+                className="focus:outline-none p-2 rounded-md transition-colors text-white hover:text-[#F7941D]"
                 aria-label="Toggle menu"
               >
                 {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -175,7 +234,7 @@ export default function Header() {
 
         {/* Slide-in Mobile Side-Drawer */}
         <div
-          className={`fixed top-0 right-0 h-full w-72 bg-white border-l border-gray-150 shadow-2xl z-50 p-6 flex flex-col justify-between transition-all duration-300 ease-in-out xl:hidden ${
+          className={`fixed top-0 right-0 h-full w-72 bg-forest-950/98 border-l border-forest-850 shadow-2xl z-50 p-6 flex flex-col justify-between transition-all duration-300 ease-in-out xl:hidden ${
             isOpen 
               ? "translate-x-0 opacity-100 visible pointer-events-auto" 
               : "translate-x-full opacity-0 invisible pointer-events-none"
@@ -185,15 +244,15 @@ export default function Header() {
           <div className="overflow-y-auto max-h-[85vh] space-y-6">
             
             {/* Drawer Header */}
-            <div className="flex items-center justify-between border-b border-gray-100 pb-4 mb-4">
+            <div className="flex items-center justify-between border-b border-forest-850 pb-4 mb-4">
               <img 
                 src="/logo/alpesh-logo.jpeg" 
                 alt="Alpesh Yoga Logo" 
-                className="h-12 w-auto rounded-full"
+                className="h-10 w-auto rounded-lg"
               />
               <button 
                 onClick={() => setIsOpen(false)}
-                className="p-1.5 rounded-full bg-gray-50 text-gray-500 hover:text-gray-800"
+                className="p-1.5 rounded-full bg-forest-900 text-white/70 hover:text-white"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -204,7 +263,7 @@ export default function Header() {
               <a
                 href="/"
                 onClick={() => setIsOpen(false)}
-                className="block px-3 py-2 rounded-md text-base font-semibold text-gray-800 hover:bg-gray-50 hover:text-[#F7941D] transition-all duration-200"
+                className="block px-3 py-2 rounded-md text-base font-semibold text-white hover:bg-forest-800 hover:text-[#F7941D] transition-all duration-200"
               >
                 Home
               </a>
@@ -213,35 +272,56 @@ export default function Header() {
               <div className="space-y-1">
                 <button
                   onClick={() => setMobileAboutOpen(!mobileAboutOpen)}
-                  className="flex items-center justify-between w-full px-3 py-2 rounded-md text-base font-semibold text-gray-800 hover:bg-gray-50 hover:text-[#F7941D]"
+                  className="flex items-center justify-between w-full px-3 py-2 rounded-md text-base font-semibold text-white hover:bg-forest-800 hover:text-[#F7941D]"
                 >
                   <span>About Us</span>
                   <ChevronDown className={`w-4 h-4 transition-transform duration-200 text-[#F7941D] ${mobileAboutOpen ? "rotate-180" : ""}`} />
                 </button>
                 {mobileAboutOpen && (
                   <div className="pl-6 space-y-1.5 animate-in slide-in-from-top-1 duration-200">
-                    <a href="/about" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-gray-600 hover:text-[#F7941D] font-semibold">About Us</a>
-                    <a href="/testimonials" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-gray-600 hover:text-[#F7941D] font-semibold">Testimonials</a>
-                    <a href="/about#gallery" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-gray-600 hover:text-[#F7941D] font-semibold">Gallery</a>
+                    <a href="/about" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-[#F7941D] font-semibold">About Us</a>
+                    <a href="/testimonials" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-[#F7941D] font-semibold">Testimonials</a>
+                    <a href="/about#gallery" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-[#F7941D] font-semibold">Gallery</a>
                   </div>
                 )}
               </div>
 
-              {/* Courses Mobile Accordion */}
+              {/* Goa Mobile Accordion */}
               <div className="space-y-1">
                 <button
-                  onClick={() => setMobileCoursesOpen(!mobileCoursesOpen)}
-                  className="flex items-center justify-between w-full px-3 py-2 rounded-md text-base font-semibold text-gray-800 hover:bg-gray-50 hover:text-[#F7941D]"
+                  onClick={() => setMobileGoaOpen(!mobileGoaOpen)}
+                  className="flex items-center justify-between w-full px-3 py-2 rounded-md text-base font-semibold text-white hover:bg-forest-800 hover:text-[#F7941D]"
                 >
-                  <span>Courses & Dates</span>
-                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 text-[#F7941D] ${mobileCoursesOpen ? "rotate-180" : ""}`} />
+                  <span>YTTC in Goa</span>
+                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 text-[#F7941D] ${mobileGoaOpen ? "rotate-180" : ""}`} />
                 </button>
-                {mobileCoursesOpen && (
+                {mobileGoaOpen && (
                   <div className="pl-6 space-y-1.5 animate-in slide-in-from-top-1 duration-200">
-                    <a href="/dates-prices" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-gray-600 hover:text-[#F7941D] font-semibold">All Dates & Prices</a>
-                    <a href="/goa/100-hour-ttc" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-gray-600 hover:text-[#F7941D] font-semibold">100-Hour TTC</a>
-                    <a href="/goa/200-hour-yttc" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-gray-600 hover:text-[#F7941D] font-semibold">200-Hour YTTC</a>
-                    <a href="/goa/8-day-intensive" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-gray-600 hover:text-[#F7941D] font-semibold">8-Day Intensive Course</a>
+                    <a href="/goa/daily-classes" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-[#F7941D] font-semibold">Daily Drop-in Classes</a>
+                    <a href="/goa/8-day-intensive" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-[#F7941D] font-semibold">8-Day Intensive Course</a>
+                    <a href="/goa/100-hour-ttc" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-[#F7941D] font-semibold">100-Hour TTC</a>
+                    <a href="/goa/200-hour-yttc" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-[#F7941D] font-semibold">200-Hour YTTC</a>
+                    <a href="/goa/therapeutic-yoga" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-[#F7941D] font-semibold">Therapeutic Yoga</a>
+                  </div>
+                )}
+              </div>
+
+              {/* Dharamshala Mobile Accordion */}
+              <div className="space-y-1">
+                <button
+                  onClick={() => setMobileDharamshalaOpen(!mobileDharamshalaOpen)}
+                  className="flex items-center justify-between w-full px-3 py-2 rounded-md text-base font-semibold text-white hover:bg-forest-800 hover:text-[#F7941D]"
+                >
+                  <span>YTTC in Dharamshala</span>
+                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 text-[#F7941D] ${mobileDharamshalaOpen ? "rotate-180" : ""}`} />
+                </button>
+                {mobileDharamshalaOpen && (
+                  <div className="pl-6 space-y-1.5 animate-in slide-in-from-top-1 duration-200">
+                    <a href="/dharamshala/daily-classes" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-[#F7941D] font-semibold">Daily Drop-in Classes</a>
+                    <a href="/dharamshala/8-day-intensive" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-[#F7941D] font-semibold">8-Day Intensive Course</a>
+                    <a href="/dharamshala/100-hour-ttc" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-[#F7941D] font-semibold">100-Hour TTC</a>
+                    <a href="/dharamshala/200-hour-yttc" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-[#F7941D] font-semibold">200-Hour YTTC</a>
+                    <a href="/dharamshala/therapeutic-yoga" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-[#F7941D] font-semibold">Therapeutic Yoga</a>
                   </div>
                 )}
               </div>
@@ -250,39 +330,40 @@ export default function Header() {
               <div className="space-y-1">
                 <button
                   onClick={() => setMobileRetreatsOpen(!mobileRetreatsOpen)}
-                  className="flex items-center justify-between w-full px-3 py-2 rounded-md text-base font-semibold text-gray-800 hover:bg-gray-50 hover:text-[#F7941D]"
+                  className="flex items-center justify-between w-full px-3 py-2 rounded-md text-base font-semibold text-white hover:bg-forest-800 hover:text-[#F7941D]"
                 >
                   <span>Retreats</span>
                   <ChevronDown className={`w-4 h-4 transition-transform duration-200 text-[#F7941D] ${mobileRetreatsOpen ? "rotate-180" : ""}`} />
                 </button>
                 {mobileRetreatsOpen && (
                   <div className="pl-6 space-y-1.5 animate-in slide-in-from-top-1 duration-200">
-                    <a href="/retreats#goa" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-gray-600 hover:text-[#F7941D] font-semibold">Yoga Retreat in Goa</a>
-                    <a href="/retreats#rishikesh" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-gray-600 hover:text-[#F7941D] font-semibold">Yoga Retreat in Rishikesh</a>
+                    <a href="/retreats#6-day" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-[#F7941D] font-semibold">6-Day Yoga Retreat</a>
+                    <a href="/retreats#10-day" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-[#F7941D] font-semibold">10-Day Yoga Retreat</a>
+                    <a href="/retreats#5-day" onClick={() => setIsOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-[#F7941D] font-semibold">5-Day Pranayama Course</a>
                   </div>
                 )}
               </div>
 
               <a
-                href="/about#gallery"
+                href="/daily-classes"
                 onClick={() => setIsOpen(false)}
-                className="block px-3 py-2 rounded-md text-base font-semibold text-gray-800 hover:bg-gray-50 hover:text-[#F7941D] transition-all duration-200"
+                className="block px-3 py-2 rounded-md text-base font-semibold text-white hover:bg-forest-800 hover:text-[#F7941D] transition-all duration-200"
               >
-                Gallery
+                Drop-In
               </a>
 
               <a
-                href="/#blog"
+                href="/dates-prices"
                 onClick={() => setIsOpen(false)}
-                className="block px-3 py-2 rounded-md text-base font-semibold text-gray-800 hover:bg-gray-50 hover:text-[#F7941D] transition-all duration-200"
+                className="block px-3 py-2 rounded-md text-base font-semibold text-white hover:bg-forest-800 hover:text-[#F7941D] transition-all duration-200"
               >
-                Blog
+                Dates & Price
               </a>
 
               <a
                 href="/contact"
                 onClick={() => setIsOpen(false)}
-                className="block px-3 py-2 rounded-md text-base font-semibold text-gray-800 hover:bg-gray-50 hover:text-[#F7941D] transition-all duration-200"
+                className="block px-3 py-2 rounded-md text-base font-semibold text-white hover:bg-forest-800 hover:text-[#F7941D] transition-all duration-200"
               >
                 Contact Us
               </a>
@@ -292,7 +373,7 @@ export default function Header() {
           </div>
 
           {/* Drawer Footer CTA */}
-          <div className="pt-4 border-t border-gray-100">
+          <div className="pt-4 border-t border-forest-850">
             <a
               href="/apply"
               onClick={() => setIsOpen(false)}
@@ -308,4 +389,3 @@ export default function Header() {
     </div>
   );
 }
-
