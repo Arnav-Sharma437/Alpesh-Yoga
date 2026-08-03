@@ -168,7 +168,7 @@ export default function AboutPage() {
               Cozy, Clean Stays in Arambol &amp; Dharamkot
             </h2>
             <p className="font-sans text-sm sm:text-base text-forest-600/70 max-w-3xl mx-auto leading-relaxed font-light">
-              We provide clean, comfortable, and peaceful rooms located near our shala facilities in both branches. Rooms come with hot water showers, comfortable double beds, study tables, and high-speed Wi-Fi, allowing you to study alignment principles and relax in quiet nature after intensive mats sessions.
+              We provide clean, comfortable rooms near our shala in both branches. Accommodation includes a king-size double bed, private bathroom with hot and cold water, and free Wi-Fi. Laundry is available for an extra charge. During residential courses we serve a pure sattvic vegetarian diet — eggs, meat, and alcohol are not allowed on school premises.
             </p>
           </div>
         </section>

@@ -33,13 +33,13 @@ export default function DatesPricesPage() {
       name: "100-Hour TTC",
       dharamsalaPrice: "₹45,000 / $550 USD",
       goaPrice: "₹45,000 / $550 USD",
-      duration: "12 Days",
+      duration: "11 Days",
     },
     {
-      name: "200-Hour YTTC",
+      name: "200-Hour Multi-Style & Alignment YTTC",
       dharamsalaPrice: "₹80,000 / $950 USD",
       goaPrice: "₹80,000 / $950 USD",
-      duration: "24 Days",
+      duration: "22 Days",
     },
     {
       name: "Therapeutic Yoga Program",
@@ -159,22 +159,49 @@ export default function DatesPricesPage() {
               
               {/* Dharamshala Dates Card */}
               <div className="bg-white rounded-3xl p-8 border border-sage-200 shadow-sm flex flex-col justify-between">
-                <div className="space-y-4">
+                <div className="space-y-6">
                   <div className="flex items-center gap-2 text-terracotta-500">
                     <Compass className="w-5 h-5 shrink-0" />
-                    <h3 className="font-serif text-lg font-bold text-forest-750">Dharamshala Batch Dates</h3>
+                    <h3 className="font-serif text-lg font-bold text-forest-750">Dharamshala 2026 Dates</h3>
                   </div>
                   <p className="font-sans text-xs text-sage-500 font-light leading-normal">
-                    Hosted during summer (June to September) in Dharamkot pine forests.
+                    Confirmed summer season batches in Dharamkot.
                   </p>
-                  
-                  <div className="divide-y divide-sage-100 font-sans text-xs font-semibold text-forest-600 pt-4">
-                    {dharamshala.batches.map((date, idx) => (
-                      <div key={idx} className="py-2.5 flex justify-between items-center">
-                        <span>Batch {idx + 1}</span>
-                        <span className="text-terracotta-500 font-mono font-medium">{date}</span>
-                      </div>
-                    ))}
+
+                  <div>
+                    <h4 className="font-sans text-[10px] uppercase tracking-widest font-bold text-saffron-600 mb-2">200-Hour YTTC</h4>
+                    <div className="divide-y divide-sage-100 font-sans text-xs font-semibold text-forest-600">
+                      {dharamshala.batches200.filter((d) => !d.toLowerCase().includes("other")).map((date, idx) => (
+                        <div key={idx} className="py-2 flex justify-between items-center gap-3">
+                          <span>Batch {idx + 1}</span>
+                          <span className="text-terracotta-500 font-mono font-medium text-right">{date}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="font-sans text-[10px] uppercase tracking-widest font-bold text-saffron-600 mb-2">100-Hour TTC</h4>
+                    <div className="divide-y divide-sage-100 font-sans text-xs font-semibold text-forest-600 max-h-48 overflow-y-auto">
+                      {dharamshala.batches100.filter((d) => !d.toLowerCase().includes("other")).map((date, idx) => (
+                        <div key={idx} className="py-2 flex justify-between items-center gap-3">
+                          <span>Batch {idx + 1}</span>
+                          <span className="text-terracotta-500 font-mono font-medium text-right">{date}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="font-sans text-[10px] uppercase tracking-widest font-bold text-saffron-600 mb-2">8-Day Intensive</h4>
+                    <div className="divide-y divide-sage-100 font-sans text-xs font-semibold text-forest-600">
+                      {dharamshala.intensiveDates.filter((d) => !d.toLowerCase().includes("other")).map((date, idx) => (
+                        <div key={idx} className="py-2 flex justify-between items-center gap-3">
+                          <span>Batch {idx + 1}</span>
+                          <span className="text-terracotta-500 font-mono font-medium text-right">{date}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
                 
@@ -190,22 +217,49 @@ export default function DatesPricesPage() {
 
               {/* Goa Dates Card */}
               <div className="bg-white rounded-3xl p-8 border border-sage-200 shadow-sm flex flex-col justify-between">
-                <div className="space-y-4">
+                <div className="space-y-6">
                   <div className="flex items-center gap-2 text-forest-750">
                     <Waves className="w-5 h-5 shrink-0" />
-                    <h3 className="font-serif text-lg font-bold text-forest-750">Goa Batch Dates</h3>
+                    <h3 className="font-serif text-lg font-bold text-forest-750">Goa Winter Dates</h3>
                   </div>
                   <p className="font-sans text-xs text-sage-500 font-light leading-normal">
-                    Hosted during winter (November to March) at Arambol Beach.
+                    Winter season at Arambol Beach — contact us to confirm final 2026/27 openings.
                   </p>
 
-                  <div className="divide-y divide-sage-100 font-sans text-xs font-semibold text-forest-600 pt-4">
-                    {goa.batches.map((date, idx) => (
-                      <div key={idx} className="py-2.5 flex justify-between items-center">
-                        <span>Batch {idx + 1}</span>
-                        <span className="text-forest-600 font-mono font-medium">{date}</span>
-                      </div>
-                    ))}
+                  <div>
+                    <h4 className="font-sans text-[10px] uppercase tracking-widest font-bold text-saffron-600 mb-2">200-Hour YTTC</h4>
+                    <div className="divide-y divide-sage-100 font-sans text-xs font-semibold text-forest-600">
+                      {goa.batches200.filter((d) => !d.toLowerCase().includes("other") && !d.toLowerCase().includes("contact")).map((date, idx) => (
+                        <div key={idx} className="py-2 flex justify-between items-center gap-3">
+                          <span>Batch {idx + 1}</span>
+                          <span className="text-forest-600 font-mono font-medium text-right">{date}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="font-sans text-[10px] uppercase tracking-widest font-bold text-saffron-600 mb-2">100-Hour TTC</h4>
+                    <div className="divide-y divide-sage-100 font-sans text-xs font-semibold text-forest-600">
+                      {goa.batches100.filter((d) => !d.toLowerCase().includes("other") && !d.toLowerCase().includes("contact")).map((date, idx) => (
+                        <div key={idx} className="py-2 flex justify-between items-center gap-3">
+                          <span>Batch {idx + 1}</span>
+                          <span className="text-forest-600 font-mono font-medium text-right">{date}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="font-sans text-[10px] uppercase tracking-widest font-bold text-saffron-600 mb-2">8-Day Intensive</h4>
+                    <div className="divide-y divide-sage-100 font-sans text-xs font-semibold text-forest-600">
+                      {goa.intensiveDates.filter((d) => !d.toLowerCase().includes("other") && !d.toLowerCase().includes("contact")).map((date, idx) => (
+                        <div key={idx} className="py-2 flex justify-between items-center gap-3">
+                          <span>Batch {idx + 1}</span>
+                          <span className="text-forest-600 font-mono font-medium text-right">{date}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
 

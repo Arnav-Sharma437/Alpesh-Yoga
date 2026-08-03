@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import { CheckCircle2, Clock, Calendar, ShieldCheck, BookOpen, HeartPulse, ArrowRight, Phone, Award } from "lucide-react";
 import { locationsConfig } from "@/config/locations";
+import { COURSE_TOPICS, COURSE_DEPOSIT } from "@/config/courseContent";
 
 interface PageProps {
   params: Promise<{ location: string }>;
@@ -42,29 +43,16 @@ export default async function TTC100Page({ params }: PageProps) {
     notFound();
   }
 
-  const SYLLABUS_MODULES = [
-    {
-      title: "Asana Alignment & Practice",
-      desc: "Deconstruct key standing poses, backbends, twists, and forward folds. Learn skeletal anatomy, weight distribution, and joint locking mechanics.",
-    },
-    {
-      title: "Teaching Methodology",
-      desc: "Develop instructional voice, learn how to demonstrate postures, structure classes, and observe student alignment parameters.",
-    },
-    {
-      title: "Hands-on Adjustments",
-      desc: "Master physical correction techniques. Learn how to diagnose postural deviations and apply props (blocks, straps, wall ropes) safely.",
-    },
-    {
-      title: "Yoga Philosophy & Ethics",
-      desc: "Explore classical Hatha scriptures, Patanjali's Yoga Sutras, and the ethical foundation of a yoga instructor's lifestyle.",
-    },
-  ];
+  const SYLLABUS_MODULES = COURSE_TOPICS.map((title) => ({
+    title,
+    desc: "Covered as part of the Alpesh Yoga Teacher Training curriculum from our official welcome kit.",
+  }));
 
   const isGoa = location === "goa";
   const tuitionINR = "₹45,000";
   const tuitionUSD = "$550 USD";
-  const deposit = "₹5,000 / $65 USD";
+  const deposit = COURSE_DEPOSIT.label;
+  const batchDates = config.batches100;
 
   return (
     <>
@@ -124,7 +112,7 @@ export default async function TTC100Page({ params }: PageProps) {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6">
               <div className="p-5 bg-cream-100 border border-sage-100/40 rounded-2xl">
                 <Clock className="w-5 h-5 text-terracotta-500 mx-auto mb-2" />
-                <h4 className="font-serif font-bold text-sm text-forest-700">12-Day Duration</h4>
+                <h4 className="font-serif font-bold text-sm text-forest-700">11-Day Duration</h4>
                 <p className="font-sans text-xs text-forest-600/60 mt-1">Intensive modules</p>
               </div>
               <div className="p-5 bg-cream-100 border border-sage-100/40 rounded-2xl">
@@ -185,7 +173,7 @@ export default async function TTC100Page({ params }: PageProps) {
 
               {/* Date items list */}
               <div className="w-full md:w-64 font-mono text-xs divide-y divide-sage-100 bg-white p-4 rounded-2xl border border-sage-100">
-                {config.batches.map((date, idx) => (
+                {batchDates.map((date, idx) => (
                   <div key={idx} className="py-2 first:pt-0 last:pb-0 font-sans font-medium text-forest-600">
                     {date}
                   </div>
@@ -206,7 +194,7 @@ export default async function TTC100Page({ params }: PageProps) {
 
               <div>
                 <h3 className="font-serif text-xl font-bold text-forest-700">Tuition Fees ({config.displayName})</h3>
-                <p className="font-sans text-xs text-sage-600 mt-1">Includes 12 days instruction, study manuals &amp; props</p>
+                <p className="font-sans text-xs text-sage-600 mt-1">Includes 11 days instruction, study manuals &amp; props</p>
               </div>
 
               <div className="flex items-baseline justify-center gap-2">
@@ -221,7 +209,7 @@ export default async function TTC100Page({ params }: PageProps) {
               </div>
 
               <p className="font-sans text-xs text-sage-600 leading-normal">
-                Deposit amount: **{deposit}** required to reserve your seat in the batch.
+                {deposit}. Balance payable on arrival (Wise / bank transfer / cash). We accept INR, USD, EUR, and GBP.
               </p>
 
               <div className="pt-4 border-t border-sage-100">

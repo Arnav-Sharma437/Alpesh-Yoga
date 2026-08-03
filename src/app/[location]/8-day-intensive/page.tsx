@@ -44,24 +44,24 @@ export default async function IntensiveCourse({ params }: PageProps) {
 
   const BENEFITS = [
     {
-      title: "Improve Posture & Alignment",
-      desc: "Target structural imbalances, relieve chronic back/shoulder pain, and restore joint symmetry through active alignment adjustments.",
+      title: "Proper Alignment of Postures",
+      desc: "Learn precise skeletal alignment and weight distribution so every asana feels safer, clearer, and more stable.",
     },
     {
-      title: "Understand Asana Mechanics",
-      desc: "Learn the 'how' and 'why' behind each posture. We analyze skeletal anatomy so you practice with mental clarity and physical safety.",
+      title: "Hands-on Adjustment & Props",
+      desc: "Practice manual corrections and use props as recommended by B.K.S. Iyengar — blocks, straps, and supportive placements.",
     },
     {
-      title: "Intelligent Use of Props",
-      desc: "Master the application of wooden blocks, alignment straps, blankets, bolsters, and wall-rope traction systems to modify asanas.",
+      title: "Injury Prevention",
+      desc: "Understand how to avoid common injuries during practice through intelligent sequencing and joint-safe technique.",
     },
     {
-      title: "Build Strength & Awareness",
-      desc: "Develop deep stabilizers, correct muscular compensation habits, and sharpen your internal kinesthetic awareness.",
+      title: "Clear Demonstration & Instruction",
+      desc: "Develop a solid demonstration style and clear verbal cues — working consciously with your teaching voice.",
     },
     {
-      title: "Safer Home Practice",
-      desc: "Gain the anatomical knowledge required to practice advanced postures at home without risk of ligament or muscle injuries.",
+      title: "Yoga Anatomy Essentials",
+      desc: "Connect anatomy to asana so you understand what is happening in the body and how to cue with confidence.",
     },
   ];
 
@@ -320,19 +320,19 @@ export default async function IntensiveCourse({ params }: PageProps) {
                 <ul className="space-y-3 font-sans text-sm text-forest-600/80">
                   <li className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-sage-500 shrink-0" />
-                    <span>Comfortable, flexible, fitted yoga clothes</span>
+                    <span>Passport, tourist visa &amp; health insurance</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-sage-500 shrink-0" />
-                    <span>Notebook and pen for anatomical diagrams</span>
+                    <span>Comfortable yoga clothes &amp; flip-flops</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-sage-500 shrink-0" />
-                    <span>Water bottle and small face towel</span>
+                    <span>Towel, sunglasses, flashlight / headlamp</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-sage-500 shrink-0" />
-                    <span>Open, disciplined mind ready for adjustments</span>
+                    <span>Travel adapter, phone charger &amp; personal toiletries</span>
                   </li>
                 </ul>
               </div>

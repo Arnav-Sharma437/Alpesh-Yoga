@@ -33,7 +33,10 @@ export interface LocationData {
     feeUSD: string;
     deposit: string;
   };
+  /** @deprecated Prefer batches200 / batches100 — kept for backward compatibility */
   batches: string[];
+  batches200: string[];
+  batches100: string[];
 }
 
 export const locationsConfig: Record<string, LocationData> = {
@@ -95,26 +98,48 @@ export const locationsConfig: Record<string, LocationData> = {
       }
     ],
     intensiveDates: [
-      "Starts Every Monday (Year-Round)",
-      "Monday, July 6, 2026",
-      "Monday, July 13, 2026",
-      "Monday, July 20, 2026",
-      "Monday, July 27, 2026"
+      "28 April – 5 May 2026",
+      "9 May – 16 May 2026",
+      "5 June – 12 June 2026",
+      "3 July – 10 July 2026",
+      "4 August – 11 August 2026",
+      "2 September – 9 September 2026",
+      "Other / Not sure yet",
     ],
     intensivePricing: {
       feeINR: "₹12,000",
       feeUSD: "$150 USD",
-      deposit: "₹2,500 / $30 USD to reserve a spot"
+      deposit: "USD 300 to reserve a spot (non-refundable)",
     },
+    batches200: [
+      "25 April – 16 May 2026",
+      "23 May – 13 June 2026",
+      "18 June – 9 July 2026",
+      "18 July – 8 August 2026",
+      "19 August – 9 September 2026",
+      "Other / Not sure yet",
+    ],
+    batches100: [
+      "28 April – 8 May 2026",
+      "9 May – 19 May 2026",
+      "23 May – 2 June 2026",
+      "5 June – 15 June 2026",
+      "18 June – 29 June 2026",
+      "3 July – 13 July 2026",
+      "18 July – 28 July 2026",
+      "4 August – 14 August 2026",
+      "19 August – 29 August 2026",
+      "2 September – 12 September 2026",
+      "Other / Not sure yet",
+    ],
     batches: [
-      "18 June – 9 July",
-      "3 July – 24 July",
-      "18 July – 8 August",
-      "4 August – 25 August",
-      "19 August – 9 September",
-      "2 September – 23 September",
-      "Other / Not sure yet"
-    ]
+      "25 April – 16 May 2026",
+      "23 May – 13 June 2026",
+      "18 June – 9 July 2026",
+      "18 July – 8 August 2026",
+      "19 August – 9 September 2026",
+      "Other / Not sure yet",
+    ],
   },
   goa: {
     slug: "goa",
@@ -174,20 +199,37 @@ export const locationsConfig: Record<string, LocationData> = {
       }
     ],
     intensiveDates: [
-      "Starts Every Monday (Winter Season - Arambol Beach)"
+      "Starts every Monday (Winter season — Arambol Beach)",
+      "Other / Contact for dates",
     ],
     intensivePricing: {
       feeINR: "₹12,000",
       feeUSD: "$150 USD",
-      deposit: "₹2,500 / $30 USD to reserve a spot in Goa"
+      deposit: "USD 300 to reserve a spot (non-refundable)",
     },
+    batches200: [
+      "15 November – 6 December 2026",
+      "10 December – 31 December 2026",
+      "5 January – 26 January 2027",
+      "1 February – 22 February 2027",
+      "1 March – 22 March 2027",
+      "Other / Contact for dates",
+    ],
+    batches100: [
+      "15 November – 26 November 2026",
+      "10 December – 21 December 2026",
+      "5 January – 16 January 2027",
+      "1 February – 12 February 2027",
+      "1 March – 12 March 2027",
+      "Other / Contact for dates",
+    ],
     batches: [
-      "15 November – 6 December",
-      "10 December – 31 December",
-      "5 January – 26 January",
-      "1 February – 22 February",
-      "1 March – 22 March",
-      "Other / Not sure yet"
-    ]
-  }
+      "15 November – 6 December 2026",
+      "10 December – 31 December 2026",
+      "5 January – 26 January 2027",
+      "1 February – 22 February 2027",
+      "1 March – 22 March 2027",
+      "Other / Contact for dates",
+    ],
+  },
 };

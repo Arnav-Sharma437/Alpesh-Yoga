@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import { CheckCircle2, AlertCircle, Calendar, Send, HelpCircle, PhoneCall } from "lucide-react";
 import { locationsConfig } from "@/config/locations";
+import { getDatesForApplyProgram } from "@/config/courseContent";
 
 const COUNTRY_CODES = [
   { code: "+91", country: "India" },
@@ -142,6 +143,7 @@ function ApplyFormContent() {
     setFormData((prev) => ({
       ...prev,
       [name]: val,
+      ...(name === "program" || name === "location" ? { batch: "" } : {}),
     }));
 
     // Clear inline error if field becomes valid
@@ -504,10 +506,14 @@ function ApplyFormContent() {
                 }`}
               >
                 <option value="">
-                  {formData.location ? "-- Select Start Date --" : "-- Select Location First --"}
+                  {formData.location
+                    ? formData.program
+                      ? "-- Select Start Date --"
+                      : "-- Select Program First (recommended) --"
+                    : "-- Select Location First --"}
                 </option>
                 {formData.location &&
-                  (locationsConfig[formData.location]?.batches || []).map((date) => (
+                  getDatesForApplyProgram(formData.location, formData.program).map((date) => (
                     <option key={date} value={date}>{date}</option>
                   ))
                 }
