@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
@@ -39,17 +39,17 @@ export default function Header() {
   );
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 flex flex-col">
-      {/* Main Navigation Bar */}
+    <div className="fixed top-0 left-0 right-0 z-50 w-full flex flex-col">
+      {/* Main Navigation Bar — full width */}
       <header
-        className={`transition-colors duration-300 ${
+        className={`w-full transition-colors duration-300 ${
           isHeaderActive
             ? "bg-white shadow-sm border-b border-gray-100"
             : "bg-transparent border-b border-transparent"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-24 gap-4">
+        <div className="w-full px-5 sm:px-6 lg:px-10 xl:px-14">
+          <div className="flex items-center justify-between h-24 gap-6">
             
             {/* Logo Section */}
             <a href={getHomeHref()} className="flex items-center shrink-0">
@@ -60,7 +60,7 @@ export default function Header() {
             </a>
 
             {/* Desktop Nav Items */}
-            <nav className="hidden xl:flex items-center space-x-8">
+            <nav className="hidden xl:flex items-center justify-end flex-1 space-x-8">
               <a
                 href={getHomeHref()}
                 className={`font-sans text-sm font-semibold transition-colors ${

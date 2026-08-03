@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React from "react";
 import { ArrowRight } from "lucide-react";
@@ -26,7 +26,7 @@ export default function FeaturedPrograms() {
   ];
 
   return (
-    <section className="py-24 bg-white relative">
+    <section id="programs" className="py-24 bg-white relative">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

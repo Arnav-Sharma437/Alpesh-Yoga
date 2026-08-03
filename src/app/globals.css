@@ -2,7 +2,7 @@
 
 @theme {
   --font-sans: var(--font-sans), sans-serif;
-  --font-serif: var(--font-serif), serif;
+  --font-serif: var(--font-serif), "Bagnard", serif;
 
   --color-olive-50: #F4F6F0;
   --color-olive-100: #E6EAD9;

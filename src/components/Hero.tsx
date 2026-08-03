@@ -1,71 +1,85 @@
 "use client";
 
 import React from "react";
-import { PlayCircle } from "lucide-react";
+import { Award, Globe2, GraduationCap, Flower2, Mouse } from "lucide-react";
+
+const highlights = [
+  {
+    icon: Award,
+    label: "Yoga Alliance Certified",
+  },
+  {
+    icon: Globe2,
+    label: "Goa & Dharamshala",
+  },
+  {
+    icon: GraduationCap,
+    label: "Thousands of Graduates",
+  },
+  {
+    icon: Flower2,
+    label: "Alignment-Based Training",
+  },
+];
 
 export default function Hero() {
   return (
-    <div className="flex flex-col w-full">
-      {/* Hero Banner Section */}
-      <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
-        
-        {/* Background Image with Dark Overlay */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=1920')`,
-          }}
+    <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden">
+      {/* Full-bleed cinematic background */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
+        style={{
+          backgroundImage: `url('https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=1920')`,
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/45 to-black/70" />
+      </div>
+
+      {/* Centered hero content */}
+      <div className="relative z-10 w-full max-w-5xl mx-auto px-5 sm:px-8 pt-36 pb-40 sm:pb-44 text-center flex flex-col items-center">
+        <h1 className="font-serif text-white text-[2.15rem] leading-[1.15] sm:text-5xl md:text-6xl lg:text-[4.25rem] tracking-tight mb-6 max-w-4xl">
+          Life Changing Community and Holistic Yoga School
+        </h1>
+
+        <p className="font-sans text-sm sm:text-base md:text-lg text-white/85 leading-relaxed mb-10 max-w-2xl font-light">
+          Welcome to Alpesh Yoga, where Yoga Alliance certified teacher trainings
+          are rooted in precision alignment, compassion, and real human connection.
+        </p>
+
+        <a
+          href="/#programs"
+          className="inline-flex items-center justify-center px-8 py-3.5 rounded-lg bg-olive-500 hover:bg-olive-600 text-white font-sans text-sm font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5"
         >
-          {/* Subtle gradient overlay to ensure text pops but feels natural */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60"></div>
-        </div>
+          Explore Our Programs
+        </a>
 
-        {/* Content Container */}
-        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 z-10 text-center flex flex-col items-center mt-16">
-          
-          {/* Heading */}
-          <h1 className="font-serif text-white mb-6 leading-[1.1] text-4xl sm:text-5xl md:text-6xl lg:text-[72px] tracking-tight max-w-4xl">
-            Best Yoga Teacher Training In India
-          </h1>
-          
-          {/* Subtext */}
-          <p className="font-sans text-base sm:text-lg md:text-xl text-white/90 leading-relaxed mb-10 max-w-2xl font-light">
-            200-Hour, 300-Hour & 500-Hour Yoga Alliance Certified Ashtanga & Vinyasa Flow Yoga Teacher Training Courses in Goa & Dharamshala.
-          </p>
-
-          {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a
-              href="/apply"
-              className="inline-flex items-center justify-center px-10 py-4 rounded-full bg-olive-500 hover:bg-olive-600 text-white font-sans text-sm font-bold uppercase tracking-wider shadow-lg transition-all duration-300 w-full sm:w-auto"
+        {/* Glass feature strip */}
+        <div className="mt-14 sm:mt-16 grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 w-full max-w-4xl">
+          {highlights.map(({ icon: Icon, label }) => (
+            <div
+              key={label}
+              className="flex flex-col items-center justify-center gap-2.5 px-3 py-4 sm:py-5 rounded-xl border border-white/20 bg-white/10 backdrop-blur-md text-white"
             >
-              Apply Now
-            </a>
-
-            <a
-              href="#video"
-              className="inline-flex items-center justify-center gap-2 px-10 py-4 rounded-full border border-white text-white hover:bg-white hover:text-charcoal-900 font-sans text-sm font-bold uppercase tracking-wider transition-all duration-300 w-full sm:w-auto"
-            >
-              <PlayCircle className="w-5 h-5" />
-              <span>Watch Video</span>
-            </a>
-          </div>
-
+              <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-white/90" strokeWidth={1.5} />
+              <span className="font-sans text-[10px] sm:text-xs font-medium tracking-wide text-center leading-snug">
+                {label}
+              </span>
+            </div>
+          ))}
         </div>
-        
-        {/* Bottom Trust Indicators (Optional placeholder for the floating badges in House of Om) */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-6 text-white/70 text-sm font-medium">
-          <div className="flex items-center gap-2">
-             <span>★★★★★</span>
-             <span>Trustpilot</span>
-          </div>
-          <div className="w-1 h-1 rounded-full bg-white/40"></div>
-          <div className="flex items-center gap-2">
-             <span>★★★★★</span>
-             <span>Google Reviews</span>
-          </div>
-        </div>
-      </section>
-    </div>
+      </div>
+
+      {/* Scroll indicator */}
+      <a
+        href="/#why-choose"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-white/70 hover:text-white transition-colors"
+        aria-label="Scroll to explore"
+      >
+        <span className="font-sans text-[9px] uppercase tracking-[0.25em] font-medium">
+          Scroll to explore
+        </span>
+        <Mouse className="w-5 h-5 animate-bounce" strokeWidth={1.5} />
+      </a>
+    </section>
   );
 }

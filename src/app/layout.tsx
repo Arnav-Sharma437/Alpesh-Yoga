@@ -1,12 +1,23 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Montserrat } from "next/font/google";
+import { Montserrat } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import BottomNavigation from "@/components/BottomNavigation";
 
-const cormorant = Cormorant_Garamond({
+const bagnard = localFont({
+  src: [
+    {
+      path: "../fonts/Bagnard.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../fonts/Bagnard.woff",
+      weight: "400",
+      style: "normal",
+    },
+  ],
   variable: "--font-serif",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -39,7 +50,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${montserrat.variable} ${cormorant.variable} h-full antialiased scroll-smooth`}
+      className={`${montserrat.variable} ${bagnard.variable} h-full antialiased scroll-smooth`}
     >
       <body className="min-h-full flex flex-col bg-sand-50 text-charcoal-900 font-sans bg-mandala-pattern">
         <main className="flex-grow animate-page-enter flex flex-col">
@@ -52,4 +63,3 @@ export default function RootLayout({
     </html>
   );
 }
-
