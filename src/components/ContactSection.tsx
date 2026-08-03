@@ -7,12 +7,12 @@ export default function ContactSection() {
     <section className="py-24 bg-sand-50 relative">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="text-center mb-12">
-          <h2 className="font-serif text-4xl sm:text-5xl md:text-[52px] font-medium text-charcoal-900 tracking-tight mb-4">
-            Let's Map Out Your Path
+        <div className="mb-12 text-center">
+          <h2 className="mb-4 font-serif text-4xl font-normal tracking-tight text-charcoal-500 sm:text-5xl md:text-[52px]">
+            Let&apos;s Map Out Your Path
           </h2>
-          <p className="font-sans text-charcoal-500 text-sm md:text-base font-light">
-            Tell us a bit about yourself and we will get back to you with guidance.
+          <p className="font-sans text-[1.2rem] font-normal text-charcoal-800">
+            Grab a free 1:1 to see what fits you best
           </p>
         </div>
 

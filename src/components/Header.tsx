@@ -123,7 +123,7 @@ export default function Header() {
             </nav>
 
             <div className="hidden shrink-0 items-center xl:flex">
-              <a href="/apply" className="btn-primary !px-7 !py-3 !text-xs !uppercase !tracking-wider">
+              <a href="/apply" className="btn-primary !px-6 !py-3.5 !text-base">
                 Apply Now
               </a>
             </div>

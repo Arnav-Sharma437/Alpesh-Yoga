@@ -17,10 +17,10 @@ export default function ProgramsPage() {
       <main className="relative z-10 flex-grow pt-28 sm:pt-32">
         <section className="relative pb-8 pt-10">
           <div className="mx-auto max-w-[1200px] px-4 text-center sm:px-6 lg:px-8">
-            <p className="mb-3 font-sans text-xs font-bold uppercase tracking-[0.2em] text-saffron-500">
+            <p className="mb-3 font-sans text-sm font-medium uppercase tracking-[0.2em] text-olive-500">
               Programs
             </p>
-            <h1 className="font-serif text-4xl font-medium tracking-tight text-charcoal-900 sm:text-5xl md:text-[56px]">
+            <h1 className="font-serif text-4xl font-normal tracking-tight text-charcoal-500 sm:text-5xl md:text-[56px]">
               Discover our programs
             </h1>
           </div>
