@@ -9,6 +9,7 @@ import {
   COURSE_TOPICS,
   DAILY_SCHEDULE_DHARAMSHALA,
   DAILY_SCHEDULE_GOA,
+  GOA_200_PRICING,
   SCHEDULE_NOTES,
 } from "@/config/courseContent";
 
@@ -52,15 +53,108 @@ export default async function YTTC200Page({ params }: PageProps) {
     notFound();
   }
 
-  const scheduleSource =
-    location === "goa" ? DAILY_SCHEDULE_GOA : DAILY_SCHEDULE_DHARAMSHALA;
+  const isGoa = location === "goa";
+  const scheduleSource = isGoa ? DAILY_SCHEDULE_GOA : DAILY_SCHEDULE_DHARAMSHALA;
+
+  const goaAlignmentDates = config.batches200Alignment ?? [];
+  const goaMultiDates = config.batches200Multi ?? [];
+
+  const datesPrices = isGoa
+    ? [
+        ...goaAlignmentDates.map((date) => ({
+          dateRange: `${date} · Alignment`,
+          availability: "Open" as const,
+          earlyBirdPrice: GOA_200_PRICING.withFoodAccommodationEUR,
+          regularPrice: GOA_200_PRICING.withoutFoodAccommodationEUR,
+        })),
+        ...goaMultiDates.map((date) => ({
+          dateRange: `${date} · Multi-Style`,
+          availability: "Open" as const,
+          earlyBirdPrice: GOA_200_PRICING.withFoodAccommodationEUR,
+          regularPrice: GOA_200_PRICING.withoutFoodAccommodationEUR,
+        })),
+      ]
+    : config.batches200
+        .filter((d) => !d.toLowerCase().includes("other") && !d.toLowerCase().includes("contact"))
+        .map((date) => ({
+          dateRange: date,
+          availability: "Open" as const,
+          earlyBirdPrice: "$950",
+          regularPrice: "₹80,000",
+        }));
+
+  const packages = isGoa
+    ? [
+        {
+          title: "With Food & Accommodation",
+          price: GOA_200_PRICING.withFoodAccommodationEUR,
+          isPopular: true,
+          features: [
+            ...ACCOMMODATION_AMENITIES,
+            "Sattvic vegetarian meals (Mon–Sat as per kit)",
+            "Full 200-Hour course tuition & manuals",
+            "Alignment or Multi-Style track",
+            COURSE_DEPOSIT.label,
+          ],
+        },
+        {
+          title: "Without Food & Accommodation",
+          price: GOA_200_PRICING.withoutFoodAccommodationEUR,
+          features: [
+            "Arrange your own stay",
+            "No meals included",
+            "Full 200-Hour course tuition & manuals",
+            "Use of shala facilities",
+            COURSE_DEPOSIT.label,
+          ],
+        },
+      ]
+    : [
+        {
+          title: "Shared Room + Meals",
+          price: "$950",
+          features: [
+            ...ACCOMMODATION_AMENITIES.filter((a) => !a.toLowerCase().includes("laundry")),
+            "Shared room option",
+            "Sattvic vegetarian meals (Mon–Sat as per kit)",
+            "Full 200-Hour course tuition & manuals",
+            COURSE_DEPOSIT.label,
+          ],
+        },
+        {
+          title: "Private Room + Meals",
+          price: "$1,200",
+          isPopular: true,
+          features: [
+            ...ACCOMMODATION_AMENITIES,
+            "Private room",
+            "Sattvic vegetarian meals (Mon–Sat as per kit)",
+            "Full 200-Hour course tuition & manuals",
+            COURSE_DEPOSIT.label,
+          ],
+        },
+        {
+          title: "Course Only",
+          price: "$950",
+          features: [
+            "Arrange your own stay",
+            "No meals included",
+            "Full 200-Hour course tuition & manuals",
+            "Use of shala facilities",
+            COURSE_DEPOSIT.label,
+          ],
+        },
+      ];
 
   const pageData: ProgramPageData = {
-    programTitle: "200 Hour Multi-Style & Alignment YTTC",
-    programSubtitle:
-      "Deepen your practice and become a certified instructor with our intensive, alignment-focused multi-style curriculum rooted in Iyengar, Hatha, and Vinyasa.",
+    programTitle: isGoa
+      ? "200 Hour Alignment & Multi-Style YTTC"
+      : "200 Hour Multi-Style & Alignment YTTC",
+    programSubtitle: isGoa
+      ? "Choose Alignment or Multi-Style teacher training in Arambol. €1,200 with food & accommodation, or €800 without."
+      : "Deepen your practice and become a certified instructor with our intensive, alignment-focused multi-style curriculum rooted in Iyengar, Hatha, and Vinyasa.",
     heroImage:
-      location === "goa"
+      isGoa
         ? "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1920"
         : "https://images.unsplash.com/photo-1552083375-1447ce886485?q=80&w=1920",
     locationName: config.displayName,
@@ -75,14 +169,14 @@ export default async function YTTC200Page({ params }: PageProps) {
     ],
 
     venueBannerImage:
-      location === "goa"
+      isGoa
         ? "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=1920"
         : "https://images.unsplash.com/photo-1627894483216-2138af692e32?q=80&w=1920",
     venueStats: {
       duration: "22 Days",
       graduates: "5000+",
       language: "English",
-      style: "Multi-style / Alignment",
+      style: isGoa ? "Alignment / Multi-Style" : "Multi-style / Alignment",
     },
     venueAboutTitle: `Welcome to Alpesh Yoga ${config.displayName}`,
     venueAboutText: [
@@ -98,7 +192,7 @@ export default async function YTTC200Page({ params }: PageProps) {
     ],
 
     curriculumItems: COURSE_TOPICS.map((title) => ({ title })),
-    curriculumBrochureLink: location === "goa" ? "/content/welcome-kit-goa.pdf" : "/content/welcome-kit-dharamshala.pdf",
+    curriculumBrochureLink: isGoa ? "/content/welcome-kit-goa.pdf" : "/content/welcome-kit-dharamshala.pdf",
 
     schedule: scheduleSource.map((row, idx) => ({
       time: row.time,
@@ -107,14 +201,7 @@ export default async function YTTC200Page({ params }: PageProps) {
     })),
     scheduleNote: SCHEDULE_NOTES.join(". ") + ".",
 
-    datesPrices: config.batches200
-      .filter((d) => !d.toLowerCase().includes("other") && !d.toLowerCase().includes("contact"))
-      .map((date) => ({
-        dateRange: date,
-        availability: "Open",
-        earlyBirdPrice: "$950",
-        regularPrice: "₹80,000",
-      })),
+    datesPrices,
 
     teachers: [
       { name: "Alpesh Patwari", role: "Founder / Lead Teacher / Alignment", image: "/teachers/alpesh-patwari.jpg" },
@@ -140,42 +227,10 @@ export default async function YTTC200Page({ params }: PageProps) {
       "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=600",
     ],
 
-    packages: [
-      {
-        title: "Shared Room + Meals",
-        price: "$950",
-        features: [
-          ...ACCOMMODATION_AMENITIES.filter((a) => !a.toLowerCase().includes("laundry")),
-          "Shared room option",
-          "Sattvic vegetarian meals (Mon–Sat as per kit)",
-          "Full 200-Hour course tuition & manuals",
-          COURSE_DEPOSIT.label,
-        ],
-      },
-      {
-        title: "Private Room + Meals",
-        price: "$1,200",
-        isPopular: true,
-        features: [
-          ...ACCOMMODATION_AMENITIES,
-          "Private room",
-          "Sattvic vegetarian meals (Mon–Sat as per kit)",
-          "Full 200-Hour course tuition & manuals",
-          COURSE_DEPOSIT.label,
-        ],
-      },
-      {
-        title: "Course Only",
-        price: "$950",
-        features: [
-          "Arrange your own stay",
-          "No meals included",
-          "Full 200-Hour course tuition & manuals",
-          "Use of shala facilities",
-          COURSE_DEPOSIT.label,
-        ],
-      },
-    ],
+    packages,
+    datesPriceCol1Label: isGoa ? "With Food & Stay" : "Tuition (USD)",
+    datesPriceCol2Label: isGoa ? "Without Food & Stay" : "Tuition (INR)",
+    datesStrikeCol2: false,
   };
 
   return <ProgramPageTemplate data={pageData} />;

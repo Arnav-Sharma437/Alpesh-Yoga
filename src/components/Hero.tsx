@@ -27,7 +27,7 @@ export default function Hero() {
           Life Changing Community and Holistic Yoga School
         </h1>
 
-        <p className="mb-10 max-w-2xl font-sans text-sm font-light leading-relaxed text-white/85 sm:text-base md:text-lg">
+        <p className="mb-10 max-w-2xl font-sans text-base font-normal leading-relaxed text-white/90 sm:text-lg md:text-xl">
           Welcome to Alpesh Yoga, where Yoga Alliance certified teacher trainings
           are rooted in precision alignment, compassion, and real human connection.
         </p>

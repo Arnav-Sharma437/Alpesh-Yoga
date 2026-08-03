@@ -22,7 +22,7 @@ export default function TeachersTeamSection({
           <h2 className="mb-4 font-serif text-3xl font-medium tracking-tight text-charcoal-900 sm:text-4xl md:text-5xl">
             Meet Our Yoga Teachers
           </h2>
-          <p className="font-sans text-sm font-light leading-relaxed text-charcoal-500 sm:text-base">
+          <p className="font-sans text-base font-normal leading-relaxed text-charcoal-700 sm:text-lg">
             Learn from experienced Yoga Alliance certified teachers dedicated to authentic
             alignment, meditation, and holistic practice.
           </p>
@@ -42,7 +42,7 @@ export default function TeachersTeamSection({
               <p className="mb-3 font-sans text-xs font-semibold uppercase tracking-wider text-saffron-600">
                 {teacher.role}
               </p>
-              <p className="font-sans text-sm font-light leading-relaxed text-charcoal-500 line-clamp-4">
+              <p className="font-sans text-base font-normal leading-relaxed text-charcoal-700 line-clamp-5">
                 {teacher.bio}
               </p>
             </div>

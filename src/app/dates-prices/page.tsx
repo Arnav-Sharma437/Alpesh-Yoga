@@ -26,7 +26,7 @@ export default function DatesPricesPage() {
     {
       name: "8-Day Intensive Course",
       dharamsalaPrice: "₹12,000 / $150 USD",
-      goaPrice: "₹12,000 / $150 USD",
+      goaPrice: "From €280",
       duration: "8 Days",
     },
     {
@@ -36,9 +36,9 @@ export default function DatesPricesPage() {
       duration: "11 Days",
     },
     {
-      name: "200-Hour Multi-Style & Alignment YTTC",
+      name: "200-Hour YTTC (Goa: Alignment & Multi-Style)",
       dharamsalaPrice: "₹80,000 / $950 USD",
-      goaPrice: "₹80,000 / $950 USD",
+      goaPrice: "€1,200 with stay · €800 without",
       duration: "22 Days",
     },
     {
@@ -222,43 +222,79 @@ export default function DatesPricesPage() {
                     <Waves className="w-5 h-5 shrink-0" />
                     <h3 className="font-serif text-lg font-bold text-forest-750">Goa Winter Dates</h3>
                   </div>
-                  <p className="font-sans text-xs text-sage-500 font-light leading-normal">
-                    Winter season at Arambol Beach — contact us to confirm final 2026/27 openings.
+                  <p className="font-sans text-base font-normal leading-relaxed text-sage-600">
+                    Confirmed winter season batches in Arambol Beach.
                   </p>
 
                   <div>
-                    <h4 className="font-sans text-[10px] uppercase tracking-widest font-bold text-saffron-600 mb-2">200-Hour YTTC</h4>
-                    <div className="divide-y divide-sage-100 font-sans text-xs font-semibold text-forest-600">
-                      {goa.batches200.filter((d) => !d.toLowerCase().includes("other") && !d.toLowerCase().includes("contact")).map((date, idx) => (
-                        <div key={idx} className="py-2 flex justify-between items-center gap-3">
+                    <h4 className="mb-2 font-sans text-xs font-bold uppercase tracking-widest text-saffron-600">
+                      200-Hour Alignment YTTC
+                    </h4>
+                    <div className="divide-y divide-sage-100 font-sans text-sm font-semibold text-forest-600">
+                      {(goa.batches200Alignment ?? []).map((date, idx) => (
+                        <div key={date} className="flex items-center justify-between gap-3 py-2">
                           <span>Batch {idx + 1}</span>
-                          <span className="text-forest-600 font-mono font-medium text-right">{date}</span>
+                          <span className="text-right font-mono font-medium text-forest-600">{date}</span>
                         </div>
                       ))}
                     </div>
                   </div>
 
                   <div>
-                    <h4 className="font-sans text-[10px] uppercase tracking-widest font-bold text-saffron-600 mb-2">100-Hour TTC</h4>
-                    <div className="divide-y divide-sage-100 font-sans text-xs font-semibold text-forest-600">
-                      {goa.batches100.filter((d) => !d.toLowerCase().includes("other") && !d.toLowerCase().includes("contact")).map((date, idx) => (
-                        <div key={idx} className="py-2 flex justify-between items-center gap-3">
+                    <h4 className="mb-2 font-sans text-xs font-bold uppercase tracking-widest text-saffron-600">
+                      200-Hour Multi-Style YTTC
+                    </h4>
+                    <div className="divide-y divide-sage-100 font-sans text-sm font-semibold text-forest-600">
+                      {(goa.batches200Multi ?? []).map((date, idx) => (
+                        <div key={date} className="flex items-center justify-between gap-3 py-2">
                           <span>Batch {idx + 1}</span>
-                          <span className="text-forest-600 font-mono font-medium text-right">{date}</span>
+                          <span className="text-right font-mono font-medium text-forest-600">{date}</span>
                         </div>
                       ))}
                     </div>
                   </div>
 
                   <div>
-                    <h4 className="font-sans text-[10px] uppercase tracking-widest font-bold text-saffron-600 mb-2">8-Day Intensive</h4>
-                    <div className="divide-y divide-sage-100 font-sans text-xs font-semibold text-forest-600">
-                      {goa.intensiveDates.filter((d) => !d.toLowerCase().includes("other") && !d.toLowerCase().includes("contact")).map((date, idx) => (
-                        <div key={idx} className="py-2 flex justify-between items-center gap-3">
+                    <h4 className="mb-2 font-sans text-xs font-bold uppercase tracking-widest text-saffron-600">
+                      100-Hour Alignment TTC
+                    </h4>
+                    <div className="divide-y divide-sage-100 font-sans text-sm font-semibold text-forest-600">
+                      {(goa.batches100Alignment ?? []).map((date, idx) => (
+                        <div key={date} className="flex items-center justify-between gap-3 py-2">
                           <span>Batch {idx + 1}</span>
-                          <span className="text-forest-600 font-mono font-medium text-right">{date}</span>
+                          <span className="text-right font-mono font-medium text-forest-600">{date}</span>
                         </div>
                       ))}
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="mb-2 font-sans text-xs font-bold uppercase tracking-widest text-saffron-600">
+                      100-Hour Multi-Style TTC
+                    </h4>
+                    <div className="divide-y divide-sage-100 font-sans text-sm font-semibold text-forest-600">
+                      {(goa.batches100Multi ?? []).map((date, idx) => (
+                        <div key={date} className="flex items-center justify-between gap-3 py-2">
+                          <span>Batch {idx + 1}</span>
+                          <span className="text-right font-mono font-medium text-forest-600">{date}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="mb-2 font-sans text-xs font-bold uppercase tracking-widest text-saffron-600">
+                      8-Day Intensive · from €280
+                    </h4>
+                    <div className="divide-y divide-sage-100 font-sans text-sm font-semibold text-forest-600">
+                      {goa.intensiveDates
+                        .filter((d) => !d.toLowerCase().includes("other") && !d.toLowerCase().includes("contact"))
+                        .map((date, idx) => (
+                          <div key={date} className="flex items-center justify-between gap-3 py-2">
+                            <span>Batch {idx + 1}</span>
+                            <span className="text-right font-mono font-medium text-forest-600">{date}</span>
+                          </div>
+                        ))}
                     </div>
                   </div>
                 </div>

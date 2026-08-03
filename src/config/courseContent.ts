@@ -165,29 +165,79 @@ export const DATES_2026 = {
       "2 September – 9 September 2026",
     ],
   },
-  /** Goa winter season — confirm exact 2026/27 dates with the school */
+  /** Goa winter season 2026/27 */
   goa: {
     yttc100: [
-      "15 November – 26 November 2026",
-      "10 December – 21 December 2026",
-      "5 January – 16 January 2027",
-      "1 February – 12 February 2027",
-      "1 March – 12 March 2027",
-      "Other / Contact for dates",
+      "4 November – 14 November 2026 (Alignment)",
+      "21 November – 1 December 2026 (Multi-Style)",
+      "4 December – 14 December 2026 (Alignment)",
+      "16 December – 26 December 2026 (Multi-Style)",
+      "6 January – 16 January 2027 (Alignment)",
+      "21 January – 31 January 2027 (Multi-Style)",
+      "5 February – 15 February 2027 (Alignment)",
+      "18 February – 1 March 2027 (Multi-Style)",
+      "2 March – 12 March 2027 (Alignment)",
+      "9 March – 19 March 2027 (Multi-Style)",
+    ],
+    yttc100Alignment: [
+      "4 November – 14 November 2026",
+      "4 December – 14 December 2026",
+      "6 January – 16 January 2027",
+      "5 February – 15 February 2027",
+      "2 March – 12 March 2027",
+    ],
+    yttc100Multi: [
+      "21 November – 1 December 2026",
+      "16 December – 26 December 2026",
+      "21 January – 31 January 2027",
+      "18 February – 1 March 2027",
+      "9 March – 19 March 2027",
     ],
     yttc200: [
-      "15 November – 6 December 2026",
-      "10 December – 31 December 2026",
-      "5 January – 26 January 2027",
-      "1 February – 22 February 2027",
-      "1 March – 22 March 2027",
-      "Other / Contact for dates",
+      "4 November – 25 November 2026 (Alignment)",
+      "21 November – 12 December 2026 (Multi-Style)",
+      "3 December – 24 December 2026 (Alignment)",
+      "16 December – 6 January 2027 (Multi-Style)",
+      "6 January – 27 January 2027 (Alignment)",
+      "21 January – 11 February 2027 (Multi-Style)",
+      "4 February – 25 February 2027 (Alignment)",
+      "18 February – 11 March 2027 (Multi-Style)",
+      "2 March – 23 March 2027 (Alignment)",
+      "9 March – 30 March 2027 (Multi-Style)",
+    ],
+    yttc200Alignment: [
+      "4 November – 25 November 2026",
+      "3 December – 24 December 2026",
+      "6 January – 27 January 2027",
+      "4 February – 25 February 2027",
+      "2 March – 23 March 2027",
+    ],
+    yttc200Multi: [
+      "21 November – 12 December 2026",
+      "16 December – 6 January 2027",
+      "21 January – 11 February 2027",
+      "18 February – 11 March 2027",
+      "9 March – 30 March 2027",
     ],
     intensive8Day: [
-      "Starts every Monday (Winter season — Arambol Beach)",
-      "Other / Contact for dates",
+      "23 December – 30 December 2026",
+      "5 January – 12 January 2027",
+      "20 January – 27 January 2027",
+      "4 February – 11 February 2027",
+      "18 February – 25 February 2027",
     ],
   },
+} as const;
+
+export const GOA_200_PRICING = {
+  withFoodAccommodationEUR: "€1,200",
+  withoutFoodAccommodationEUR: "€800",
+  note: "Price for all Goa 200-Hour YTTC programs (Alignment and Multi-Style).",
+} as const;
+
+export const GOA_8DAY_PRICING = {
+  fromEUR: "€280",
+  label: "Price starting from €280",
 } as const;
 
 export type ProgramDateKey = "yttc100" | "yttc200" | "intensive8Day";

@@ -135,11 +135,10 @@ export default async function IntensiveCourse({ params }: PageProps) {
           </div>
         </section>
 
-        {/* Goa Placeholder (If Goa) */}
         {isGoa && (
-          <section className="bg-amber-50 border-y border-amber-200 py-4 text-center">
-            <span className="font-sans text-xs uppercase font-extrabold tracking-widest text-amber-700">
-              [GOA DETAILS COMING SOON - PRE-REGISTRATION OPEN]
+          <section className="border-y border-saffron-100 bg-saffron-50 py-4 text-center">
+            <span className="font-sans text-sm font-bold tracking-wide text-saffron-700">
+              Goa 8-Day Intensive · winter batches open · from €280
             </span>
           </section>
         )}
@@ -169,7 +168,9 @@ export default async function IntensiveCourse({ params }: PageProps) {
               <div className="p-5 bg-cream-50 border border-sage-100/40 rounded-2xl">
                 <Calendar className="w-5 h-5 text-terracotta-600 mx-auto mb-2" />
                 <h4 className="font-serif font-bold text-sm text-forest-700">Intensive Intakes</h4>
-                <p className="font-sans text-xs text-forest-600/60 mt-1">{isGoa ? "Schedules TBD" : "Every Monday year-round"}</p>
+                <p className="mt-1 font-sans text-sm text-forest-600/70">
+                  {isGoa ? "Winter season batches" : "Every Monday year-round"}
+                </p>
               </div>
               <div className="p-5 bg-cream-50 border border-sage-100/40 rounded-2xl">
                 <Users className="w-5 h-5 text-terracotta-600 mx-auto mb-2" />
@@ -221,7 +222,7 @@ export default async function IntensiveCourse({ params }: PageProps) {
                 <div className="flex flex-col gap-2 font-mono text-xs text-cream-200">
                   <div className="flex items-center gap-2">
                     <Clock className="w-4 h-4 shrink-0 text-terracotta-200" />
-                    <span>Intensive Practice: {isGoa ? "TBD (Morning Slot)" : "8:30 AM – 11:30 AM (Monday–Saturday)"}</span>
+                    <span>Intensive Practice: {isGoa ? "8:30 AM – 10:15 AM (Monday–Saturday)" : "8:30 AM – 11:30 AM (Monday–Saturday)"}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Award className="w-4 h-4 shrink-0 text-terracotta-200" />
@@ -384,14 +385,25 @@ export default async function IntensiveCourse({ params }: PageProps) {
                 <p className="font-sans text-xs text-sage-600 mt-1">Includes 8-day course tuition & prop packages</p>
               </div>
 
-              <div className="flex items-baseline justify-center gap-2">
-                <span className="font-serif text-4xl font-extrabold text-forest-600">{config.intensivePricing.feeINR}</span>
-                <span className="text-sm text-forest-600/60 font-light">INR</span>
-                {!isGoa && (
+              <div className="flex flex-col items-center gap-1">
+                {isGoa && config.intensivePricing.feeEUR ? (
                   <>
-                    <span className="text-forest-600/40 font-light">/</span>
-                    <span className="font-serif text-2xl font-bold text-forest-600">{config.intensivePricing.feeUSD}</span>
+                    <p className="font-sans text-sm font-medium text-sage-600">Price starting from</p>
+                    <span className="font-serif text-4xl font-extrabold text-forest-600">
+                      {config.intensivePricing.feeEUR}
+                    </span>
                   </>
+                ) : (
+                  <div className="flex items-baseline justify-center gap-2">
+                    <span className="font-serif text-4xl font-extrabold text-forest-600">
+                      {config.intensivePricing.feeINR}
+                    </span>
+                    <span className="text-sm font-light text-forest-600/60">INR</span>
+                    <span className="font-light text-forest-600/40">/</span>
+                    <span className="font-serif text-2xl font-bold text-forest-600">
+                      {config.intensivePricing.feeUSD}
+                    </span>
+                  </div>
                 )}
               </div>
 

@@ -31,10 +31,10 @@ export default function AboutSection() {
             Where Your Practice Finds Purpose
           </h2>
           <div className="flex flex-col justify-center">
-            <p className="font-sans text-base md:text-lg text-charcoal-500 leading-relaxed font-light mb-4">
+            <p className="mb-4 font-sans text-lg font-normal leading-relaxed text-charcoal-800 md:text-xl">
               Alpesh Yoga is a registered yoga school with Yoga Alliance, USA. We have been training yoga students in the art of yoga and meditation for more than a decade. 
             </p>
-            <p className="font-sans text-base md:text-lg text-charcoal-500 leading-relaxed font-light">
+            <p className="font-sans text-lg font-normal leading-relaxed text-charcoal-800 md:text-xl">
               Our holistic approach combines physical alignment with deep spiritual immersion, offering a truly life-changing experience in the heart of India.
             </p>
           </div>
@@ -52,7 +52,7 @@ export default function AboutSection() {
                 />
               </div>
               <h3 className="font-serif text-xl font-bold text-charcoal-900 mb-3">{card.title}</h3>
-              <p className="font-sans text-sm text-charcoal-500 leading-relaxed">
+              <p className="font-sans text-base font-normal leading-relaxed text-charcoal-700">
                 {card.description}
               </p>
             </div>

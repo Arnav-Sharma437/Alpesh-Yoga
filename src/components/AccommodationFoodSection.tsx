@@ -21,7 +21,7 @@ export default function AccommodationFoodSection() {
           <h2 className="mb-4 font-serif text-3xl font-medium tracking-tight text-charcoal-900 sm:text-4xl md:text-5xl">
             Accommodation &amp; Food
           </h2>
-          <p className="mx-auto max-w-2xl font-sans text-sm font-light leading-relaxed text-charcoal-500 sm:text-base">
+          <p className="mx-auto max-w-2xl font-sans text-base font-normal leading-relaxed text-charcoal-700 sm:text-lg">
             {FOOD_POLICY}
           </p>
         </div>

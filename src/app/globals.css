@@ -37,16 +37,18 @@
   --color-charcoal-50: #F5F5F5;
   --color-charcoal-100: #E5E5E5;
   --color-charcoal-200: #CCCCCC;
-  --color-charcoal-500: #737373;
-  --color-charcoal-800: #333333;
+  --color-charcoal-500: #5C5C5C;
+  --color-charcoal-800: #2E2E2E;
   --color-charcoal-900: #1A1A1A;
   --color-charcoal-950: #0A0A0A;
 }
 
 :root {
-  --background: #FAF8F5;
+  --background: #F7F4EF;
   --foreground: #1A1A1A;
   --brand: #F5821F;
+  --text-body: 1.125rem;
+  --leading-body: 1.75;
 }
 
 html {
@@ -56,6 +58,17 @@ html {
 body {
   background-color: var(--background);
   color: var(--foreground);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+
+/* Readable body copy across the site */
+main p,
+.prose-readable {
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  font-weight: 400;
+  color: #3a3a3a;
 }
 
 .glassmorphism {
@@ -82,7 +95,7 @@ body {
   background-color: #F5821F;
   color: #fff;
   font-family: var(--font-sans), sans-serif;
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 600;
   letter-spacing: 0.01em;
   box-shadow: 0 10px 24px rgba(245, 130, 31, 0.28);

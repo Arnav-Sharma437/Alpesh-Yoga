@@ -43,6 +43,9 @@ export interface ProgramPageData {
   scheduleNote?: string;
   
   datesPrices: DatePriceItem[];
+  datesPriceCol1Label?: string;
+  datesPriceCol2Label?: string;
+  datesStrikeCol2?: boolean;
   
   teachers: TeacherProfile[];
   
@@ -98,6 +101,9 @@ export default function ProgramPageTemplate({ data }: ProgramPageTemplateProps) 
           locationName={data.locationName}
           programTitle={data.programTitle}
           dates={data.datesPrices}
+          priceCol1Label={data.datesPriceCol1Label}
+          priceCol2Label={data.datesPriceCol2Label}
+          strikeCol2={data.datesStrikeCol2}
         />
         
         <TeachersSection 

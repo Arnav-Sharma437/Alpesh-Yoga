@@ -14,31 +14,50 @@ interface DatesPricesTableProps {
   locationName: string;
   programTitle: string;
   dates: DatePriceItem[];
+  priceCol1Label?: string;
+  priceCol2Label?: string;
+  strikeCol2?: boolean;
 }
 
-export default function DatesPricesTable({ locationName, programTitle, dates }: DatesPricesTableProps) {
+export default function DatesPricesTable({
+  locationName,
+  programTitle,
+  dates,
+  priceCol1Label = "With Stay / Early Bird",
+  priceCol2Label = "Course Only / Regular",
+  strikeCol2 = false,
+}: DatesPricesTableProps) {
   return (
-    <section className="py-24 bg-sand-50">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div className="text-center mb-16">
-          <p className="font-sans text-xs uppercase tracking-widest text-rust-500 font-bold mb-3">
+    <section className="bg-sand-50 py-24">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-16 text-center">
+          <p className="mb-3 font-sans text-sm font-bold uppercase tracking-widest text-rust-500">
             Prices & Availability
           </p>
-          <h2 className="font-serif text-3xl sm:text-4xl text-charcoal-900 font-bold tracking-tight">
+          <h2 className="font-serif text-3xl font-bold tracking-tight text-charcoal-900 sm:text-4xl md:text-5xl">
             Upcoming Dates for {locationName}
           </h2>
         </div>
 
-        <div className="bg-white rounded-[32px] p-6 sm:p-10 shadow-sm border border-gray-100 overflow-x-auto">
-          <table className="w-full min-w-[800px] text-left border-collapse">
+        <div className="overflow-x-auto rounded-[32px] border border-gray-100 bg-white p-6 shadow-sm sm:p-10">
+          <table className="w-full min-w-[800px] border-collapse text-left">
             <thead>
               <tr className="border-b border-gray-200">
-                <th className="py-4 px-6 font-sans text-xs font-bold text-charcoal-500 uppercase tracking-widest w-1/4">Dates</th>
-                <th className="py-4 px-6 font-sans text-xs font-bold text-charcoal-500 uppercase tracking-widest w-1/5">Availability</th>
-                <th className="py-4 px-6 font-sans text-xs font-bold text-charcoal-500 uppercase tracking-widest w-1/5">Early Bird</th>
-                <th className="py-4 px-6 font-sans text-xs font-bold text-charcoal-500 uppercase tracking-widest w-1/5">Regular Price</th>
-                <th className="py-4 px-6 font-sans text-xs font-bold text-charcoal-500 uppercase tracking-widest w-1/5 text-right">Action</th>
+                <th className="w-1/4 px-6 py-4 font-sans text-sm font-bold uppercase tracking-widest text-charcoal-500">
+                  Dates
+                </th>
+                <th className="w-1/5 px-6 py-4 font-sans text-sm font-bold uppercase tracking-widest text-charcoal-500">
+                  Availability
+                </th>
+                <th className="w-1/5 px-6 py-4 font-sans text-sm font-bold uppercase tracking-widest text-charcoal-500">
+                  {priceCol1Label}
+                </th>
+                <th className="w-1/5 px-6 py-4 font-sans text-sm font-bold uppercase tracking-widest text-charcoal-500">
+                  {priceCol2Label}
+                </th>
+                <th className="w-1/5 px-6 py-4 text-right font-sans text-sm font-bold uppercase tracking-widest text-charcoal-500">
+                  Action
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -48,31 +67,40 @@ export default function DatesPricesTable({ locationName, programTitle, dates }: 
                 if (item.availability === "Fully Booked") badgeColor = "bg-gray-100 text-gray-500";
 
                 return (
-                  <tr key={idx} className="border-b border-gray-100 hover:bg-sand-50/50 transition-colors">
-                    <td className="py-6 px-6 font-sans text-sm font-bold text-charcoal-900">
+                  <tr key={idx} className="border-b border-gray-100 transition-colors hover:bg-sand-50/50">
+                    <td className="px-6 py-6 font-sans text-base font-bold text-charcoal-900">
                       {item.dateRange}
                     </td>
-                    <td className="py-6 px-6">
-                      <span className={`inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider ${badgeColor}`}>
+                    <td className="px-6 py-6">
+                      <span
+                        className={`inline-flex items-center rounded-full px-2.5 py-1 text-xs font-bold uppercase tracking-wider ${badgeColor}`}
+                      >
                         {item.availability}
                       </span>
                     </td>
-                    <td className="py-6 px-6 font-sans text-sm text-charcoal-900 font-medium">
+                    <td className="px-6 py-6 font-sans text-base font-semibold text-charcoal-900">
                       {item.earlyBirdPrice}
                     </td>
-                    <td className="py-6 px-6 font-sans text-sm text-charcoal-500 line-through">
+                    <td
+                      className={`px-6 py-6 font-sans text-base text-charcoal-700 ${
+                        strikeCol2 ? "text-charcoal-400 line-through" : "font-medium"
+                      }`}
+                    >
                       {item.regularPrice}
                     </td>
-                    <td className="py-6 px-6 text-right">
+                    <td className="px-6 py-6 text-right">
                       {item.availability !== "Fully Booked" ? (
                         <Link
                           href={`/apply?location=${encodeURIComponent(locationName)}&program=${encodeURIComponent(programTitle)}&date=${encodeURIComponent(item.dateRange)}`}
-                          className="inline-flex items-center justify-center px-6 py-2.5 rounded-full border border-olive-500 text-olive-600 hover:bg-olive-500 hover:text-white font-sans text-xs font-bold uppercase tracking-wider transition-all duration-300"
+                          className="inline-flex items-center justify-center rounded-full border border-olive-500 px-6 py-2.5 font-sans text-sm font-bold uppercase tracking-wider text-olive-600 transition-all duration-300 hover:bg-olive-500 hover:text-white"
                         >
                           Book Now
                         </Link>
                       ) : (
-                        <button disabled className="inline-flex items-center justify-center px-6 py-2.5 rounded-full border border-gray-300 text-gray-400 font-sans text-xs font-bold uppercase tracking-wider cursor-not-allowed">
+                        <button
+                          disabled
+                          className="inline-flex cursor-not-allowed items-center justify-center rounded-full border border-gray-300 px-6 py-2.5 font-sans text-sm font-bold uppercase tracking-wider text-gray-400"
+                        >
                           Closed
                         </button>
                       )}
@@ -83,7 +111,6 @@ export default function DatesPricesTable({ locationName, programTitle, dates }: 
             </tbody>
           </table>
         </div>
-
       </div>
     </section>
   );

@@ -86,9 +86,9 @@ export default async function TTC100Page({ params }: PageProps) {
         </section>
 
         {isGoa && (
-          <section className="bg-amber-50 border-y border-amber-200 py-4 text-center">
-            <span className="font-sans text-xs uppercase font-extrabold tracking-widest text-amber-700">
-              [GOA BRANCH UNDER DEVELOPMENT - ACCEPTING ONLINE PRE-APPLICATIONS]
+          <section className="border-y border-saffron-100 bg-saffron-50 py-4 text-center">
+            <span className="font-sans text-sm font-bold tracking-wide text-saffron-700">
+              Goa winter season open — Alignment &amp; Multi-Style 100-Hour batches available
             </span>
           </section>
         )}
@@ -172,12 +172,39 @@ export default async function TTC100Page({ params }: PageProps) {
               </div>
 
               {/* Date items list */}
-              <div className="w-full md:w-64 font-mono text-xs divide-y divide-sage-100 bg-white p-4 rounded-2xl border border-sage-100">
-                {batchDates.map((date, idx) => (
-                  <div key={idx} className="py-2 first:pt-0 last:pb-0 font-sans font-medium text-forest-600">
-                    {date}
+              <div className="w-full space-y-4 md:w-80">
+                {isGoa && config.batches100Alignment ? (
+                  <>
+                    <div className="divide-y divide-sage-100 rounded-2xl border border-sage-100 bg-white p-4 font-sans text-sm font-medium text-forest-600">
+                      <p className="pb-2 font-sans text-xs font-bold uppercase tracking-wider text-saffron-600">
+                        100-Hour Alignment
+                      </p>
+                      {config.batches100Alignment.map((date) => (
+                        <div key={date} className="py-2 first:pt-0">
+                          {date}
+                        </div>
+                      ))}
+                    </div>
+                    <div className="divide-y divide-sage-100 rounded-2xl border border-sage-100 bg-white p-4 font-sans text-sm font-medium text-forest-600">
+                      <p className="pb-2 font-sans text-xs font-bold uppercase tracking-wider text-saffron-600">
+                        100-Hour Multi-Style
+                      </p>
+                      {(config.batches100Multi ?? []).map((date) => (
+                        <div key={date} className="py-2 first:pt-0">
+                          {date}
+                        </div>
+                      ))}
+                    </div>
+                  </>
+                ) : (
+                  <div className="divide-y divide-sage-100 rounded-2xl border border-sage-100 bg-white p-4 font-sans text-sm font-medium text-forest-600">
+                    {batchDates.map((date) => (
+                      <div key={date} className="py-2 first:pt-0 last:pb-0">
+                        {date}
+                      </div>
+                    ))}
                   </div>
-                ))}
+                )}
               </div>
 
             </div>

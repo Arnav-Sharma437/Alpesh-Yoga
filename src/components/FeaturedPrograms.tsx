@@ -6,7 +6,7 @@ import { programsCatalog } from "@/config/programs";
 
 export default function FeaturedPrograms() {
   const COURSES = programsCatalog.filter((p) =>
-    ["200-goa", "200-dharamshala", "100-goa"].includes(p.id)
+    ["200-goa-alignment", "200-dharamshala", "100-goa-alignment"].includes(p.id)
   );
 
   return (
@@ -22,7 +22,7 @@ export default function FeaturedPrograms() {
             </h2>
           </div>
           <div className="flex max-w-md flex-col items-start gap-4 md:items-end">
-            <p className="font-sans text-base font-light leading-relaxed text-charcoal-500">
+            <p className="font-sans text-lg font-normal leading-relaxed text-charcoal-700">
               Immersive trainings in Goa and Dharamshala — from daily classes to
               200-Hour Yoga Alliance certified teacher trainings.
             </p>

@@ -23,7 +23,7 @@ export default function Testimonials({
           <h2 className="mb-3 font-serif text-3xl font-medium tracking-tight text-charcoal-900 sm:text-4xl md:text-5xl">
             What Our Students Are Saying
           </h2>
-          <p className="font-sans text-sm font-light text-charcoal-500">
+          <p className="font-sans text-base font-normal text-charcoal-700 sm:text-lg">
             Real Google reviews from students of Alpesh Yoga · 5.0 rating based on 109+ reviews
           </p>
         </div>
@@ -40,7 +40,7 @@ export default function Testimonials({
                     <Star key={i} className="h-4 w-4 fill-current" />
                   ))}
                 </div>
-                <p className="mb-6 font-sans text-sm font-light italic leading-relaxed text-charcoal-600">
+                <p className="mb-6 font-sans text-base font-normal leading-relaxed text-charcoal-700">
                   &ldquo;{review.quote}&rdquo;
                 </p>
               </div>

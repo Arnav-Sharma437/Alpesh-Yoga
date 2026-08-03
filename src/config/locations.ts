@@ -31,12 +31,18 @@ export interface LocationData {
   intensivePricing: {
     feeINR: string;
     feeUSD: string;
+    feeEUR?: string;
     deposit: string;
   };
   /** @deprecated Prefer batches200 / batches100 — kept for backward compatibility */
   batches: string[];
   batches200: string[];
   batches100: string[];
+  /** Optional Goa track splits (Alignment vs Multi-Style) */
+  batches200Alignment?: string[];
+  batches200Multi?: string[];
+  batches100Alignment?: string[];
+  batches100Multi?: string[];
 }
 
 export const locationsConfig: Record<string, LocationData> = {
@@ -154,26 +160,26 @@ export const locationsConfig: Record<string, LocationData> = {
     mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3840.428514930355!2d73.70494491490278!3d15.698305889110416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfa37c56aa3891%3A0xe9f7cb2f43beec41!2sArambol%20Beach!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin",
     schedule: [
       {
-        time: "8:30 AM – 10:00 AM",
-        title: "Intensive Hatha Alignment",
+        time: "8:30 AM – 10:15 AM",
+        title: "Morning — Indepth Alignment",
         level: "All Levels",
-        focus: "Structural integrity, posture corrections, prop use. Custom adjustments for beach retreats.",
-        shortDesc: "Rigorous alignment-focused session adapted to coastal environments. Wall ropes, blocks, and belts provided."
+        focus: "Structural integrity, posture corrections, prop use, and inversions.",
+        shortDesc: "Indepth alignment yoga class with props, adjustments, and clear instruction.",
       },
       {
-        time: "10:15 AM – 11:45 AM",
-        title: "Beginner Friendly Alignment",
+        time: "10:15 AM – 11:15 AM",
+        title: "Beginner Alignment",
         level: "Beginner",
-        focus: "Habit correction, basic posture alignments, prop instruction.",
-        shortDesc: "Foundations course helping students practice safely on sandy shalas without shoulder or knee compression."
+        focus: "Foundations of standing postures, basic breathing, and prop usage.",
+        shortDesc: "Beginner-friendly alignment class to build safe habits from day one.",
       },
       {
-        time: "4:00 PM – 5:30 PM",
-        title: "Evening Therapeutic Alignment",
+        time: "4:30 PM – 6:00 PM",
+        title: "Evening Alignment",
         level: "All Levels",
-        focus: "Restorative stretches, posture release, pranayama.",
-        shortDesc: "Restorative flow designed to stretch fatigue out of structural muscles and balance the nervous system."
-      }
+        focus: "Evening alignment practice, footwork, and restorative release.",
+        shortDesc: "Evening drop-in class focused on alignment, strength, and recovery.",
+      },
     ],
     pricing: [
       {
@@ -199,36 +205,84 @@ export const locationsConfig: Record<string, LocationData> = {
       }
     ],
     intensiveDates: [
-      "Starts every Monday (Winter season — Arambol Beach)",
+      "23 December – 30 December 2026",
+      "5 January – 12 January 2027",
+      "20 January – 27 January 2027",
+      "4 February – 11 February 2027",
+      "18 February – 25 February 2027",
       "Other / Contact for dates",
     ],
     intensivePricing: {
-      feeINR: "₹12,000",
-      feeUSD: "$150 USD",
+      feeINR: "₹25,000",
+      feeUSD: "$280 USD",
+      feeEUR: "€280",
       deposit: "USD 300 to reserve a spot (non-refundable)",
     },
+    batches200Alignment: [
+      "4 November – 25 November 2026",
+      "3 December – 24 December 2026",
+      "6 January – 27 January 2027",
+      "4 February – 25 February 2027",
+      "2 March – 23 March 2027",
+    ],
+    batches200Multi: [
+      "21 November – 12 December 2026",
+      "16 December – 6 January 2027",
+      "21 January – 11 February 2027",
+      "18 February – 11 March 2027",
+      "9 March – 30 March 2027",
+    ],
     batches200: [
-      "15 November – 6 December 2026",
-      "10 December – 31 December 2026",
-      "5 January – 26 January 2027",
-      "1 February – 22 February 2027",
-      "1 March – 22 March 2027",
+      "4 November – 25 November 2026 (Alignment)",
+      "21 November – 12 December 2026 (Multi-Style)",
+      "3 December – 24 December 2026 (Alignment)",
+      "16 December – 6 January 2027 (Multi-Style)",
+      "6 January – 27 January 2027 (Alignment)",
+      "21 January – 11 February 2027 (Multi-Style)",
+      "4 February – 25 February 2027 (Alignment)",
+      "18 February – 11 March 2027 (Multi-Style)",
+      "2 March – 23 March 2027 (Alignment)",
+      "9 March – 30 March 2027 (Multi-Style)",
       "Other / Contact for dates",
     ],
+    batches100Alignment: [
+      "4 November – 14 November 2026",
+      "4 December – 14 December 2026",
+      "6 January – 16 January 2027",
+      "5 February – 15 February 2027",
+      "2 March – 12 March 2027",
+    ],
+    batches100Multi: [
+      "21 November – 1 December 2026",
+      "16 December – 26 December 2026",
+      "21 January – 31 January 2027",
+      "18 February – 1 March 2027",
+      "9 March – 19 March 2027",
+    ],
     batches100: [
-      "15 November – 26 November 2026",
-      "10 December – 21 December 2026",
-      "5 January – 16 January 2027",
-      "1 February – 12 February 2027",
-      "1 March – 12 March 2027",
+      "4 November – 14 November 2026 (Alignment)",
+      "21 November – 1 December 2026 (Multi-Style)",
+      "4 December – 14 December 2026 (Alignment)",
+      "16 December – 26 December 2026 (Multi-Style)",
+      "6 January – 16 January 2027 (Alignment)",
+      "21 January – 31 January 2027 (Multi-Style)",
+      "5 February – 15 February 2027 (Alignment)",
+      "18 February – 1 March 2027 (Multi-Style)",
+      "2 March – 12 March 2027 (Alignment)",
+      "9 March – 19 March 2027 (Multi-Style)",
       "Other / Contact for dates",
     ],
     batches: [
-      "15 November – 6 December 2026",
-      "10 December – 31 December 2026",
-      "5 January – 26 January 2027",
-      "1 February – 22 February 2027",
-      "1 March – 22 March 2027",
+      "4 November – 25 November 2026 (Alignment)",
+      "21 November – 12 December 2026 (Multi-Style)",
+      "3 December – 24 December 2026 (Alignment)",
+      "16 December – 6 January 2027 (Multi-Style)",
+      "6 January – 27 January 2027 (Alignment)",
+      "21 January – 11 February 2027 (Multi-Style)",
+      "4 February – 25 February 2027 (Alignment)",
+      "18 February – 11 March 2027 (Multi-Style)",
+      "2 March – 23 March 2027 (Alignment)",
+      "9 March – 30 March 2027 (Multi-Style)",
       "Other / Contact for dates",
     ],
   },
