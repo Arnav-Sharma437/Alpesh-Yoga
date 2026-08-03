@@ -71,11 +71,11 @@
 }
 
 :root {
-  --background: #FAFAF8;
-  --foreground: #363636;
+  --background: #FFFFFF;
+  --foreground: #212121;
   --brand: #91A271;
-  --heading: #6A6666;
-  --text-body: 1.195rem; /* ~19.1px like HoO */
+  --heading: #4A4540;
+  --text-body: 1.195rem;
   --leading-body: 1.7;
 }
 
@@ -91,13 +91,21 @@ body {
   font-weight: 400;
 }
 
-/* House of Om body copy */
+/* High-contrast body copy on light backgrounds */
 main p,
 .prose-readable {
   font-size: var(--text-body);
   line-height: var(--leading-body);
   font-weight: 400;
-  color: #363636;
+  color: #212121;
+}
+
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
 }
 
 h1,
