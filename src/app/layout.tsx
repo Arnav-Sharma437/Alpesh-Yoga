@@ -3,6 +3,7 @@ import { Montserrat } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import BottomNavigation from "@/components/BottomNavigation";
+import StickyChakras from "@/components/StickyChakras";
 
 const bagnard = localFont({
   src: [
@@ -28,7 +29,7 @@ const montserrat = Montserrat({
 });
 
 export const viewport = {
-  themeColor: "#8FA071",
+  themeColor: "#F5821F",
 };
 
 export const metadata: Metadata = {
@@ -52,8 +53,9 @@ export default function RootLayout({
       lang="en"
       className={`${montserrat.variable} ${bagnard.variable} h-full antialiased scroll-smooth`}
     >
-      <body className="min-h-full flex flex-col bg-sand-50 text-charcoal-900 font-sans bg-mandala-pattern">
-        <main className="flex-grow animate-page-enter flex flex-col">
+      <body className="min-h-full flex flex-col bg-sand-50 text-charcoal-900 font-sans bg-mandala-pattern relative">
+        <StickyChakras />
+        <main className="flex-grow animate-page-enter flex flex-col relative z-10">
           {children}
           {/* Mobile bottom nav spacing offset */}
           <div className="h-16 md:hidden bg-transparent shrink-0 pointer-events-none" />

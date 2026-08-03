@@ -53,7 +53,7 @@ export default function KarmaYogaSection() {
               
               <a
                 href="/about#karma-yoga"
-                className="inline-flex items-center justify-center px-8 py-3 rounded-full bg-olive-500 hover:bg-olive-600 text-white font-sans text-xs font-bold uppercase tracking-wider shadow-lg transition-all duration-300 self-start"
+                className="btn-primary !px-8 !py-3 !text-xs !uppercase !tracking-wider self-start"
               >
                 Learn More
               </a>

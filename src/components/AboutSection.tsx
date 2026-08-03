@@ -22,7 +22,7 @@ export default function AboutSection() {
   ];
 
   return (
-    <section className="py-24 bg-sand-50 relative overflow-hidden">
+    <section id="about" className="py-24 bg-sand-50 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Top Split Header */}
@@ -63,7 +63,7 @@ export default function AboutSection() {
         <div className="flex justify-center">
           <a
             href="/about"
-            className="inline-flex items-center justify-center px-10 py-3.5 rounded-full bg-olive-500 hover:bg-olive-600 text-white font-sans text-sm font-bold uppercase tracking-wider shadow-lg transition-all duration-300"
+            className="btn-primary"
           >
             Read Our Story
           </a>

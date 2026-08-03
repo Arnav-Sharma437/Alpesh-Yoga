@@ -10,7 +10,7 @@ export default function BottomNavigation() {
 
   // Active status checks
   const isHomeActive = pathname === "/";
-  const isCoursesActive = pathname === "/dates-prices" || pathname.includes("/100-hour-ttc") || pathname.includes("/200-hour-yttc") || pathname.includes("/8-day-intensive") || pathname.includes("/therapeutic-yoga");
+  const isCoursesActive = pathname === "/programs" || pathname === "/dates-prices" || pathname.includes("/100-hour-ttc") || pathname.includes("/200-hour-yttc") || pathname.includes("/8-day-intensive") || pathname.includes("/therapeutic-yoga");
   const isApplyActive = pathname === "/apply";
   const isLocationsActive = pathname === "/dharamshala" || pathname === "/goa" || pathname === "/daily-classes";
 
@@ -27,7 +27,7 @@ export default function BottomNavigation() {
         <a 
           href="/" 
           className={`flex flex-col items-center justify-center w-12 h-12 active:scale-90 transition-transform ${
-            isHomeActive ? "text-[#F7941D]" : "text-white/60 hover:text-white"
+            isHomeActive ? "text-[#F5821F]" : "text-white/60 hover:text-white"
           }`}
         >
           <Home className="w-5 h-5 mb-0.5" />
@@ -36,9 +36,9 @@ export default function BottomNavigation() {
 
         {/* Tab 2: Courses */}
         <a 
-          href="/dates-prices" 
+          href="/programs" 
           className={`flex flex-col items-center justify-center w-12 h-12 active:scale-90 transition-transform ${
-            isCoursesActive ? "text-[#F7941D]" : "text-white/60 hover:text-white"
+            isCoursesActive ? "text-[#F5821F]" : "text-white/60 hover:text-white"
           }`}
         >
           <Calendar className="w-5 h-5 mb-0.5" />
@@ -48,7 +48,7 @@ export default function BottomNavigation() {
         {/* Tab 3: Center Highlighted Apply CTA */}
         <a 
           href="/apply" 
-          className={`relative -top-4 flex flex-col items-center justify-center w-14 h-14 rounded-full bg-gradient-to-tr from-[#E07D0E] to-[#F7941D] text-white shadow-lg active:scale-95 transition-transform border-4 border-black z-50`}
+          className={`relative -top-4 flex flex-col items-center justify-center w-14 h-14 rounded-full bg-gradient-to-tr from-[#E06E0E] to-[#F5821F] text-white shadow-lg active:scale-95 transition-transform border-4 border-black z-50`}
         >
           <ClipboardList className="w-5.5 h-5.5" />
           <span className="text-[8px] font-sans font-bold uppercase tracking-wider mt-0.5">Apply</span>
@@ -58,7 +58,7 @@ export default function BottomNavigation() {
         <button 
           onClick={() => setShowLocationsModal(true)}
           className={`flex flex-col items-center justify-center w-12 h-12 active:scale-90 transition-transform cursor-pointer ${
-            isLocationsActive ? "text-[#F7941D]" : "text-white/60 hover:text-white"
+            isLocationsActive ? "text-[#F5821F]" : "text-white/60 hover:text-white"
           }`}
         >
           <MapPin className="w-5 h-5 mb-0.5" />

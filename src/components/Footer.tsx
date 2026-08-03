@@ -14,9 +14,12 @@ export default function Footer() {
           
           {/* Column 1: Logo & Social */}
           <div className="flex flex-col space-y-6">
-            <span className="font-serif text-3xl font-bold tracking-tight text-white">
-              Alpesh Yoga
-            </span>
+            <a href="/" className="flex items-center gap-3">
+              <img src="/logo/alpesh-logo.png" alt="Alpesh Yoga" className="h-12 w-auto object-contain" />
+              <span className="font-serif text-2xl font-bold tracking-tight text-white">
+                Alpesh Yoga
+              </span>
+            </a>
             <div className="flex items-center gap-4">
               <a href="https://facebook.com/alpeshyoga" target="_blank" rel="noopener noreferrer" className="p-2 border border-gray-700 rounded-full hover:bg-white hover:text-charcoal-900 transition-colors">
                 <Facebook className="w-4 h-4" />
@@ -37,6 +40,7 @@ export default function Footer() {
           <div className="flex flex-col">
             <h4 className="font-sans text-sm font-bold uppercase tracking-widest text-white mb-6">Programs</h4>
             <ul className="space-y-4">
+              <li><a href="/programs" className="font-sans text-xs text-gray-400 hover:text-white transition-colors">All Programs</a></li>
               <li><a href="/goa/200-hour-yttc" className="font-sans text-xs text-gray-400 hover:text-white transition-colors">200-Hour YTTC Goa</a></li>
               <li><a href="/dharamshala/200-hour-yttc" className="font-sans text-xs text-gray-400 hover:text-white transition-colors">200-Hour YTTC Dharamshala</a></li>
               <li><a href="/goa/100-hour-ttc" className="font-sans text-xs text-gray-400 hover:text-white transition-colors">100-Hour TTC</a></li>

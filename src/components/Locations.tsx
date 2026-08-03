@@ -4,7 +4,7 @@ import React from "react";
 
 export default function Locations() {
   return (
-    <section className="py-24 bg-sand-50 relative overflow-hidden border-t border-gray-100">
+    <section id="locations" className="py-24 bg-sand-50 relative overflow-hidden border-t border-gray-100">
       
       {/* Global Section Header */}
       <div className="text-center mb-16">

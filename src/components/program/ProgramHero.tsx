@@ -31,7 +31,7 @@ export default function ProgramHero({ title, subtitle, image, location }: Progra
         <div className="flex justify-center">
           <Link
             href={`/apply?location=${location}&program=${encodeURIComponent(title)}`}
-            className="inline-flex items-center justify-center px-10 py-4 rounded-full bg-olive-500 hover:bg-olive-600 text-white font-sans text-sm font-bold uppercase tracking-wider shadow-lg transition-all duration-300"
+            className="btn-primary"
           >
             Enroll Now
           </Link>

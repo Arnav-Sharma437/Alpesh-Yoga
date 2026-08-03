@@ -76,7 +76,7 @@ export default function ContactSection() {
             <div className="pt-6 flex justify-center">
               <button
                 type="submit"
-                className="px-10 py-4 rounded-full bg-olive-600 hover:bg-olive-700 text-white font-sans text-sm font-bold uppercase tracking-widest transition-all duration-300 shadow-lg hover:shadow-xl w-full sm:w-auto"
+                className="btn-primary w-full sm:w-auto"
               >
                 Send Message
               </button>

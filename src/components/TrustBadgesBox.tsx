@@ -42,7 +42,7 @@ export default function TrustBadgesBox() {
           <div className="flex flex-col items-center gap-2">
             <a 
               href="/apply"
-              className="px-8 py-3 rounded-full bg-olive-500 hover:bg-olive-600 text-white font-sans text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-md"
+              className="btn-primary !px-8 !py-3 !text-xs !uppercase !tracking-wider"
             >
               Enroll Now
             </a>
