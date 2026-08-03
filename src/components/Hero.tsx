@@ -1,13 +1,13 @@
 "use client";
 
 import React from "react";
-import { ArrowRight, Calendar } from "lucide-react";
+import { PlayCircle } from "lucide-react";
 
 export default function Hero() {
   return (
     <div className="flex flex-col w-full">
       {/* Hero Banner Section */}
-      <section className="relative h-[85vh] min-h-[550px] flex items-center justify-center overflow-hidden pt-28">
+      <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
         
         {/* Background Image with Dark Overlay */}
         <div 
@@ -16,68 +16,56 @@ export default function Hero() {
             backgroundImage: `url('https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=1920')`,
           }}
         >
-          {/* Dark overlay for text readability */}
-          <div className="absolute inset-0 bg-black/50"></div>
+          {/* Subtle gradient overlay to ensure text pops but feels natural */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60"></div>
         </div>
 
         {/* Content Container */}
-        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 z-10 text-center flex flex-col items-center">
+        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 z-10 text-center flex flex-col items-center mt-16">
           
-          {/* Logo Icon in Center */}
-          <div className="mb-6 bg-white/95 p-3 rounded-full shadow-lg inline-flex items-center justify-center">
-            <img 
-              src="/logo/alpesh-logo.jpeg" 
-              alt="Alpesh Yoga Logo" 
-              className="w-16 h-16 rounded-full object-contain" 
-            />
-          </div>
-
           {/* Heading */}
-          <h1 className="font-serif font-extrabold tracking-tight text-white mb-2 leading-tight uppercase text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+          <h1 className="font-serif text-white mb-6 leading-[1.1] text-4xl sm:text-5xl md:text-6xl lg:text-[72px] tracking-tight max-w-4xl">
             Best Yoga Teacher Training In India
           </h1>
           
-          {/* Highlight Subheading */}
-          <h2 className="font-sans font-bold uppercase tracking-widest text-[#F7941D] text-xl sm:text-2xl md:text-3xl mb-6">
-            Goa & Rishikesh
-          </h2>
-
           {/* Subtext */}
-          <p className="font-sans text-sm sm:text-base md:text-lg text-gray-200 leading-relaxed mb-8 max-w-3xl font-light">
-            200-Hour, 300-Hour & 500-Hour Yoga Alliance Certified Ashtanga & Vinyasa Flow Yoga Teacher Training Courses in India.
+          <p className="font-sans text-base sm:text-lg md:text-xl text-white/90 leading-relaxed mb-10 max-w-2xl font-light">
+            200-Hour, 300-Hour & 500-Hour Yoga Alliance Certified Ashtanga & Vinyasa Flow Yoga Teacher Training Courses in Goa & Dharamshala.
           </p>
 
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
               href="/apply"
-              className="inline-flex items-center justify-center px-8 py-3.5 rounded-md bg-[#F7941D] hover:bg-[#E07D0E] text-white font-sans text-sm font-bold shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
+              className="inline-flex items-center justify-center px-10 py-4 rounded-full bg-olive-500 hover:bg-olive-600 text-white font-sans text-sm font-bold uppercase tracking-wider shadow-lg transition-all duration-300 w-full sm:w-auto"
             >
-              <span>APPLY NOW</span>
+              Apply Now
             </a>
 
             <a
-              href="/dates-prices"
-              className="inline-flex items-center justify-center px-8 py-3.5 rounded-md border-2 border-white hover:border-gray-200 bg-transparent text-white hover:bg-white/10 font-sans text-sm font-bold transition-all duration-300 w-full sm:w-auto"
+              href="#video"
+              className="inline-flex items-center justify-center gap-2 px-10 py-4 rounded-full border border-white text-white hover:bg-white hover:text-charcoal-900 font-sans text-sm font-bold uppercase tracking-wider transition-all duration-300 w-full sm:w-auto"
             >
-              <span>VIEW DATES & PRICES</span>
+              <PlayCircle className="w-5 h-5" />
+              <span>Watch Video</span>
             </a>
           </div>
 
         </div>
+        
+        {/* Bottom Trust Indicators (Optional placeholder for the floating badges in House of Om) */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-6 text-white/70 text-sm font-medium">
+          <div className="flex items-center gap-2">
+             <span>★★★★★</span>
+             <span>Trustpilot</span>
+          </div>
+          <div className="w-1 h-1 rounded-full bg-white/40"></div>
+          <div className="flex items-center gap-2">
+             <span>★★★★★</span>
+             <span>Google Reviews</span>
+          </div>
+        </div>
       </section>
-
-      {/* View All Dates Pill Section below Banner */}
-      <div className="bg-white py-6 border-b border-gray-150 flex justify-center items-center">
-        <a 
-          href="/dates-prices"
-          className="inline-flex items-center justify-center px-6 py-2 rounded-full border border-gray-300 text-gray-700 hover:text-[#F7941D] hover:border-[#F7941D] hover:bg-gray-50 font-sans text-xs font-bold transition-all duration-300"
-        >
-          <span>VIEW ALL DATES & PRICES</span>
-        </a>
-      </div>
     </div>
   );
 }
-
-

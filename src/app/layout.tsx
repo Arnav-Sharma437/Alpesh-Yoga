@@ -1,22 +1,23 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
+import { Cormorant_Garamond, Montserrat } from "next/font/google";
 import "./globals.css";
 import BottomNavigation from "@/components/BottomNavigation";
 
-const playfair = Playfair_Display({
+const cormorant = Cormorant_Garamond({
   variable: "--font-serif",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
 
-const inter = Inter({
+const montserrat = Montserrat({
   variable: "--font-sans",
   subsets: ["latin"],
   display: "swap",
 });
 
 export const viewport = {
-  themeColor: "#F7941D",
+  themeColor: "#8FA071",
 };
 
 export const metadata: Metadata = {
@@ -38,9 +39,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${playfair.variable} h-full antialiased scroll-smooth`}
+      className={`${montserrat.variable} ${cormorant.variable} h-full antialiased scroll-smooth`}
     >
-      <body className="min-h-full flex flex-col bg-cream-50 text-forest-600 font-sans">
+      <body className="min-h-full flex flex-col bg-sand-50 text-charcoal-900 font-sans bg-mandala-pattern">
         <main className="flex-grow animate-page-enter flex flex-col">
           {children}
           {/* Mobile bottom nav spacing offset */}
@@ -51,3 +52,4 @@ export default function RootLayout({
     </html>
   );
 }
+

@@ -3,76 +3,45 @@
 import React from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import WhyChoose from "@/components/WhyChoose";
 import AboutSection from "@/components/AboutSection";
-import TeacherProfile from "@/components/TeacherProfile";
 import FeaturedPrograms from "@/components/FeaturedPrograms";
-import IntensiveSection from "@/components/IntensiveSection";
-import RetreatsSection from "@/components/RetreatsSection";
-import PromoGallerySection from "@/components/PromoGallerySection";
+import TrustBadgesBox from "@/components/TrustBadgesBox";
 import Locations from "@/components/Locations";
-import Testimonials from "@/components/Testimonials";
-import TeachersTeamSection from "@/components/TeachersTeamSection";
-import FAQSection from "@/components/FAQSection";
-import YogaAllianceSection from "@/components/YogaAllianceSection";
-import SocialProof from "@/components/SocialProof";
+import KarmaYogaSection from "@/components/KarmaYogaSection";
+import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 export default function Home() {
   return (
     <>
-      {/* Sticky Header Nav */}
       <Header />
 
       <main className="flex-grow">
         {/* 1. Hero Section */}
         <Hero />
 
-        {/* 2. Why Choose / Intro Section */}
-        <WhyChoose />
-
-        {/* 3. About Alpesh Yoga */}
+        {/* 2. About / Where Your Practice Finds Purpose */}
         <AboutSection />
 
-        {/* 4. Teacher Profile (Alpesh) */}
-        <TeacherProfile />
-
-        {/* 5. Our Yoga Teacher Training Courses */}
+        {/* 3. Choose the Training That's Right for You */}
         <FeaturedPrograms />
 
-        {/* 6. Eight-Days Intensive Program */}
-        <IntensiveSection />
+        {/* 4. Trust Badges overlapping section */}
+        <TrustBadgesBox />
 
-        {/* 7. Yoga Retreats & Sound Healing */}
-        <RetreatsSection />
-
-        {/* 8. Gallery Collage & Promo Banner */}
-        <PromoGallerySection />
-
-        {/* 9. Our Locations */}
+        {/* 5. Our Locations (Masonry Grids) */}
         <Locations />
 
-        {/* 10. Testimonials (What our students say) */}
-        <Testimonials />
+        {/* 6. Karma Yoga / Make a Difference */}
+        <KarmaYogaSection />
 
-        {/* 11. Meet Our Yoga Teachers */}
-        <TeachersTeamSection />
-
-        {/* 12. Frequently Asked Questions (FAQ) */}
-        <FAQSection />
-
-        {/* 13. Yoga Alliance & World Yoga Federation Certification */}
-        <YogaAllianceSection />
-
-        {/* 14. Video Reviews Section */}
-        <SocialProof />
+        {/* 7. Contact Form / Let's Map Out Your Path */}
+        <ContactSection />
       </main>
 
-      {/* Footer */}
       <Footer />
 
-      {/* Persistent Floating WhatsApp widget */}
       <FloatingWhatsApp />
     </>
   );

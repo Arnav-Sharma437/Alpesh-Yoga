@@ -1,84 +1,85 @@
 "use client";
 
 import React from "react";
-import { Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export default function FeaturedPrograms() {
   const COURSES = [
     {
       title: "100 Hour Yoga TTC",
-      image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=600",
-      description: "Alpesh Yoga offers 100 Hour Yoga Teacher Training Course in India. This course is perfect for beginners who want to build a solid foundation of Hatha and Iyengar alignment yoga, or those with limited time.",
+      image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800",
+      description: "Perfect for beginners looking to build a solid foundation in Hatha and Iyengar alignment yoga, or those with limited time.",
       link: "/goa/100-hour-ttc"
     },
     {
       title: "200 Hour Yoga TTC",
-      image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=600",
-      description: "Our flagship 200 Hour Yoga Teacher Training Course in Goa and Rishikesh. Registered with Yoga Alliance USA, this comprehensive training covers alignment, adjustment, anatomy, philosophy, and teaching skills.",
+      image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=800",
+      description: "Our flagship comprehensive training covering alignment, anatomy, philosophy, and teaching skills. Registered with Yoga Alliance.",
       link: "/goa/200-hour-yttc"
     },
     {
       title: "300 Hour Yoga TTC",
-      image: "https://images.unsplash.com/photo-1599447421416-3414500d18a5?q=80&w=600",
-      description: "Advanced 300 Hour Yoga Teacher Training Course for teachers who have completed their 200-hour training. Deepen your alignment knowledge, learn advanced adjustments, and master therapeutic yoga techniques.",
+      image: "https://images.unsplash.com/photo-1599447421416-3414500d18a5?q=80&w=800",
+      description: "Advanced training to deepen your alignment knowledge, learn advanced adjustments, and master therapeutic yoga techniques.",
       link: "/dates-prices"
     }
   ];
 
   return (
-    <section className="py-20 bg-white border-b border-gray-100">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-24 bg-white relative">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 flex flex-col items-center">
-          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#F7941D] mb-4 tracking-tight uppercase">
-            Our Yoga Teacher Training Courses
-          </h2>
-          <div className="mb-4 text-[#F7941D]">
-            <Sparkles className="w-8 h-8" />
+        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+          <div className="max-w-2xl">
+            <p className="font-sans text-rust-500 font-bold uppercase tracking-widest text-xs mb-4">
+              Explore Our Programs
+            </p>
+            <h2 className="font-serif text-4xl sm:text-5xl md:text-[52px] leading-[1.1] font-medium text-charcoal-900 tracking-tight">
+              Choose the Training That's Right for You
+            </h2>
           </div>
-          <p className="font-sans text-sm sm:text-base text-gray-700 leading-relaxed font-light">
-            Alpesh Yoga offers Yoga Alliance Registered Yoga Teacher Training Courses in India (Goa & Rishikesh).
+          <p className="font-sans text-base text-charcoal-500 max-w-md font-light leading-relaxed">
+            Discover a course that perfectly aligns with your goals and experience level, guided by our expert instructors in India.
           </p>
         </div>
 
-        {/* Courses Cards Grid */}
+        {/* Horizontal Scroll / Grid Layout */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {COURSES.map((course, idx) => (
-            <div 
+            <a 
               key={idx}
-              className="bg-white rounded-xl overflow-hidden shadow-md border border-gray-100 hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between"
+              href={course.link}
+              className="group block relative rounded-[24px] overflow-hidden bg-sand-50"
             >
-              <div>
-                {/* Image */}
-                <div className="relative aspect-video w-full overflow-hidden">
-                  <img 
-                    src={course.image} 
-                    alt={course.title} 
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                {/* Content */}
-                <div className="p-6 space-y-4">
-                  <h3 className="font-serif text-lg md:text-xl font-bold text-[#F7941D] uppercase tracking-wide">
-                    {course.title}
-                  </h3>
-                  <p className="font-sans text-xs sm:text-sm text-gray-600 leading-relaxed font-light">
-                    {course.description}
-                  </p>
-                </div>
+              {/* Image Container */}
+              <div className="relative aspect-[4/5] w-full overflow-hidden">
+                <img 
+                  src={course.image} 
+                  alt={course.title} 
+                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                />
+                
+                {/* Gradient Overlay for Text Readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-charcoal-900/80 via-charcoal-900/20 to-transparent"></div>
               </div>
               
-              {/* Card Footer Button */}
-              <div className="p-6 pt-0">
-                <a
-                  href={course.link}
-                  className="inline-flex items-center justify-center w-full px-4 py-2 rounded bg-[#F7941D] hover:bg-[#E07D0E] text-white font-sans text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-sm"
-                >
-                  READ MORE
-                </a>
+              {/* Content Positioned over Image */}
+              <div className="absolute bottom-0 left-0 w-full p-8 flex flex-col justify-end">
+                <h3 className="font-serif text-2xl md:text-3xl font-bold text-white mb-3 tracking-wide">
+                  {course.title}
+                </h3>
+                <p className="font-sans text-sm text-white/80 leading-relaxed font-light mb-6 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                  {course.description}
+                </p>
+                
+                {/* Arrow Icon Indicator */}
+                <div className="flex items-center gap-2 text-white/90 font-sans text-xs font-bold uppercase tracking-widest">
+                  <span>Explore Course</span>
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </div>
               </div>
-            </div>
+            </a>
           ))}
         </div>
 
@@ -86,4 +87,3 @@ export default function FeaturedPrograms() {
     </section>
   );
 }
-

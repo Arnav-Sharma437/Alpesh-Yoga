@@ -1,11 +1,8 @@
 import React from "react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import FloatingWhatsApp from "@/components/FloatingWhatsApp";
-import { CheckCircle2, Clock, Calendar, ShieldCheck, BookOpen, HeartPulse, ArrowRight, Phone, Award } from "lucide-react";
 import { locationsConfig } from "@/config/locations";
+import ProgramPageTemplate, { ProgramPageData } from "@/components/program/ProgramPageTemplate";
 
 interface PageProps {
   params: Promise<{ location: string }>;
@@ -25,13 +22,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: `200-Hour Hatha Alignment Yoga YTTC in ${config.displayName} | Alpesh Yoga`,
-    description: `Complete your comprehensive 200-Hour Hatha Yoga Alliance teacher training at Alpesh Yoga in ${config.displayName}. Master posture correction mechanics.`,
-    keywords: [
-      `200 hour yoga teacher training ${config.slug}`,
-      `200h yoga ttc ${config.slug}`,
-      `Hatha alignment certification ${config.slug}`,
-      `Alpesh Yoga 200h YTTC`
-    ],
+    description: `Complete your comprehensive 200-Hour Hatha Yoga Alliance teacher training at Alpesh Yoga in ${config.displayName}.`,
   };
 }
 
@@ -42,286 +33,115 @@ export default async function YTTC200Page({ params }: PageProps) {
     notFound();
   }
 
-  const SYLLABUS_MODULES = [
-    {
-      title: "Advanced Asana Alignment",
-      desc: "Deconstruct complex alignments, backbends, shoulder-openers, spinal traction, and core stabilization. Learn custom posture modification angles.",
+  // Populate data using config and placeholder data to match the layout
+  const pageData: ProgramPageData = {
+    programTitle: "200 Hour Yoga Teacher Training",
+    programSubtitle: "Deepen your practice and become a certified instructor with our intensive, alignment-focused Hatha and Vinyasa curriculum.",
+    heroImage: location === "goa" 
+      ? "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1920" // Beach vibe
+      : "https://images.unsplash.com/photo-1552083375-1447ce886485?q=80&w=1920", // Mountain vibe
+    locationName: config.displayName,
+    
+    highlightsDescription: "This course is thoughtfully designed to immerse you in traditional yoga practices. Whether you want to become a teacher or simply deepen your personal journey, this 200-hour training covers all foundational aspects of yoga.",
+    highlights: [
+      { title: "Vinyasa & Hatha Alignment", image: "https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?q=80&w=800" },
+      { title: "Meditation & Pranayama", image: "https://images.unsplash.com/photo-1522845015757-50bce044e5da?q=80&w=800" },
+      { title: "Anatomy & Physiology", image: "https://images.unsplash.com/photo-1588286840104-a8e5fce02db7?q=80&w=800" },
+      { title: "Teaching Methodology", image: "https://images.unsplash.com/photo-1603988363607-e1e4a66962c6?q=80&w=800" },
+    ],
+
+    venueBannerImage: location === "goa"
+      ? "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=1920"
+      : "https://images.unsplash.com/photo-1627894483216-2138af692e32?q=80&w=1920",
+    venueStats: {
+      duration: "24 Days",
+      graduates: "5000+",
+      language: "English",
+      style: "Hatha/Vinyasa",
     },
-    {
-      title: "Hands-on Adjustments & Prop Mastery",
-      desc: "Master physical correction theory. Learn to observe structural restrictions and custom-apply wall ropes, wooden blocks, and alignment straps.",
-    },
-    {
-      title: "Anatomy & Physiology",
-      desc: "Explore musculoskeletal biomechanics, skeletal system compression parameters, joint safety structures, and nervous system regulation.",
-    },
-    {
-      title: "Sequencing & Teaching Practicum",
-      desc: "Practice structured sequencing, instructional cues, class time management, and complete hours of supervised peer teaching practice.",
-    },
-    {
-      title: "Meditation & Pranayama",
-      desc: "Learn classical breath-expansion techniques, bandhas, kriya cleansing practices, and traditional meditation sequences.",
-    },
-    {
-      title: "Philosophy, Sanskrit & Ethics",
-      desc: "Study historical scriptures (Yoga Sutras, Hatha Yoga Pradipika), Sanskrit posture terminology, and the professional code for yoga teachers.",
-    },
-  ];
+    venueAboutTitle: `Welcome to Alpesh Yoga ${config.displayName}`,
+    venueAboutText: [
+      `Located in the serene surroundings of ${config.displayName}, our ashram provides the perfect sanctuary for deep practice and self-reflection.`,
+      "Our facilities are designed to immerse you in nature while offering modern comforts, ensuring that your sole focus can remain on your spiritual and physical journey.",
+      "Experience the vibrant local culture, eat nourishing sattvic food, and connect with a global community of like-minded yogis."
+    ],
+    venueGallery: [
+      "https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=800",
+      "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=800",
+      "https://images.unsplash.com/photo-1552083375-1447ce886485?q=80&w=800",
+      "https://images.unsplash.com/photo-1510894347713-fc3ed6fdf539?q=80&w=800",
+    ],
 
-  const isGoa = location === "goa";
-  const tuitionINR = "₹80,000";
-  const tuitionUSD = "$950 USD";
-  const deposit = "₹10,000 / $120 USD";
+    curriculumItems: [
+      { title: "Advanced Asana Alignment & Modification" },
+      { title: "Hands-on Adjustments & Prop Mastery" },
+      { title: "Anatomy & Physiology of Yoga" },
+      { title: "Sequencing & Teaching Practicum" },
+      { title: "Meditation & Pranayama Techniques" },
+      { title: "Yoga Philosophy, Sanskrit & Ethics" },
+    ],
+    curriculumBrochureLink: "#",
 
-  return (
-    <>
-      <Header />
+    schedule: [
+      { time: "06:30 AM", activity: "Pranayama & Meditation", image: "https://images.unsplash.com/photo-1522845015757-50bce044e5da?q=80&w=800" },
+      { time: "08:00 AM", activity: "Morning Asana Practice", image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800" },
+      { time: "10:00 AM", activity: "Nutritious Breakfast", image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=800" },
+      { time: "11:30 AM", activity: "Anatomy / Philosophy", image: "https://images.unsplash.com/photo-1588286840104-a8e5fce02db7?q=80&w=800" },
+      { time: "01:00 PM", activity: "Lunch & Rest", image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=800" },
+      { time: "03:00 PM", activity: "Teaching Methodology", image: "https://images.unsplash.com/photo-1603988363607-e1e4a66962c6?q=80&w=800" },
+      { time: "04:30 PM", activity: "Evening Asana / Alignment", image: "https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?q=80&w=800" },
+      { time: "07:00 PM", activity: "Dinner & Self-Study", image: "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?q=80&w=800" },
+    ],
+    scheduleNote: "Schedule is subject to minor changes based on the season and teacher availability. Sundays are usually days off for rest and excursions.",
 
-      <main className="flex-grow pt-20">
-        
-        {/* Page Hero */}
-        <section className="relative py-24 bg-forest-700 text-cream-50 overflow-hidden">
-          <div 
-            className="absolute inset-0 bg-cover bg-center opacity-25 scale-102"
-            style={{
-              backgroundImage: `url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1200')`,
-            }}
-          ></div>
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10 space-y-4">
-            
-            <nav className="text-xs uppercase tracking-widest text-cream-200/60 flex items-center justify-center gap-2 mb-2 font-sans font-medium">
-              <a href="/" className="hover:text-cream-100 hover:underline">Home</a>
-              <span>/</span>
-              <span className="text-cream-50">200-Hour YTTC ({config.displayName})</span>
-            </nav>
+    datesPrices: config.batches.map(date => ({
+      dateRange: date,
+      availability: "Open", // Dynamic logic could go here
+      earlyBirdPrice: "€1,200",
+      regularPrice: "€1,400",
+    })),
 
-            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight max-w-4xl mx-auto">
-              200-Hour Hatha Alignment Yoga YTTC
-            </h1>
-            <p className="font-sans text-sm sm:text-base text-cream-100/90 max-w-2xl mx-auto font-light leading-relaxed">
-              Our flagship comprehensive teacher training. Graduate as a certified, alignment-focused instructor registered with Yoga Alliance USA.
-            </p>
-          </div>
-        </section>
+    teachers: [
+      { name: "Alpesh Patidar", role: "Lead Teacher / Alignment", image: "https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=400" },
+      { name: "Priya Sharma", role: "Anatomy & Philosophy", image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400" },
+      { name: "Rahul Singh", role: "Meditation & Pranayama", image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=400" },
+    ],
 
-        {isGoa && (
-          <section className="bg-amber-50 border-y border-amber-200 py-4 text-center">
-            <span className="font-sans text-xs uppercase font-extrabold tracking-widest text-amber-700">
-              [GOA BRANCH UNDER DEVELOPMENT - ACCEPTING ONLINE PRE-APPLICATIONS]
-            </span>
-          </section>
-        )}
+    videoThumbnail: "https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=1920",
+    videoTitle: `Experience Alpesh Yoga in ${config.displayName}`,
+    reviews: [
+      { name: "Sarah Jenkins", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=100", quote: "The alignment focus completely changed my practice. Alpesh is a phenomenal teacher." },
+      { name: "Mark Thorne", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=100", quote: "A life-changing experience in India. The ashram felt like home from day one." },
+      { name: "Elena Rossi", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=100", quote: "I feel completely prepared to teach. The daily schedule was intense but deeply rewarding." },
+      { name: "David Chen", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100", quote: "The anatomy classes were brilliant and the food was amazing. Highly recommend!" },
+    ],
 
-        {/* Course Intro */}
-        <section className="py-20 bg-white">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 text-center">
-            <div className="space-y-2">
-              <span className="font-sans text-xs uppercase tracking-widest text-terracotta-500 font-semibold block">
-                Professional Path
-              </span>
-              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-forest-600">
-                Transform Passion into Precise Teaching
-              </h2>
-            </div>
-            
-            <p className="font-sans text-base text-forest-600/80 leading-relaxed font-light">
-              Alpesh Yoga's 200-Hour Teacher Training is globally renowned for its rigorous, anatomy-centered focus. If you believe yoga is not just about flexibility but about proper joint mechanics and skeletal health, this course will equip you to teach safely and prevent injury. Learn directly under seasoned masters in India.
-            </p>
+    accommodationGallery: [
+      "https://images.unsplash.com/photo-1510798831971-661eb04b3739?q=80&w=600",
+      "https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=600",
+      "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?q=80&w=600",
+      "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=600",
+    ],
+    
+    packages: [
+      {
+        title: "Standard Shared",
+        price: "€1,200",
+        features: ["Shared Room (2 persons)", "Attached Bathroom", "3 Vegan/Vegetarian Meals Daily", "Full Course Tuition & Manuals"],
+      },
+      {
+        title: "Private Room",
+        price: "€1,500",
+        isPopular: true,
+        features: ["Private Single Room", "Attached Bathroom", "3 Vegan/Vegetarian Meals Daily", "Full Course Tuition & Manuals"],
+      },
+      {
+        title: "Course Only",
+        price: "€950",
+        features: ["Arrange Your Own Stay", "No Meals Included", "Full Course Tuition & Manuals", "Use of Shala Facilities"],
+      }
+    ],
+  };
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6">
-              <div className="p-5 bg-cream-100 border border-sage-100/40 rounded-2xl">
-                <Clock className="w-5 h-5 text-terracotta-500 mx-auto mb-2" />
-                <h4 className="font-serif font-bold text-sm text-forest-700">24-Day Duration</h4>
-                <p className="font-sans text-xs text-forest-600/60 mt-1">Full-immersion curriculum</p>
-              </div>
-              <div className="p-5 bg-cream-100 border border-sage-100/40 rounded-2xl">
-                <Calendar className="w-5 h-5 text-terracotta-500 mx-auto mb-2" />
-                <h4 className="font-serif font-bold text-sm text-forest-700">Intensive Intakes</h4>
-                <p className="font-sans text-xs text-forest-600/60 mt-1">Limited space batches</p>
-              </div>
-              <div className="p-5 bg-cream-100 border border-sage-100/40 rounded-2xl">
-                <Award className="w-5 h-5 text-terracotta-500 mx-auto mb-2" />
-                <h4 className="font-serif font-bold text-sm text-forest-700">RYT 200 Certificate</h4>
-                <p className="font-sans text-xs text-forest-600/60 mt-1">Yoga Alliance USA Approved</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Syllabus / Modules */}
-        <section className="py-20 bg-cream-100/40 border-t border-b border-sage-100/30">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <span className="font-sans text-xs uppercase tracking-widest text-terracotta-500 font-semibold mb-2 block">
-                Syllabus
-              </span>
-              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-forest-600">
-                200h Detailed Curriculum
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              {SYLLABUS_MODULES.map((mod, idx) => (
-                <div key={idx} className="bg-white p-8 rounded-3xl border border-sage-100/50 shadow-sm space-y-4 hover:shadow-md transition-all duration-300">
-                  <div className="p-2 bg-sage-100 text-terracotta-500 rounded-lg w-fit">
-                    <ShieldCheck className="w-5 h-5" />
-                  </div>
-                  <h3 className="font-serif text-lg font-bold text-forest-700">{mod.title}</h3>
-                  <p className="font-sans text-sm text-forest-600/70 leading-relaxed font-light">{mod.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Upcoming Dates & Pricing */}
-        <section className="py-20 bg-white">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-cream-100 border border-sage-100/60 rounded-3xl p-8 shadow-sm flex flex-col md:flex-row gap-8 items-center justify-between">
-              
-              <div className="space-y-4">
-                <div className="flex items-center gap-2 text-terracotta-500">
-                  <Calendar className="w-5 h-5 shrink-0" />
-                  <span className="font-sans text-xs uppercase tracking-widest font-semibold">Start Dates</span>
-                </div>
-                <h3 className="font-serif text-xl font-bold text-forest-700">Course Intake Batches</h3>
-                <p className="font-sans text-xs text-forest-600/60 leading-normal max-w-sm">
-                  We maintain a strict limit of **12 students** per teacher to deliver personalized adjustment guidance.
-                </p>
-              </div>
-
-              {/* Date items list */}
-              <div className="w-full md:w-64 font-mono text-xs divide-y divide-sage-100 bg-white p-4 rounded-2xl border border-sage-100">
-                {config.batches.map((date, idx) => (
-                  <div key={idx} className="py-2 first:pt-0 last:pb-0 font-sans font-medium text-forest-600">
-                    {date}
-                  </div>
-                ))}
-              </div>
-
-            </div>
-          </div>
-        </section>
-
-        {/* Pricing Card */}
-        <section className="py-20 bg-cream-100/40 border-t border-sage-100/30">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-white border border-sage-200 rounded-3xl p-8 md:p-12 shadow-md max-w-md mx-auto text-center space-y-6">
-              <span className="font-sans text-[10px] uppercase font-bold tracking-widest text-terracotta-500 bg-terracotta-100 px-3 py-1 rounded-full">
-                Course Tuition
-              </span>
-
-              <div>
-                <h3 className="font-serif text-xl font-bold text-forest-700">Tuition Fees ({config.displayName})</h3>
-                <p className="font-sans text-xs text-sage-600 mt-1">Includes 24 days instruction, manuals &amp; props</p>
-              </div>
-
-              <div className="flex items-baseline justify-center gap-2">
-                <span className="font-serif text-4xl font-extrabold text-forest-600">{tuitionINR}</span>
-                <span className="text-sm text-forest-600/60 font-light">INR</span>
-                {!isGoa && (
-                  <>
-                    <span className="text-forest-600/40 font-light">/</span>
-                    <span className="font-serif text-2xl font-bold text-forest-600">{tuitionUSD}</span>
-                  </>
-                )}
-              </div>
-
-              <p className="font-sans text-xs text-sage-600 leading-normal">
-                Deposit amount: **{deposit}** required to reserve your seat in the batch.
-              </p>
-
-              <div className="pt-4 border-t border-sage-100">
-                <a
-                  href={`/apply?location=${location}&program=200-Hour%20YTTC`}
-                  className="flex items-center justify-center gap-2 w-full py-3.5 rounded-full bg-terracotta-500 hover:bg-terracotta-600 text-white font-sans text-xs font-bold shadow-sm transition-all duration-300"
-                >
-                  <span>Apply for 200h YTTC</span>
-                </a>
-              </div>
-
-            </div>
-          </div>
-        </section>
-
-        {/* Location Maps */}
-        <section className="py-20 bg-white">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-cream-100 border border-sage-100 rounded-3xl p-8 md:p-12 flex flex-col md:flex-row gap-8 items-center">
-              
-              <div className="space-y-4 md:w-1/2">
-                <div className="flex items-center gap-2 text-terracotta-500">
-                  <Award className="w-5 h-5 shrink-0" />
-                  <span className="font-sans text-xs uppercase tracking-widest font-semibold">Alpesh Shala Location</span>
-                </div>
-                <h3 className="font-serif text-2xl font-bold text-forest-600 leading-snug">
-                  {config.displayName} Branch
-                </h3>
-                <p className="font-sans text-sm text-forest-600/80 leading-relaxed font-light">
-                  {config.address}
-                </p>
-                <p className="font-sans text-xs text-sage-600 font-light">
-                  {config.landmarkNotice}
-                </p>
-              </div>
-
-              {/* Embed map */}
-              <div className="md:w-1/2 w-full rounded-2xl overflow-hidden shadow-sm h-64 border border-sage-100 relative">
-                <iframe
-                  src={config.mapEmbedUrl}
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen={true}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title={`${config.displayName} Location Map`}
-                  className="absolute inset-0"
-                ></iframe>
-              </div>
-
-            </div>
-          </div>
-        </section>
-
-        {/* CTA booking */}
-        <section className="py-12 bg-cream-100/50">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-forest-700 rounded-3xl p-8 md:p-12 text-center text-cream-50 shadow-xl border border-forest-800 space-y-6">
-              <h2 className="font-serif text-2xl md:text-3xl font-bold">
-                Ready to Start Your Training?
-              </h2>
-              <p className="font-sans text-sm text-cream-200/90 leading-relaxed font-light max-w-xl mx-auto">
-                Secure your allocation for Hatha Alignment modules. Submit your registration form online or connect with our lead office on WhatsApp.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-4 items-center justify-center pt-2 max-w-lg mx-auto">
-                <a
-                  href={`/apply?location=${location}&program=200-Hour%20YTTC`}
-                  className="flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3.5 rounded-full bg-terracotta-500 hover:bg-terracotta-600 text-white font-sans text-xs font-bold shadow-sm transition-all duration-300"
-                >
-                  <span>Submit Application Form</span>
-                </a>
-                <a
-                  href={`https://wa.me/${config.contactNumber1.replace(/[^0-9]/g, "")}?text=${encodeURIComponent("Hi Alpesh, I am interested in the 200h YTTC course.")}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3.5 rounded-full bg-forest-950 hover:bg-forest-900 text-cream-50 font-sans text-xs font-bold shadow-sm transition-all duration-300 border border-forest-800"
-                >
-                  <Phone className="w-3.5 h-3.5 fill-cream-50 text-cream-50" />
-                  <span>Chat on WhatsApp</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-      </main>
-
-      <Footer />
-
-      <FloatingWhatsApp />
-    </>
-  );
+  return <ProgramPageTemplate data={pageData} />;
 }
