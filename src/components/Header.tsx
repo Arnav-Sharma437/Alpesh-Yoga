@@ -57,19 +57,12 @@ export default function Header() {
         <div className="w-full px-5 sm:px-6 lg:px-10 xl:px-14">
           <div className="flex h-20 items-center justify-between gap-6 sm:h-24">
             {/* Logo */}
-            <a href="/" className="flex shrink-0 items-center gap-3">
+            <a href="/" className="flex shrink-0 items-center">
               <img
                 src="/logo/alpesh-logo.png"
                 alt="Alpesh Yoga"
                 className="h-12 w-auto object-contain sm:h-14"
               />
-              <span
-                className={`hidden font-serif text-xl font-bold tracking-tight sm:inline ${
-                  isHeaderActive ? "text-charcoal-900" : "text-white"
-                }`}
-              >
-                Alpesh Yoga
-              </span>
             </a>
 
             {/* Desktop nav */}

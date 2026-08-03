@@ -3,6 +3,14 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import TeachersTeamSection from "@/components/TeachersTeamSection";
+import {
+  ACCOMMODATION_AMENITIES,
+  BREAKFAST_MENU,
+  DRINKS_MENU,
+  FOOD_POLICY,
+  LUNCH_DINNER_MENU,
+} from "@/config/courseContent";
 import { Award, ShieldCheck, Compass, HeartPulse } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -158,18 +166,66 @@ export default function AboutPage() {
           </div>
         </section>
 
+        <TeachersTeamSection />
+
         {/* Shala Accommodation details */}
-        <section className="py-24 bg-white">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 text-center">
-            <span className="font-sans text-xs uppercase tracking-widest text-terracotta-500 font-bold block">
-              Accommodations
-            </span>
-            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-forest-600">
-              Cozy, Clean Stays in Arambol &amp; Dharamkot
-            </h2>
-            <p className="font-sans text-sm sm:text-base text-forest-600/70 max-w-3xl mx-auto leading-relaxed font-light">
-              We provide clean, comfortable rooms near our shala in both branches. Accommodation includes a king-size double bed, private bathroom with hot and cold water, and free Wi-Fi. Laundry is available for an extra charge. During residential courses we serve a pure sattvic vegetarian diet — eggs, meat, and alcohol are not allowed on school premises.
-            </p>
+        <section className="bg-white py-24">
+          <div className="mx-auto max-w-5xl space-y-10 px-4 text-center sm:px-6 lg:px-8">
+            <div className="space-y-4">
+              <span className="block font-sans text-xs font-bold uppercase tracking-widest text-saffron-500">
+                Accommodation &amp; Food
+              </span>
+              <h2 className="font-serif text-2xl font-bold text-charcoal-900 sm:text-3xl">
+                Cozy, Clean Stays in Arambol &amp; Dharamkot
+              </h2>
+              <p className="mx-auto max-w-3xl font-sans text-sm font-light leading-relaxed text-charcoal-500 sm:text-base">
+                {FOOD_POLICY}
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              {ACCOMMODATION_AMENITIES.map((item) => (
+                <div
+                  key={item}
+                  className="rounded-2xl border border-sand-200 bg-sand-50 px-4 py-3 font-sans text-sm font-medium text-charcoal-800"
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
+
+            <div className="grid grid-cols-1 gap-6 text-left md:grid-cols-3">
+              <div className="rounded-3xl border border-gray-100 bg-sand-50 p-6">
+                <h3 className="mb-4 font-serif text-lg font-bold text-charcoal-900">Breakfast</h3>
+                <ul className="space-y-2">
+                  {BREAKFAST_MENU.map((item) => (
+                    <li key={item} className="font-sans text-sm text-charcoal-600">
+                      • {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="rounded-3xl border border-gray-100 bg-sand-50 p-6">
+                <h3 className="mb-4 font-serif text-lg font-bold text-charcoal-900">Lunch &amp; Dinner</h3>
+                <ul className="space-y-2">
+                  {LUNCH_DINNER_MENU.map((item) => (
+                    <li key={item} className="font-sans text-sm text-charcoal-600">
+                      • {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="rounded-3xl border border-gray-100 bg-sand-50 p-6">
+                <h3 className="mb-4 font-serif text-lg font-bold text-charcoal-900">Drinks</h3>
+                <ul className="space-y-2">
+                  {DRINKS_MENU.map((item) => (
+                    <li key={item} className="font-sans text-sm text-charcoal-600">
+                      • {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
         </section>
 

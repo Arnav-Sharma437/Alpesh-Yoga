@@ -1,98 +1,65 @@
 "use client";
 
 import React from "react";
-import { Star, MessageSquare } from "lucide-react";
+import { Star } from "lucide-react";
+import { testimonials } from "@/config/testimonials";
 
-export default function Testimonials() {
-  const REVIEWS = [
-    {
-      quote: "Alpesh is a true master of skeletal alignment. I came to Dharamshala with chronic lower back compression, and within one week of his intensive classes, I understood the muscle engagements I was missing. His adjustments are sharp, strict, and incredibly healing.",
-      name: "Sarah Jenkins",
-      country: "United Kingdom",
-      avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=150"
-    },
-    {
-      quote: "I completed my 200-Hour YTTC with Alpesh. Unlike commercialized yoga programs in other cities, the training here is personal, disciplined, and rigorous. I left not just knowing the poses, but understanding how to teach them safely with proper adjustments.",
-      name: "David Miller",
-      country: "Germany",
-      avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=150"
-    },
-    {
-      quote: "The prop methodology here completely transformed my practice. Using belts, blocks, and wall setups allowed me to open my tight shoulders safely. Alpesh's deep understanding of anatomy and structural therapeutics is truly unmatched.",
-      name: "Chloe Dupont",
-      country: "France",
-      avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150"
-    }
-  ];
+export default function Testimonials({
+  limit = 6,
+  showCta = true,
+}: {
+  limit?: number;
+  showCta?: boolean;
+}) {
+  const list = testimonials.slice(0, limit);
 
   return (
-    <section className="py-20 bg-[#faf8f5] border-b border-gray-100">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
-        
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 flex flex-col items-center">
-          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#F7941D] mb-4 tracking-tight uppercase">
-            What our students say...
+    <section id="testimonials" className="relative z-10 border-b border-gray-100 bg-sand-50 py-20">
+      <div className="mx-auto flex max-w-6xl flex-col items-center px-4 sm:px-6 lg:px-8">
+        <div className="mb-14 max-w-3xl text-center">
+          <p className="mb-3 font-sans text-xs font-bold uppercase tracking-[0.2em] text-saffron-500">
+            Testimonials
+          </p>
+          <h2 className="mb-3 font-serif text-3xl font-medium tracking-tight text-charcoal-900 sm:text-4xl md:text-5xl">
+            What Our Students Are Saying
           </h2>
-          <div className="mb-4 text-[#F7941D]">
-            <MessageSquare className="w-8 h-8" />
-          </div>
-          <p className="font-sans text-sm sm:text-base text-gray-700 leading-relaxed font-light">
-            Hear from our graduates and yoga practitioners who transformed their practice with Alpesh Yoga.
+          <p className="font-sans text-sm font-light text-charcoal-500">
+            Real Google reviews from students of Alpesh Yoga · 5.0 rating based on 109+ reviews
           </p>
         </div>
 
-        {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 w-full">
-          {REVIEWS.map((review, idx) => (
-            <div 
-              key={idx}
-              className="bg-white p-6 rounded-xl shadow-md border border-gray-100 flex flex-col justify-between"
+        <div className="mb-12 grid w-full grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {list.map((review) => (
+            <div
+              key={review.name + (review.date || "")}
+              className="flex flex-col justify-between rounded-3xl border border-gray-100 bg-white p-6 shadow-sm"
             >
               <div>
-                {/* Stars */}
-                <div className="flex gap-1 text-[#F7941D] mb-4">
+                <div className="mb-4 flex gap-1 text-saffron-500">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-current" />
+                    <Star key={i} className="h-4 w-4 fill-current" />
                   ))}
                 </div>
-                {/* Quote */}
-                <p className="font-sans text-sm text-gray-600 leading-relaxed italic mb-6 font-light">
-                  "{review.quote}"
+                <p className="mb-6 font-sans text-sm font-light italic leading-relaxed text-charcoal-600">
+                  &ldquo;{review.quote}&rdquo;
                 </p>
               </div>
-              
-              {/* User Info */}
-              <div className="flex items-center gap-4 pt-4 border-t border-gray-55">
-                <img 
-                  src={review.avatar} 
-                  alt={review.name} 
-                  className="w-10 h-10 rounded-full object-cover border border-gray-200"
-                />
-                <div>
-                  <h4 className="font-serif text-sm font-bold text-gray-800">
-                    {review.name}
-                  </h4>
-                  <p className="font-sans text-xs text-gray-500 font-light">
-                    {review.country}
-                  </p>
-                </div>
+              <div className="border-t border-gray-100 pt-4">
+                <h4 className="font-serif text-sm font-bold text-charcoal-900">{review.name}</h4>
+                <p className="font-sans text-xs text-charcoal-500">
+                  {[review.source, review.date].filter(Boolean).join(" · ")}
+                </p>
               </div>
             </div>
           ))}
         </div>
 
-        {/* See More Reviews Button */}
-        <a
-          href="/testimonials"
-          className="inline-flex items-center justify-center px-6 py-2.5 rounded bg-[#F7941D] hover:bg-[#E07D0E] text-white font-sans text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow"
-        >
-          SEE MORE REVIEWS
-        </a>
-
+        {showCta && (
+          <a href="/testimonials" className="btn-primary !text-xs !uppercase !tracking-wider">
+            See More Reviews
+          </a>
+        )}
       </div>
     </section>
   );
 }
-
-

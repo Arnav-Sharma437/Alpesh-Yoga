@@ -117,18 +117,20 @@ export default async function YTTC200Page({ params }: PageProps) {
       })),
 
     teachers: [
-      { name: "Alpesh Patwari", role: "Founder / Lead Teacher / Alignment", image: "https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=400" },
-      { name: "Priya Sharma", role: "Anatomy & Philosophy", image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400" },
-      { name: "Rahul Singh", role: "Meditation & Pranayama", image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=400" },
+      { name: "Alpesh Patwari", role: "Founder / Lead Teacher / Alignment", image: "/teachers/alpesh-patwari.jpg" },
+      { name: "Acharya Swami Suresh", role: "Anatomy & Philosophy", image: "/teachers/acharya-swami-suresh.jpg" },
+      { name: "Benu", role: "Spiritual Master / Meditation", image: "/teachers/benu.jpg" },
+      { name: "Reejo Ji", role: "E-RYT 500 Instructor", image: "/teachers/reejo.jpg" },
+      { name: "Durgesh", role: "Hatha & Therapeutic Yoga", image: "/teachers/durgesh.jpg" },
     ],
 
     videoThumbnail: "https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=1920",
     videoTitle: `Experience Alpesh Yoga in ${config.displayName}`,
     reviews: [
-      { name: "Sarah Jenkins", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=100", quote: "The alignment focus completely changed my practice. Alpesh is a phenomenal teacher." },
-      { name: "Mark Thorne", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=100", quote: "A life-changing experience in India. The ashram felt like home from day one." },
-      { name: "Elena Rossi", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=100", quote: "I feel completely prepared to teach. The daily schedule was intense but deeply rewarding." },
-      { name: "David Chen", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100", quote: "The anatomy classes were brilliant and the food was amazing. Highly recommend!" },
+      { name: "Ayush Bisaria", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=100", quote: "Alpesh sir is very knowledgeable, supportive and pays personal attention. The course is highly recommended 10/10 — my pre-hernia pain was gone by the end of the 100-hour training." },
+      { name: "Ylva Traxler", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=100", quote: "Alpesh is the very best yoga teacher I ever encountered. His alignment knowledge is vast, and his teaching is clear and caring." },
+      { name: "Jessica Albert", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=100", quote: "Grateful to have completed my YTTC with Alpesh. Alignment-focused, firm but loving — I highly recommend the school and all the teachers." },
+      { name: "Hemant Sharma", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100", quote: "A transformative experience. Alpesh is knowledgeable, patient, and creates a welcoming atmosphere for practitioners of all levels." },
     ],
 
     accommodationGallery: [

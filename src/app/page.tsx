@@ -7,6 +7,9 @@ import AboutSection from "@/components/AboutSection";
 import FeaturedPrograms from "@/components/FeaturedPrograms";
 import TrustBadgesBox from "@/components/TrustBadgesBox";
 import Locations from "@/components/Locations";
+import TeachersTeamSection from "@/components/TeachersTeamSection";
+import Testimonials from "@/components/Testimonials";
+import AccommodationFoodSection from "@/components/AccommodationFoodSection";
 import KarmaYogaSection from "@/components/KarmaYogaSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
@@ -18,30 +21,19 @@ export default function Home() {
       <Header />
 
       <main className="flex-grow">
-        {/* 1. Hero Section */}
         <Hero />
-
-        {/* 2. About / Where Your Practice Finds Purpose */}
         <AboutSection />
-
-        {/* 3. Choose the Training That's Right for You */}
         <FeaturedPrograms />
-
-        {/* 4. Trust Badges overlapping section */}
         <TrustBadgesBox />
-
-        {/* 5. Our Locations (Masonry Grids) */}
         <Locations />
-
-        {/* 6. Karma Yoga / Make a Difference */}
+        <TeachersTeamSection limit={5} />
+        <Testimonials limit={6} />
+        <AccommodationFoodSection />
         <KarmaYogaSection />
-
-        {/* 7. Contact Form / Let's Map Out Your Path */}
         <ContactSection />
       </main>
 
       <Footer />
-
       <FloatingWhatsApp />
     </>
   );

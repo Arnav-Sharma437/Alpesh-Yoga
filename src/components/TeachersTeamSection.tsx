@@ -1,80 +1,60 @@
 "use client";
 
 import React from "react";
-import { Users } from "lucide-react";
+import { teachers } from "@/config/teachers";
 
-export default function TeachersTeamSection() {
-  const TEACHERS = [
-    {
-      name: "Alpesh",
-      image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=400",
-      role: "Founder & Master Alignment Teacher"
-    },
-    {
-      name: "Vijay",
-      image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=400",
-      role: "Ashtanga & Vinyasa Flow Teacher"
-    },
-    {
-      name: "Mira",
-      image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400",
-      role: "Pranayama, Meditation & Philosophy"
-    }
-  ];
+export default function TeachersTeamSection({
+  limit,
+  showCta = true,
+}: {
+  limit?: number;
+  showCta?: boolean;
+}) {
+  const list = typeof limit === "number" ? teachers.slice(0, limit) : teachers;
 
   return (
-    <section className="py-20 bg-white border-b border-gray-100">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
-        
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 flex flex-col items-center">
-          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#F7941D] mb-4 tracking-tight uppercase">
+    <section id="teachers" className="relative z-10 border-b border-gray-100 bg-white py-20">
+      <div className="mx-auto flex max-w-6xl flex-col items-center px-4 sm:px-6 lg:px-8">
+        <div className="mb-14 max-w-3xl text-center">
+          <p className="mb-3 font-sans text-xs font-bold uppercase tracking-[0.2em] text-saffron-500">
+            Our Teachers
+          </p>
+          <h2 className="mb-4 font-serif text-3xl font-medium tracking-tight text-charcoal-900 sm:text-4xl md:text-5xl">
             Meet Our Yoga Teachers
           </h2>
-          <div className="mb-4 text-[#F7941D]">
-            <Users className="w-8 h-8" />
-          </div>
-          <p className="font-sans text-sm sm:text-base text-gray-700 leading-relaxed font-light">
-            Alpesh Yoga is a team of certified and highly experienced yoga teachers dedicated to helping you deepen your practice and align your mind, body, and soul.
+          <p className="font-sans text-sm font-light leading-relaxed text-charcoal-500 sm:text-base">
+            Learn from experienced Yoga Alliance certified teachers dedicated to authentic
+            alignment, meditation, and holistic practice.
           </p>
         </div>
 
-        {/* Teachers Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 w-full max-w-4xl">
-          {TEACHERS.map((teacher, idx) => (
-            <div key={idx} className="flex flex-col items-center text-center group">
-              {/* Image with circular framing / mandala border */}
-              <div className="relative w-48 h-48 mb-6 rounded-full overflow-hidden border-4 border-[#F7941D]/10 group-hover:border-[#F7941D]/30 transition-colors duration-300 shadow-md">
-                <img 
-                  src={teacher.image} 
-                  alt={teacher.name} 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        <div className="mb-12 grid w-full grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
+          {list.map((teacher) => (
+            <div key={teacher.id} className="group flex flex-col items-center text-center">
+              <div className="relative mb-5 h-44 w-44 overflow-hidden rounded-full border-4 border-saffron-500/15 shadow-md transition-colors group-hover:border-saffron-500/40 sm:h-48 sm:w-48">
+                <img
+                  src={teacher.image}
+                  alt={teacher.name}
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
-
-              {/* Name badge (Solid red box with white text like the layout image) */}
-              <div className="bg-[#F7941D] text-white font-sans text-sm font-extrabold px-6 py-1.5 rounded-full shadow-sm mb-2 uppercase tracking-wide">
-                {teacher.name}
-              </div>
-
-              {/* Role */}
-              <p className="font-sans text-xs text-gray-500 font-medium">
+              <h3 className="mb-1 font-serif text-xl font-bold text-charcoal-900">{teacher.name}</h3>
+              <p className="mb-3 font-sans text-xs font-semibold uppercase tracking-wider text-saffron-600">
                 {teacher.role}
+              </p>
+              <p className="font-sans text-sm font-light leading-relaxed text-charcoal-500 line-clamp-4">
+                {teacher.bio}
               </p>
             </div>
           ))}
         </div>
 
-        {/* Read More Button */}
-        <a
-          href="/about"
-          className="inline-flex items-center justify-center px-6 py-2.5 rounded bg-[#F7941D] hover:bg-[#E07D0E] text-white font-sans text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow"
-        >
-          READ MORE
-        </a>
-
+        {showCta && (
+          <a href="/about#teachers" className="btn-primary !text-xs !uppercase !tracking-wider">
+            Read More About Our Team
+          </a>
+        )}
       </div>
     </section>
   );
 }
-
