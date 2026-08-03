@@ -9,6 +9,7 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  // @ts-ignore - 'eslint' is a valid property but sometimes missing from NextConfig type
   eslint: {
     ignoreDuringBuilds: true,
   },
