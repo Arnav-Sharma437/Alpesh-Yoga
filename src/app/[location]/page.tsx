@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import PageHero from "@/components/ui/PageHero";
+import SectionHeading from "@/components/ui/SectionHeading";
 import { ArrowRight, MapPin, Calendar, Compass, Phone, Sparkles, BookOpen, HeartPulse, ShieldCheck } from "lucide-react";
 import { locationsConfig } from "@/config/locations";
 
@@ -81,33 +83,12 @@ export default async function LocationOverview({ params }: PageProps) {
     <>
       <Header />
 
-      <main className="flex-grow pt-20">
-        
-        {/* Page Hero */}
-        <section className="relative py-24 bg-forest-700 text-cream-50 overflow-hidden">
-          <div 
-            className="absolute inset-0 bg-cover bg-center opacity-25 scale-102"
-            style={{
-              backgroundImage: `url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1200')`,
-            }}
-          ></div>
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10 space-y-4">
-            
-            {/* Breadcrumb */}
-            <nav className="text-xs uppercase tracking-widest text-cream-200/60 flex items-center justify-center gap-2 mb-2 font-sans font-medium">
-              <a href="/" className="hover:text-cream-100 hover:underline">Home</a>
-              <span>/</span>
-              <span className="text-cream-50">{config.displayName}</span>
-            </nav>
-
-            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
-              Courses & Alignment Training — {config.displayName}
-            </h1>
-            <p className="font-sans text-sm sm:text-base text-cream-100/90 max-w-2xl mx-auto font-light leading-relaxed">
-              {config.tagline} Discover our range of drop-in classes, alignment intensives, and certification modules.
-            </p>
-          </div>
-        </section>
+      <main className="flex-grow">
+        <PageHero
+          breadcrumb={config.displayName}
+          title={`Courses & Alignment Training — ${config.displayName}`}
+          subtitle={`${config.tagline} Discover our range of drop-in classes, alignment intensives, and certification modules.`}
+        />
 
         {/* Goa Banner */}
         {isGoa && (
@@ -118,46 +99,39 @@ export default async function LocationOverview({ params }: PageProps) {
           </section>
         )}
 
-        {/* Course Grid Section */}
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <span className="font-sans text-xs uppercase tracking-widest text-terracotta-600 font-semibold mb-2 block">
-                Study Directory
-              </span>
-              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-forest-600">
-                Programs Offered in {config.displayName}
-              </h2>
-            </div>
+        <section className="bg-white py-24">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <SectionHeading
+              eyebrow="Study Directory"
+              title={`Programs Offered in ${config.displayName}`}
+            />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
               {courses.map((course, idx) => {
                 const Icon = course.icon;
                 return (
-                  <div key={idx} className="bg-cream-50/30 p-8 rounded-3xl border border-sage-100/50 shadow-sm flex flex-col justify-between hover:shadow-md transition-all duration-300">
+                  <div key={idx} className="flex flex-col justify-between rounded-[28px] border border-sand-200 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-md">
                     <div className="space-y-4">
-                      <div className="p-3 bg-white text-terracotta-600 rounded-xl w-fit shadow-sm">
-                        <Icon className="w-5 h-5" />
+                      <div className="w-fit rounded-xl bg-sand-50 p-3 text-saffron-500 shadow-sm">
+                        <Icon className="h-5 w-5" />
                       </div>
-                      <h3 className="font-serif text-xl font-bold text-forest-700">{course.title}</h3>
-                      <p className="font-sans text-xs sm:text-sm text-forest-600/70 leading-relaxed font-light">{course.desc}</p>
+                      <h3 className="font-serif text-xl font-normal text-charcoal-500">{course.title}</h3>
+                      <p className="font-sans text-[1.15rem] font-normal leading-[1.7] text-charcoal-800">{course.desc}</p>
                     </div>
                     
-                    <div className="pt-6 mt-6 border-t border-sage-100/50">
+                    <div className="mt-6 border-t border-sand-200 pt-6">
                       <a 
                         href={course.href}
-                        className="inline-flex items-center gap-1 text-xs font-semibold text-terracotta-600 hover:text-terracotta-700 hover:translate-x-0.5 transition-all"
+                        className="inline-flex items-center gap-1 text-[1.05rem] font-medium text-saffron-600 transition-all hover:translate-x-0.5 hover:text-saffron-700"
                       >
                         <span>{course.href.includes("apply") ? "Apply Online" : "View Details"}</span>
-                        <ArrowRight className="w-3.5 h-3.5" />
+                        <ArrowRight className="h-3.5 w-3.5" />
                       </a>
                     </div>
                   </div>
                 );
               })}
             </div>
-
           </div>
         </section>
 
@@ -204,22 +178,15 @@ export default async function LocationOverview({ params }: PageProps) {
         {/* Booking CTA Banner */}
         <section className="py-12 bg-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-gradient-to-br from-terracotta-700 to-terracotta-600 rounded-3xl p-8 md:p-12 text-center text-cream-50 shadow-xl border border-terracotta-800 space-y-6">
-              
-              <h2 className="font-serif text-2xl md:text-3xl font-bold animate-fade-in">
-                Reserve Your Alignment Training
-              </h2>
-              <p className="font-sans text-sm text-cream-100/90 leading-relaxed font-light max-w-xl mx-auto">
-                Secure your placement in Dharamshala or submit a provisional enquiry for our upcoming Goa courses. We confirm allocations within 24 hours.
-              </p>
-
-              {/* Booking Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 items-center justify-center pt-2 max-w-lg mx-auto">
-                <a
-                  href={`/apply?location=${location}`}
-                  className="flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3.5 rounded-full bg-cream-50 hover:bg-terracotta-100 text-terracotta-700 font-sans text-xs font-bold shadow-sm transition-all duration-300"
-                >
-                  <span>Submit Application Form</span>
+            <div className="space-y-6 rounded-[28px] border border-sand-200 bg-charcoal-900 p-8 text-center text-white md:p-12">
+              <SectionHeading
+                light
+                title="Reserve Your Alignment Training"
+                subtitle="Secure your placement in Dharamshala or submit a provisional enquiry for our upcoming Goa courses. We confirm allocations within 24 hours."
+              />
+              <div className="mx-auto flex max-w-lg flex-col items-center justify-center gap-4 pt-2 sm:flex-row">
+                <a href={`/apply?location=${location}`} className="btn-primary w-full sm:w-auto">
+                  Submit Application Form
                 </a>
                 <a
                   href={`https://wa.me/${config.contactNumber1.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(config.whatsappLinkText)}`}

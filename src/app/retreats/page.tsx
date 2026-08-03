@@ -3,7 +3,9 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
-import { CheckCircle2, Clock, Calendar, HeartPulse, Sparkles, BookOpen, Compass, Phone } from "lucide-react";
+import PageHero from "@/components/ui/PageHero";
+import SectionHeading from "@/components/ui/SectionHeading";
+import { CheckCircle2, Phone } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Yoga & Pranayama Retreats India | Alpesh Yoga",
@@ -64,129 +66,95 @@ export default function RetreatsPage() {
     <>
       <Header />
 
-      <main className="flex-grow pt-20">
-        
-        {/* Page Hero */}
-        <section className="relative py-20 bg-forest-700 text-cream-50 overflow-hidden">
-          <div 
-            className="absolute inset-0 bg-cover bg-center opacity-25 scale-102"
-            style={{
-              backgroundImage: `url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1200')`,
-            }}
-          ></div>
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10 space-y-4">
-            <nav className="text-xs uppercase tracking-widest text-cream-200/60 flex items-center justify-center gap-2 mb-2 font-sans font-medium">
-              <a href="/" className="hover:text-cream-100 hover:underline">Home</a>
-              <span>/</span>
-              <span className="text-cream-50">Retreats</span>
-            </nav>
-            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
-              Yoga &amp; Meditation Retreats
-            </h1>
-            <p className="font-sans text-sm sm:text-base text-cream-200/80 max-w-2xl mx-auto font-light leading-relaxed">
-              Connect with your inner self in the lap of nature. We host wellness retreats starting every Monday of the week in Arambol and Dharamkot.
-            </p>
-          </div>
-        </section>
+      <main className="flex-grow">
+        <PageHero
+          breadcrumb="Retreats"
+          title="Yoga & Meditation Retreats"
+          subtitle="Connect with your inner self in the lap of nature. We host wellness retreats starting every Monday of the week in Arambol and Dharamkot."
+          image="https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1600"
+        />
 
-        {/* Retreats Details Listing */}
-        <section className="py-20 bg-white space-y-24">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <div className="space-y-20 max-w-5xl mx-auto">
+        <section className="space-y-24 bg-white py-24">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mx-auto max-w-5xl space-y-20">
               {RETREATS.map((item, idx) => (
-                <div 
-                  key={item.id} 
+                <div
+                  key={item.id}
                   id={item.id}
-                  className={`flex flex-col lg:flex-row gap-12 items-center border border-sage-200 p-8 md:p-10 rounded-3xl bg-cream-100/10 ${
-                    idx % 2 === 1 ? "lg:flex-row-reverse bg-cream-50/20" : ""
+                  className={`flex flex-col items-center gap-12 rounded-[28px] border border-sand-200 bg-white p-8 md:p-10 lg:flex-row ${
+                    idx % 2 === 1 ? "lg:flex-row-reverse" : ""
                   }`}
                 >
-                  
-                  {/* Image banner */}
-                  <div className="lg:w-2/5 w-full shrink-0">
-                    <div className="rounded-2xl overflow-hidden aspect-[4/3] bg-forest-50 shadow-md h-64 border border-sage-100">
-                      <img 
-                        src={imgUrls[idx]} 
-                        alt={item.title} 
-                        className="w-full h-full object-cover"
+                  <div className="w-full shrink-0 lg:w-2/5">
+                    <div className="aspect-[4/3] h-64 overflow-hidden rounded-[20px] border border-sand-200 bg-sand-50">
+                      <img
+                        src={imgUrls[idx]}
+                        alt={item.title}
+                        className="h-full w-full object-cover"
                       />
                     </div>
                   </div>
 
-                  {/* Text details */}
-                  <div className="lg:w-3/5 space-y-5 text-forest-600 font-sans text-xs sm:text-sm font-light leading-relaxed">
-                    <span className="font-sans text-[10px] uppercase font-bold tracking-widest text-terracotta-500 bg-terracotta-50 px-3 py-1 rounded-full">
+                  <div className="space-y-5 font-sans lg:w-3/5">
+                    <span className="inline-block rounded-full bg-saffron-50 px-3 py-1 font-sans text-xs font-medium uppercase tracking-[0.2em] text-saffron-600">
                       {item.duration}
                     </span>
-                    <h3 className="font-serif text-xl sm:text-2xl font-bold text-forest-750">{item.title}</h3>
-                    <p className="font-serif text-xs italic text-sage-600 -mt-2">{item.subtitle}</p>
-                    <p className="text-forest-600/85">
+                    <h3 className="font-serif text-2xl font-normal text-charcoal-500">{item.title}</h3>
+                    <p className="font-serif text-base italic text-charcoal-600">{item.subtitle}</p>
+                    <p className="font-sans text-[1.15rem] font-normal leading-[1.7] text-charcoal-800">
                       {item.desc}
                     </p>
 
-                    {/* Features list */}
-                    <ul className="space-y-2 pt-2 border-t border-sage-100 font-sans text-xs text-forest-600/90">
+                    <ul className="space-y-2 border-t border-sand-200 pt-4 font-sans text-[1.05rem] text-charcoal-800">
                       {item.features.map((feat, i) => (
                         <li key={i} className="flex items-start gap-2">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-sage-500 shrink-0 mt-0.5" />
+                          <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-olive-500" />
                           <span>{feat}</span>
                         </li>
                       ))}
                     </ul>
 
-                    {/* Tuition Fees & Bookings */}
-                    <div className="pt-6 border-t border-sage-100 flex items-center justify-between gap-4">
+                    <div className="flex items-center justify-between gap-4 border-t border-sand-200 pt-6">
                       <div>
-                        <span className="text-[10px] uppercase tracking-wider text-sage-500 block">Tuition Rate</span>
-                        <span className="font-mono text-lg font-bold text-forest-750">{item.pricing}</span>
+                        <span className="block text-xs uppercase tracking-wider text-charcoal-500">Tuition Rate</span>
+                        <span className="font-mono text-xl font-medium text-charcoal-800">{item.pricing}</span>
                       </div>
                       <a
                         href={`/apply?program=${encodeURIComponent(item.title)}`}
-                        className="inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-terracotta-500 hover:bg-terracotta-600 text-white font-sans text-xs font-bold shadow-sm transition-colors cursor-pointer"
+                        className="btn-primary"
                       >
-                        <span>Apply / Register</span>
+                        Apply / Register
                       </a>
                     </div>
-
                   </div>
-
                 </div>
               ))}
             </div>
-
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="py-20 bg-cream-100/40 border-t border-sage-100/30">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-forest-600">
-              Yoga in the Lap of Nature
-            </h2>
-            <p className="font-sans text-sm sm:text-base text-forest-600/70 max-w-xl mx-auto leading-relaxed font-light">
-              Outdoor Hatha alignment sessions on the beach side sands of South Goa or pine forest clearings in Dharamkot. Connect with us on WhatsApp to register your retreat.
-            </p>
-            <div className="pt-4 flex flex-col sm:flex-row gap-4 items-center justify-center max-w-md mx-auto">
-              <a
-                href="/apply"
-                className="flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-3.5 rounded-full bg-terracotta-500 hover:bg-terracotta-600 text-white font-sans text-xs font-bold shadow-md transition-colors"
-              >
-                <span>Register Online Now</span>
+        <section className="border-t border-sand-200 bg-sand-50 py-24">
+          <div className="mx-auto max-w-4xl space-y-6 px-4 text-center sm:px-6 lg:px-8">
+            <SectionHeading
+              title="Yoga in the Lap of Nature"
+              subtitle="Outdoor Hatha alignment sessions on the beach side sands of South Goa or pine forest clearings in Dharamkot. Connect with us on WhatsApp to register your retreat."
+            />
+            <div className="flex flex-col items-center justify-center gap-4 pt-4 sm:flex-row">
+              <a href="/apply" className="btn-primary">
+                Register Online Now
               </a>
               <a
                 href={`https://wa.me/917719878500?text=${encodeURIComponent("Hi Alpesh, I am interested in booking a yoga retreat.")}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-3.5 rounded-full bg-forest-950 hover:bg-forest-900 text-white font-sans text-xs font-bold shadow-md transition-colors border border-forest-800"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-charcoal-800 bg-charcoal-900 px-8 py-3.5 font-sans text-sm font-medium text-white transition-colors hover:bg-charcoal-800"
               >
-                <Phone className="w-3.5 h-3.5" />
+                <Phone className="h-3.5 w-3.5" />
                 <span>Chat on WhatsApp</span>
               </a>
             </div>
           </div>
         </section>
-
       </main>
 
       <Footer />
@@ -196,7 +164,6 @@ export default function RetreatsPage() {
   );
 }
 
-// Unsplash placeholder images matching Hatha alignment and scenery
 const imgUrls = [
   "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=600",
   "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=600",

@@ -26,7 +26,7 @@ export default function TestimonialsVideo({ videoThumbnail, videoTitle, reviews 
         
         {/* Main Video Section */}
         <div className="text-center mb-16">
-          <p className="font-sans text-xs uppercase tracking-widest text-rust-500 font-bold mb-3">
+          <p className="mb-3 font-sans text-sm font-medium uppercase tracking-[0.2em] text-olive-500">
             Listen to Our Students
           </p>
           <div className="relative max-w-4xl mx-auto rounded-[32px] overflow-hidden shadow-2xl group cursor-pointer aspect-video bg-charcoal-900 mt-8">
@@ -38,7 +38,7 @@ export default function TestimonialsVideo({ videoThumbnail, videoTitle, reviews 
             <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
             <div className="absolute inset-0 flex flex-col items-center justify-center">
               <PlayCircle className="w-16 h-16 text-white mb-4 group-hover:scale-110 transition-transform duration-300 drop-shadow-lg" strokeWidth={1.5} />
-              <h3 className="font-serif text-3xl md:text-5xl text-white font-bold tracking-wide drop-shadow-md px-4">
+              <h3 className="px-4 font-serif text-3xl font-normal leading-[1.15] tracking-tight text-white drop-shadow-md md:text-[52px]">
                 {videoTitle}
               </h3>
             </div>
@@ -48,21 +48,21 @@ export default function TestimonialsVideo({ videoThumbnail, videoTitle, reviews 
         {/* Written Reviews Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mt-20">
           {reviews.map((review, idx) => (
-            <div key={idx} className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100">
-              <div className="flex items-center gap-4 mb-6">
+            <div key={idx} className="rounded-[28px] border border-gray-100 bg-white p-8 shadow-sm">
+              <div className="mb-6 flex items-center gap-4">
                 <img 
                   src={review.image} 
                   alt={review.name} 
-                  className="w-12 h-12 rounded-full object-cover border border-sand-50"
+                  className="h-12 w-12 rounded-full border border-sand-50 object-cover"
                 />
                 <div>
-                  <h4 className="font-sans text-sm font-bold text-charcoal-900">{review.name}</h4>
-                  <div className="flex text-amber-400 mt-1">
+                  <h4 className="font-serif text-[1.15rem] font-normal text-charcoal-500">{review.name}</h4>
+                  <div className="mt-1 flex text-olive-500">
                     <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
                   </div>
                 </div>
               </div>
-              <p className="font-sans text-charcoal-500 text-sm leading-relaxed font-light italic">
+              <p className="font-sans text-[1.15rem] font-normal italic leading-[1.7] text-charcoal-800">
                 &quot;{review.quote}&quot;
               </p>
             </div>

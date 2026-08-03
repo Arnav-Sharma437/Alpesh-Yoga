@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import PageHero from "@/components/ui/PageHero";
+import SectionHeading from "@/components/ui/SectionHeading";
 import { CheckCircle2, Clock, Calendar, ShieldCheck, BookOpen, HeartPulse, ArrowRight, Phone, Award } from "lucide-react";
 import { locationsConfig } from "@/config/locations";
 import { COURSE_TOPICS, COURSE_DEPOSIT } from "@/config/courseContent";
@@ -58,32 +60,12 @@ export default async function TTC100Page({ params }: PageProps) {
     <>
       <Header />
 
-      <main className="flex-grow pt-20">
-        
-        {/* Page Hero */}
-        <section className="relative py-24 bg-forest-700 text-cream-50 overflow-hidden">
-          <div 
-            className="absolute inset-0 bg-cover bg-center opacity-25 scale-102"
-            style={{
-              backgroundImage: `url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1200')`,
-            }}
-          ></div>
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10 space-y-4">
-            
-            <nav className="text-xs uppercase tracking-widest text-cream-200/60 flex items-center justify-center gap-2 mb-2 font-sans font-medium">
-              <a href="/" className="hover:text-cream-100 hover:underline">Home</a>
-              <span>/</span>
-              <span className="text-cream-50">100-Hour TTC ({config.displayName})</span>
-            </nav>
-
-            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight max-w-4xl mx-auto">
-              100-Hour Hatha Alignment Yoga TTC
-            </h1>
-            <p className="font-sans text-sm sm:text-base text-cream-100/90 max-w-2xl mx-auto font-light leading-relaxed">
-              Phase 1 of your Hatha alignment certification. Build a rock-solid foundation in physical adjustments, safety mechanics, and traditional philosophy.
-            </p>
-          </div>
-        </section>
+      <main className="flex-grow">
+        <PageHero
+          breadcrumb={`100-Hour TTC (${config.displayName})`}
+          title="100-Hour Hatha Alignment Yoga TTC"
+          subtitle="Phase 1 of your Hatha alignment certification. Build a rock-solid foundation in physical adjustments, safety mechanics, and traditional philosophy."
+        />
 
         {isGoa && (
           <section className="border-y border-saffron-100 bg-saffron-50 py-4 text-center">
@@ -93,62 +75,52 @@ export default async function TTC100Page({ params }: PageProps) {
           </section>
         )}
 
-        {/* Course Intro */}
-        <section className="py-20 bg-white">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 text-center">
-            <div className="space-y-2">
-              <span className="font-sans text-xs uppercase tracking-widest text-terracotta-500 font-semibold block">
-                Course Structure
-              </span>
-              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-forest-600">
-                Foundations of Alignment & Teaching
-              </h2>
-            </div>
+        <section className="bg-white py-24">
+          <div className="mx-auto max-w-4xl space-y-8 px-4 text-center sm:px-6 lg:px-8">
+            <SectionHeading
+              eyebrow="Course Structure"
+              title="Foundations of Alignment & Teaching"
+            />
             
-            <p className="font-sans text-base text-forest-600/80 leading-relaxed font-light">
+            <p className="font-sans text-[1.15rem] font-normal leading-[1.7] text-charcoal-800">
               The 100-Hour Teacher Training Course is tailored for students who wish to complete their 200-Hour registration in two separate segments, or for practitioners seeking a deep dive into alignment anatomy without taking on the full 200 hours at once. Taught in accordance with Yoga Alliance USA standards, you will cover the complete posture blueprint curriculum.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6">
-              <div className="p-5 bg-cream-100 border border-sage-100/40 rounded-2xl">
-                <Clock className="w-5 h-5 text-terracotta-500 mx-auto mb-2" />
-                <h4 className="font-serif font-bold text-sm text-forest-700">11-Day Duration</h4>
-                <p className="font-sans text-xs text-forest-600/60 mt-1">Intensive modules</p>
+              <div className="rounded-[28px] border border-sand-200 bg-white p-5">
+                <Clock className="mx-auto mb-2 h-5 w-5 text-saffron-500" />
+                <h4 className="font-serif text-base font-normal text-charcoal-500">11-Day Duration</h4>
+                <p className="mt-1 font-sans text-[1.05rem] text-charcoal-800">Intensive modules</p>
               </div>
-              <div className="p-5 bg-cream-100 border border-sage-100/40 rounded-2xl">
-                <Calendar className="w-5 h-5 text-terracotta-500 mx-auto mb-2" />
-                <h4 className="font-serif font-bold text-sm text-forest-700">Flexible Batches</h4>
-                <p className="font-sans text-xs text-forest-600/60 mt-1">Goa &amp; Dharamshala</p>
+              <div className="rounded-[28px] border border-sand-200 bg-white p-5">
+                <Calendar className="mx-auto mb-2 h-5 w-5 text-saffron-500" />
+                <h4 className="font-serif text-base font-normal text-charcoal-500">Flexible Batches</h4>
+                <p className="mt-1 font-sans text-[1.05rem] text-charcoal-800">Goa &amp; Dharamshala</p>
               </div>
-              <div className="p-5 bg-cream-100 border border-sage-100/40 rounded-2xl">
-                <Award className="w-5 h-5 text-terracotta-500 mx-auto mb-2" />
-                <h4 className="font-serif font-bold text-sm text-forest-700">Registered Certificate</h4>
-                <p className="font-sans text-xs text-forest-600/60 mt-1">Yoga Alliance USA</p>
+              <div className="rounded-[28px] border border-sand-200 bg-white p-5">
+                <Award className="mx-auto mb-2 h-5 w-5 text-saffron-500" />
+                <h4 className="font-serif text-base font-normal text-charcoal-500">Registered Certificate</h4>
+                <p className="mt-1 font-sans text-[1.05rem] text-charcoal-800">Yoga Alliance USA</p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Syllabus / Modules */}
-        <section className="py-20 bg-cream-100/40 border-t border-b border-sage-100/30">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <span className="font-sans text-xs uppercase tracking-widest text-terracotta-500 font-semibold mb-2 block">
-                Curriculum
-              </span>
-              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-forest-600">
-                100h Course Syllabus Modules
-              </h2>
-            </div>
+        <section className="border-y border-sand-200 bg-sand-50 py-24">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <SectionHeading
+              eyebrow="Curriculum"
+              title="100h Course Syllabus Modules"
+            />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-2">
               {SYLLABUS_MODULES.map((mod, idx) => (
-                <div key={idx} className="bg-white p-8 rounded-3xl border border-sage-100/50 shadow-sm space-y-4 hover:shadow-md transition-all duration-300">
-                  <div className="p-2 bg-sage-100 text-terracotta-500 rounded-lg w-fit">
-                    <ShieldCheck className="w-5 h-5" />
+                <div key={idx} className="space-y-4 rounded-[28px] border border-sand-200 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-md">
+                  <div className="w-fit rounded-lg bg-olive-50 p-2 text-saffron-500">
+                    <ShieldCheck className="h-5 w-5" />
                   </div>
-                  <h3 className="font-serif text-lg font-bold text-forest-700">{mod.title}</h3>
-                  <p className="font-sans text-sm text-forest-600/70 leading-relaxed font-light">{mod.desc}</p>
+                  <h3 className="font-serif text-lg font-normal text-charcoal-500">{mod.title}</h3>
+                  <p className="font-sans text-[1.15rem] font-normal leading-[1.7] text-charcoal-800">{mod.desc}</p>
                 </div>
               ))}
             </div>
@@ -242,7 +214,7 @@ export default async function TTC100Page({ params }: PageProps) {
               <div className="pt-4 border-t border-sage-100">
                 <a
                   href={`/apply?location=${location}&program=100-Hour%20TTC`}
-                  className="flex items-center justify-center gap-2 w-full py-3.5 rounded-full bg-terracotta-500 hover:bg-terracotta-600 text-white font-sans text-xs font-bold shadow-sm transition-all duration-300"
+                  className="btn-primary flex w-full items-center justify-center gap-2"
                 >
                   <span>Apply for 100h TTC</span>
                 </a>
@@ -295,20 +267,18 @@ export default async function TTC100Page({ params }: PageProps) {
         {/* CTA booking */}
         <section className="py-12 bg-cream-100/50">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-forest-700 rounded-3xl p-8 md:p-12 text-center text-cream-50 shadow-xl border border-forest-800 space-y-6">
-              <h2 className="font-serif text-2xl md:text-3xl font-bold">
-                Ready to Start Your Training?
-              </h2>
-              <p className="font-sans text-sm text-cream-200/90 leading-relaxed font-light max-w-xl mx-auto">
-                Secure your allocation for Hatha Alignment modules. Submit your registration form online or connect with our lead office on WhatsApp.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-4 items-center justify-center pt-2 max-w-lg mx-auto">
+            <div className="space-y-6 rounded-[28px] border border-sand-200 bg-charcoal-900 p-8 text-center text-white md:p-12">
+              <SectionHeading
+                light
+                title="Ready to Start Your Training?"
+                subtitle="Secure your allocation for Hatha Alignment modules. Submit your registration form online or connect with our lead office on WhatsApp."
+              />
+              <div className="mx-auto flex max-w-lg flex-col items-center justify-center gap-4 pt-2 sm:flex-row">
                 <a
                   href={`/apply?location=${location}&program=100-Hour%20TTC`}
-                  className="flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3.5 rounded-full bg-terracotta-500 hover:bg-terracotta-600 text-white font-sans text-xs font-bold shadow-sm transition-all duration-300"
+                  className="btn-primary w-full sm:w-auto"
                 >
-                  <span>Submit Application Form</span>
+                  Submit Application Form
                 </a>
                 <a
                   href={`https://wa.me/${config.contactNumber1.replace(/[^0-9]/g, "")}?text=${encodeURIComponent("Hi Alpesh, I am interested in the 100h TTC course.")}`}

@@ -5,6 +5,8 @@ import { useSearchParams } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import PageHero from "@/components/ui/PageHero";
+import SectionHeading from "@/components/ui/SectionHeading";
 import { CheckCircle2, AlertCircle, Calendar, Send, HelpCircle, PhoneCall } from "lucide-react";
 import { locationsConfig } from "@/config/locations";
 import { getDatesForApplyProgram } from "@/config/courseContent";
@@ -420,12 +422,12 @@ function ApplyFormContent() {
   }
 
   return (
-    <div id="apply-form-header" className="max-w-3xl mx-auto bg-white border border-sage-100 rounded-3xl shadow-xl overflow-hidden">
+    <div id="apply-form-header" className="mx-auto max-w-3xl overflow-hidden rounded-[28px] border border-sand-200 bg-white shadow-xl">
       
       {/* Header Banner */}
-      <div className="bg-forest-600 px-4 py-6 sm:px-8 sm:py-8 text-cream-50 text-center relative border-b border-forest-700">
-        <h2 className="font-serif text-xl sm:text-2xl font-bold">Alpesh Yoga Enrollment Form</h2>
-        <p className="font-sans text-xs text-cream-200/80 mt-1">Please fill in the form carefully. Fields marked with <span className="text-red-500 font-bold">*</span> are required.</p>
+      <div className="relative border-b border-sand-200 bg-charcoal-900 px-4 py-6 text-center text-white sm:px-8 sm:py-8">
+        <h2 className="font-serif text-xl font-normal sm:text-2xl">Alpesh Yoga Enrollment Form</h2>
+        <p className="mt-1 font-sans text-[1.05rem] leading-[1.7] text-white/80">Please fill in the form carefully. Fields marked with <span className="font-medium text-red-400">*</span> are required.</p>
       </div>
 
       {isMobile && (
@@ -445,24 +447,24 @@ function ApplyFormContent() {
         </div>
       )}
 
-      <form onSubmit={handleSubmit} className="p-4 sm:p-8 space-y-6 text-sm font-sans text-forest-600">
+      <form onSubmit={handleSubmit} className="space-y-6 p-4 font-sans text-[1.05rem] leading-[1.7] text-charcoal-800 sm:p-8">
         
         {(!isMobile || step === 1) && (
           <>
             {/* SECTION 1: Program details */}
             <div className="space-y-4">
-          <h3 className="font-serif text-lg font-bold text-forest-700 border-b border-sage-50 pb-2">1. Program Selection</h3>
+          <h3 className="border-b border-sand-200 pb-2 font-serif text-lg font-normal text-charcoal-500">1. Program Selection</h3>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {/* Preferred Location */}
             <div className="space-y-1.5">
-              <label className="font-semibold block">Preferred Location <span className="text-red-500">*</span></label>
+              <label className="mb-1 block font-medium text-charcoal-800">Preferred Location <span className="text-red-500">*</span></label>
               <select
                 name="location"
                 value={formData.location}
                 onChange={handleChange}
-                className={`w-full p-3 rounded-xl border bg-cream-50/20 focus:ring-1 focus:ring-terracotta-500 focus:outline-none transition-all ${
-                  errors.location ? "border-red-500" : "border-sage-200 hover:border-sage-300"
+                className={`w-full rounded-xl border bg-white p-3 text-[1.05rem] transition-all focus:outline-none focus:ring-1 focus:ring-saffron-500 ${
+                  errors.location ? "border-red-500" : "border-sand-200 hover:border-sand-300"
                 }`}
               >
                 <option value="">-- Select Location --</option>
@@ -474,13 +476,13 @@ function ApplyFormContent() {
 
             {/* Program selection dropdown */}
             <div className="space-y-1.5">
-              <label className="font-semibold block">Select Course / Program <span className="text-red-500">*</span></label>
+              <label className="mb-1 block font-medium text-charcoal-800">Select Course / Program <span className="text-red-500">*</span></label>
               <select
                 name="program"
                 value={formData.program}
                 onChange={handleChange}
-                className={`w-full p-3 rounded-xl border bg-cream-50/20 focus:ring-1 focus:ring-terracotta-500 focus:outline-none transition-all ${
-                  errors.program ? "border-red-500" : "border-sage-200 hover:border-sage-300"
+                className={`w-full bg-white p-3 rounded-xl border focus:ring-1 focus:ring-saffron-500 focus:outline-none transition-all ${
+                  errors.program ? "border-red-500" : "border-sand-200 hover:border-sand-300"
                 }`}
               >
                 <option value="">-- Select Option --</option>
@@ -495,14 +497,14 @@ function ApplyFormContent() {
 
             {/* Batch Selection */}
             <div className="space-y-1.5">
-              <label className="font-semibold block">Preferred Start Date / Batch <span className="text-red-500">*</span></label>
+              <label className="mb-1 block font-medium text-charcoal-800">Preferred Start Date / Batch <span className="text-red-500">*</span></label>
               <select
                 name="batch"
                 value={formData.batch}
                 onChange={handleChange}
                 disabled={!formData.location}
-                className={`w-full p-3 rounded-xl border bg-cream-50/20 focus:ring-1 focus:ring-terracotta-500 focus:outline-none transition-all disabled:opacity-50 ${
-                  errors.batch ? "border-red-500" : "border-sage-200 hover:border-sage-300"
+                className={`w-full bg-white p-3 rounded-xl border focus:ring-1 focus:ring-saffron-500 focus:outline-none transition-all disabled:opacity-50 ${
+                  errors.batch ? "border-red-500" : "border-sand-200 hover:border-sand-300"
                 }`}
               >
                 <option value="">
@@ -525,18 +527,18 @@ function ApplyFormContent() {
 
         {/* SECTION 2: Personal information */}
         <div className="space-y-4 pt-4 border-t border-sage-50">
-          <h3 className="font-serif text-lg font-bold text-forest-700 border-b border-sage-50 pb-2">2. Personal Information</h3>
+          <h3 className="border-b border-sand-200 pb-2 font-serif text-lg font-normal text-charcoal-500">2. Personal Information</h3>
           
           <div className="space-y-1.5">
-            <label className="font-semibold block">Full Name <span className="text-red-500">*</span></label>
+            <label className="mb-1 block font-medium text-charcoal-800">Full Name <span className="text-red-500">*</span></label>
             <input
               type="text"
               name="fullName"
               value={formData.fullName}
               onChange={handleChange}
               placeholder="Enter your first and last name"
-              className={`w-full p-3 rounded-xl border bg-cream-50/20 focus:ring-1 focus:ring-terracotta-500 focus:outline-none transition-all ${
-                errors.fullName ? "border-red-500" : "border-sage-200 hover:border-sage-300"
+              className={`w-full bg-white p-3 rounded-xl border focus:ring-1 focus:ring-saffron-500 focus:outline-none transition-all ${
+                errors.fullName ? "border-red-500" : "border-sand-200 hover:border-sand-300"
               }`}
             />
             {errors.fullName && <span className="text-xs text-red-500 flex items-center gap-1"><AlertCircle className="w-3.5 h-3.5" />{errors.fullName}</span>}
@@ -545,13 +547,13 @@ function ApplyFormContent() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {/* Gender */}
             <div className="space-y-1.5">
-              <label className="font-semibold block">Gender <span className="text-red-500">*</span></label>
+              <label className="mb-1 block font-medium text-charcoal-800">Gender <span className="text-red-500">*</span></label>
               <select
                 name="gender"
                 value={formData.gender}
                 onChange={handleChange}
-                className={`w-full p-3 rounded-xl border bg-cream-50/20 focus:ring-1 focus:ring-terracotta-500 focus:outline-none transition-all ${
-                  errors.gender ? "border-red-500" : "border-sage-200 hover:border-sage-300"
+                className={`w-full bg-white p-3 rounded-xl border focus:ring-1 focus:ring-saffron-500 focus:outline-none transition-all ${
+                  errors.gender ? "border-red-500" : "border-sand-200 hover:border-sand-300"
                 }`}
               >
                 <option value="">-- Select --</option>
@@ -564,14 +566,14 @@ function ApplyFormContent() {
 
             {/* DOB */}
             <div className="space-y-1.5">
-              <label className="font-semibold block">Date of Birth <span className="text-red-500">*</span></label>
+              <label className="mb-1 block font-medium text-charcoal-800">Date of Birth <span className="text-red-500">*</span></label>
               <input
                 type="date"
                 name="dob"
                 value={formData.dob}
                 onChange={handleDobChange}
-                className={`w-full p-3 rounded-xl border bg-cream-50/20 focus:ring-1 focus:ring-terracotta-500 focus:outline-none transition-all ${
-                  errors.dob ? "border-red-500" : "border-sage-200 hover:border-sage-300"
+                className={`w-full bg-white p-3 rounded-xl border focus:ring-1 focus:ring-saffron-500 focus:outline-none transition-all ${
+                  errors.dob ? "border-red-500" : "border-sand-200 hover:border-sand-300"
                 }`}
               />
               {errors.dob && <span className="text-xs text-red-500 flex items-center gap-1"><AlertCircle className="w-3.5 h-3.5" />{errors.dob}</span>}
@@ -579,15 +581,15 @@ function ApplyFormContent() {
 
             {/* Age (Auto-calculated) */}
             <div className="space-y-1.5">
-              <label className="font-semibold block">Age <span className="text-red-500">*</span></label>
+              <label className="mb-1 block font-medium text-charcoal-800">Age <span className="text-red-500">*</span></label>
               <input
                 type="number"
                 name="age"
                 value={formData.age}
                 onChange={handleChange}
                 placeholder="Auto-calculated"
-                className={`w-full p-3 rounded-xl border bg-cream-50/20 focus:ring-1 focus:ring-terracotta-500 focus:outline-none transition-all ${
-                  errors.age ? "border-red-500" : "border-sage-200 hover:border-sage-300"
+                className={`w-full bg-white p-3 rounded-xl border focus:ring-1 focus:ring-saffron-500 focus:outline-none transition-all ${
+                  errors.age ? "border-red-500" : "border-sand-200 hover:border-sand-300"
                 }`}
               />
               {errors.age && <span className="text-xs text-red-500 flex items-center gap-1"><AlertCircle className="w-3.5 h-3.5" />{errors.age}</span>}
@@ -597,15 +599,15 @@ function ApplyFormContent() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Nationality */}
             <div className="space-y-1.5">
-              <label className="font-semibold block">Nationality / Country <span className="text-red-500">*</span></label>
+              <label className="mb-1 block font-medium text-charcoal-800">Nationality / Country <span className="text-red-500">*</span></label>
               <input
                 type="text"
                 name="nationality"
                 value={formData.nationality}
                 onChange={handleChange}
                 placeholder="e.g. German, French, Indian"
-                className={`w-full p-3 rounded-xl border bg-cream-50/20 focus:ring-1 focus:ring-terracotta-500 focus:outline-none transition-all ${
-                  errors.nationality ? "border-red-500" : "border-sage-200 hover:border-sage-300"
+                className={`w-full bg-white p-3 rounded-xl border focus:ring-1 focus:ring-saffron-500 focus:outline-none transition-all ${
+                  errors.nationality ? "border-red-500" : "border-sand-200 hover:border-sand-300"
                 }`}
               />
               {errors.nationality && <span className="text-xs text-red-500 flex items-center gap-1"><AlertCircle className="w-3.5 h-3.5" />{errors.nationality}</span>}
@@ -613,15 +615,15 @@ function ApplyFormContent() {
 
             {/* Present Occupation */}
             <div className="space-y-1.5">
-              <label className="font-semibold block">Present Occupation <span className="text-red-500">*</span></label>
+              <label className="mb-1 block font-medium text-charcoal-800">Present Occupation <span className="text-red-500">*</span></label>
               <input
                 type="text"
                 name="occupation"
                 value={formData.occupation}
                 onChange={handleChange}
                 placeholder="e.g. Student, Therapist, Engineer"
-                className={`w-full p-3 rounded-xl border bg-cream-50/20 focus:ring-1 focus:ring-terracotta-500 focus:outline-none transition-all ${
-                  errors.occupation ? "border-red-500" : "border-sage-200 hover:border-sage-300"
+                className={`w-full bg-white p-3 rounded-xl border focus:ring-1 focus:ring-saffron-500 focus:outline-none transition-all ${
+                  errors.occupation ? "border-red-500" : "border-sand-200 hover:border-sand-300"
                 }`}
               />
               {errors.occupation && <span className="text-xs text-red-500 flex items-center gap-1"><AlertCircle className="w-3.5 h-3.5" />{errors.occupation}</span>}
@@ -630,15 +632,15 @@ function ApplyFormContent() {
 
           {/* Full Address */}
           <div className="space-y-1.5">
-            <label className="font-semibold block">Full Residential Address <span className="text-red-500">*</span></label>
+            <label className="mb-1 block font-medium text-charcoal-800">Full Residential Address <span className="text-red-500">*</span></label>
             <textarea
               name="address"
               value={formData.address}
               onChange={handleChange}
               rows={3}
               placeholder="Enter your complete home country address"
-              className={`w-full p-3 rounded-xl border bg-cream-50/20 focus:ring-1 focus:ring-terracotta-500 focus:outline-none transition-all ${
-                errors.address ? "border-red-500" : "border-sage-200 hover:border-sage-300"
+              className={`w-full bg-white p-3 rounded-xl border focus:ring-1 focus:ring-saffron-500 focus:outline-none transition-all ${
+                errors.address ? "border-red-500" : "border-sand-200 hover:border-sand-300"
               }`}
             ></textarea>
             {errors.address && <span className="text-xs text-red-500 flex items-center gap-1"><AlertCircle className="w-3.5 h-3.5" />{errors.address}</span>}
@@ -651,12 +653,12 @@ function ApplyFormContent() {
           <>
             {/* SECTION 3: Contact details */}
             <div className="space-y-4 pt-4 border-t border-sage-50">
-          <h3 className="font-serif text-lg font-bold text-forest-700 border-b border-sage-50 pb-2">3. Contact Details</h3>
+          <h3 className="border-b border-sand-200 pb-2 font-serif text-lg font-normal text-charcoal-500">3. Contact Details</h3>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Phone Number */}
             <div className="space-y-1.5">
-              <label className="font-semibold block">Phone / Mobile Number <span className="text-red-500">*</span></label>
+              <label className="mb-1 block font-medium text-charcoal-800">Phone / Mobile Number <span className="text-red-500">*</span></label>
               <div className="flex gap-2">
                 <select
                   name="phoneCode"
@@ -674,8 +676,8 @@ function ApplyFormContent() {
                   value={formData.phoneNumber}
                   onChange={handleChange}
                   placeholder="Number"
-                  className={`w-full p-3 rounded-xl border bg-cream-50/20 focus:ring-1 focus:ring-terracotta-500 focus:outline-none transition-all ${
-                    errors.phoneNumber ? "border-red-500" : "border-sage-200 hover:border-sage-300"
+                  className={`w-full bg-white p-3 rounded-xl border focus:ring-1 focus:ring-saffron-500 focus:outline-none transition-all ${
+                    errors.phoneNumber ? "border-red-500" : "border-sand-200 hover:border-sand-300"
                   }`}
                 />
               </div>
@@ -684,15 +686,15 @@ function ApplyFormContent() {
 
             {/* Email Address */}
             <div className="space-y-1.5">
-              <label className="font-semibold block">Email Address <span className="text-red-500">*</span></label>
+              <label className="mb-1 block font-medium text-charcoal-800">Email Address <span className="text-red-500">*</span></label>
               <input
                 type="email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="yourname@example.com"
-                className={`w-full p-3 rounded-xl border bg-cream-50/20 focus:ring-1 focus:ring-terracotta-500 focus:outline-none transition-all ${
-                  errors.email ? "border-red-500" : "border-sage-200 hover:border-sage-300"
+                className={`w-full bg-white p-3 rounded-xl border focus:ring-1 focus:ring-saffron-500 focus:outline-none transition-all ${
+                  errors.email ? "border-red-500" : "border-sand-200 hover:border-sand-300"
                 }`}
               />
               {errors.email && <span className="text-xs text-red-500 flex items-center gap-1"><AlertCircle className="w-3.5 h-3.5" />{errors.email}</span>}
@@ -717,7 +719,7 @@ function ApplyFormContent() {
           {/* WhatsApp number field (renders if not same) */}
           {!formData.whatsappSame && (
             <div className="space-y-1.5 max-w-md animate-in fade-in duration-200">
-              <label className="font-semibold block">WhatsApp Number <span className="text-red-500">*</span></label>
+              <label className="mb-1 block font-medium text-charcoal-800">WhatsApp Number <span className="text-red-500">*</span></label>
               <div className="flex gap-2">
                 <select
                   name="whatsappCode"
@@ -735,8 +737,8 @@ function ApplyFormContent() {
                   value={formData.whatsappNumber}
                   onChange={handleChange}
                   placeholder="WhatsApp Number"
-                  className={`w-full p-3 rounded-xl border bg-cream-50/20 focus:ring-1 focus:ring-terracotta-500 focus:outline-none transition-all ${
-                    errors.whatsappNumber ? "border-red-500" : "border-sage-200 hover:border-sage-300"
+                  className={`w-full bg-white p-3 rounded-xl border focus:ring-1 focus:ring-saffron-500 focus:outline-none transition-all ${
+                    errors.whatsappNumber ? "border-red-500" : "border-sand-200 hover:border-sand-300"
                   }`}
                 />
               </div>
@@ -747,19 +749,19 @@ function ApplyFormContent() {
 
         {/* SECTION 4: Practice Experience */}
         <div className="space-y-4 pt-4 border-t border-sage-50">
-          <h3 className="font-serif text-lg font-bold text-forest-700 border-b border-sage-50 pb-2">4. Practice & Background</h3>
+          <h3 className="border-b border-sand-200 pb-2 font-serif text-lg font-normal text-charcoal-500">4. Practice & Background</h3>
           
           {/* Practice Duration */}
           <div className="space-y-1.5">
-            <label className="font-semibold block">How long have you been practicing yoga? <span className="text-red-500">*</span></label>
+            <label className="mb-1 block font-medium text-charcoal-800">How long have you been practicing yoga? <span className="text-red-500">*</span></label>
             <input
               type="text"
               name="practiceDuration"
               value={formData.practiceDuration}
               onChange={handleChange}
               placeholder="e.g. 6 months, 2 years, self-practice"
-              className={`w-full p-3 rounded-xl border bg-cream-50/20 focus:ring-1 focus:ring-terracotta-500 focus:outline-none transition-all ${
-                errors.practiceDuration ? "border-red-500" : "border-sage-200 hover:border-sage-300"
+              className={`w-full bg-white p-3 rounded-xl border focus:ring-1 focus:ring-saffron-500 focus:outline-none transition-all ${
+                errors.practiceDuration ? "border-red-500" : "border-sand-200 hover:border-sand-300"
               }`}
             />
             {errors.practiceDuration && <span className="text-xs text-red-500 flex items-center gap-1"><AlertCircle className="w-3.5 h-3.5" />{errors.practiceDuration}</span>}
@@ -768,7 +770,7 @@ function ApplyFormContent() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Hatha alignment check */}
             <div className="space-y-2">
-              <label className="font-semibold block">Have you practiced Hatha alignment-based yoga before? <span className="text-red-500">*</span></label>
+              <label className="mb-1 block font-medium text-charcoal-800">Have you practiced Hatha alignment-based yoga before? <span className="text-red-500">*</span></label>
               <div className="flex gap-4">
                 <label className="flex items-center gap-2 cursor-pointer font-medium text-xs">
                   <input
@@ -798,7 +800,7 @@ function ApplyFormContent() {
 
             {/* Philosophy check */}
             <div className="space-y-2">
-              <label className="font-semibold block">Are you familiar with yoga philosophy / Yoga Sutras? <span className="text-red-500">*</span></label>
+              <label className="mb-1 block font-medium text-charcoal-800">Are you familiar with yoga philosophy / Yoga Sutras? <span className="text-red-500">*</span></label>
               <div className="flex gap-4">
                 <label className="flex items-center gap-2 cursor-pointer font-medium text-xs">
                   <input
@@ -829,7 +831,7 @@ function ApplyFormContent() {
 
           {/* Teaching experience check */}
           <div className="space-y-3">
-            <label className="font-semibold block">Do you have any previous yoga teaching experience? <span className="text-red-500">*</span></label>
+            <label className="mb-1 block font-medium text-charcoal-800">Do you have any previous yoga teaching experience? <span className="text-red-500">*</span></label>
             <div className="flex gap-4">
               <label className="flex items-center gap-2 cursor-pointer font-medium text-xs">
                 <input
@@ -863,8 +865,8 @@ function ApplyFormContent() {
                 onChange={handleChange}
                 rows={2}
                 placeholder="Please describe your teaching experience briefly"
-                className={`w-full p-3 rounded-xl border bg-cream-50/20 focus:ring-1 focus:ring-terracotta-500 focus:outline-none transition-all animate-in slide-in-from-top-2 duration-200 ${
-                  errors.teachingDetails ? "border-red-500" : "border-sage-200 hover:border-sage-300"
+                className={`w-full bg-white p-3 rounded-xl border focus:ring-1 focus:ring-saffron-500 focus:outline-none transition-all animate-in slide-in-from-top-2 duration-200 ${
+                  errors.teachingDetails ? "border-red-500" : "border-sand-200 hover:border-sand-300"
                 }`}
               ></textarea>
             )}
@@ -878,11 +880,11 @@ function ApplyFormContent() {
           <>
             {/* SECTION 5: Health conditions */}
             <div className="space-y-4 pt-4 border-t border-sage-50">
-          <h3 className="font-serif text-lg font-bold text-forest-700 border-b border-sage-50 pb-2">5. Health & Intentions</h3>
+          <h3 className="border-b border-sand-200 pb-2 font-serif text-lg font-normal text-charcoal-500">5. Health & Intentions</h3>
           
           {/* Injury check */}
           <div className="space-y-3">
-            <label className="font-semibold block">Do you have any injuries, surgeries, or medical conditions? <span className="text-red-500">*</span></label>
+            <label className="mb-1 block font-medium text-charcoal-800">Do you have any injuries, surgeries, or medical conditions? <span className="text-red-500">*</span></label>
             <p className="text-[11px] text-sage-600 -mt-1 leading-normal">This is highly important for alignment classes. We will prepare custom props to accommodate your body.</p>
             
             <div className="flex gap-4">
@@ -918,8 +920,8 @@ function ApplyFormContent() {
                 onChange={handleChange}
                 rows={3}
                 placeholder="e.g. Scoliosis, lower back pain, knee ligament injury, high blood pressure"
-                className={`w-full p-3 rounded-xl border bg-cream-50/20 focus:ring-1 focus:ring-terracotta-500 focus:outline-none transition-all animate-in slide-in-from-top-2 duration-200 ${
-                  errors.injuryDetails ? "border-red-500" : "border-sage-200 hover:border-sage-300"
+                className={`w-full bg-white p-3 rounded-xl border focus:ring-1 focus:ring-saffron-500 focus:outline-none transition-all animate-in slide-in-from-top-2 duration-200 ${
+                  errors.injuryDetails ? "border-red-500" : "border-sand-200 hover:border-sand-300"
                 }`}
               ></textarea>
             )}
@@ -928,25 +930,25 @@ function ApplyFormContent() {
 
           {/* Why join */}
           <div className="space-y-1.5">
-            <label className="font-semibold block">Why do you want to join this course? <span className="text-forest-600/50 font-normal">(Optional)</span></label>
+            <label className="mb-1 block font-medium text-charcoal-800">Why do you want to join this course? <span className="text-forest-600/50 font-normal">(Optional)</span></label>
             <textarea
               name="whyJoin"
               value={formData.whyJoin}
               onChange={handleChange}
               rows={3}
               placeholder="What are your goals or therapeutic needs from this intensive alignment study?"
-              className="w-full p-3 rounded-xl border border-sage-200 hover:border-sage-300 bg-cream-50/20 focus:ring-1 focus:ring-terracotta-500 focus:outline-none transition-all"
+              className="w-full p-3 rounded-xl border border-sand-200 hover:border-sand-300 bg-cream-50/20 focus:ring-1 focus:ring-terracotta-500 focus:outline-none transition-all"
             ></textarea>
           </div>
 
           {/* How heard */}
           <div className="space-y-1.5 max-w-md">
-            <label className="font-semibold block">How did you hear about Alpesh Yoga?</label>
+            <label className="mb-1 block font-medium text-charcoal-800">How did you hear about Alpesh Yoga?</label>
             <select
               name="howHeard"
               value={formData.howHeard}
               onChange={handleChange}
-              className="w-full p-3 rounded-xl border border-sage-200 hover:border-sage-300 bg-cream-50/20 focus:ring-1 focus:ring-terracotta-500 focus:outline-none transition-all"
+              className="w-full p-3 rounded-xl border border-sand-200 hover:border-sand-300 bg-cream-50/20 focus:ring-1 focus:ring-terracotta-500 focus:outline-none transition-all"
             >
               <option value="">-- Select Option --</option>
               <option value="Instagram">Instagram</option>
@@ -1007,7 +1009,7 @@ function ApplyFormContent() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-4 px-6 rounded-full bg-[#F7941D] hover:bg-[#E07D0E] text-cream-50 font-sans text-base font-bold shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 cursor-pointer flex items-center justify-center gap-2 disabled:bg-sage-300 disabled:shadow-none disabled:-translate-y-0"
+                className="btn-primary w-full flex items-center justify-center gap-2 disabled:opacity-50"
               >
                 {isSubmitting ? (
                   <>
@@ -1063,33 +1065,15 @@ export default function ApplyForm() {
     <>
       <Header />
 
-      <main className="flex-grow pt-20">
-        
-        {/* Page Hero */}
-        <section className="relative py-16 bg-forest-700 text-cream-50 overflow-hidden">
-          <div 
-            className="absolute inset-0 bg-cover bg-center opacity-25"
-            style={{
-              backgroundImage: `url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1200')`,
-            }}
-          ></div>
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10 space-y-3">
-            <nav className="text-xs uppercase tracking-widest text-cream-200/60 flex items-center justify-center gap-2 mb-2 font-sans font-medium">
-              <a href="/" className="hover:text-cream-100 hover:underline">Home</a>
-              <span>/</span>
-              <span className="text-cream-50">Apply</span>
-            </nav>
-            <h1 className="font-serif text-3xl sm:text-4xl font-bold tracking-tight text-white">
-              Course Application Form
-            </h1>
-            <p className="font-sans text-sm text-cream-100/90 max-w-md mx-auto font-light leading-relaxed">
-              Apply for our Yoga Alliance Certified Teacher Training or Intensive Programs.
-            </p>
-          </div>
-        </section>
+      <main className="flex-grow">
+        <PageHero
+          breadcrumb="Apply"
+          title="Course Application Form"
+          subtitle="Apply for our Yoga Alliance Certified Teacher Training or Intensive Programs."
+        />
 
         {/* Form Container Wrapper */}
-        <section className="py-20 bg-cream-100/50">
+        <section className="bg-sand-50 py-24">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <Suspense fallback={
               <div className="max-w-md mx-auto text-center py-20 font-sans text-sm text-forest-600/70">
@@ -1102,23 +1086,23 @@ export default function ApplyForm() {
         </section>
 
         {/* Location Help / Contact Callout */}
-        <section className="py-12 bg-white border-t border-sage-100/30">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center text-forest-600 text-sm">
+        <section className="border-t border-sand-200 bg-white py-16">
+          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-2">
               <div className="space-y-3">
-                <h4 className="font-serif text-base font-bold text-forest-700">Need help completing the form?</h4>
-                <p className="font-sans text-xs sm:text-sm text-forest-600/70 leading-relaxed font-light">
+                <h4 className="font-serif text-xl font-normal text-charcoal-500">Need help completing the form?</h4>
+                <p className="font-sans text-[1.15rem] font-normal leading-[1.7] text-charcoal-800">
                   If you encounter issues during registration or want to confirm dates manually, please call or WhatsApp our admin office directly. We are happy to walk you through the options.
                 </p>
               </div>
-              <div className="flex flex-col sm:flex-row gap-4 justify-end">
+              <div className="flex flex-col justify-end gap-4 sm:flex-row">
                 <a
                   href="https://wa.me/919736463605?text=Hello%20Alpesh%20Yoga,%20I%20have%20questions%20about%20filling%20out%20the%20registration%20form."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-cream-50 hover:bg-sage-100 text-forest-700 border border-sage-200 font-sans text-xs font-semibold shadow-sm transition-all"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-sand-200 bg-sand-50 px-5 py-3 font-sans text-[1.05rem] font-medium text-charcoal-800 shadow-sm transition-all hover:bg-sand-100"
                 >
-                  <PhoneCall className="w-3.5 h-3.5" />
+                  <PhoneCall className="h-4 w-4" />
                   <span>Call Office (+91 97364 63605)</span>
                 </a>
               </div>

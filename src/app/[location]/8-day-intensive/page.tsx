@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import PageHero from "@/components/ui/PageHero";
+import SectionHeading from "@/components/ui/SectionHeading";
 import { CheckCircle2, Clock, Calendar, Users, Award, ShieldAlert, Sparkles, BookOpen, HeartPulse, ArrowRight, Phone } from "lucide-react";
 import { locationsConfig } from "@/config/locations";
 
@@ -107,33 +109,12 @@ export default async function IntensiveCourse({ params }: PageProps) {
     <>
       <Header />
 
-      <main className="flex-grow pt-20">
-        
-        {/* 1. Page Hero */}
-        <section className="relative py-24 bg-forest-700 text-cream-50 overflow-hidden">
-          <div 
-            className="absolute inset-0 bg-cover bg-center opacity-25 scale-102"
-            style={{
-              backgroundImage: `url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1200')`,
-            }}
-          ></div>
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10 space-y-4">
-            
-            {/* Breadcrumbs */}
-            <nav className="text-xs uppercase tracking-widest text-cream-200/60 flex items-center justify-center gap-2 mb-2 font-sans font-medium">
-              <a href="/" className="hover:text-cream-100 hover:underline">Home</a>
-              <span>/</span>
-              <span className="text-cream-50">8-Day Intensive ({config.displayName})</span>
-            </nav>
-
-            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight max-w-4xl mx-auto">
-              8-Day Intensive Hatha Alignment Course
-            </h1>
-            <p className="font-sans text-sm sm:text-base text-cream-100/90 max-w-2xl mx-auto font-light leading-relaxed">
-              {config.tagline} Reset your structural baseline, understand prop anatomy, and build a safer, stronger practice.
-            </p>
-          </div>
-        </section>
+      <main className="flex-grow">
+        <PageHero
+          breadcrumb={`8-Day Intensive (${config.displayName})`}
+          title="8-Day Intensive Hatha Alignment Course"
+          subtitle={`${config.tagline} Reset your structural baseline, understand prop anatomy, and build a safer, stronger practice.`}
+        />
 
         {isGoa && (
           <section className="border-y border-saffron-100 bg-saffron-50 py-4 text-center">
@@ -143,19 +124,15 @@ export default async function IntensiveCourse({ params }: PageProps) {
           </section>
         )}
 
-        {/* 2. Intro / Overview */}
-        <section className="py-20 bg-white">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-            <div className="text-center">
-              <span className="font-sans text-xs uppercase tracking-widest text-terracotta-600 font-semibold mb-2 block">
-                Course Introduction
-              </span>
-              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-forest-600">
-                A Disciplined Approach to Asana Mechanics
-              </h2>
-            </div>
+        <section className="bg-white py-24">
+          <div className="mx-auto max-w-4xl space-y-8 px-4 sm:px-6 lg:px-8">
+            <SectionHeading
+              eyebrow="Course Introduction"
+              title="A Disciplined Approach to Asana Mechanics"
+              align="center"
+            />
             
-            <p className="font-sans text-base text-forest-600/80 leading-relaxed font-light text-center">
+            <p className="text-center font-sans text-[1.15rem] font-normal leading-[1.7] text-charcoal-800">
               Our 8-Day Intensive Course is designed for practitioners who want to look beneath the surface of vinyasa flows and understand the alignment anatomy that makes postures stable, safe, and therapeutic. Under the direct guidance of expert instructors, this course takes you systematically through standing poses, backward extensions, forward bends, and inversion fundamentals.
             </p>
 
@@ -181,31 +158,24 @@ export default async function IntensiveCourse({ params }: PageProps) {
           </div>
         </section>
 
-        {/* 3. What You'll Learn (Benefits Grid) */}
-        <section className="py-20 bg-cream-100/40 border-t border-b border-sage-100/30">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <span className="font-sans text-xs uppercase tracking-widest text-terracotta-600 font-semibold mb-2 block">
-                Curriculum Focus
-              </span>
-              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-forest-600">
-                Core Teaching Outcomes
-              </h2>
-            </div>
+        <section className="border-y border-sand-200 bg-sand-50 py-24">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <SectionHeading
+              eyebrow="Curriculum Focus"
+              title="Core Teaching Outcomes"
+            />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
               {BENEFITS.map((item, idx) => (
-                <div key={idx} className="bg-white p-8 rounded-3xl border border-sage-100/50 shadow-sm space-y-4 hover:shadow-md transition-all duration-300">
-                  <div className="p-2 bg-sage-50 text-terracotta-600 rounded-lg w-fit">
-                    <CheckCircle2 className="w-5 h-5" />
+                <div key={idx} className="space-y-4 rounded-[28px] border border-sand-200 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-md">
+                  <div className="w-fit rounded-lg bg-olive-50 p-2 text-saffron-500">
+                    <CheckCircle2 className="h-5 w-5" />
                   </div>
-                  <h3 className="font-serif text-lg font-bold text-forest-700">{item.title}</h3>
-                  <p className="font-sans text-xs sm:text-sm text-forest-600/70 leading-relaxed font-light">{item.desc}</p>
+                  <h3 className="font-serif text-lg font-normal text-charcoal-500">{item.title}</h3>
+                  <p className="font-sans text-[1.15rem] font-normal leading-[1.7] text-charcoal-800">{item.desc}</p>
                 </div>
               ))}
             </div>
-
           </div>
         </section>
 
@@ -414,7 +384,7 @@ export default async function IntensiveCourse({ params }: PageProps) {
               <div className="pt-4 border-t border-sage-50">
                 <a
                   href={`/apply?location=${location}&program=8-Day%20Intensive%20Course`}
-                  className="flex items-center justify-center gap-2 w-full py-3.5 rounded-full bg-forest-600 hover:bg-forest-500 text-cream-50 font-sans text-xs font-bold shadow-sm transition-all duration-300"
+                  className="btn-primary flex w-full items-center justify-center gap-2"
                 >
                   <span>Apply / Register Online</span>
                 </a>

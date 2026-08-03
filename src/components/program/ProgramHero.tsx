@@ -12,20 +12,19 @@ interface ProgramHeroProps {
 
 export default function ProgramHero({ title, subtitle, image, location }: ProgramHeroProps) {
   return (
-    <section className="relative h-screen min-h-[600px] w-full flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
-      <div 
+    <section className="relative flex h-screen min-h-[640px] w-full items-center justify-center overflow-hidden">
+      <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url('${image}')` }}
       >
-        <div className="absolute inset-0 bg-black/40"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/40 to-black/65" />
       </div>
 
-      <div className="relative z-10 text-center max-w-4xl mx-auto px-4 mt-20">
-        <h1 className="font-serif text-white text-5xl md:text-7xl font-medium tracking-tight mb-6 drop-shadow-md">
+      <div className="relative z-10 mx-auto mt-16 max-w-4xl px-4 text-center sm:px-6">
+        <h1 className="mb-6 font-serif text-4xl font-normal leading-[1.3] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-[4.5rem]">
           {title}
         </h1>
-        <p className="font-sans text-white/90 text-lg md:text-xl font-light mb-10 drop-shadow">
+        <p className="mb-10 font-sans text-[1.15rem] font-normal leading-[1.7] text-[#fafafa] sm:text-[1.34rem]">
           {subtitle}
         </p>
         <div className="flex justify-center">

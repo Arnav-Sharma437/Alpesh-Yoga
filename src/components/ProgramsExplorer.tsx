@@ -35,9 +35,9 @@ export default function ProgramsExplorer() {
 
         <a
           href="/contact"
-          className="inline-flex shrink-0 items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-charcoal-900 shadow-md transition hover:-translate-y-0.5 hover:shadow-lg"
+          className="inline-flex shrink-0 items-center gap-2 rounded-full border border-olive-200 bg-white px-5 py-3 font-sans text-[1.15rem] font-normal text-charcoal-800 shadow-md transition hover:-translate-y-0.5 hover:border-olive-500 hover:shadow-lg"
         >
-          <MessageCircle className="h-4 w-4 text-saffron-500" />
+          <MessageCircle className="h-4 w-4 text-olive-500" />
           Help me choose the best for me
         </a>
       </div>
@@ -56,20 +56,20 @@ export default function ProgramsExplorer() {
                 alt={program.title}
                 className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
               />
-              <div className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1.5 text-xs font-semibold text-charcoal-800 backdrop-blur">
+              <div className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1.5 font-sans text-sm font-medium text-charcoal-800 backdrop-blur">
                 <span className="inline-flex items-center gap-1.5">
-                  <MapPin className="h-3.5 w-3.5 text-saffron-500" />
+                  <MapPin className="h-3.5 w-3.5 text-olive-500" />
                   {program.location}
                 </span>
               </div>
-              <div className="absolute right-4 top-4 rounded-full bg-white/90 px-3 py-1.5 text-xs font-semibold text-charcoal-800 backdrop-blur">
+              <div className="absolute right-4 top-4 rounded-full bg-white/90 px-3 py-1.5 font-sans text-sm font-medium text-charcoal-800 backdrop-blur">
                 {program.duration}
               </div>
             </div>
 
             <div className="flex flex-col gap-4 p-6 sm:flex-row sm:items-start sm:justify-between">
               <div className="min-w-0 flex-1">
-                <h3 className="font-serif text-xl font-medium leading-snug text-charcoal-900 sm:text-2xl">
+                <h3 className="font-serif text-xl font-normal leading-snug text-charcoal-500 sm:text-2xl">
                   {program.title}
                 </h3>
                 {program.dates.length > 0 && (
@@ -77,13 +77,13 @@ export default function ProgramsExplorer() {
                     {program.dates.slice(0, 3).map((d) => (
                       <li
                         key={d}
-                        className="rounded-full border border-sand-200 bg-sand-50 px-2.5 py-1 text-[11px] font-medium text-charcoal-500"
+                        className="rounded-full border border-sand-200 bg-sand-50 px-2.5 py-1 font-sans text-sm font-normal text-charcoal-800"
                       >
                         {d}
                       </li>
                     ))}
                     {program.dates.length > 3 && (
-                      <li className="rounded-full border border-saffron-200 bg-saffron-50 px-2.5 py-1 text-[11px] font-bold text-saffron-600">
+                      <li className="rounded-full border border-olive-200 bg-olive-50 px-2.5 py-1 font-sans text-sm font-medium text-olive-600">
                         +{program.dates.length - 3}
                       </li>
                     )}
@@ -92,12 +92,12 @@ export default function ProgramsExplorer() {
               </div>
 
               <div className="shrink-0 text-left sm:text-right">
-                <p className="text-xs text-charcoal-500">From</p>
-                <p className="font-serif text-2xl font-bold text-charcoal-900">
+                <p className="font-sans text-sm text-charcoal-800">From</p>
+                <p className="font-serif text-2xl font-normal text-charcoal-500">
                   {program.priceLabel}
                 </p>
                 {program.allInclusive && (
-                  <p className="text-xs font-semibold text-saffron-600">All Inclusive</p>
+                  <p className="font-sans text-sm font-medium text-olive-500">All Inclusive</p>
                 )}
               </div>
             </div>
@@ -106,9 +106,9 @@ export default function ProgramsExplorer() {
       </div>
 
       {filtered.length === 0 && (
-        <p className="py-16 text-center font-sans text-charcoal-500">
+        <p className="py-16 text-center font-sans text-[1.15rem] font-normal leading-[1.7] text-charcoal-800">
           No programs in this category yet.{" "}
-          <a href="/contact" className="font-semibold text-saffron-600 underline">
+          <a href="/contact" className="font-medium text-olive-500 underline">
             Contact us
           </a>{" "}
           for guidance.

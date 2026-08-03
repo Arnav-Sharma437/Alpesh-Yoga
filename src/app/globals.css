@@ -42,6 +42,32 @@
   --color-charcoal-800: #363636;
   --color-charcoal-900: #212121;
   --color-charcoal-950: #111111;
+
+  /* Legacy class bridges → House of Om palette (so every old page inherits the look) */
+  --color-forest-50: #F4F6F0;
+  --color-forest-600: #5F6B47;
+  --color-forest-700: #3A412C;
+  --color-forest-750: #3A412C;
+  --color-forest-850: #2A3020;
+  --color-forest-900: #212121;
+  --color-forest-950: #111111;
+
+  --color-cream-50: #FAFAF8;
+  --color-cream-100: #F5F4F1;
+  --color-cream-200: #EBEAE5;
+
+  --color-terracotta-50: #F4F6F0;
+  --color-terracotta-100: #E6EBDC;
+  --color-terracotta-500: #91A271;
+  --color-terracotta-600: #7A8A5C;
+  --color-terracotta-650: #7A8A5C;
+
+  --color-sage-50: #F4F6F0;
+  --color-sage-100: #E6EBDC;
+  --color-sage-200: #CDD6B9;
+  --color-sage-500: #6A6666;
+  --color-sage-600: #5C5C5C;
+  --color-sage-700: #3A412C;
 }
 
 :root {

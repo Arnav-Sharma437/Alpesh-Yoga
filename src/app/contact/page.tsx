@@ -3,7 +3,9 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
-import { Phone, Mail, MapPin, Compass, Waves } from "lucide-react";
+import PageHero from "@/components/ui/PageHero";
+import SectionHeading from "@/components/ui/SectionHeading";
+import { Phone, Mail, Compass, Waves } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Contact Alpesh Yoga | Enquire & Visit Our Shalas",
@@ -48,48 +50,29 @@ export default function ContactPage() {
     <>
       <Header />
 
-      <main className="flex-grow pt-20">
-        
-        {/* Page Hero */}
-        <section className="relative py-20 bg-forest-700 text-cream-50 overflow-hidden">
-          <div 
-            className="absolute inset-0 bg-cover bg-center opacity-25 scale-102"
-            style={{
-              backgroundImage: `url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1200')`,
-            }}
-          ></div>
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10 space-y-4">
-            <nav className="text-xs uppercase tracking-widest text-cream-200/60 flex items-center justify-center gap-2 mb-2 font-sans font-medium">
-              <a href="/" className="hover:text-cream-100 hover:underline">Home</a>
-              <span>/</span>
-              <span className="text-cream-50">Contact Us</span>
-            </nav>
-            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
-              Contact Alpesh Yoga
-            </h1>
-            <p className="font-sans text-sm sm:text-base text-cream-200/80 max-w-2xl mx-auto font-light leading-relaxed">
-              Have questions about registration parameters, accommodation facilities, or alignment methodologies? We are here to help.
-            </p>
-          </div>
-        </section>
+      <main className="flex-grow">
+        <PageHero
+          breadcrumb="Contact Us"
+          title="Contact Us"
+          subtitle="Have questions about registration parameters, accommodation facilities, or alignment methodologies? We are here to help."
+        />
 
-        {/* Contact Cards Grid */}
-        <section className="py-16 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+        <section className="bg-white py-24">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mx-auto grid max-w-3xl grid-cols-1 gap-8 md:grid-cols-2">
               {CONTACTS.map((item, idx) => {
                 const Icon = item.icon;
                 return (
-                  <a 
+                  <a
                     key={idx}
                     href={item.href}
-                    className="bg-cream-100/40 p-8 rounded-3xl border border-sage-200 shadow-sm flex flex-col items-center justify-center text-center space-y-3 group hover:border-terracotta-500/30 transition-colors"
+                    className="group flex flex-col items-center justify-center rounded-[28px] border border-sand-200 bg-white p-8 text-center shadow-sm transition-colors hover:border-olive-300"
                   >
-                    <div className="p-3 bg-white text-terracotta-500 rounded-2xl shadow-sm">
-                      <Icon className="w-5 h-5" />
+                    <div className="rounded-2xl bg-sand-50 p-3 text-saffron-500 shadow-sm">
+                      <Icon className="h-5 w-5" />
                     </div>
-                    <span className="font-serif text-sm font-bold text-forest-750">{item.title}</span>
-                    <span className="font-mono text-base text-forest-600 font-semibold group-hover:text-terracotta-500 transition-colors">
+                    <span className="mt-3 font-serif text-base font-normal text-charcoal-500">{item.title}</span>
+                    <span className="mt-1 font-mono text-[1.15rem] font-medium text-charcoal-800 transition-colors group-hover:text-saffron-600">
                       {item.value}
                     </span>
                   </a>
@@ -99,46 +82,38 @@ export default function ContactPage() {
           </div>
         </section>
 
-        {/* Studio Locations Maps Section */}
-        <section className="py-20 bg-cream-100/40 border-t border-sage-100/30">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <div className="text-center max-w-2xl mx-auto mb-16">
-              <span className="font-sans text-xs uppercase tracking-widest text-terracotta-500 font-bold block mb-2">
-                Visit Us
-              </span>
-              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-forest-600">
-                Our Studio Locations &amp; Map Coordinates
-              </h2>
-            </div>
+        <section className="border-t border-sand-200 bg-sand-50 py-24">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <SectionHeading
+              eyebrow="Visit Us"
+              title="Our Studio Locations & Map Coordinates"
+            />
 
-            <div className="space-y-16 max-w-5xl mx-auto">
+            <div className="mx-auto max-w-5xl space-y-16">
               {LOCATIONS_CONTACT.map((loc, idx) => {
                 const LocIcon = loc.icon;
                 return (
-                  <div 
+                  <div
                     key={idx}
-                    className="bg-white rounded-3xl p-8 border border-sage-200 shadow-sm flex flex-col md:flex-row gap-8 items-center"
+                    className="flex flex-col items-center gap-8 rounded-[28px] border border-sand-200 bg-white p-8 md:flex-row"
                   >
-                    
                     <div className="space-y-4 md:w-1/2">
-                      <div className="flex items-center gap-2 text-terracotta-500">
-                        <LocIcon className="w-5 h-5 shrink-0" />
-                        <span className="font-sans text-xs uppercase tracking-widest font-semibold">{loc.title}</span>
+                      <div className="flex items-center gap-2 text-saffron-500">
+                        <LocIcon className="h-5 w-5 shrink-0" />
+                        <span className="font-sans text-sm font-medium uppercase tracking-[0.2em]">{loc.title}</span>
                       </div>
-                      <h3 className="font-serif text-xl font-bold text-forest-600 leading-snug">
+                      <h3 className="font-serif text-xl font-normal leading-snug text-charcoal-500">
                         {loc.title.split(" ")[0]} Studio
                       </h3>
-                      <p className="font-sans text-sm text-forest-600/80 leading-relaxed font-light">
+                      <p className="font-sans text-[1.15rem] font-normal leading-[1.7] text-charcoal-800">
                         {loc.address}
                       </p>
-                      <p className="font-sans text-xs text-sage-500 font-light italic">
+                      <p className="font-sans text-[1.05rem] italic leading-[1.7] text-charcoal-600">
                         Landmark: {loc.landmark}
                       </p>
                     </div>
 
-                    {/* Embed Map */}
-                    <div className="md:w-1/2 w-full rounded-2xl overflow-hidden shadow-sm h-64 border border-sage-100 relative">
+                    <div className="relative h-64 w-full overflow-hidden rounded-[20px] border border-sand-200 md:w-1/2">
                       <iframe
                         src={loc.mapUrl}
                         width="100%"
@@ -151,35 +126,26 @@ export default function ContactPage() {
                         className="absolute inset-0"
                       ></iframe>
                     </div>
-
                   </div>
                 );
               })}
             </div>
-
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="py-20 bg-white">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-forest-600">
-              Submit Your Admissions Application
-            </h2>
-            <p className="font-sans text-sm sm:text-base text-forest-600/70 max-w-xl mx-auto leading-relaxed font-light">
-              Admissions are open year-round. Select your course, preferred location (Goa or Dharamshala), and upcoming batch starting dates to register today.
-            </p>
+        <section className="bg-white py-24">
+          <div className="mx-auto max-w-4xl space-y-6 px-4 text-center sm:px-6 lg:px-8">
+            <SectionHeading
+              title="Submit Your Admissions Application"
+              subtitle="Admissions are open year-round. Select your course, preferred location (Goa or Dharamshala), and upcoming batch starting dates to register today."
+            />
             <div className="pt-4">
-              <a
-                href="/apply"
-                className="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-terracotta-500 hover:bg-terracotta-600 text-white font-sans text-xs font-bold shadow-md transition-all duration-300"
-              >
-                <span>Apply / Register Online</span>
+              <a href="/apply" className="btn-primary">
+                Apply / Register Online
               </a>
             </div>
           </div>
         </section>
-
       </main>
 
       <Footer />

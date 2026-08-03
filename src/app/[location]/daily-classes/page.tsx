@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import PageHero from "@/components/ui/PageHero";
+import SectionHeading from "@/components/ui/SectionHeading";
 import { Clock, Users, ArrowRight, CheckCircle2, MapPin, Phone, Sparkles, BookOpen, HeartPulse } from "lucide-react";
 import { locationsConfig } from "@/config/locations";
 
@@ -88,33 +90,13 @@ export default async function DailyClasses({ params }: PageProps) {
     <>
       <Header />
 
-      <main className="flex-grow pt-20">
-        
-        {/* 1. Page Hero Banner */}
-        <section className="relative py-20 bg-forest-700 text-cream-50 overflow-hidden">
-          <div 
-            className="absolute inset-0 bg-cover bg-center opacity-20"
-            style={{
-              backgroundImage: `url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1200')`,
-            }}
-          ></div>
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10 space-y-4">
-            
-            {/* Breadcrumb */}
-            <nav className="text-xs uppercase tracking-widest text-cream-200/60 flex items-center justify-center gap-2 mb-2 font-sans font-medium">
-              <a href="/" className="hover:text-cream-100 hover:underline">Home</a>
-              <span>/</span>
-              <span className="text-cream-50">Daily Classes ({config.displayName})</span>
-            </nav>
-
-            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white">
-              Daily Drop-In Classes
-            </h1>
-            <p className="font-sans text-sm sm:text-base text-cream-100/90 max-w-2xl mx-auto font-light leading-relaxed">
-              {config.tagline} Refine posture anatomy, avoid compensation habits, and safely build physical capacity.
-            </p>
-          </div>
-        </section>
+      <main className="flex-grow">
+        <PageHero
+          breadcrumb={`Daily Classes (${config.displayName})`}
+          title="Daily Drop-In Classes"
+          subtitle={`${config.tagline} Refine posture anatomy, avoid compensation habits, and safely build physical capacity.`}
+          image="https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1600"
+        />
 
         {/* Goa Placeholder Header (If Goa) */}
         {isGoa && (
@@ -125,45 +107,35 @@ export default async function DailyClasses({ params }: PageProps) {
           </section>
         )}
 
-        {/* 2. Schedule Table / Cards Section */}
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <div className="text-center max-w-3xl mx-auto mb-12">
-              <span className="font-sans text-xs uppercase tracking-widest text-terracotta-600 font-semibold mb-2 block">
-                Timetable ({config.displayName})
-              </span>
-              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-forest-600">
-                Weekly Class Schedule
-              </h2>
-              <p className="font-sans text-sm text-forest-600/70 mt-2 font-light">
-                {isGoa 
-                  ? "Schedules for Goa shala are being finalized. Pre-registration open." 
-                  : "No pre-booking required for drop-ins. Simply arrive 10 minutes before the session starts."
-                }
-              </p>
-            </div>
+        <section className="bg-white py-24">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <SectionHeading
+              eyebrow={`Timetable (${config.displayName})`}
+              title="Weekly Class Schedule"
+              subtitle={isGoa 
+                ? "Schedules for Goa shala are being finalized. Pre-registration open." 
+                : "No pre-booking required for drop-ins. Simply arrive 10 minutes before the session starts."}
+            />
 
-            {/* Desktop Table (md and above) */}
-            <div className="hidden md:block overflow-hidden border border-sage-100/80 rounded-2xl shadow-sm bg-cream-50/20 max-w-4xl mx-auto">
-              <table className="w-full text-left border-collapse">
+            <div className="mx-auto hidden max-w-4xl overflow-hidden rounded-[28px] border border-sand-200 bg-white md:block">
+              <table className="w-full border-collapse text-left">
                 <thead>
-                  <tr className="bg-forest-600 text-cream-50 font-serif text-sm font-semibold border-b border-forest-700">
+                  <tr className="border-b border-sand-200 bg-charcoal-900 font-serif text-[1.05rem] font-normal text-white">
                     <th className="p-6">Time Slot</th>
                     <th className="p-6">Class Name</th>
                     <th className="p-6">Suitable For</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-sage-100/50 font-sans text-sm text-forest-600">
+                <tbody className="divide-y divide-sand-200 font-sans text-[1.05rem] text-charcoal-800">
                   {config.schedule.map((cls, idx) => (
-                    <tr key={idx} className="hover:bg-cream-100/20 transition-colors">
-                      <td className="p-6 font-mono font-semibold text-terracotta-600 flex items-center gap-2">
-                        <Clock className="w-4 h-4 text-terracotta-500" />
+                    <tr key={idx} className="transition-colors hover:bg-sand-50">
+                      <td className="flex items-center gap-2 p-6 font-mono font-semibold text-saffron-600">
+                        <Clock className="h-4 w-4 text-saffron-500" />
                         {cls.time}
                       </td>
                       <td className="p-6">
-                        <div className="font-serif font-bold text-base text-forest-700">{cls.title}</div>
-                        <div className="text-xs text-forest-600/60 mt-1 max-w-md">{cls.focus}</div>
+                        <div className="font-serif text-base font-normal text-charcoal-500">{cls.title}</div>
+                        <div className="mt-1 max-w-md text-[1.05rem] text-charcoal-800">{cls.focus}</div>
                       </td>
                       <td className="p-6">
                         <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-sage-50 text-sage-700">

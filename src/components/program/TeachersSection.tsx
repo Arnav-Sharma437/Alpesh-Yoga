@@ -18,13 +18,13 @@ export default function TeachersSection({ teachers }: TeachersSectionProps) {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         
         <div className="mb-16">
-          <p className="font-sans text-xs uppercase tracking-widest text-rust-500 font-bold mb-3">
+          <p className="mb-3 font-sans text-sm font-medium uppercase tracking-[0.2em] text-olive-500">
             Our Team
           </p>
-          <h2 className="font-serif text-3xl sm:text-4xl text-charcoal-900 font-bold tracking-tight mb-4">
+          <h2 className="mb-4 font-serif text-3xl font-normal leading-[1.15] tracking-tight text-charcoal-500 sm:text-4xl md:text-[52px]">
             Meet Your Teachers
           </h2>
-          <p className="font-sans text-sm md:text-base text-charcoal-500 max-w-2xl mx-auto font-light leading-relaxed">
+          <p className="mx-auto max-w-2xl font-sans text-[1.15rem] font-normal leading-[1.7] text-charcoal-800">
             Learn from our experienced, certified instructors who are deeply passionate about sharing the authentic teachings of yoga.
           </p>
         </div>
@@ -39,10 +39,10 @@ export default function TeachersSection({ teachers }: TeachersSectionProps) {
                   className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
-              <h4 className="font-serif text-xl font-bold text-charcoal-900 mb-1">
+              <h4 className="mb-1 font-serif text-xl font-normal text-charcoal-500">
                 {teacher.name}
               </h4>
-              <p className="font-sans text-xs uppercase tracking-widest text-rust-500 font-medium">
+              <p className="font-sans text-sm font-medium uppercase tracking-[0.2em] text-olive-500">
                 {teacher.role}
               </p>
             </div>

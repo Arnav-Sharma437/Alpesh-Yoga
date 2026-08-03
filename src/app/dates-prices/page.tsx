@@ -3,7 +3,9 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
-import { CheckCircle2, Calendar, DollarSign, Compass, Waves } from "lucide-react";
+import PageHero from "@/components/ui/PageHero";
+import SectionHeading from "@/components/ui/SectionHeading";
+import { Compass, Waves } from "lucide-react";
 import { locationsConfig } from "@/config/locations";
 
 export const metadata: Metadata = {
@@ -53,246 +55,207 @@ export default function DatesPricesPage() {
     <>
       <Header />
 
-      <main className="flex-grow pt-20">
-        
-        {/* Page Hero */}
-        <section className="relative py-20 bg-forest-700 text-cream-50 overflow-hidden">
-          <div 
-            className="absolute inset-0 bg-cover bg-center opacity-25 scale-102"
-            style={{
-              backgroundImage: `url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1200')`,
-            }}
-          ></div>
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10 space-y-4">
-            <nav className="text-xs uppercase tracking-widest text-cream-200/60 flex items-center justify-center gap-2 mb-2 font-sans font-medium">
-              <a href="/" className="hover:text-cream-100 hover:underline">Home</a>
-              <span>/</span>
-              <span className="text-cream-50">Dates &amp; Price</span>
-            </nav>
-            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
-              Dates &amp; Pricing Directory
-            </h1>
-            <p className="font-sans text-sm sm:text-base text-cream-200/80 max-w-2xl mx-auto font-light leading-relaxed">
-              Compare alignment course tuitions and upcoming intake start dates side-by-side for both active shalas.
-            </p>
-          </div>
-        </section>
+      <main className="flex-grow">
+        <PageHero
+          breadcrumb="Dates & Price"
+          title="Dates & Pricing"
+          subtitle="Compare alignment course tuitions and upcoming intake start dates side-by-side for both active shalas."
+        />
 
-        {/* Pricing Comparison Table */}
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <div className="text-center max-w-2xl mx-auto mb-12">
-              <span className="font-sans text-xs uppercase tracking-widest text-terracotta-500 font-semibold mb-2 block">
-                Tuition Overview
-              </span>
-              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-forest-600">
-                Course Cost Comparison
-              </h2>
-            </div>
+        <section className="bg-white py-24">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <SectionHeading
+              eyebrow="Tuition Overview"
+              title="Course Cost Comparison"
+            />
 
-            {/* Desktop Table (md and above) */}
-            <div className="hidden md:block overflow-hidden border border-sage-200 rounded-3xl shadow-sm bg-cream-50/20 max-w-4xl mx-auto">
-              <table className="w-full text-left border-collapse font-sans text-sm text-forest-600">
+            <div className="mx-auto hidden max-w-4xl overflow-hidden rounded-[28px] border border-sand-200 bg-white md:block">
+              <table className="w-full border-collapse text-left font-sans text-[1.05rem] text-charcoal-800">
                 <thead>
-                  <tr className="bg-forest-750 text-white font-serif text-sm font-semibold border-b border-forest-850">
+                  <tr className="border-b border-sand-200 bg-charcoal-900 font-serif text-[1.05rem] font-normal text-white">
                     <th className="p-6">Program</th>
                     <th className="p-6">Duration</th>
                     <th className="p-6">Dharamshala Rate</th>
                     <th className="p-6">Goa Rate</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-sage-200">
+                <tbody className="divide-y divide-sand-200">
                   {coursesPricing.map((item, idx) => (
-                    <tr key={idx} className="hover:bg-cream-100/20 transition-colors">
-                      <td className="p-6 font-serif font-bold text-forest-750">{item.name}</td>
-                      <td className="p-6 text-sage-600 font-medium">{item.duration}</td>
-                      <td className="p-6 font-mono text-terracotta-600 font-semibold">{item.dharamsalaPrice}</td>
-                      <td className="p-6 font-mono text-forest-750 font-semibold">{item.goaPrice}</td>
+                    <tr key={idx} className="transition-colors hover:bg-sand-50">
+                      <td className="p-6 font-serif font-normal text-charcoal-500">{item.name}</td>
+                      <td className="p-6 font-medium text-charcoal-700">{item.duration}</td>
+                      <td className="p-6 font-mono font-medium text-saffron-600">{item.dharamsalaPrice}</td>
+                      <td className="p-6 font-mono font-medium text-charcoal-800">{item.goaPrice}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
 
-            {/* Mobile Stacked Cards (below md) */}
-            <div className="md:hidden space-y-6 max-w-md mx-auto">
+            <div className="mx-auto max-w-md space-y-6 md:hidden">
               {coursesPricing.map((item, idx) => (
-                <div key={idx} className="bg-cream-50/30 p-6 rounded-2xl border border-sage-200 shadow-sm space-y-4">
-                  <div className="border-b border-sage-100 pb-3 flex justify-between items-center">
-                    <h3 className="font-serif text-base font-bold text-forest-750">{item.name}</h3>
-                    <span className="text-[10px] uppercase font-bold tracking-wider bg-sage-50 text-sage-700 px-2 py-0.5 rounded-full">
+                <div key={idx} className="space-y-4 rounded-[28px] border border-sand-200 bg-white p-6 shadow-sm">
+                  <div className="flex items-center justify-between border-b border-sand-200 pb-3">
+                    <h3 className="font-serif text-lg font-normal text-charcoal-500">{item.name}</h3>
+                    <span className="rounded-full bg-sand-100 px-2 py-0.5 text-xs font-medium uppercase tracking-wider text-charcoal-600">
                       {item.duration}
                     </span>
                   </div>
-                  <div className="grid grid-cols-2 gap-4 text-xs">
+                  <div className="grid grid-cols-2 gap-4 font-sans text-[1.05rem]">
                     <div>
-                      <span className="text-[10px] uppercase tracking-wider text-sage-500 block mb-0.5">Dharamshala</span>
-                      <span className="font-mono font-bold text-terracotta-650">{item.dharamsalaPrice}</span>
+                      <span className="mb-0.5 block text-xs uppercase tracking-wider text-charcoal-500">Dharamshala</span>
+                      <span className="font-mono font-medium text-saffron-600">{item.dharamsalaPrice}</span>
                     </div>
                     <div>
-                      <span className="text-[10px] uppercase tracking-wider text-sage-500 block mb-0.5">Goa</span>
-                      <span className="font-mono font-bold text-forest-750">{item.goaPrice}</span>
+                      <span className="mb-0.5 block text-xs uppercase tracking-wider text-charcoal-500">Goa</span>
+                      <span className="font-mono font-medium text-charcoal-800">{item.goaPrice}</span>
                     </div>
                   </div>
                 </div>
               ))}
             </div>
-
           </div>
         </section>
 
-        {/* Dynamic Dates Comparison Grid */}
-        <section className="py-20 bg-cream-100/40 border-t border-b border-sage-100/30">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <div className="text-center max-w-2xl mx-auto mb-16">
-              <span className="font-sans text-xs uppercase tracking-widest text-terracotta-500 font-semibold mb-2 block">
-                Intake Schedules
-              </span>
-              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-forest-600">
-                Upcoming Batches Side by Side
-              </h2>
-            </div>
+        <section className="border-y border-sand-200 bg-sand-50 py-24">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <SectionHeading
+              eyebrow="Intake Schedules"
+              title="Upcoming Batches Side by Side"
+            />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
-              
-              {/* Dharamshala Dates Card */}
-              <div className="bg-white rounded-3xl p-8 border border-sage-200 shadow-sm flex flex-col justify-between">
+            <div className="mx-auto grid max-w-5xl grid-cols-1 gap-10 md:grid-cols-2">
+              <div className="flex flex-col justify-between rounded-[28px] border border-sand-200 bg-white p-8 shadow-sm">
                 <div className="space-y-6">
-                  <div className="flex items-center gap-2 text-terracotta-500">
-                    <Compass className="w-5 h-5 shrink-0" />
-                    <h3 className="font-serif text-lg font-bold text-forest-750">Dharamshala 2026 Dates</h3>
+                  <div className="flex items-center gap-2 text-saffron-500">
+                    <Compass className="h-5 w-5 shrink-0" />
+                    <h3 className="font-serif text-xl font-normal text-charcoal-500">Dharamshala 2026 Dates</h3>
                   </div>
-                  <p className="font-sans text-xs text-sage-500 font-light leading-normal">
+                  <p className="font-sans text-[1.15rem] font-normal leading-[1.7] text-charcoal-800">
                     Confirmed summer season batches in Dharamkot.
                   </p>
 
                   <div>
-                    <h4 className="font-sans text-[10px] uppercase tracking-widest font-bold text-saffron-600 mb-2">200-Hour YTTC</h4>
-                    <div className="divide-y divide-sage-100 font-sans text-xs font-semibold text-forest-600">
+                    <h4 className="mb-2 font-sans text-sm font-medium uppercase tracking-[0.2em] text-saffron-600">200-Hour YTTC</h4>
+                    <div className="divide-y divide-sand-200 font-sans text-[1.05rem] font-medium text-charcoal-800">
                       {dharamshala.batches200.filter((d) => !d.toLowerCase().includes("other")).map((date, idx) => (
-                        <div key={idx} className="py-2 flex justify-between items-center gap-3">
+                        <div key={idx} className="flex items-center justify-between gap-3 py-2">
                           <span>Batch {idx + 1}</span>
-                          <span className="text-terracotta-500 font-mono font-medium text-right">{date}</span>
+                          <span className="text-right font-mono font-medium text-saffron-600">{date}</span>
                         </div>
                       ))}
                     </div>
                   </div>
 
                   <div>
-                    <h4 className="font-sans text-[10px] uppercase tracking-widest font-bold text-saffron-600 mb-2">100-Hour TTC</h4>
-                    <div className="divide-y divide-sage-100 font-sans text-xs font-semibold text-forest-600 max-h-48 overflow-y-auto">
+                    <h4 className="mb-2 font-sans text-sm font-medium uppercase tracking-[0.2em] text-saffron-600">100-Hour TTC</h4>
+                    <div className="max-h-48 divide-y divide-sand-200 overflow-y-auto font-sans text-[1.05rem] font-medium text-charcoal-800">
                       {dharamshala.batches100.filter((d) => !d.toLowerCase().includes("other")).map((date, idx) => (
-                        <div key={idx} className="py-2 flex justify-between items-center gap-3">
+                        <div key={idx} className="flex items-center justify-between gap-3 py-2">
                           <span>Batch {idx + 1}</span>
-                          <span className="text-terracotta-500 font-mono font-medium text-right">{date}</span>
+                          <span className="text-right font-mono font-medium text-saffron-600">{date}</span>
                         </div>
                       ))}
                     </div>
                   </div>
 
                   <div>
-                    <h4 className="font-sans text-[10px] uppercase tracking-widest font-bold text-saffron-600 mb-2">8-Day Intensive</h4>
-                    <div className="divide-y divide-sage-100 font-sans text-xs font-semibold text-forest-600">
+                    <h4 className="mb-2 font-sans text-sm font-medium uppercase tracking-[0.2em] text-saffron-600">8-Day Intensive</h4>
+                    <div className="divide-y divide-sand-200 font-sans text-[1.05rem] font-medium text-charcoal-800">
                       {dharamshala.intensiveDates.filter((d) => !d.toLowerCase().includes("other")).map((date, idx) => (
-                        <div key={idx} className="py-2 flex justify-between items-center gap-3">
+                        <div key={idx} className="flex items-center justify-between gap-3 py-2">
                           <span>Batch {idx + 1}</span>
-                          <span className="text-terracotta-500 font-mono font-medium text-right">{date}</span>
+                          <span className="text-right font-mono font-medium text-saffron-600">{date}</span>
                         </div>
                       ))}
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="pt-8">
-                  <a
-                    href="/apply?location=dharamshala"
-                    className="flex items-center justify-center gap-2 w-full py-3.5 rounded-full bg-terracotta-500 hover:bg-terracotta-600 text-white font-sans text-xs font-bold shadow-sm transition-colors"
-                  >
-                    <span>Register in Dharamshala</span>
+                  <a href="/apply?location=dharamshala" className="btn-primary block w-full text-center">
+                    Register in Dharamshala
                   </a>
                 </div>
               </div>
 
-              {/* Goa Dates Card */}
-              <div className="bg-white rounded-3xl p-8 border border-sage-200 shadow-sm flex flex-col justify-between">
+              <div className="flex flex-col justify-between rounded-[28px] border border-sand-200 bg-white p-8 shadow-sm">
                 <div className="space-y-6">
-                  <div className="flex items-center gap-2 text-forest-750">
-                    <Waves className="w-5 h-5 shrink-0" />
-                    <h3 className="font-serif text-lg font-bold text-forest-750">Goa Winter Dates</h3>
+                  <div className="flex items-center gap-2 text-charcoal-700">
+                    <Waves className="h-5 w-5 shrink-0" />
+                    <h3 className="font-serif text-xl font-normal text-charcoal-500">Goa Winter Dates</h3>
                   </div>
-                  <p className="font-sans text-base font-normal leading-relaxed text-sage-600">
+                  <p className="font-sans text-[1.15rem] font-normal leading-[1.7] text-charcoal-800">
                     Confirmed winter season batches in Arambol Beach.
                   </p>
 
                   <div>
-                    <h4 className="mb-2 font-sans text-xs font-bold uppercase tracking-widest text-saffron-600">
+                    <h4 className="mb-2 font-sans text-sm font-medium uppercase tracking-[0.2em] text-saffron-600">
                       200-Hour Alignment YTTC
                     </h4>
-                    <div className="divide-y divide-sage-100 font-sans text-sm font-semibold text-forest-600">
+                    <div className="divide-y divide-sand-200 font-sans text-[1.05rem] font-medium text-charcoal-800">
                       {(goa.batches200Alignment ?? []).map((date, idx) => (
                         <div key={date} className="flex items-center justify-between gap-3 py-2">
                           <span>Batch {idx + 1}</span>
-                          <span className="text-right font-mono font-medium text-forest-600">{date}</span>
+                          <span className="text-right font-mono font-medium text-charcoal-800">{date}</span>
                         </div>
                       ))}
                     </div>
                   </div>
 
                   <div>
-                    <h4 className="mb-2 font-sans text-xs font-bold uppercase tracking-widest text-saffron-600">
+                    <h4 className="mb-2 font-sans text-sm font-medium uppercase tracking-[0.2em] text-saffron-600">
                       200-Hour Multi-Style YTTC
                     </h4>
-                    <div className="divide-y divide-sage-100 font-sans text-sm font-semibold text-forest-600">
+                    <div className="divide-y divide-sand-200 font-sans text-[1.05rem] font-medium text-charcoal-800">
                       {(goa.batches200Multi ?? []).map((date, idx) => (
                         <div key={date} className="flex items-center justify-between gap-3 py-2">
                           <span>Batch {idx + 1}</span>
-                          <span className="text-right font-mono font-medium text-forest-600">{date}</span>
+                          <span className="text-right font-mono font-medium text-charcoal-800">{date}</span>
                         </div>
                       ))}
                     </div>
                   </div>
 
                   <div>
-                    <h4 className="mb-2 font-sans text-xs font-bold uppercase tracking-widest text-saffron-600">
+                    <h4 className="mb-2 font-sans text-sm font-medium uppercase tracking-[0.2em] text-saffron-600">
                       100-Hour Alignment TTC
                     </h4>
-                    <div className="divide-y divide-sage-100 font-sans text-sm font-semibold text-forest-600">
+                    <div className="divide-y divide-sand-200 font-sans text-[1.05rem] font-medium text-charcoal-800">
                       {(goa.batches100Alignment ?? []).map((date, idx) => (
                         <div key={date} className="flex items-center justify-between gap-3 py-2">
                           <span>Batch {idx + 1}</span>
-                          <span className="text-right font-mono font-medium text-forest-600">{date}</span>
+                          <span className="text-right font-mono font-medium text-charcoal-800">{date}</span>
                         </div>
                       ))}
                     </div>
                   </div>
 
                   <div>
-                    <h4 className="mb-2 font-sans text-xs font-bold uppercase tracking-widest text-saffron-600">
+                    <h4 className="mb-2 font-sans text-sm font-medium uppercase tracking-[0.2em] text-saffron-600">
                       100-Hour Multi-Style TTC
                     </h4>
-                    <div className="divide-y divide-sage-100 font-sans text-sm font-semibold text-forest-600">
+                    <div className="divide-y divide-sand-200 font-sans text-[1.05rem] font-medium text-charcoal-800">
                       {(goa.batches100Multi ?? []).map((date, idx) => (
                         <div key={date} className="flex items-center justify-between gap-3 py-2">
                           <span>Batch {idx + 1}</span>
-                          <span className="text-right font-mono font-medium text-forest-600">{date}</span>
+                          <span className="text-right font-mono font-medium text-charcoal-800">{date}</span>
                         </div>
                       ))}
                     </div>
                   </div>
 
                   <div>
-                    <h4 className="mb-2 font-sans text-xs font-bold uppercase tracking-widest text-saffron-600">
+                    <h4 className="mb-2 font-sans text-sm font-medium uppercase tracking-[0.2em] text-saffron-600">
                       8-Day Intensive · from €280
                     </h4>
-                    <div className="divide-y divide-sage-100 font-sans text-sm font-semibold text-forest-600">
+                    <div className="divide-y divide-sand-200 font-sans text-[1.05rem] font-medium text-charcoal-800">
                       {goa.intensiveDates
                         .filter((d) => !d.toLowerCase().includes("other") && !d.toLowerCase().includes("contact"))
                         .map((date, idx) => (
                           <div key={date} className="flex items-center justify-between gap-3 py-2">
                             <span>Batch {idx + 1}</span>
-                            <span className="text-right font-mono font-medium text-forest-600">{date}</span>
+                            <span className="text-right font-mono font-medium text-charcoal-800">{date}</span>
                           </div>
                         ))}
                     </div>
@@ -300,42 +263,33 @@ export default function DatesPricesPage() {
                 </div>
 
                 <div className="pt-8">
-                  <a
-                    href="/apply?location=goa"
-                    className="flex items-center justify-center gap-2 w-full py-3.5 rounded-full bg-forest-750 hover:bg-forest-700 text-white font-sans text-xs font-bold shadow-sm transition-colors"
-                  >
-                    <span>Register in Goa</span>
+                  <a href="/apply?location=goa" className="btn-primary block w-full text-center">
+                    Register in Goa
                   </a>
                 </div>
               </div>
-
             </div>
-
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="py-20 bg-white">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-forest-600">
-              Need Custom Dates or Stays?
-            </h2>
-            <p className="font-sans text-sm sm:text-base text-forest-600/70 max-w-xl mx-auto leading-relaxed font-light">
-              We offer personalized durations, private stays, and modular passes for students seeking customizable training slots. Drop a note on WhatsApp.
-            </p>
+        <section className="bg-white py-24">
+          <div className="mx-auto max-w-4xl space-y-6 px-4 text-center sm:px-6 lg:px-8">
+            <SectionHeading
+              title="Need Custom Dates or Stays?"
+              subtitle="We offer personalized durations, private stays, and modular passes for students seeking customizable training slots. Drop a note on WhatsApp."
+            />
             <div className="pt-4">
               <a
                 href={`https://wa.me/917719878500?text=${encodeURIComponent("Hi Alpesh, I am inquiring about custom dates & pricing.")}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-forest-950 hover:bg-forest-900 text-white font-sans text-xs font-bold shadow-md transition-colors"
+                className="btn-primary"
               >
-                <span>Inquire Custom Passes</span>
+                Inquire Custom Passes
               </a>
             </div>
           </div>
         </section>
-
       </main>
 
       <Footer />
