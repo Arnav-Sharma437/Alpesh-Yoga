@@ -31,11 +31,14 @@ export default function Header() {
     location: string;
     href: string;
   }) => (
-    <a href={href} className="group flex w-full items-center justify-between border-b border-white/10 py-2.5 text-sm last:border-0">
-      <span className="font-medium text-white/90 transition-colors group-hover:text-saffron-400">
+    <a
+      href={href}
+      className="group flex w-full items-center justify-between border-b border-sand-200 py-2.5 text-sm last:border-0"
+    >
+      <span className="font-medium text-[#212121] transition-colors group-hover:text-olive-600">
         {title}
       </span>
-      <span className="flex items-center gap-1 text-xs italic text-white/50 transition-colors group-hover:text-saffron-400">
+      <span className="flex items-center gap-1 text-xs text-[#6A6666] transition-colors group-hover:text-olive-600">
         {location} <MapPin className="h-3 w-3" />
       </span>
     </a>
@@ -96,14 +99,14 @@ export default function Header() {
                   <span>About</span>
                   <ChevronDown className="h-3.5 w-3.5 transition-transform group-hover:rotate-180" />
                 </button>
-                <div className="invisible absolute left-0 top-full mt-0 w-52 space-y-1 rounded-2xl border border-gray-100 bg-white p-4 opacity-0 shadow-[0_20px_50px_rgba(0,0,0,0.1)] transition-all duration-200 group-hover:visible group-hover:opacity-100">
-                  <a href="/about" className="block py-2 text-sm font-medium text-charcoal-500 transition-colors hover:text-saffron-500">
+                <div className="invisible absolute left-0 top-full mt-0 w-52 space-y-1 rounded-2xl border border-sand-200 bg-white p-4 opacity-0 shadow-[0_20px_50px_rgba(0,0,0,0.12)] transition-all duration-200 group-hover:visible group-hover:opacity-100">
+                  <a href="/about" className="block py-2 text-sm font-medium text-[#212121] transition-colors hover:text-olive-600">
                     Our Story
                   </a>
-                  <a href="/testimonials" className="block py-2 text-sm font-medium text-charcoal-500 transition-colors hover:text-saffron-500">
+                  <a href="/testimonials" className="block py-2 text-sm font-medium text-[#212121] transition-colors hover:text-olive-600">
                     Testimonials
                   </a>
-                  <a href="/about#gallery" className="block py-2 text-sm font-medium text-charcoal-500 transition-colors hover:text-saffron-500">
+                  <a href="/about#gallery" className="block py-2 text-sm font-medium text-[#212121] transition-colors hover:text-olive-600">
                     Gallery
                   </a>
                 </div>
@@ -145,26 +148,28 @@ export default function Header() {
           </div>
         </div>
 
-        {/* House of Om–style glass programs mega menu */}
+        {/* Programs mega menu — light style matching About dropdown */}
         <div
           className={`absolute left-1/2 top-full z-50 w-[min(920px,92vw)] -translate-x-1/2 px-4 transition-all duration-300 ${
             programsOpen
               ? "visible translate-y-0 opacity-100"
-              : "invisible -translate-y-2 opacity-0 pointer-events-none"
+              : "invisible pointer-events-none -translate-y-2 opacity-0"
           }`}
           onMouseEnter={() => setProgramsOpen(true)}
           onMouseLeave={() => setProgramsOpen(false)}
         >
-          <div className="overflow-hidden rounded-3xl border border-white/15 bg-charcoal-950/80 p-8 shadow-2xl backdrop-blur-xl">
-            <div className="mb-6 flex items-center justify-between">
-              <h3 className="font-serif text-2xl text-white">Programs</h3>
-              <a href="/programs" className="btn-primary !px-5 !py-2.5 !text-xs">
+          <div className="overflow-hidden rounded-3xl border border-sand-200 bg-white p-8 shadow-[0_24px_60px_rgba(0,0,0,0.12)]">
+            <div className="mb-6 flex items-center justify-between gap-4">
+              <h3 className="font-serif text-2xl font-normal text-[#4A4540]">Programs</h3>
+              <a href="/programs" className="btn-primary !px-5 !py-2.5 !text-sm">
                 Explore our programs
               </a>
             </div>
             <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
               <div>
-                <h4 className="mb-3 font-serif text-lg text-saffron-400">Goa</h4>
+                <h4 className="mb-3 font-sans text-xs font-bold uppercase tracking-[0.18em] text-olive-600">
+                  Goa
+                </h4>
                 <CourseItem title="200hs YTTC" location="Arambol" href="/goa/200-hour-yttc" />
                 <CourseItem title="100hs TTC" location="Arambol" href="/goa/100-hour-ttc" />
                 <CourseItem title="8-Day Intensive" location="Arambol" href="/goa/8-day-intensive" />
@@ -172,14 +177,18 @@ export default function Header() {
                 <CourseItem title="Therapeutic Yoga" location="Arambol" href="/goa/therapeutic-yoga" />
               </div>
               <div>
-                <h4 className="mb-3 font-serif text-lg text-saffron-400">Dharamshala</h4>
+                <h4 className="mb-3 font-sans text-xs font-bold uppercase tracking-[0.18em] text-olive-600">
+                  Dharamshala
+                </h4>
                 <CourseItem title="200hs YTTC" location="Dharamkot" href="/dharamshala/200-hour-yttc" />
                 <CourseItem title="100hs TTC" location="Dharamkot" href="/dharamshala/100-hour-ttc" />
                 <CourseItem title="8-Day Intensive" location="Dharamkot" href="/dharamshala/8-day-intensive" />
                 <CourseItem title="Daily Classes" location="Dharamkot" href="/dharamshala/daily-classes" />
               </div>
               <div>
-                <h4 className="mb-3 font-serif text-lg text-saffron-400">Retreats</h4>
+                <h4 className="mb-3 font-sans text-xs font-bold uppercase tracking-[0.18em] text-olive-600">
+                  Retreats
+                </h4>
                 <CourseItem title="6-Day Yoga Retreat" location="Goa" href="/retreats#6-day" />
                 <CourseItem title="10-Day Yoga Retreat" location="Goa" href="/retreats#10-day" />
                 <CourseItem title="5-Day Pranayama" location="Online" href="/retreats#5-day" />

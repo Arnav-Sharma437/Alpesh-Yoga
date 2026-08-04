@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { programsCatalog } from "@/config/programs";
 
@@ -26,6 +26,21 @@ export default function FeaturedPrograms() {
     const amount = Math.min(el.clientWidth * 0.85, 520);
     el.scrollBy({ left: dir === "left" ? -amount : amount, behavior: "smooth" });
   };
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const id = window.setInterval(() => {
+      const max = el.scrollWidth - el.clientWidth;
+      if (max <= 0) return;
+      if (el.scrollLeft >= max - 8) {
+        el.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        el.scrollBy({ left: Math.min(el.clientWidth * 0.85, 520), behavior: "smooth" });
+      }
+    }, 4000);
+    return () => window.clearInterval(id);
+  }, []);
 
   return (
     <section id="programs" className="relative overflow-hidden bg-[#F7F5F1] py-24">
@@ -71,7 +86,7 @@ export default function FeaturedPrograms() {
 
         <div
           ref={scrollRef}
-          className="flex snap-x snap-mandatory gap-6 overflow-x-auto px-4 pb-4 scrollbar-none sm:px-6 lg:px-16"
+          className="flex snap-x snap-mandatory gap-6 overflow-x-auto px-4 pb-4 sm:px-6 lg:px-16"
           style={{ scrollbarWidth: "none" }}
         >
           {COURSES.map((course) => (
@@ -86,11 +101,11 @@ export default function FeaturedPrograms() {
                   alt={course.title}
                   className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10" />
               </div>
 
-              <div className="absolute bottom-0 left-0 flex w-full flex-col justify-end p-7 sm:p-8">
-                <p className="mb-2 font-sans text-sm font-medium uppercase tracking-wider text-white">
+              <div className="text-on-dark absolute bottom-0 left-0 flex w-full flex-col justify-end p-7 sm:p-8">
+                <p className="mb-2 font-sans text-sm font-semibold uppercase tracking-wider text-white">
                   {course.location} · {course.duration}
                 </p>
                 <h3 className="mb-3 font-serif text-2xl font-normal leading-snug text-white md:text-[1.85rem]">
@@ -102,7 +117,9 @@ export default function FeaturedPrograms() {
                         ? "8-Day Intensive"
                         : course.title}
                 </h3>
-                <p className="font-sans text-lg font-medium text-white">From {course.priceLabel}</p>
+                <p className="font-sans text-lg font-semibold text-white">
+                  From {course.priceLabel}
+                </p>
               </div>
             </a>
           ))}

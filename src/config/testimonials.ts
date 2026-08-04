@@ -4,76 +4,65 @@ export interface Testimonial {
   source?: string;
   date?: string;
   country?: string;
+  reviewsCount?: number;
 }
 
-/** Real Google reviews featured on https://alpeshyoga.com/ (5.0 · 109+ reviews) */
+/** Google reviews provided by the client for Alpesh Yoga */
 export const testimonials: Testimonial[] = [
   {
-    name: "Ayush Bisaria",
-    date: "15 Apr 2024",
+    name: "Lisa Markowitz",
+    date: "10 months ago",
     source: "Google",
+    reviewsCount: 8,
     quote:
-      "Alpesh sir is very knowledgeable, supportive and pays personal attention to each student. His classes are top notch and the course is highly recommended 10/10. He customised all asanas for my pre-hernia recovery — by the end of my 100-hour course the pain in my abdomen was gone for the first time in 18 months. The combination of asana, pranayama, meditation and sattvik food worked wonders.",
-  },
-  {
-    name: "Hemant Sharma",
-    date: "16 Feb 2024",
-    source: "Google",
-    quote:
-      "I recently completed a yoga program at Alpesh Yoga School, and I am genuinely impressed with the transformative experience. Alpesh is knowledgeable, patient, and creates a welcoming atmosphere for practitioners of all levels. Highly recommend this yoga school.",
-  },
-  {
-    name: "Steve Corbett",
-    date: "10 Feb 2024",
-    source: "Google",
-    quote:
-      "Alpesh is amazing. This was my first time doing yoga properly and I kept going back because he is so loving while at the same time pushing us with love and humour to stay and hold the postures.",
-  },
-  {
-    name: "V. H.",
-    date: "6 Feb 2024",
-    source: "Google",
-    quote:
-      "I completed the 5-day pranayama and meditation course with Alpesh and it was much better than I could have hoped. Lessons were structured: breathing, Iyengar yoga, afternoon meditation and yoga philosophy. All teachers were very qualified and committed. I recommend Alpesh Yoga with a clear conscience.",
-  },
-  {
-    name: "Ylva Traxler",
-    date: "29 Dec 2023",
-    source: "Google",
-    quote:
-      "Alpesh is the very best yoga teacher I ever got the honor of encountering. His knowledge regarding alignment is vast, and his way of teaching is clear and caring. Taking his TTC and drop-in classes immensely improved my asana practice and had a profound effect on my emotional and spiritual being.",
-  },
-  {
-    name: "Nadja Waterkamp",
-    date: "17 Dec 2023",
-    source: "Google",
-    quote:
-      "It was a pleasure practicing with Alpesh. He explains the alignment really well and tells you the benefits of the asanas. Iyengar yoga can be very challenging but he also made it fun. Highly recommend getting more insight on Iyengar yoga with him.",
-  },
-  {
-    name: "Elzė Vy",
-    date: "7 Oct 2023",
-    source: "Google",
-    quote:
-      "Learning yoga from Alpesh made me challenge old beliefs about my flexibility and strength and start believing in myself and my body. He teaches with strict love, funky humour and a careful eye — highly recommend for everybody to come and experience.",
-  },
-  {
-    name: "Václav Holenda",
-    date: "6 Oct 2023",
-    source: "Google",
-    quote:
-      "Smiling, willing teachers you will definitely find at Alpesh. My first public lesson in Dharamkot was Pincha according to Iyengar and I was very happy that it's not as difficult as it looks. Looking forward to trying the school in Goa too.",
+      "Alpesh's studio is a great place for learners of any experience, from beginners to people who have practiced yoga for many years. His Iyengar style technique will help you perfect your alignment and his guidance on using props makes each student's experience individualized, depending on their needs. He truly cares about his students and he also has a great sense of humor! It's a lot of fun to be in his class and I learn a lot from him everyday. He has an attitude toward life that I admire very much.",
   },
   {
     name: "Priyam Pandey",
+    date: "10 months ago",
     source: "Google",
+    reviewsCount: 2,
     quote:
-      "Highly experienced yoga teacher!! I feel really blessed to train with Alpesh in Goa. His props help you make the correct pose rather than doing it wrong. He focuses on each student and motivates everyone — never miss his sessions when in Arambol!",
+      "Highly experience yoga teacher!! I feel really blessed to be here in goa and get training from Alpesh!! His props and tools are really good, it helps making the correct pose or asan rather than doing it wrong!! He takes time explaining each pose and make everyone do that in correct form!! He focus on each student and motivate everyone to do our best!! He is our perfect yoga guru!! You should never miss being part of his yoga sessions when in Arambol!!",
+  },
+  {
+    name: "Sivan Okavi",
+    date: "2 years ago",
+    source: "Google",
+    reviewsCount: 3,
+    quote:
+      "Alpesh is a great yoga teacher, tough, demanding and at the same time compassionate and caring. My understanding of my practice evolved and progressed during the 200H TTC I did with him. Since I have graduated I've been teaching full time and I've acquired the best foundations to pass on to my students, and always enjoy coming back to India for a good healing practice with Alpesh :)",
+  },
+  {
+    name: "María Cristina Cepeda Cianci",
+    date: "a year ago",
+    source: "Google",
+    reviewsCount: 1,
+    quote:
+      "Yoga class with Alpesh is AMAZING... He really encourage you doing your best, with his classes I've actually felt the whole benefit of one pose in my whole body, he is aware of so many details and help the student get the best of it. Im beyond happy to had the possibility to attend this class i HIGHLY recommend it to every level it is really good for your mind, soul and body.. Besides, it is REALLY REALLY FUN!!",
+  },
+  {
+    name: "Ashutosh Agarwal",
+    date: "10 months ago",
+    source: "Google",
+    reviewsCount: 2,
+    quote:
+      "I feel extremely blessed and express my gratitude for the wonderful opportunity to be part of a TTC program with Alpesh yoga at Arambol, GOA. All the aspects of the program including Asanas, yoga philosophy, anatomy and meditation were well taken care off. Alpesh Sir has tremendous experience in Yoga asanas practice and he takes care of alignments and modifications very well. Overall the program helped me enhance my knowledge about the yogic practice, right alignment of asanas and improve my health.",
+  },
+  {
+    name: "Dr. Anat Shayovits",
+    date: "a year ago",
+    source: "Google",
+    reviewsCount: 4,
+    quote:
+      "In one word-PROFESSIONAL!!! Alpesh is a caring teacher, loves his work and transfers his love to the students. He is full of knowledge, very kind and patient, and takes care of each and every student individually. Loved learning with him, I highly recommend joining his lessons! Thanks for a great experience, dear Alpesh.",
   },
   {
     name: "Jessica Albert",
+    date: "2 years ago",
     source: "Google",
+    reviewsCount: 2,
     quote:
-      "I am so grateful to have met Alpesh and completed my YTTC with him. Focusing on alignment and performing every asana correctly and safely, Alpesh has a lot of knowledge and wants to share everything he knows, firmly but with love. Highly recommend the school and all the teachers.",
+      "I am so grateful to have met Alpesh and completed my yttc with him. Focusing on alignment and performing correctly and safely every asana, Alpesh has a lot of knowledge and wants to share everything he knows, firmly but with love and affection for each student. The whole course was amazing and I highly recommend the school and all the teachers. I am grateful for the initiation into true yoga. Thank you ji.",
   },
 ];

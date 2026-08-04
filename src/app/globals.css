@@ -91,13 +91,23 @@ body {
   font-weight: 400;
 }
 
-/* High-contrast body copy on light backgrounds */
-main p,
+/* Readable body on light sections only — never force dark color globally
+   (that was making hero/slider text grey on dark backgrounds) */
 .prose-readable {
   font-size: var(--text-body);
   line-height: var(--leading-body);
   font-weight: 400;
   color: #212121;
+}
+
+/* Utility: always white on dark photo overlays */
+.text-on-dark,
+.text-on-dark p,
+.text-on-dark h1,
+.text-on-dark h2,
+.text-on-dark h3,
+.text-on-dark span {
+  color: #ffffff !important;
 }
 
 .scrollbar-none {

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const PROJECTS = [
@@ -30,6 +30,21 @@ export default function KarmaYogaSection() {
     el.scrollBy({ left: dir === "left" ? -360 : 360, behavior: "smooth" });
   };
 
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const id = window.setInterval(() => {
+      const max = el.scrollWidth - el.clientWidth;
+      if (max <= 0) return;
+      if (el.scrollLeft >= max - 8) {
+        el.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        el.scrollBy({ left: 360, behavior: "smooth" });
+      }
+    }, 5000);
+    return () => window.clearInterval(id);
+  }, []);
+
   return (
     <section className="relative w-full overflow-hidden">
       <div
@@ -38,11 +53,11 @@ export default function KarmaYogaSection() {
           backgroundImage: `url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1920')`,
         }}
       >
-        <div className="absolute inset-0 bg-black/55" />
+        <div className="absolute inset-0 bg-black/50" />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 md:py-32 lg:px-8">
-        <div className="mb-10 max-w-3xl">
+        <div className="text-on-dark mb-10 max-w-3xl">
           <p className="mb-4 font-sans text-sm font-semibold uppercase tracking-[0.22em] text-white">
             Charity and Social Impact
           </p>

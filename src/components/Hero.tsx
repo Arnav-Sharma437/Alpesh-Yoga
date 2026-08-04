@@ -19,15 +19,15 @@ export default function Hero() {
           backgroundImage: `url('https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=1920')`,
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/75" />
+        <div className="absolute inset-0 bg-black/45" />
       </div>
 
-      <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center px-5 pb-40 pt-36 text-center sm:px-8 sm:pb-44">
+      <div className="text-on-dark relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center px-5 pb-40 pt-36 text-center sm:px-8 sm:pb-44">
         <h1 className="mb-6 max-w-4xl font-serif text-[2.5rem] font-normal leading-[1.35] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-[4.55rem] lg:leading-[1.4]">
           Life Changing Community and Holistic Yoga School
         </h1>
 
-        <p className="mb-10 max-w-3xl font-sans text-[1.15rem] font-normal leading-[1.7] text-white sm:text-[1.34rem]">
+        <p className="mb-10 max-w-3xl font-sans text-[1.2rem] font-normal leading-[1.7] text-white sm:text-[1.35rem]">
           Welcome to Alpesh Yoga, where Yoga Alliance certified teacher trainings are rooted in
           precision alignment, compassion, and real human connection.
         </p>
@@ -40,7 +40,7 @@ export default function Hero() {
           {highlights.map(({ icon: Icon, label }) => (
             <div
               key={label}
-              className="flex flex-col items-center justify-center gap-2.5 rounded-2xl border border-white/40 bg-white/15 px-3 py-5 text-white backdrop-blur-md sm:py-6"
+              className="flex flex-col items-center justify-center gap-2.5 rounded-2xl border border-white/50 bg-white/15 px-3 py-5 backdrop-blur-md sm:py-6"
             >
               <Icon className="h-6 w-6 text-white" strokeWidth={1.5} />
               <span className="text-center font-sans text-xs font-semibold leading-snug tracking-wide text-white sm:text-sm">
@@ -53,7 +53,7 @@ export default function Hero() {
 
       <a
         href="/#about"
-        className="absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 text-white transition-opacity hover:opacity-80"
+        className="absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 text-white"
         aria-label="Scroll to explore"
       >
         <span className="font-sans text-[10px] font-semibold uppercase tracking-[0.25em] text-white">

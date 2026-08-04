@@ -22,17 +22,17 @@ export default function PageHero({
         className="absolute inset-0 scale-105 bg-cover bg-center"
         style={{ backgroundImage: `url('${image}')` }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/45 to-black/65" />
+        <div className="absolute inset-0 bg-black/45" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-4xl space-y-5 px-4 text-center sm:px-6 lg:px-8">
+      <div className="text-on-dark relative z-10 mx-auto max-w-4xl space-y-5 px-4 text-center sm:px-6 lg:px-8">
         {breadcrumb ? (
-          <nav className="flex items-center justify-center gap-2 font-sans text-sm font-medium text-white/60">
-            <a href="/" className="transition hover:text-white">
+          <nav className="flex items-center justify-center gap-2 font-sans text-sm font-medium text-white">
+            <a href="/" className="text-white transition hover:opacity-80">
               Home
             </a>
-            <span>/</span>
-            <span className="text-white/90">{breadcrumb}</span>
+            <span className="text-white">/</span>
+            <span className="text-white">{breadcrumb}</span>
           </nav>
         ) : null}
 
@@ -41,7 +41,7 @@ export default function PageHero({
         </h1>
 
         {subtitle ? (
-          <p className="mx-auto max-w-2xl font-sans text-[1.15rem] font-normal leading-[1.7] text-[#fafafa] sm:text-[1.25rem]">
+          <p className="mx-auto max-w-2xl font-sans text-[1.2rem] font-normal leading-[1.7] text-white sm:text-[1.25rem]">
             {subtitle}
           </p>
         ) : null}

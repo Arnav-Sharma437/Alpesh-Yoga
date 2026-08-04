@@ -4,6 +4,7 @@ import AboutSection from "@/components/AboutSection";
 import FeaturedPrograms from "@/components/FeaturedPrograms";
 import TrustBadgesBox from "@/components/TrustBadgesBox";
 import Locations from "@/components/Locations";
+import TestimonialsSlider from "@/components/TestimonialsSlider";
 import KarmaYogaSection from "@/components/KarmaYogaSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
@@ -21,6 +22,7 @@ export default function Home() {
         <FeaturedPrograms />
         <TrustBadgesBox />
         <Locations />
+        <TestimonialsSlider />
         <KarmaYogaSection />
         <ContactSection />
       </main>
