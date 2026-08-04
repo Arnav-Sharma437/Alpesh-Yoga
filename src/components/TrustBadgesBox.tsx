@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { Award } from "lucide-react";
 
 export default function TrustBadgesBox() {
   return (
@@ -15,15 +16,11 @@ export default function TrustBadgesBox() {
 
         <div className="flex shrink-0 flex-col items-center gap-6 sm:flex-row md:gap-8">
           <div className="flex flex-col items-center gap-2">
-            <div className="flex h-20 w-20 items-center justify-center rounded-full border border-sand-200 bg-sand-50 p-3">
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Yoga_Alliance_logo.svg"
-                alt="Yoga Alliance"
-                className="h-auto w-full opacity-80"
-              />
+            <div className="flex h-20 w-20 items-center justify-center rounded-full border border-sand-200 bg-sand-50">
+              <Award className="h-10 w-10 text-olive-600" strokeWidth={1.75} />
             </div>
             <span className="font-sans text-xs font-bold uppercase tracking-widest text-[#4A4540]">
-              RYS 200
+              Yoga Alliance · RYS 200
             </span>
           </div>
 

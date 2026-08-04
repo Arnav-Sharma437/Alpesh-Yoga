@@ -17,9 +17,9 @@ export default function SectionHeading({
   light = false,
 }: SectionHeadingProps) {
   const alignClass = align === "center" ? "mx-auto text-center" : "text-left";
-  const titleColor = light ? "text-white" : "text-charcoal-500";
-  const subColor = light ? "text-white/85" : "text-charcoal-800";
-  const eyeColor = light ? "text-olive-200" : "text-olive-500";
+  const titleColor = light ? "text-white" : "text-[#212121]";
+  const subColor = light ? "text-white" : "text-[#363636]";
+  const eyeColor = light ? "text-olive-200" : "text-olive-700";
 
   return (
     <div className={`mb-12 max-w-3xl ${alignClass}`}>

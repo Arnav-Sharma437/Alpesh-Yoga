@@ -173,7 +173,7 @@ export default async function YTTC200Page({ params }: PageProps) {
         ? "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=1920"
         : "https://images.unsplash.com/photo-1627894483216-2138af692e32?q=80&w=1920",
     venueStats: {
-      duration: "22 Days",
+      duration: "24 Days",
       graduates: "5000+",
       language: "English",
       style: isGoa ? "Alignment / Multi-Style" : "Multi-style / Alignment",

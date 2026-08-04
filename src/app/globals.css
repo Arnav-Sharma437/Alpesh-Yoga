@@ -118,12 +118,7 @@ body {
   display: none;
 }
 
-h1,
-h2,
-h3,
-.font-serif {
-  color: inherit;
-}
+/* Do not force color on .font-serif — it was overriding text-white on dark banners */
 
 .glassmorphism {
   background-color: rgba(250, 250, 248, 0.92);
