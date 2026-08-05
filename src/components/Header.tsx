@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
@@ -106,7 +106,7 @@ export default function Header() {
                   <a href="/testimonials" className="block py-2 text-sm font-medium text-[#212121] transition-colors hover:text-olive-600">
                     Testimonials
                   </a>
-                  <a href="/about#gallery" className="block py-2 text-sm font-medium text-[#212121] transition-colors hover:text-olive-600">
+                  <a href="/gallery" className="block py-2 text-sm font-medium text-[#212121] transition-colors hover:text-olive-600">
                     Gallery
                   </a>
                 </div>
@@ -281,6 +281,9 @@ export default function Header() {
                     </a>
                     <a href="/testimonials" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-sm font-medium text-charcoal-500 hover:text-saffron-600">
                       Testimonials
+                    </a>
+                    <a href="/gallery" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-sm font-medium text-charcoal-500 hover:text-saffron-600">
+                      Gallery
                     </a>
                   </div>
                 )}

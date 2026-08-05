@@ -8,19 +8,19 @@ export default function AboutSection() {
       title: "Practice that Honors Alignment",
       description:
         "At Alpesh Yoga, we teach yoga as a way of living — precise Hatha alignment, loving our bodies, and meeting practice with clarity, safety, and compassion.",
-      image: "https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?q=80&w=800",
+      image: "/gallery/alpesh-yoga-activity-1.jpg",
     },
     {
       title: "Community that Holds Us",
       description:
         "Students from around the world practice, eat, and grow together in Goa and Dharamshala — welcomed without judgment into a lifelong yoga family.",
-      image: "https://images.unsplash.com/photo-1522845015757-50bce044e5da?q=80&w=800",
+      image: "/gallery/image-23.jpg",
     },
     {
       title: "Growth Guided by Presence",
       description:
         "From teaching practicums to daily check-ins, we turn insight into action so alignment, philosophy, and breath show up in real life.",
-      image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800",
+      image: "/gallery/image-19.jpg",
     },
   ];
 
