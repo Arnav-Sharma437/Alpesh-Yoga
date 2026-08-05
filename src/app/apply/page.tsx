@@ -306,7 +306,7 @@ function ApplyFormContent() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("/api/apply", {
+      const response = await fetch("/submit-application.php", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
