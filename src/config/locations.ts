@@ -51,7 +51,7 @@ export const locationsConfig: Record<string, LocationData> = {
     displayName: "Dharamshala (Dharamkot)",
     regionName: "Himachal Pradesh, India",
     tagline: "Hatha alignment-based practice in the serene Himalayan mountains.",
-    address: "Alpesh Yoga, Baldev House, 50 meters from Track n Dine Restaurant and before Bodhi Greens Restaurant, Dharamkot 176219, Dharamshala, Himachal Pradesh",
+    address: "Near Beetroot Café, & Kibbutz Bhagsu Restaurant, Upper Bhagsu, Dharamshala, Himachal Pradesh",
     landmarkNotice: "Located in the quiet heights of Dharamkot, a short pine forest walk away from traffic. Conveniently positioned before Bodhi Greens and just past Track n Dine.",
     contactNumber1: "+91 77198 78500",
     contactNumber2: "+91 97364 63605",

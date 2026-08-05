@@ -32,7 +32,7 @@ export default function ContactPage() {
   const LOCATIONS_CONTACT = [
     {
       title: "Dharamshala Shala (Himalayas)",
-      address: "Alpesh Yoga, Baldev House, 50 meters from Track n Dine Restaurant and before Bodhi Greens Restaurant, Dharamkot 176219, Dharamshala, Himachal Pradesh",
+      address: "Near Beetroot Café, & Kibbutz Bhagsu Restaurant, Upper Bhagsu, Dharamshala, Himachal Pradesh",
       landmark: "Baldev House, nestled in Dharamkot. 50 meters past Track n Dine and just before Bodhi Greens Restaurant.",
       mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3375.4093959146193!2d76.33129887627443!3d32.24716497388046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391b53dfdcd15d49%3A0xe1c028ea7c55cb85!2sAlpesh%20Yoga!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin",
       icon: Compass,

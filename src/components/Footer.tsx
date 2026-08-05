@@ -67,11 +67,11 @@ export default function Footer() {
             <ul className="space-y-4">
               <li>
                 <span className="mb-1 block font-serif text-[1.15rem] font-normal text-white">Arambol, Goa</span>
-                <span className="font-sans text-[1.15rem] font-normal leading-[1.7] text-gray-400">Near Magic Park, Arambol Beach</span>
+                <span className="font-sans text-[1.15rem] font-normal leading-[1.7] text-gray-400">Madhlo Waddo, Arambol Beach</span>
               </li>
               <li>
                 <span className="mb-1 block font-serif text-[1.15rem] font-normal text-white">Dharamshala</span>
-                <span className="font-sans text-[1.15rem] font-normal leading-[1.7] text-gray-400">Dharamkot, Kangra, HP</span>
+                <span className="font-sans text-[1.15rem] font-normal leading-[1.7] text-gray-400">Upper Bhagsu, Dharamshala, HP</span>
               </li>
               <li>
                 <a href="mailto:alpeshyoga@gmail.com" className="font-sans text-[1.15rem] font-normal leading-[1.7] text-gray-400 transition-colors hover:text-olive-200">alpeshyoga@gmail.com</a>
