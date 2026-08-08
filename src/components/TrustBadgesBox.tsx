@@ -2,8 +2,11 @@
 
 import React from "react";
 import { Award } from "lucide-react";
+import { useApplyHref } from "@/hooks/useApplyHref";
 
 export default function TrustBadgesBox() {
+  const applyHref = useApplyHref();
+  
   return (
     <div className="relative z-20 -mt-14 px-4 sm:-mt-16 sm:px-6">
       <div className="mx-auto flex max-w-4xl flex-col items-center justify-between gap-8 rounded-[32px] border border-black/5 bg-white p-8 shadow-[0_24px_60px_rgba(0,0,0,0.1)] md:flex-row md:p-12">
@@ -24,7 +27,7 @@ export default function TrustBadgesBox() {
             </span>
           </div>
 
-          <a href="/apply" className="btn-primary !px-8 !py-4 !text-base">
+          <a href={applyHref} className="btn-primary !px-8 !py-4 !text-base">
             Book Your Space
           </a>
         </div>

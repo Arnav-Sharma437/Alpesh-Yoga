@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { Check, ArrowRight, Award } from "lucide-react";
+import { useApplyHref } from "@/hooks/useApplyHref";
 
 export interface CurriculumItem {
   title: string;
@@ -14,6 +15,8 @@ interface CurriculumSectionProps {
 }
 
 export default function CurriculumSection({ items }: CurriculumSectionProps) {
+  const applyHref = useApplyHref();
+
   return (
     <section className="bg-sand-50 py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -48,7 +51,7 @@ export default function CurriculumSection({ items }: CurriculumSectionProps) {
                 <p className="mb-6 font-sans text-[1.15rem] font-normal leading-[1.7] text-white">
                   Want to see the complete curriculum, reading list, and daily breakdown?
                 </p>
-                <Link href="/apply" className="btn-primary w-full gap-3">
+                <Link href={applyHref} className="btn-primary w-full gap-3">
                   <span>Request Full Syllabus</span>
                   <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
                 </Link>

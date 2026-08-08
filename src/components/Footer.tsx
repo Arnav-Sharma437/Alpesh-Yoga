@@ -2,9 +2,11 @@
 
 import React from "react";
 import { Facebook, Instagram, Youtube, Twitter } from "lucide-react";
+import { useApplyHref } from "@/hooks/useApplyHref";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const applyHref = useApplyHref();
 
   return (
     <footer className="bg-charcoal-950 pt-20 pb-10 text-white">
@@ -57,7 +59,7 @@ export default function Footer() {
               <li><a href="/testimonials" className="font-sans text-[1.15rem] font-normal leading-[1.7] text-gray-400 transition-colors hover:text-olive-200">Testimonials</a></li>
               <li><a href="/dates-prices" className="font-sans text-[1.15rem] font-normal leading-[1.7] text-gray-400 transition-colors hover:text-olive-200">Dates & Prices</a></li>
               <li><a href="/contact" className="font-sans text-[1.15rem] font-normal leading-[1.7] text-gray-400 transition-colors hover:text-olive-200">Contact Us</a></li>
-              <li><a href="/apply" className="font-sans text-[1.15rem] font-normal leading-[1.7] text-gray-400 transition-colors hover:text-olive-200">Apply Now</a></li>
+              <li><a href={applyHref} className="font-sans text-[1.15rem] font-normal leading-[1.7] text-gray-400 transition-colors hover:text-olive-200">Apply Now</a></li>
             </ul>
           </div>
 

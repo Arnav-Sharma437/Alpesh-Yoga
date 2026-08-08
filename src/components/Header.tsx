@@ -4,8 +4,11 @@ import React, { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown, MapPin } from "lucide-react";
 
+import { useApplyHref } from "@/hooks/useApplyHref";
+
 export default function Header() {
   const pathname = usePathname();
+  const applyHref = useApplyHref();
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [programsOpen, setProgramsOpen] = useState(false);
@@ -128,7 +131,7 @@ export default function Header() {
             </nav>
 
             <div className="hidden shrink-0 items-center xl:flex">
-              <a href="/apply" className="btn-primary !px-6 !py-3.5 !text-base">
+              <a href={applyHref} className="btn-primary !px-6 !py-3.5 !text-base">
                 Apply Now
               </a>
             </div>
@@ -309,7 +312,7 @@ export default function Header() {
           </div>
 
           <div className="border-t border-gray-100 pt-6">
-            <a href="/apply" onClick={() => setIsOpen(false)} className="btn-primary w-full">
+            <a href={applyHref} onClick={() => setIsOpen(false)} className="btn-primary w-full">
               Apply Now
             </a>
           </div>

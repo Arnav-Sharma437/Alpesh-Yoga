@@ -2,10 +2,12 @@
 
 import React, { useState } from "react";
 import { usePathname } from "next/navigation";
+import { useApplyHref } from "@/hooks/useApplyHref";
 import { Home, Calendar, ClipboardList, MapPin, Phone, X, Award, Waves, Compass } from "lucide-react";
 
 export default function BottomNavigation() {
   const pathname = usePathname();
+  const applyHref = useApplyHref();
   const [showLocationsModal, setShowLocationsModal] = useState(false);
 
   // Active status checks
@@ -47,7 +49,7 @@ export default function BottomNavigation() {
 
         {/* Tab 3: Center Highlighted Apply CTA */}
         <a 
-          href="/apply" 
+          href={applyHref} 
           className={`relative -top-4 flex flex-col items-center justify-center w-14 h-14 rounded-full bg-gradient-to-tr from-[#E06E0E] to-[#F5821F] text-white shadow-lg active:scale-95 transition-transform border-4 border-black z-50`}
         >
           <ClipboardList className="w-5.5 h-5.5" />
