@@ -16,9 +16,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 $ADMIN_PASSWORD = "CHANGE_ME_ADMIN_123"; // Update this with a strong password
 
 $host = "localhost"; 
-$dbname = "YOUR_DATABASE_NAME";
-$username = "YOUR_DATABASE_USER";
-$password = "YOUR_DATABASE_PASSWORD";
+$dbname = "alpeshyoga";
+$username = "Alpeshyoga";
+$password = "Namaste2026!";
 
 // ==========================================
 // AUTHENTICATION
