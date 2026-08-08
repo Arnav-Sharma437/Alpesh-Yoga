@@ -60,7 +60,7 @@ export default function HimalayanSetting() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 font-sans text-sm text-forest-700">
               <div className="flex items-center gap-2">
                 <MapPin className="w-5 h-5 text-terracotta-500 shrink-0" />
-                <span>Near Beetroot Café & Kibbutz</span>
+                <span>Upper bhagsu, near beetroot cafe</span>
               </div>
               <div className="flex items-center gap-2">
                 <Trees className="w-5 h-5 text-terracotta-500 shrink-0" />

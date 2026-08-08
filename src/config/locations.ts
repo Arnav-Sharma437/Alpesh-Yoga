@@ -51,7 +51,7 @@ export const locationsConfig: Record<string, LocationData> = {
     displayName: "Dharamshala (Dharamkot)",
     regionName: "Himachal Pradesh, India",
     tagline: "Hatha alignment-based practice in the serene Himalayan mountains.",
-    address: "Near Beetroot Café, & Kibbutz Bhagsu Restaurant, Upper Bhagsu, Dharamshala, Himachal Pradesh",
+    address: "Alpesh Yoga, Upper bhagsu, near beetroot cafe, near Kibbutz, Bhagsu Nag, Dharamshala, Himachal Pradesh 176219",
     landmarkNotice: "Located in the quiet heights of Dharamkot, a short pine forest walk away from traffic. Conveniently positioned before Bodhi Greens and just past Track n Dine.",
     contactNumber1: "+91 77198 78500",
     contactNumber2: "+91 97364 63605",
