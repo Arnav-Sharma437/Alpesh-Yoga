@@ -13,7 +13,7 @@ export default function PageHero({
   title,
   subtitle,
   breadcrumb,
-  image = "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1600",
+  image = "/gallery/IMG-20181217-WA0034.jpg",
   children,
 }: PageHeroProps) {
   return (

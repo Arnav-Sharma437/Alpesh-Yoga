@@ -28,7 +28,7 @@ export default function RetreatsPage() {
       ],
       duration: "6 Days / 5 Nights",
       pricing: "₹12,000 / $150 USD",
-      img: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=600",
+      img: "/gallery/DSC_7392.jpg",
     },
     {
       id: "10-day",
@@ -43,7 +43,7 @@ export default function RetreatsPage() {
       ],
       duration: "10 Days / 9 Nights",
       pricing: "₹20,000 / $250 USD",
-      img: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=600",
+      img: "/gallery/IMG-20181217-WA0044.jpg",
     },
     {
       id: "5-day",
@@ -58,7 +58,7 @@ export default function RetreatsPage() {
       ],
       duration: "5 Days (Mon–Fri)",
       pricing: "₹8,000 / $110 USD",
-      img: "https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?q=80&w=600",
+      img: "/gallery/IMG_20181218_213938.jpg",
     },
   ];
 
@@ -71,7 +71,7 @@ export default function RetreatsPage() {
           breadcrumb="Retreats"
           title="Yoga & Meditation Retreats"
           subtitle="Connect with your inner self in the lap of nature. We host wellness retreats starting every Monday of the week in Arambol and Dharamkot."
-          image="https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1600"
+          image="/gallery/IMG-20181216-WA0039.jpg"
         />
 
         <section className="space-y-24 bg-white py-24">
@@ -165,7 +165,7 @@ export default function RetreatsPage() {
 }
 
 const imgUrls = [
-  "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=600",
-  "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=600",
-  "https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?q=80&w=600",
+  "/gallery/image-19.jpg",
+  "/gallery/alpesh-yoga-teacher-training-goa-india-1.jpg",
+  "/gallery/IMG-20181217-WA0037.jpg",
 ];

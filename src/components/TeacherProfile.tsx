@@ -36,7 +36,7 @@ export default function TeacherProfile() {
           <div className="flex justify-center">
             <div className="relative w-full max-w-md rounded-2xl overflow-hidden shadow-lg border border-gray-200">
               <img
-                src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=600"
+                src="/gallery/alpesh-yoga-activity-1.jpg"
                 alt="Alpesh Patel Yoga Guru"
                 className="w-full h-auto object-cover aspect-[4/3] md:aspect-square"
               />

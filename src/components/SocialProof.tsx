@@ -49,7 +49,7 @@ export default function SocialProof() {
             >
               {/* Thumbnail Image */}
               <img 
-                src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=600" 
+                src="/gallery/IMG-20181217-WA0041.jpg" 
                 alt="Alpesh Yoga YouTube Video Review Thumbnail" 
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />

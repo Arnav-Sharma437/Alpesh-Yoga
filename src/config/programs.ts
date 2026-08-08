@@ -41,7 +41,7 @@ export const programsCatalog: ProgramListing[] = [
     priceUSD: null,
     priceLabel: "€1,200",
     href: "/goa/200-hour-yttc",
-    image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=900",
+    image: "/gallery/image-20.jpg",
     dates: [
       "4 Nov – 25 Nov 2026",
       "3 Dec – 24 Dec 2026",
@@ -61,7 +61,7 @@ export const programsCatalog: ProgramListing[] = [
     priceUSD: null,
     priceLabel: "€1,200",
     href: "/goa/200-hour-yttc",
-    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=900",
+    image: "/gallery/IMG-20181216-WA0031.jpg",
     dates: [
       "21 Nov – 12 Dec 2026",
       "16 Dec – 6 Jan 2027",
@@ -81,7 +81,7 @@ export const programsCatalog: ProgramListing[] = [
     priceUSD: 950,
     priceLabel: "$950",
     href: "/dharamshala/200-hour-yttc",
-    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=900",
+    image: "/gallery/alpesh-yoga-goa-india-1.jpg",
     dates: [
       "25 Apr – 16 May 2026",
       "23 May – 13 Jun 2026",
@@ -101,7 +101,7 @@ export const programsCatalog: ProgramListing[] = [
     priceUSD: 550,
     priceLabel: "$550",
     href: "/goa/100-hour-ttc",
-    image: "https://images.unsplash.com/photo-1599447421416-3414500d18a5?q=80&w=900",
+    image: "/gallery/image-22.jpg",
     dates: [
       "4 Nov – 14 Nov 2026",
       "4 Dec – 14 Dec 2026",
@@ -121,7 +121,7 @@ export const programsCatalog: ProgramListing[] = [
     priceUSD: 550,
     priceLabel: "$550",
     href: "/goa/100-hour-ttc",
-    image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=900",
+    image: "/gallery/IMG-20181217-WA0036.jpg",
     dates: [
       "21 Nov – 1 Dec 2026",
       "16 Dec – 26 Dec 2026",
@@ -141,7 +141,7 @@ export const programsCatalog: ProgramListing[] = [
     priceUSD: 550,
     priceLabel: "$550",
     href: "/dharamshala/100-hour-ttc",
-    image: "https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?q=80&w=900",
+    image: "/gallery/alpesh-yoga-teacher-training-rishikesh-india-1.jpg",
     dates: [
       "28 Apr – 8 May 2026",
       "9 May – 19 May 2026",
@@ -166,7 +166,7 @@ export const programsCatalog: ProgramListing[] = [
     priceUSD: null,
     priceLabel: "€280",
     href: "/goa/8-day-intensive",
-    image: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=900",
+    image: "/gallery/alpesh-yoga-classes-india-1.jpg",
     dates: [
       "23 Dec – 30 Dec 2026",
       "5 Jan – 12 Jan 2027",
@@ -186,7 +186,7 @@ export const programsCatalog: ProgramListing[] = [
     priceUSD: 150,
     priceLabel: "$150",
     href: "/dharamshala/8-day-intensive",
-    image: "https://images.unsplash.com/photo-1627894483216-2138af692e32?q=80&w=900",
+    image: "/gallery/IMG-20181216-WA0022.jpg",
     dates: [
       "28 Apr – 5 May 2026",
       "9 May – 16 May 2026",
@@ -207,7 +207,7 @@ export const programsCatalog: ProgramListing[] = [
     priceUSD: null,
     priceLabel: "Enquiry",
     href: "/retreats#6-day",
-    image: "https://images.unsplash.com/photo-1522845015757-50bce044e5da?q=80&w=900",
+    image: "/gallery/image-19.jpg",
     dates: ["See retreats page"],
   },
   {
@@ -220,7 +220,7 @@ export const programsCatalog: ProgramListing[] = [
     priceUSD: null,
     priceLabel: "Enquiry",
     href: "/retreats#10-day",
-    image: "https://images.unsplash.com/photo-1552083375-1447ce886485?q=80&w=900",
+    image: "/gallery/IMG-20181216-WA0040.jpg",
     dates: ["See retreats page"],
   },
   {
@@ -233,7 +233,7 @@ export const programsCatalog: ProgramListing[] = [
     priceUSD: null,
     priceLabel: "₹600",
     href: "/goa/daily-classes",
-    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=900",
+    image: "/gallery/alpesh-yoga-classes-goa-india-1.jpg",
     dates: ["Open daily"],
   },
   {
@@ -246,7 +246,7 @@ export const programsCatalog: ProgramListing[] = [
     priceUSD: null,
     priceLabel: "₹600",
     href: "/dharamshala/daily-classes",
-    image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=900",
+    image: "/gallery/alpesh-yoga-india-1.jpg",
     dates: ["Open daily"],
   },
 ];

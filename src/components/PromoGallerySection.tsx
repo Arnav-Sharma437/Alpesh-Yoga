@@ -4,17 +4,17 @@ import React from "react";
 
 export default function PromoGallerySection() {
   const LEFT_IMAGES = [
-    "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=300",
-    "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=300",
-    "https://images.unsplash.com/photo-1599447421416-3414500d18a5?q=80&w=300",
-    "https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=300"
+    "/gallery/IMG-20181217-WA0045.jpg",
+    "/gallery/IMG_20181218_213938.jpg",
+    "/gallery/alpesh-yoga-school-india-1.jpg",
+    "/gallery/IMG-20181217-WA0046.jpg"
   ];
 
   const RIGHT_IMAGES = [
-    "https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=300",
-    "https://images.unsplash.com/photo-1552083375-1447ce886485?q=80&w=300",
-    "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=300",
-    "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=300"
+    "/gallery/alpesh-yoga-teacher-training-goa-india-1.jpg",
+    "/gallery/IMG_20181218_111130.jpg",
+    "/gallery/IMG-20181217-WA0034.jpg",
+    "/gallery/IMG-20181217-WA0043.jpg"
   ];
 
   return (

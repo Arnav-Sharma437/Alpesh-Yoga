@@ -7,17 +7,17 @@ const PROJECTS = [
   {
     title: "Supporting Local Families",
     desc: "A portion of course proceeds helps provide meals, education support, and essentials for families near our Goa and Dharamshala campuses.",
-    image: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=800",
+    image: "/gallery/IMG-20181217-WA0041.jpg",
   },
   {
     title: "Community Education Days",
     desc: "We host joyful community days with local schools — sharing movement, creativity, and care beyond the yoga mat.",
-    image: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=800",
+    image: "/gallery/alpesh-yoga-school-dharamshala-india-1.jpg",
   },
   {
     title: "Service as Practice",
     desc: "Karma Yoga is part of the path. Students are invited to join service projects that strengthen the communities hosting our trainings.",
-    image: "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?q=80&w=800",
+    image: "/gallery/IMG-20181216-WA0031.jpg",
   },
 ];
 
@@ -50,7 +50,7 @@ export default function KarmaYogaSection() {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1920')`,
+          backgroundImage: `url('/gallery/alpesh-yoga-200hrs-yttc-india-1.jpg')`,
         }}
       >
         <div className="absolute inset-0 bg-black/50" />

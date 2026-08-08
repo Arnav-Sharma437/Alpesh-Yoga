@@ -29,21 +29,21 @@ export default function Locations() {
           <div className="grid auto-rows-[220px] grid-cols-1 gap-4 md:auto-rows-[260px] md:grid-cols-3">
             <div className="overflow-hidden rounded-[24px] md:col-span-2 md:row-span-2">
               <img
-                src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=1200"
+                src="/gallery/image-23.jpg"
                 alt="Goa yoga campus"
                 className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
               />
             </div>
             <div className="overflow-hidden rounded-[24px]">
               <img
-                src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=700"
+                src="/gallery/alpesh-yoga-teacher-training-rishikesh-india-1.jpg"
                 alt="Goa practice"
                 className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
               />
             </div>
             <div className="overflow-hidden rounded-[24px]">
               <img
-                src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=700"
+                src="/gallery/DSC_7392.jpg"
                 alt="Goa beach shala"
                 className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
               />
@@ -70,28 +70,28 @@ export default function Locations() {
           <div className="grid auto-rows-[220px] grid-cols-1 gap-4 md:auto-rows-[240px] md:grid-cols-3">
             <div className="overflow-hidden rounded-[24px] md:row-span-2">
               <img
-                src="https://images.unsplash.com/photo-1627894483216-2138af692e32?q=80&w=800"
+                src="/gallery/image-23.jpg"
                 alt="Dharamshala mountains"
                 className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
               />
             </div>
             <div className="overflow-hidden rounded-[24px] md:col-span-2">
               <img
-                src="https://images.unsplash.com/photo-1552083375-1447ce886485?q=80&w=1000"
+                src="/gallery/alpesh-yoga-200hrs-yttc-dharamshala-india-1.jpg"
                 alt="Dharamshala yoga"
                 className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
               />
             </div>
             <div className="overflow-hidden rounded-[24px]">
               <img
-                src="https://images.unsplash.com/photo-1522845015757-50bce044e5da?q=80&w=700"
+                src="/gallery/IMG_20181219_123719.jpg"
                 alt="Meditation"
                 className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
               />
             </div>
             <div className="overflow-hidden rounded-[24px]">
               <img
-                src="https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?q=80&w=700"
+                src="/gallery/image-27.jpg"
                 alt="Alignment class"
                 className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
               />

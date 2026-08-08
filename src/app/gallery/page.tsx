@@ -3,21 +3,29 @@ import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-// A curated list of authentic photos from the WordPress backup
-const GALLERY_IMAGES = [
-  "/gallery/alpesh-yoga-activity-1.jpg",
-  "/gallery/image-19.jpg",
-  "/gallery/image-20.jpg",
-  "/gallery/image-21.jpg",
-  "/gallery/image-22.jpg",
-  "/gallery/image-23.jpg",
-  "/gallery/image-27.jpg",
-  "/gallery/IMG_20181218_111130.jpg",
-  "/gallery/IMG_20181218_213938.jpg",
-  "/gallery/IMG_20181218_221806.jpg",
-  "/gallery/IMG_20181219_123719.jpg",
-  "/gallery/IMG_20181219_143621.jpg"
-];
+import fs from 'fs';
+import path from 'path';
+
+function getGalleryImages() {
+  const galleryDir = path.join(process.cwd(), 'public', 'gallery');
+  try {
+    const files = fs.readdirSync(galleryDir);
+    return files
+      .filter(file => {
+        // Exclude thumbnails, non-images, and duplicates
+        const isImage = file.endsWith('.jpg') || file.endsWith('.png') || file.endsWith('.jpeg');
+        const isThumb = file.startsWith('thumbs');
+        const isDuplicate = file.includes('-nggid');
+        return isImage && !isThumb && !isDuplicate;
+      })
+      .map(file => `/gallery/${file}`);
+  } catch (error) {
+    console.error("Error reading gallery directory:", error);
+    return [];
+  }
+}
+
+const GALLERY_IMAGES = getGalleryImages();
 
 export default function GalleryPage() {
   return (
@@ -27,7 +35,7 @@ export default function GalleryPage() {
       <main className="flex-grow">
         <section className="relative overflow-hidden bg-charcoal-950 px-6 py-32 text-center sm:px-8 lg:px-12 pt-40">
           <div className="absolute inset-0 opacity-20">
-            <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=3270&auto=format&fit=crop')] bg-cover bg-center" />
+            <div className="absolute inset-0 bg-[url('/gallery/image-23.jpg')] bg-cover bg-center" />
             <div className="absolute inset-0 bg-charcoal-950/80" />
           </div>
           <div className="relative z-10 mx-auto max-w-4xl">

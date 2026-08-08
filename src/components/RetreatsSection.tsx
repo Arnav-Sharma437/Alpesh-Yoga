@@ -6,19 +6,19 @@ export default function RetreatsSection() {
   const RETREATS = [
     {
       title: "Yoga Retreat In Goa",
-      image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=600",
+      image: "/gallery/IMG-20181216-WA0027.jpg",
       description: "Enjoy a rejuvenating yoga retreat on the beautiful beaches of Goa. Relax, destress, and deepen your practice with daily alignment yoga classes, organic meals, and beachside sunset meditation.",
       link: "/retreats#goa"
     },
     {
       title: "Yoga Retreat In Rishikesh",
-      image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=600",
+      image: "/gallery/IMG-20181217-WA0044.jpg",
       description: "Experience the spiritual energy of Rishikesh. Join our alignment yoga retreat on the banks of the sacred Ganges river, surrounded by majestic mountains, traditional ashrams, and temple bells.",
       link: "/retreats#rishikesh"
     },
     {
       title: "Sound Healing Courses",
-      image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=600",
+      image: "/gallery/IMG-20181216-WA0034.jpg",
       description: "Learn the ancient art of sound healing. This intensive course covers Tibetan sound bowls, singing bowl massage, gong therapy, and chakra sound alignment to heal the body, mind, and spirit.",
       link: "/retreats"
     }

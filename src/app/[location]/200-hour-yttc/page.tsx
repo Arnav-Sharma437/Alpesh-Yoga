@@ -36,14 +36,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 const SCHEDULE_IMAGES = [
-  "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800",
-  "https://images.unsplash.com/photo-1522845015757-50bce044e5da?q=80&w=800",
-  "https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?q=80&w=800",
-  "https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=800",
-  "https://images.unsplash.com/photo-1603988363607-e1e4a66962c6?q=80&w=800",
-  "https://images.unsplash.com/photo-1588286840104-a8e5fce02db7?q=80&w=800",
-  "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=800",
-  "https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=800",
+  "/gallery/IMG-20181217-WA0044.jpg",
+  "/gallery/alpesh-yoga-retreat-goa-india-1.jpg",
+  "/gallery/image-27.jpg",
+  "/gallery/IMG-20181216-WA0030.jpg",
+  "/gallery/IMG_20181218_221806.jpg",
+  "/gallery/IMG_20181218_111130.jpg",
+  "/gallery/alpesh-yoga-teacher-training-goa-india-1.jpg",
+  "/gallery/alpesh-yoga-teacher-training-india-1.jpg",
 ];
 
 export default async function YTTC200Page({ params }: PageProps) {
@@ -155,23 +155,23 @@ export default async function YTTC200Page({ params }: PageProps) {
       : "Deepen your practice and become a certified instructor with our intensive, alignment-focused multi-style curriculum rooted in Iyengar, Hatha, and Vinyasa.",
     heroImage:
       isGoa
-        ? "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1920"
-        : "https://images.unsplash.com/photo-1552083375-1447ce886485?q=80&w=1920",
+        ? "/gallery/alpesh-yoga-retreat-goa-india-1.jpg"
+        : "/gallery/IMG-20181216-WA0034.jpg",
     locationName: config.displayName,
 
     highlightsDescription:
       "This course immerses you in traditional yoga practices with a strong focus on clear demonstration, precise instruction, alignment, anatomy, and real teaching experience — preparing you for 45–90 minute classes, one-to-one, and group teaching.",
     highlights: [
-      { title: "Vinyasa & Hatha Alignment", image: "https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?q=80&w=800" },
-      { title: "Meditation & Pranayama", image: "https://images.unsplash.com/photo-1522845015757-50bce044e5da?q=80&w=800" },
-      { title: "Anatomy & Physiology", image: "https://images.unsplash.com/photo-1588286840104-a8e5fce02db7?q=80&w=800" },
-      { title: "Teaching Methodology", image: "https://images.unsplash.com/photo-1603988363607-e1e4a66962c6?q=80&w=800" },
+      { title: "Vinyasa & Hatha Alignment", image: "/gallery/alpesh-yoga-india-1.jpg" },
+      { title: "Meditation & Pranayama", image: "/gallery/alpesh-yoga-teacher-training-rishikesh-india-1.jpg" },
+      { title: "Anatomy & Physiology", image: "/gallery/IMG_20181218_221806.jpg" },
+      { title: "Teaching Methodology", image: "/gallery/IMG-20181216-WA0033.jpg" },
     ],
 
     venueBannerImage:
       isGoa
-        ? "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=1920"
-        : "https://images.unsplash.com/photo-1627894483216-2138af692e32?q=80&w=1920",
+        ? "/gallery/IMG_20181218_221806.jpg"
+        : "/gallery/alpesh-yoga-classes-dharamshala-india-1.jpg",
     venueStats: {
       duration: "24 Days",
       graduates: "5000+",
@@ -185,10 +185,10 @@ export default async function YTTC200Page({ params }: PageProps) {
       "Experience nourishing sattvic vegetarian food, connect with a global community of yogis, and arrive one day before your course begins.",
     ],
     venueGallery: [
-      "https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=800",
-      "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=800",
-      "https://images.unsplash.com/photo-1552083375-1447ce886485?q=80&w=800",
-      "https://images.unsplash.com/photo-1510894347713-fc3ed6fdf539?q=80&w=800",
+      "/gallery/alpesh-yoga-retreat-dharamshala-india-1.jpg",
+      "/gallery/IMG-20181217-WA0043.jpg",
+      "/gallery/IMG-20181217-WA0042.jpg",
+      "/gallery/image-27.jpg",
     ],
 
     curriculumItems: COURSE_TOPICS.map((title) => ({ title })),
@@ -211,20 +211,20 @@ export default async function YTTC200Page({ params }: PageProps) {
       { name: "Durgesh", role: "Hatha & Therapeutic Yoga", image: "/teachers/durgesh.jpg" },
     ],
 
-    videoThumbnail: "https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=1920",
+    videoThumbnail: "/gallery/image-21.jpg",
     videoTitle: `Experience Alpesh Yoga in ${config.displayName}`,
     reviews: [
-      { name: "Ayush Bisaria", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=100", quote: "Alpesh sir is very knowledgeable, supportive and pays personal attention. The course is highly recommended 10/10 — my pre-hernia pain was gone by the end of the 100-hour training." },
-      { name: "Ylva Traxler", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=100", quote: "Alpesh is the very best yoga teacher I ever encountered. His alignment knowledge is vast, and his teaching is clear and caring." },
-      { name: "Jessica Albert", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=100", quote: "Grateful to have completed my YTTC with Alpesh. Alignment-focused, firm but loving — I highly recommend the school and all the teachers." },
-      { name: "Hemant Sharma", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100", quote: "A transformative experience. Alpesh is knowledgeable, patient, and creates a welcoming atmosphere for practitioners of all levels." },
+      { name: "Ayush Bisaria", image: "/gallery/alpesh-yoga-school-india-dharamshala-1.jpg", quote: "Alpesh sir is very knowledgeable, supportive and pays personal attention. The course is highly recommended 10/10 — my pre-hernia pain was gone by the end of the 100-hour training." },
+      { name: "Ylva Traxler", image: "/gallery/IMG_20181219_123719.jpg", quote: "Alpesh is the very best yoga teacher I ever encountered. His alignment knowledge is vast, and his teaching is clear and caring." },
+      { name: "Jessica Albert", image: "/gallery/IMG-20181217-WA0037.jpg", quote: "Grateful to have completed my YTTC with Alpesh. Alignment-focused, firm but loving — I highly recommend the school and all the teachers." },
+      { name: "Hemant Sharma", image: "/gallery/IMG-20181216-WA0031.jpg", quote: "A transformative experience. Alpesh is knowledgeable, patient, and creates a welcoming atmosphere for practitioners of all levels." },
     ],
 
     accommodationGallery: [
-      "https://images.unsplash.com/photo-1510798831971-661eb04b3739?q=80&w=600",
-      "https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=600",
-      "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?q=80&w=600",
-      "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=600",
+      "/gallery/IMG-20181216-WA0039.jpg",
+      "/gallery/IMG-20181217-WA0044.jpg",
+      "/gallery/IMG-20181216-WA0030.jpg",
+      "/gallery/image-19.jpg",
     ],
 
     packages,

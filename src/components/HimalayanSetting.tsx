@@ -5,27 +5,27 @@ import { MapPin, Trees, Mountain, Sunrise } from "lucide-react";
 
 const GALLERY_IMAGES = [
   {
-    url: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=600",
+    url: "/gallery/IMG-20181217-WA0041.jpg",
     caption: "Snowy Dhauladhar ranges above Bhagsu",
     size: "md:col-span-2 md:row-span-2",
   },
   {
-    url: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=600",
+    url: "/gallery/alpesh-yoga-classes-goa-india-1.jpg",
     caption: "Conscious yoga alignment posture",
     size: "md:col-span-1 md:row-span-1",
   },
   {
-    url: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=600",
+    url: "/gallery/IMG-20181216-WA0032.jpg",
     caption: "Quiet space for morning alignment",
     size: "md:col-span-1 md:row-span-1",
   },
   {
-    url: "https://images.unsplash.com/photo-1552083375-1447ce886485?q=80&w=600",
+    url: "/gallery/alpesh-yoga-school-dharamshala-india-1.jpg",
     caption: "Misty pine forests of McLeod Ganj",
     size: "md:col-span-1 md:row-span-1",
   },
   {
-    url: "https://images.unsplash.com/photo-1599447421416-3414500d18a5?q=80&w=600",
+    url: "/gallery/alpesh-yoga-classes-dharamshala-india-1.jpg",
     caption: "Alignment adjustments using wall ropes",
     size: "md:col-span-2 md:row-span-1",
   },

@@ -95,7 +95,7 @@ export default async function DailyClasses({ params }: PageProps) {
           breadcrumb={`Daily Classes (${config.displayName})`}
           title="Daily Drop-In Classes"
           subtitle={`${config.tagline} Refine posture anatomy, avoid compensation habits, and safely build physical capacity.`}
-          image="https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1600"
+          image="/gallery/IMG-20181217-WA0042.jpg"
         />
 
         {/* Goa Placeholder Header (If Goa) */}

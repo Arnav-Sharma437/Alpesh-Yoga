@@ -46,10 +46,10 @@ export default function AboutPage() {
   ];
 
   const GALLERY_IMAGES = [
-    { url: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=600", caption: "Alignment Posture Session" },
-    { url: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=600", caption: "Himalayan Practice, Dharamshala" },
-    { url: "https://images.unsplash.com/photo-1599447421416-3414500d18a5?q=80&w=600", caption: "Prop-Supported Chest Opener" },
-    { url: "https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?q=80&w=600", caption: "Beach Shala Alignment, Goa" },
+    { url: "/gallery/IMG-20181216-WA0027.jpg", caption: "Alignment Posture Session" },
+    { url: "/gallery/IMG-20181217-WA0043.jpg", caption: "Himalayan Practice, Dharamshala" },
+    { url: "/gallery/alpesh-yoga-india-1.jpg", caption: "Prop-Supported Chest Opener" },
+    { url: "/gallery/alpesh-yoga-teacher-training-goa-india-1.jpg", caption: "Beach Shala Alignment, Goa" },
   ];
 
   return (
@@ -60,7 +60,7 @@ export default function AboutPage() {
           breadcrumb="About Us"
           title="Alpesh Yoga’s Story"
           subtitle="What began as a dedication to precise Hatha alignment has grown into a Yoga Alliance registered school welcoming students from around the world in Goa and Dharamshala."
-          image="https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1600"
+          image="/gallery/IMG-20181216-WA0025.jpg"
         />
 
         <section className="bg-white py-24">
