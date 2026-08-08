@@ -48,11 +48,11 @@ export interface LocationData {
 export const locationsConfig: Record<string, LocationData> = {
   dharamshala: {
     slug: "dharamshala",
-    displayName: "Dharamshala (Dharamkot)",
+    displayName: "Dharamshala (Bhagsu Nag)",
     regionName: "Himachal Pradesh, India",
     tagline: "Hatha alignment-based practice in the serene Himalayan mountains.",
     address: "Alpesh Yoga, Upper bhagsu, near beetroot cafe, near Kibbutz, Bhagsu Nag, Dharamshala, Himachal Pradesh 176219",
-    landmarkNotice: "Located in the quiet heights of Dharamkot, a short pine forest walk away from traffic. Conveniently positioned before Bodhi Greens and just past Track n Dine.",
+    landmarkNotice: "Located in the quiet heights of Bhagsu Nag, a short pine forest walk away from traffic. Conveniently positioned before Bodhi Greens and just past Track n Dine.",
     contactNumber1: "+91 77198 78500",
     contactNumber2: "+91 97364 63605",
     whatsappLinkText: "Hi Alpesh, I am inquiring about the Dharamshala classes.",

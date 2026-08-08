@@ -180,10 +180,10 @@ export default function Header() {
                 <h4 className="mb-3 font-sans text-xs font-bold uppercase tracking-[0.18em] text-olive-600">
                   Dharamshala
                 </h4>
-                <CourseItem title="200hs YTTC" location="Dharamkot" href="/dharamshala/200-hour-yttc" />
-                <CourseItem title="100hs TTC" location="Dharamkot" href="/dharamshala/100-hour-ttc" />
-                <CourseItem title="8-Day Intensive" location="Dharamkot" href="/dharamshala/8-day-intensive" />
-                <CourseItem title="Daily Classes" location="Dharamkot" href="/dharamshala/daily-classes" />
+                <CourseItem title="200hs YTTC" location="Bhagsu Nag" href="/dharamshala/200-hour-yttc" />
+                <CourseItem title="100hs TTC" location="Bhagsu Nag" href="/dharamshala/100-hour-ttc" />
+                <CourseItem title="8-Day Intensive" location="Bhagsu Nag" href="/dharamshala/8-day-intensive" />
+                <CourseItem title="Daily Classes" location="Bhagsu Nag" href="/dharamshala/daily-classes" />
               </div>
               <div>
                 <h4 className="mb-3 font-sans text-xs font-bold uppercase tracking-[0.18em] text-olive-600">

@@ -29,7 +29,7 @@ export default function Locations() {
           <div className="grid auto-rows-[220px] grid-cols-1 gap-4 md:auto-rows-[260px] md:grid-cols-3">
             <div className="overflow-hidden rounded-[24px] md:col-span-2 md:row-span-2">
               <img
-                src="/gallery/image-23.jpg"
+                src="/gallery/alpesh-yoga-goa-india-1.jpg"
                 alt="Goa yoga campus"
                 className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
               />
@@ -61,7 +61,7 @@ export default function Locations() {
               Tradition · Depth · Devotion
             </p>
             <p className="font-sans text-[1.2rem] font-normal leading-[1.75] text-[#212121]">
-              If you’re drawn to the roots of yoga and Himalayan stillness, Dharamkot offers
+              If you’re drawn to the roots of yoga and Himalayan stillness, Bhagsu Nag offers
               authentic learning in mountain air — focused meditation, alignment, and traditional
               ashram rhythm.
             </p>
@@ -70,7 +70,7 @@ export default function Locations() {
           <div className="grid auto-rows-[220px] grid-cols-1 gap-4 md:auto-rows-[240px] md:grid-cols-3">
             <div className="overflow-hidden rounded-[24px] md:row-span-2">
               <img
-                src="/gallery/image-23.jpg"
+                src="/gallery/alpesh-yoga-school-dharamshala-india-1.jpg"
                 alt="Dharamshala mountains"
                 className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
               />
@@ -91,7 +91,7 @@ export default function Locations() {
             </div>
             <div className="overflow-hidden rounded-[24px]">
               <img
-                src="/gallery/image-27.jpg"
+                src="/gallery/alpesh-yoga-classes-dharamshala-india-1.jpg"
                 alt="Alignment class"
                 className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
               />

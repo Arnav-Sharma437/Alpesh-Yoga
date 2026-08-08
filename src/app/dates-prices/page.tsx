@@ -180,7 +180,7 @@ export default function DatesPricesPage() {
                     </h3>
                   </div>
                   <p className="font-sans text-[1.15rem] font-normal leading-[1.7] text-[#363636]">
-                    Confirmed summer season batches in Dharamkot. Tap any date to book.
+                    Confirmed summer season batches in Bhagsu Nag. Tap any date to book.
                   </p>
 
                   <div>

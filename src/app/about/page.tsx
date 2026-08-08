@@ -101,7 +101,7 @@ export default function AboutPage() {
                 </p>
                 <p className="font-sans text-[1.15rem] font-normal leading-[1.7] text-charcoal-800">
                   Our school operates seasonally in two natural locations: the pine heights of
-                  Dharamkot, Dharamshala in summer, and the ocean-breeze shalas of Arambol, Goa in winter.
+                  Bhagsu Nag, Dharamshala in summer, and the ocean-breeze shalas of Arambol, Goa in winter.
                 </p>
               </div>
             </div>
@@ -143,7 +143,7 @@ export default function AboutPage() {
           <div className="mx-auto max-w-5xl space-y-10 px-4 text-center sm:px-6 lg:px-8">
             <SectionHeading
               eyebrow="Accommodation & Food"
-              title="Cozy, Clean Stays in Arambol & Dharamkot"
+              title="Cozy, Clean Stays in Arambol & Bhagsu Nag"
               subtitle={FOOD_POLICY}
             />
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">

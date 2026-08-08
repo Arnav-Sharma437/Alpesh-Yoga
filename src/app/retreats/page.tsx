@@ -9,7 +9,7 @@ import { CheckCircle2, Phone } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Yoga & Pranayama Retreats India | Alpesh Yoga",
-  description: "Join our wellness retreats in Arambol Beach (Goa) and Dharamkot (Dharamshala). Choose from 6-day retreats, 10-day retreats, and 5-day Pranayama courses.",
+  description: "Join our wellness retreats in Arambol Beach (Goa) and Bhagsu Nag (Dharamshala). Choose from 6-day retreats, 10-day retreats, and 5-day Pranayama courses.",
   keywords: ["yoga retreats goa arambol", "meditation retreat dharamshala", "cheap pranayama course India", "wellness holidays India"],
 };
 
@@ -70,7 +70,7 @@ export default function RetreatsPage() {
         <PageHero
           breadcrumb="Retreats"
           title="Yoga & Meditation Retreats"
-          subtitle="Connect with your inner self in the lap of nature. We host wellness retreats starting every Monday of the week in Arambol and Dharamkot."
+          subtitle="Connect with your inner self in the lap of nature. We host wellness retreats starting every Monday of the week in Arambol and Bhagsu Nag."
           image="/gallery/IMG-20181216-WA0039.jpg"
         />
 
@@ -137,7 +137,7 @@ export default function RetreatsPage() {
           <div className="mx-auto max-w-4xl space-y-6 px-4 text-center sm:px-6 lg:px-8">
             <SectionHeading
               title="Yoga in the Lap of Nature"
-              subtitle="Outdoor Hatha alignment sessions on the beach side sands of South Goa or pine forest clearings in Dharamkot. Connect with us on WhatsApp to register your retreat."
+              subtitle="Outdoor Hatha alignment sessions on the beach side sands of South Goa or pine forest clearings in Bhagsu Nag. Connect with us on WhatsApp to register your retreat."
             />
             <div className="flex flex-col items-center justify-center gap-4 pt-4 sm:flex-row">
               <a href="/apply" className="btn-primary">

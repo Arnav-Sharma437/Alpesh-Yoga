@@ -34,7 +34,7 @@ export const viewport = {
 export const metadata: Metadata = {
   title: "Alpesh Yoga | Hatha Alignment Studio Dharamshala & Goa, India",
   description:
-    "Experience precision Hatha alignment-based yoga at Alpesh Yoga in Arambol (Goa) and Dharamkot (Dharamshala), India. Offering daily classes, 8-Day Intensive Courses, 100-Hour and 200-Hour Yoga Teacher Training Courses (YTTC).",
+    "Experience precision Hatha alignment-based yoga at Alpesh Yoga in Arambol (Goa) and Bhagsu Nag (Dharamshala), India. Offering daily classes, 8-Day Intensive Courses, 100-Hour and 200-Hour Yoga Teacher Training Courses (YTTC).",
   keywords: [
     "Hatha alignment Dharamshala",
     "yoga classes Arambol",
