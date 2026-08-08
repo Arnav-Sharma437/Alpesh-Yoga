@@ -64,7 +64,9 @@ export default function Header() {
               <img
                 src="/logo/alpesh-logo.png"
                 alt="Alpesh Yoga"
-                className="h-12 w-auto object-contain sm:h-14"
+                className={`h-12 w-auto object-contain sm:h-14 transition-all duration-300 ${
+                  !isHeaderActive ? "brightness-0 invert" : ""
+                }`}
               />
             </a>
 

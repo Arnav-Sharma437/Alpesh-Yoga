@@ -13,10 +13,21 @@ const highlights = [
 export default function Hero() {
   return (
     <section className="relative flex min-h-screen w-full items-center justify-center overflow-hidden">
+      {/* Mobile background (portrait crop) */}
       <div
-        className="absolute inset-0 scale-105 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 scale-105 bg-cover bg-[80%_center] bg-no-repeat sm:hidden"
         style={{
-          backgroundImage: `url('/gallery/image-22.jpg')`,
+          backgroundImage: `url('https://images.unsplash.com/photo-1593811167562-9cef47bfc4d7?auto=format&fit=crop&q=80&w=1000')`,
+        }}
+      >
+        <div className="absolute inset-0 bg-black/45" />
+      </div>
+
+      {/* Desktop background (landscape) */}
+      <div
+        className="absolute inset-0 scale-105 bg-cover bg-center bg-no-repeat hidden sm:block"
+        style={{
+          backgroundImage: `url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=2400')`,
         }}
       >
         <div className="absolute inset-0 bg-black/45" />
