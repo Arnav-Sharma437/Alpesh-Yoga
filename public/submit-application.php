@@ -8,7 +8,7 @@ header("Content-Type: application/json");
 $host = "localhost"; // Usually localhost on GoDaddy
 $dbname = "alpeshyoga";
 $username = "Alpeshyoga";
-$password = "Ssecure@alpesh";
+$password = "Namaste2026!";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $input = file_get_contents('php://input');
