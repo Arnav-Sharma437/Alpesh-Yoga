@@ -23,6 +23,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+        // Check settings
+        $stmt = $pdo->query("SELECT setting_key, setting_value FROM settings");
+        $settings = [];
+        if ($stmt) {
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $settings[$row['setting_key']] = $row['setting_value'];
+            }
+        }
+
+        if (isset($settings['form_enabled']) && $settings['form_enabled'] === 'false') {
+            echo json_encode(["success" => false, "error" => "Applications are currently closed."]);
+            exit;
+        }
+
         $stmt = $pdo->prepare("INSERT INTO applications (
             location, program, batch, full_name, gender, dob, age, nationality, address, 
             phone, whatsapp, email, occupation, practice_duration, has_hatha, has_philosophy, 
@@ -61,6 +75,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ':whyJoin' => $data['whyJoin'] ?? '',
             ':howHeard' => $data['howHeard'] ?? ''
         ]);
+
+        // Send email notification
+        if (!empty($settings['notification_email'])) {
+            $to = $settings['notification_email'];
+            $subject = "New Yoga Application: " . ($data['fullName'] ?? 'Applicant');
+            
+            $message = "A new application has been submitted.\n\n";
+            $message .= "Name: " . ($data['fullName'] ?? 'N/A') . "\n";
+            $message .= "Email: " . ($data['email'] ?? 'N/A') . "\n";
+            $message .= "Program: " . ($data['program'] ?? 'N/A') . " - " . ($data['location'] ?? 'N/A') . "\n";
+            $message .= "Batch: " . ($data['batch'] ?? 'N/A') . "\n\n";
+            $message .= "Log in to the Admin Dashboard to view full details:\nhttps://alpeshyoga.com/admin";
+            
+            $headers = "From: noreply@alpeshyoga.com\r\n";
+            $headers .= "Reply-To: " . ($data['email'] ?? 'noreply@alpeshyoga.com') . "\r\n";
+            $headers .= "X-Mailer: PHP/" . phpversion();
+
+            @mail($to, $subject, $message, $headers);
+        }
 
         echo json_encode(["success" => true, "message" => "Application submitted successfully"]);
     } catch (PDOException $e) {
