@@ -25,14 +25,15 @@ jobs:
     - name: Build Next.js project
       run: npm run build
 
-    - name: Deploy to GoDaddy FTP
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-      with:
-        server: ${{ secrets.FTP_SERVER }}
-        username: ${{ secrets.FTP_USERNAME }}
-        password: ${{ secrets.FTP_PASSWORD }}
-        protocol: ftp
-        local-dir: ./out/
-        server-dir: ./
-        # Set to false to avoid completely wiping public_html if you have other non-nextjs files there
-        dangerous-clean-slate: false
+    - name: Install lftp
+      run: sudo apt-get update && sudo apt-get install -y lftp
+
+    - name: Deploy to GoDaddy FTP via lftp
+      run: |
+        lftp -c "
+        set ftp:ssl-allow no;
+        set net:max-retries 3;
+        set net:timeout 10;
+        open -u ${{ secrets.FTP_USERNAME }},'${{ secrets.FTP_PASSWORD }}' ${{ secrets.FTP_SERVER }};
+        mirror -R -v --parallel=5 ./out/ ./;
+        "
