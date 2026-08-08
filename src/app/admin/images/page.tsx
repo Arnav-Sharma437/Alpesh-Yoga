@@ -38,6 +38,33 @@ export default function AdminImages() {
     fetchImages();
   }, [router]);
 
+  const [uploadingFile, setUploadingFile] = useState<string | null>(null);
+
+  const PROGRAMS = [
+    { id: '200-goa-alignment', title: '200H Alignment Goa' },
+    { id: '200-goa-multi', title: '200H Multi Goa' },
+    { id: '200-dharamshala', title: '200H Dharamshala' },
+    { id: '100-goa-alignment', title: '100H Alignment Goa' },
+    { id: '100-goa-multi', title: '100H Multi Goa' },
+    { id: '100-dharamshala', title: '100H Dharamshala' },
+    { id: '8day-goa', title: '8-Day Goa' },
+    { id: '8day-dharamshala', title: '8-Day Dharamshala' },
+    { id: 'retreat-6', title: '6-Day Retreat' },
+    { id: 'retreat-10', title: '10-Day Retreat' },
+    { id: 'daily-goa', title: 'Daily Goa' },
+    { id: 'daily-dharamshala', title: 'Daily Dharamshala' }
+  ];
+
+  const LOCATIONS = [
+    { id: 'goa-1', title: 'Goa - Image 1' },
+    { id: 'goa-2', title: 'Goa - Image 2' },
+    { id: 'goa-3', title: 'Goa - Image 3' },
+    { id: 'dharamshala-1', title: 'Dharamshala - Image 1' },
+    { id: 'dharamshala-2', title: 'Dharamshala - Image 2' },
+    { id: 'dharamshala-3', title: 'Dharamshala - Image 3' },
+    { id: 'dharamshala-4', title: 'Dharamshala - Image 4' }
+  ];
+
   const handleUpload = async (e: React.ChangeEvent<HTMLInputElement>, type: string, customFilename?: string) => {
     if (!e.target.files || e.target.files.length === 0) return;
     
@@ -46,11 +73,10 @@ export default function AdminImages() {
     formData.append("image", file);
     if (customFilename) {
       formData.append("filename", customFilename);
+      setUploadingFile(customFilename);
+    } else {
+      setUploadingGallery(true);
     }
-
-    if (type === 'desktop') setUploadingHeroDesktop(true);
-    else if (type === 'mobile') setUploadingHeroMobile(true);
-    else setUploadingGallery(true);
 
     try {
       const token = localStorage.getItem("admin_token");
@@ -70,9 +96,8 @@ export default function AdminImages() {
     } catch (err) {
       alert("Error uploading image");
     } finally {
-      if (type === 'desktop') setUploadingHeroDesktop(false);
-      else if (type === 'mobile') setUploadingHeroMobile(false);
-      else setUploadingGallery(false);
+      setUploadingFile(null);
+      setUploadingGallery(false);
       e.target.value = '';
     }
   };
@@ -102,7 +127,12 @@ export default function AdminImages() {
     router.push("/admin");
   };
 
-  const galleryImages = images.filter(img => !img.includes('hero-desktop.jpg') && !img.includes('hero-mobile.jpg'));
+  const galleryImages = images.filter(img => 
+    !img.includes('hero-desktop.jpg') && 
+    !img.includes('hero-mobile.jpg') &&
+    !img.includes('program-') &&
+    !img.includes('location-')
+  );
 
   return (
     <div className="min-h-screen bg-sand-50 font-sans pb-24">
@@ -160,12 +190,12 @@ export default function AdminImages() {
                 <img src={`/gallery/hero-desktop.jpg${timestamp}`} alt="Desktop Hero" className="w-full h-full object-cover" />
               </div>
               <label className="relative cursor-pointer bg-olive-700 text-white px-6 py-3 rounded-xl font-semibold hover:bg-olive-800 transition-colors w-full text-center">
-                {uploadingHeroDesktop ? "Uploading..." : "Replace Desktop Banner"}
+                {uploadingFile === 'hero-desktop.jpg' ? "Uploading..." : "Replace Desktop Banner"}
                 <input 
                   type="file" 
                   accept="image/jpeg, image/png, image/webp" 
                   className="hidden" 
-                  disabled={uploadingHeroDesktop}
+                  disabled={!!uploadingFile}
                   onChange={(e) => handleUpload(e, 'desktop', 'hero-desktop.jpg')} 
                 />
               </label>
@@ -179,17 +209,85 @@ export default function AdminImages() {
                 <img src={`/gallery/hero-mobile.jpg${timestamp}`} alt="Mobile Hero" className="w-full h-full object-cover" />
               </div>
               <label className="relative cursor-pointer bg-olive-700 text-white px-6 py-3 rounded-xl font-semibold hover:bg-olive-800 transition-colors w-full max-w-[280px] text-center">
-                {uploadingHeroMobile ? "Uploading..." : "Replace Mobile Banner"}
+                {uploadingFile === 'hero-mobile.jpg' ? "Uploading..." : "Replace Mobile Banner"}
                 <input 
                   type="file" 
                   accept="image/jpeg, image/png, image/webp" 
                   className="hidden" 
-                  disabled={uploadingHeroMobile}
+                  disabled={!!uploadingFile}
                   onChange={(e) => handleUpload(e, 'mobile', 'hero-mobile.jpg')} 
                 />
               </label>
               <p className="text-xs text-charcoal-500 mt-3 text-center">Recommended: 1080x1920px (Portrait)</p>
             </div>
+          </div>
+        </div>
+
+        {/* Programs Images */}
+        <div className="bg-white rounded-[24px] border border-sand-200 shadow-sm overflow-hidden p-8">
+          <div className="flex items-center gap-3 mb-8">
+            <div className="bg-olive-50 text-olive-600 p-3 rounded-xl">
+              <ImageIcon className="w-6 h-6" />
+            </div>
+            <div>
+              <h2 className="text-xl font-serif text-charcoal-900">Programs Images</h2>
+              <p className="text-sm text-charcoal-500 mt-1">Manage images for all the programs (shown on homepage and individual pages).</p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+            {PROGRAMS.map((program) => (
+              <div key={program.id} className="border border-sand-200 rounded-xl p-3 bg-sand-50/30 flex flex-col items-center">
+                <h3 className="font-semibold text-charcoal-900 mb-2 text-xs text-center h-8">{program.title}</h3>
+                <div className="w-full aspect-[4/5] bg-charcoal-100 rounded-lg overflow-hidden relative mb-3">
+                  <img src={`/gallery/program-${program.id}.jpg${timestamp}`} alt={program.title} className="w-full h-full object-cover" />
+                </div>
+                <label className="relative cursor-pointer bg-sand-200 text-charcoal-800 px-3 py-2 rounded-lg font-semibold hover:bg-sand-300 transition-colors w-full text-center text-xs">
+                  {uploadingFile === `program-${program.id}.jpg` ? "..." : "Replace"}
+                  <input 
+                    type="file" 
+                    accept="image/jpeg, image/png, image/webp" 
+                    className="hidden" 
+                    disabled={!!uploadingFile}
+                    onChange={(e) => handleUpload(e, 'program', `program-${program.id}.jpg`)} 
+                  />
+                </label>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Locations Images */}
+        <div className="bg-white rounded-[24px] border border-sand-200 shadow-sm overflow-hidden p-8">
+          <div className="flex items-center gap-3 mb-8">
+            <div className="bg-olive-50 text-olive-600 p-3 rounded-xl">
+              <ImageIcon className="w-6 h-6" />
+            </div>
+            <div>
+              <h2 className="text-xl font-serif text-charcoal-900">Our Locations Images</h2>
+              <p className="text-sm text-charcoal-500 mt-1">Manage images for the Locations section on the homepage.</p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-6">
+            {LOCATIONS.map((loc) => (
+              <div key={loc.id} className="border border-sand-200 rounded-xl p-3 bg-sand-50/30 flex flex-col items-center">
+                <h3 className="font-semibold text-charcoal-900 mb-2 text-xs text-center h-8">{loc.title}</h3>
+                <div className="w-full aspect-square bg-charcoal-100 rounded-lg overflow-hidden relative mb-3">
+                  <img src={`/gallery/location-${loc.id}.jpg${timestamp}`} alt={loc.title} className="w-full h-full object-cover" />
+                </div>
+                <label className="relative cursor-pointer bg-sand-200 text-charcoal-800 px-3 py-2 rounded-lg font-semibold hover:bg-sand-300 transition-colors w-full text-center text-xs">
+                  {uploadingFile === `location-${loc.id}.jpg` ? "..." : "Replace"}
+                  <input 
+                    type="file" 
+                    accept="image/jpeg, image/png, image/webp" 
+                    className="hidden" 
+                    disabled={!!uploadingFile}
+                    onChange={(e) => handleUpload(e, 'location', `location-${loc.id}.jpg`)} 
+                  />
+                </label>
+              </div>
+            ))}
           </div>
         </div>
 

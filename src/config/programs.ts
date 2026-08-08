@@ -41,7 +41,7 @@ export const programsCatalog: ProgramListing[] = [
     priceUSD: null,
     priceLabel: "€1,200",
     href: "/goa/200-hour-yttc",
-    image: "/gallery/image-20.jpg",
+    image: "/gallery/program-200-goa-alignment.jpg",
     dates: [
       "4 Nov – 25 Nov 2026",
       "3 Dec – 24 Dec 2026",
@@ -61,7 +61,7 @@ export const programsCatalog: ProgramListing[] = [
     priceUSD: null,
     priceLabel: "€1,200",
     href: "/goa/200-hour-yttc",
-    image: "/gallery/IMG-20181216-WA0031.jpg",
+    image: "/gallery/program-200-goa-multi.jpg",
     dates: [
       "21 Nov – 12 Dec 2026",
       "16 Dec – 6 Jan 2027",
@@ -81,7 +81,7 @@ export const programsCatalog: ProgramListing[] = [
     priceUSD: 950,
     priceLabel: "$950",
     href: "/dharamshala/200-hour-yttc",
-    image: "/gallery/alpesh-yoga-goa-india-1.jpg",
+    image: "/gallery/program-200-dharamshala.jpg",
     dates: [
       "25 Apr – 16 May 2026",
       "23 May – 13 Jun 2026",
@@ -101,7 +101,7 @@ export const programsCatalog: ProgramListing[] = [
     priceUSD: 550,
     priceLabel: "$550",
     href: "/goa/100-hour-ttc",
-    image: "/gallery/image-22.jpg",
+    image: "/gallery/program-100-goa-alignment.jpg",
     dates: [
       "4 Nov – 14 Nov 2026",
       "4 Dec – 14 Dec 2026",
@@ -121,7 +121,7 @@ export const programsCatalog: ProgramListing[] = [
     priceUSD: 550,
     priceLabel: "$550",
     href: "/goa/100-hour-ttc",
-    image: "/gallery/IMG-20181217-WA0036.jpg",
+    image: "/gallery/program-100-goa-multi.jpg",
     dates: [
       "21 Nov – 1 Dec 2026",
       "16 Dec – 26 Dec 2026",
@@ -141,7 +141,7 @@ export const programsCatalog: ProgramListing[] = [
     priceUSD: 550,
     priceLabel: "$550",
     href: "/dharamshala/100-hour-ttc",
-    image: "/gallery/alpesh-yoga-teacher-training-rishikesh-india-1.jpg",
+    image: "/gallery/program-100-dharamshala.jpg",
     dates: [
       "28 Apr – 8 May 2026",
       "9 May – 19 May 2026",
@@ -166,7 +166,7 @@ export const programsCatalog: ProgramListing[] = [
     priceUSD: null,
     priceLabel: "€280",
     href: "/goa/8-day-intensive",
-    image: "/gallery/alpesh-yoga-classes-india-1.jpg",
+    image: "/gallery/program-8day-goa.jpg",
     dates: [
       "23 Dec – 30 Dec 2026",
       "5 Jan – 12 Jan 2027",
@@ -186,7 +186,7 @@ export const programsCatalog: ProgramListing[] = [
     priceUSD: 150,
     priceLabel: "$150",
     href: "/dharamshala/8-day-intensive",
-    image: "/gallery/IMG-20181216-WA0022.jpg",
+    image: "/gallery/program-8day-dharamshala.jpg",
     dates: [
       "28 Apr – 5 May 2026",
       "9 May – 16 May 2026",
@@ -207,7 +207,7 @@ export const programsCatalog: ProgramListing[] = [
     priceUSD: null,
     priceLabel: "Enquiry",
     href: "/retreats#6-day",
-    image: "/gallery/image-19.jpg",
+    image: "/gallery/program-retreat-6.jpg",
     dates: ["See retreats page"],
   },
   {
@@ -220,7 +220,7 @@ export const programsCatalog: ProgramListing[] = [
     priceUSD: null,
     priceLabel: "Enquiry",
     href: "/retreats#10-day",
-    image: "/gallery/IMG-20181216-WA0040.jpg",
+    image: "/gallery/program-retreat-10.jpg",
     dates: ["See retreats page"],
   },
   {
@@ -233,7 +233,7 @@ export const programsCatalog: ProgramListing[] = [
     priceUSD: null,
     priceLabel: "₹600",
     href: "/goa/daily-classes",
-    image: "/gallery/alpesh-yoga-classes-goa-india-1.jpg",
+    image: "/gallery/program-daily-goa.jpg",
     dates: ["Open daily"],
   },
   {
@@ -246,7 +246,7 @@ export const programsCatalog: ProgramListing[] = [
     priceUSD: null,
     priceLabel: "₹600",
     href: "/dharamshala/daily-classes",
-    image: "/gallery/alpesh-yoga-india-1.jpg",
+    image: "/gallery/program-daily-dharamshala.jpg",
     dates: ["Open daily"],
   },
 ];

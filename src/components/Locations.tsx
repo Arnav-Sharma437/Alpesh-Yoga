@@ -1,8 +1,14 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 export default function Locations() {
+  const [timestamp, setTimestamp] = useState("");
+
+  useEffect(() => {
+    setTimestamp(`?v=${Date.now()}`);
+  }, []);
+
   return (
     <section id="locations" className="relative overflow-hidden bg-white py-24 md:py-28">
       <div className="mb-20 text-center">
@@ -29,21 +35,21 @@ export default function Locations() {
           <div className="grid auto-rows-[220px] grid-cols-1 gap-4 md:auto-rows-[260px] md:grid-cols-3">
             <div className="overflow-hidden rounded-[24px] md:col-span-2 md:row-span-2">
               <img
-                src="/gallery/alpesh-yoga-goa-india-1.jpg"
+                src={`/gallery/location-goa-1.jpg${timestamp}`}
                 alt="Goa yoga campus"
                 className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
               />
             </div>
             <div className="overflow-hidden rounded-[24px]">
               <img
-                src="/gallery/alpesh-yoga-teacher-training-rishikesh-india-1.jpg"
+                src={`/gallery/location-goa-2.jpg${timestamp}`}
                 alt="Goa practice"
                 className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
               />
             </div>
             <div className="overflow-hidden rounded-[24px]">
               <img
-                src="/gallery/DSC_7392.jpg"
+                src={`/gallery/location-goa-3.jpg${timestamp}`}
                 alt="Goa beach shala"
                 className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
               />
@@ -70,28 +76,28 @@ export default function Locations() {
           <div className="grid auto-rows-[220px] grid-cols-1 gap-4 md:auto-rows-[240px] md:grid-cols-3">
             <div className="overflow-hidden rounded-[24px] md:row-span-2">
               <img
-                src="/gallery/alpesh-yoga-school-dharamshala-india-1.jpg"
+                src={`/gallery/location-dharamshala-1.jpg${timestamp}`}
                 alt="Dharamshala mountains"
                 className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
               />
             </div>
             <div className="overflow-hidden rounded-[24px] md:col-span-2">
               <img
-                src="/gallery/alpesh-yoga-200hrs-yttc-dharamshala-india-1.jpg"
+                src={`/gallery/location-dharamshala-2.jpg${timestamp}`}
                 alt="Dharamshala yoga"
                 className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
               />
             </div>
             <div className="overflow-hidden rounded-[24px]">
               <img
-                src="/gallery/IMG_20181219_123719.jpg"
+                src={`/gallery/location-dharamshala-3.jpg${timestamp}`}
                 alt="Meditation"
                 className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
               />
             </div>
             <div className="overflow-hidden rounded-[24px]">
               <img
-                src="/gallery/alpesh-yoga-classes-dharamshala-india-1.jpg"
+                src={`/gallery/location-dharamshala-4.jpg${timestamp}`}
                 alt="Alignment class"
                 className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
               />

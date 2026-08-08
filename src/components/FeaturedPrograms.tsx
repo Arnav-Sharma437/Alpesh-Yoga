@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -27,7 +27,10 @@ export default function FeaturedPrograms() {
     el.scrollBy({ left: dir === "left" ? -amount : amount, behavior: "smooth" });
   };
 
+  const [timestamp, setTimestamp] = React.useState("");
+
   useEffect(() => {
+    setTimestamp(`?v=${Date.now()}`);
     const el = scrollRef.current;
     if (!el) return;
     const id = window.setInterval(() => {
@@ -97,7 +100,7 @@ export default function FeaturedPrograms() {
             >
               <div className="relative aspect-[4/5] w-full overflow-hidden">
                 <img
-                  src={course.image}
+                  src={`${course.image}${timestamp}`}
                   alt={course.title}
                   className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105"
                 />
