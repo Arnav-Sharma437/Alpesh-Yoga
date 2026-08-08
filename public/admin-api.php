@@ -18,7 +18,7 @@ $ADMIN_PASSWORD = "CHANGE_ME_ADMIN_123"; // Update this with a strong password
 $host = "localhost"; 
 $dbname = "alpeshyoga";
 $username = "Alpeshyoga";
-$password = "Namaste2026!";
+$password = "Ssecure@alpesh";
 
 // ==========================================
 // AUTHENTICATION

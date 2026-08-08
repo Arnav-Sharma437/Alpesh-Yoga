@@ -6,9 +6,9 @@ header("Content-Type: application/json");
 
 // ONLY edit these 4 lines with your GoDaddy database credentials
 $host = "localhost"; // Usually localhost on GoDaddy
-$dbname = "YOUR_DATABASE_NAME";
-$username = "YOUR_DATABASE_USER";
-$password = "YOUR_DATABASE_PASSWORD";
+$dbname = "alpeshyoga";
+$username = "Alpeshyoga";
+$password = "Ssecure@alpesh";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $input = file_get_contents('php://input');
