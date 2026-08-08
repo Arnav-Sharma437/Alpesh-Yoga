@@ -50,9 +50,14 @@ if (strpos($authHeader, 'Bearer ') === 0) {
         }
     }
     
-    http_response_code(401);
-    echo json_encode(["success" => false, "error" => "Unauthorized"]);
-    exit;
+    // Allow public access to list_gallery
+    if (isset($_GET['action']) && $_GET['action'] === 'list_gallery') {
+        // bypass auth
+    } else {
+        http_response_code(401);
+        echo json_encode(["success" => false, "error" => "Unauthorized"]);
+        exit;
+    }
 }
 
 // ==========================================
