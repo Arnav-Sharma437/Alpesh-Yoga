@@ -163,6 +163,71 @@ elseif ($_SERVER['REQUEST_METHOD'] === 'POST' && $action === 'update_settings') 
         echo json_encode(["success" => false, "error" => $e->getMessage()]);
     }
 } 
+elseif ($_SERVER['REQUEST_METHOD'] === 'GET' && $action === 'list_gallery') {
+    $galleryDir = __DIR__ . '/gallery';
+    if (!is_dir($galleryDir)) {
+        echo json_encode(["success" => true, "images" => []]);
+        exit;
+    }
+    
+    $files = array_diff(scandir($galleryDir), array('..', '.'));
+    $images = [];
+    foreach ($files as $file) {
+        if (preg_match('/\.(jpg|jpeg|png|webp|gif)$/i', $file) && strpos($file, 'thumbs') !== 0 && strpos($file, '-nggid') === false) {
+            $images[] = '/gallery/' . $file;
+        }
+    }
+    echo json_encode(["success" => true, "images" => array_values($images)]);
+}
+elseif ($_SERVER['REQUEST_METHOD'] === 'POST' && $action === 'upload_image') {
+    if (!isset($_FILES['image'])) {
+        http_response_code(400);
+        echo json_encode(["success" => false, "error" => "No image uploaded"]);
+        exit;
+    }
+    
+    $file = $_FILES['image'];
+    $galleryDir = __DIR__ . '/gallery';
+    if (!is_dir($galleryDir)) {
+        mkdir($galleryDir, 0755, true);
+    }
+    
+    // Check if custom filename was provided (e.g. hero-desktop.jpg)
+    $customFilename = $_POST['filename'] ?? '';
+    if ($customFilename) {
+        $filename = preg_replace('/[^a-zA-Z0-9_.-]/', '', $customFilename);
+    } else {
+        $filename = time() . '_' . preg_replace('/[^a-zA-Z0-9_.-]/', '', basename($file['name']));
+    }
+    
+    $targetPath = $galleryDir . '/' . $filename;
+    
+    if (move_uploaded_file($file['tmp_name'], $targetPath)) {
+        echo json_encode(["success" => true, "path" => '/gallery/' . $filename]);
+    } else {
+        http_response_code(500);
+        echo json_encode(["success" => false, "error" => "Failed to save uploaded file"]);
+    }
+}
+elseif ($_SERVER['REQUEST_METHOD'] === 'DELETE' && $action === 'delete_image') {
+    $path = $_GET['path'] ?? '';
+    if (!$path || strpos($path, '/gallery/') !== 0) {
+        http_response_code(400);
+        echo json_encode(["success" => false, "error" => "Invalid path"]);
+        exit;
+    }
+    
+    $filename = basename($path);
+    $filePath = __DIR__ . '/gallery/' . $filename;
+    
+    if (file_exists($filePath)) {
+        unlink($filePath);
+        echo json_encode(["success" => true]);
+    } else {
+        http_response_code(404);
+        echo json_encode(["success" => false, "error" => "File not found"]);
+    }
+}
 else {
     http_response_code(404);
     echo json_encode(["success" => false, "error" => "Action not found"]);

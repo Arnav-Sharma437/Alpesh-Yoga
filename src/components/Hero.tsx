@@ -11,13 +11,19 @@ const highlights = [
 ];
 
 export default function Hero() {
+  const [timestamp, setTimestamp] = React.useState("");
+
+  React.useEffect(() => {
+    setTimestamp(`?v=${Date.now()}`);
+  }, []);
+
   return (
     <section className="relative flex min-h-screen w-full items-center justify-center overflow-hidden">
       {/* Mobile background (portrait crop) */}
       <div
         className="absolute inset-0 scale-105 bg-cover bg-[80%_center] bg-no-repeat sm:hidden"
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1593811167562-9cef47bfc4d7?auto=format&fit=crop&q=80&w=1000')`,
+          backgroundImage: `url('/gallery/hero-mobile.jpg${timestamp}')`,
         }}
       >
         <div className="absolute inset-0 bg-black/45" />
@@ -27,7 +33,7 @@ export default function Hero() {
       <div
         className="absolute inset-0 scale-105 bg-cover bg-center bg-no-repeat hidden sm:block"
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=2400')`,
+          backgroundImage: `url('/gallery/hero-desktop.jpg${timestamp}')`,
         }}
       >
         <div className="absolute inset-0 bg-black/45" />

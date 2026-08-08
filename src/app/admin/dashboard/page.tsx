@@ -89,11 +89,18 @@ export default function AdminDashboard() {
           
           <div className="flex items-center gap-4">
             <button 
+              onClick={() => router.push("/admin/images")}
+              className="p-2 text-charcoal-500 hover:bg-sand-100 rounded-full transition-colors flex items-center gap-2 px-4 font-semibold"
+              title="Image Manager"
+            >
+              Images
+            </button>
+            <button 
               onClick={() => router.push("/admin/settings")}
-              className="p-2 text-charcoal-500 hover:bg-sand-100 rounded-full transition-colors"
+              className="p-2 text-charcoal-500 hover:bg-sand-100 rounded-full transition-colors flex items-center gap-2 px-4 font-semibold"
               title="Settings"
             >
-              <Settings className="w-5 h-5" />
+              <Settings className="w-5 h-5" /> Settings
             </button>
             <button 
               onClick={fetchLeads}
